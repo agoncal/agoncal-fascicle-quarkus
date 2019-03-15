@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.gettingstarted;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * --
  */
 // tag::adocBegin[]
+  @Disabled
 public class ArtistTest {
 
   private static EntityManagerFactory emf;

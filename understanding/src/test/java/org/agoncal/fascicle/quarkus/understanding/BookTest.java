@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.understanding;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * http://www.antoniogoncalves.org
  * --
  */
+@Disabled
 public class BookTest {
 
   private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");

@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.firststep;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * --
  */
 // tag::adocBegin[]
+  @Disabled
 public class AuthorTest {
 
   private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
