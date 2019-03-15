@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tag::adocSnippet[] -->
+<entity-mappings>
+  <description/>
+  <access/>
+  <catalog/>
+  <package/>
+  <persistence-unit-metadata/>
+  <sequence-generator name=""/>
+  <table-generator name=""/>
+  <sql-result-set-mapping name=""/>
+  <entity class=""/>
+  <embeddable class=""/>
+  <mapped-superclass class=""/>
+  <converter class=""/>
+  <named-native-query name="">
+    <query/>
+  </named-native-query>
+  <named-query name="">
+    <query/>
+  </named-query>
+  <named-stored-procedure-query name="" procedure-name=""/>
+</entity-mappings>
+<!-- end::adocSnippet[] -->
