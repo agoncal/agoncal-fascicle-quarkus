@@ -55,7 +55,7 @@ public class BookResource {
 //    private NumbersApi numbersApi;
 
     @Inject
-    private BookRepository bookRepository;
+    BookRepository bookRepository;
 
     // ======================================
     // =              Methods               =

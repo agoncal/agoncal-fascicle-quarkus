@@ -17,8 +17,8 @@
 package org.agoncal.fascicle.quarkus.puttingtogether.catalog;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -34,8 +34,8 @@ public class BookRepository {
     // =             Injection              =
     // ======================================
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @Inject
+    EntityManager entityManager;
 
     // ======================================
     // =              Methods               =
