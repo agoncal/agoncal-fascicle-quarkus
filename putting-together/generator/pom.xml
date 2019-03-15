@@ -12,8 +12,8 @@
   <name>Quarkus :: Putting It All Together :: Generator</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>putting-together</artifactId>
     <version>1.0</version>
   </parent>
 
@@ -28,14 +28,12 @@
   <!-- tag::adocDependencies[] -->
   <dependencies>
     <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.jpa</artifactId>
-      <version>2.7.3</version>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>1.4.197</version>
+      <groupId>io.smallrye</groupId>
+      <artifactId>smallrye-open-api</artifactId>
     </dependency>
     <!-- end::adocDependencies[] -->
 

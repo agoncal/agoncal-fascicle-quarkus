@@ -12,8 +12,8 @@
   <name>Quarkus :: Putting It All Together :: Inventory</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>putting-together</artifactId>
     <version>1.0</version>
   </parent>
 
