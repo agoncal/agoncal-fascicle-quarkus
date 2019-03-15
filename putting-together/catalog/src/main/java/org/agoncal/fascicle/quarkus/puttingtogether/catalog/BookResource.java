@@ -42,7 +42,7 @@ import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
-@Path("books")
+@Path("/books")
 //@Api(value = "books", description = "Operations for Books.")
 public class BookResource {
 

@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
-@Path("numbers")
+@Path("/numbers")
 @Produces(MediaType.TEXT_PLAIN)
 //@Api(value = "numbers", description = "Generating all sorts of numbers.")
 public class NumberResource {
