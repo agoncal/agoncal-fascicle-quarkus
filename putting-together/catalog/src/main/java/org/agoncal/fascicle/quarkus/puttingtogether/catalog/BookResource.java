@@ -46,113 +46,113 @@ import static javax.ws.rs.core.Response.status;
 //@Api(value = "books", description = "Operations for Books.")
 public class BookResource {
 
-    private final Logger log = LoggerFactory.getLogger(BookResource.class);
+  private final Logger log = LoggerFactory.getLogger(BookResource.class);
 
-    // ======================================
-    // =             Injection              =
-    // ======================================
+  // ======================================
+  // =             Injection              =
+  // ======================================
 //    @Inject
 //    private NumbersApi numbersApi;
 
-    @Inject
-    BookRepository bookRepository;
+  @Inject
+  BookRepository bookRepository;
 
-    // ======================================
-    // =              Methods               =
-    // ======================================
+  // ======================================
+  // =              Methods               =
+  // ======================================
 
-    @GET
-    @Path("/{id : \\d+}")
-    @Produces(APPLICATION_JSON)
+  @GET
+  @Path("/{id : \\d+}")
+  @Produces(APPLICATION_JSON)
 //    @ApiOperation(value = "Find a Book by the Id.", response = Book.class)
 //    @ApiResponses(value = {
 //        @ApiResponse(code = 200, message = "Book found"),
 //        @ApiResponse(code = 400, message = "Invalid input"),
 //        @ApiResponse(code = 404, message = "Book not found")
 //    })
-    public Response findById(@PathParam("id") final Long id) {
-        log.info("Getting the book " + id);
-        return ofNullable(bookRepository.findById(id))
-            .map(Response::ok)
-            .orElse(status(NOT_FOUND))
-            .build();
-    }
+  public Response findById(@PathParam("id") final Long id) {
+    log.info("Getting the book " + id);
+    return ofNullable(bookRepository.findById(id))
+      .map(Response::ok)
+      .orElse(status(NOT_FOUND))
+      .build();
+  }
 
-    @GET
-    @Produces(APPLICATION_JSON)
+  @GET
+  @Produces(APPLICATION_JSON)
 //    @ApiOperation(value = "Find all Books", response = Book.class, responseContainer = "List")
 //    @ApiResponses(value = {
 //        @ApiResponse(code = 200, message = "All books found"),
 //        @ApiResponse(code = 404, message = "Books not found")}
 //    )
-    public Response findAll() {
-        log.info("Getting all the books");
-        return ok(bookRepository.findAll()).build();
-    }
+  public Response findAll() {
+    log.info("Getting all the books");
+    return ok(bookRepository.findAll()).build();
+  }
 
-    @POST
-    @Consumes(APPLICATION_JSON)
+  @POST
+  @Consumes(APPLICATION_JSON)
 //    @ApiOperation(value = "Create a Book")
 //    @ApiResponses(value = {
 //        @ApiResponse(code = 201, message = "The book is created"),
 //        @ApiResponse(code = 400, message = "Invalid input"),
 //        @ApiResponse(code = 415, message = "Format is not JSon")
 //    })
-    // tag::adocSnippet[]
-    public Response create(/*@ApiParam(value = "Book to be created", required = true)*/ Book book, @Context UriInfo uriInfo) {
-        log.info("Creating the book " + book);
+  // tag::adocSnippet[]
+  public Response create(/*@ApiParam(value = "Book to be created", required = true)*/ Book book, @Context UriInfo uriInfo) {
+    log.info("Creating the book " + book);
 
-        log.info("Invoking the number-api");
-        String isbn = null;//numbersApi.generateBookNumber();
-        book.setIsbn(isbn);
+    log.info("Invoking the number-api");
+    String isbn = null;//numbersApi.generateBookNumber();
+    book.setIsbn(isbn);
 
-        log.info("Creating the book with ISBN " + book);
-        final Book created = bookRepository.create(book);
-        URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
-        return Response.created(createdURI).build();
-    }
-    // end::adocSnippet[]
+    log.info("Creating the book with ISBN " + book);
+    final Book created = bookRepository.create(book);
+    URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
+    return Response.created(createdURI).build();
+  }
+  // end::adocSnippet[]
 
-    @PUT
-    @Path("/{id : \\d+}")
-    @Consumes(APPLICATION_JSON)
-    @Produces(APPLICATION_JSON)
+  @PUT
+  @Path("/{id : \\d+}")
+  @Consumes(APPLICATION_JSON)
+  @Produces(APPLICATION_JSON)
 //    @ApiOperation(value = "Update a Book", response = Book.class)
 //    @ApiResponses(value = {
 //        @ApiResponse(code = 200, message = "The book is updated"),
 //        @ApiResponse(code = 400, message = "Invalid input")
 //    })
-    public Response update(@PathParam("id") final Long id, /*@ApiParam(value = "Book to be updated", required = true) */Book book) {
-        log.info("Updating the book " + book);
-        return ok(bookRepository.update(book)).build();
-    }
+  public Response update(@PathParam("id") final Long id, /*@ApiParam(value = "Book to be updated", required = true) */Book book) {
+    log.info("Updating the book " + book);
+    return ok(bookRepository.update(book)).build();
+  }
 
-    @DELETE
-    @Path("/{id : \\d+}")
+  @DELETE
+  @Path("/{id : \\d+}")
 //    @ApiOperation(value = "Delete a Book")
 //    @ApiResponses(value = {
 //        @ApiResponse(code = 204, message = "Book has been deleted"),
 //        @ApiResponse(code = 400, message = "Invalid input")
 //    })
-    public Response delete(@PathParam("id") final Long id) {
-        log.info("Deleting the book " + id);
-        bookRepository.deleteById(id);
-        return noContent().build();
-    }
+  public Response delete(@PathParam("id") final Long id) {
+    log.info("Deleting the book " + id);
+    bookRepository.deleteById(id);
+    return noContent().build();
+  }
 
-    @GET
-    @Path("health")
+  @GET
+  @Path("health")
 //    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
-    public Response health() {
-        log.info("Alive and Kicking !!!");
-        return Response.ok().build();
-    }
+  public Response health() {
+    log.info("Alive and Kicking !!!");
+    return Response.ok().build();
+  }
 
-    @GET
-    @Path("number")
+  @GET
+  @Path("number")
 //    @ApiOperation(value = "Wraps the Number API to retrive a Book Number", response = String.class)
-    public Response number() {
-        log.info("Invoking the number-api");
-        return Response.ok(/*numbersApi.generateBookNumber()*/).build();
-    }
+  public Response number() {
+    log.info("Invoking the number-api");
+    return Response.ok(/*numbersApi.generateBookNumber()*/).build();
+  }
 }

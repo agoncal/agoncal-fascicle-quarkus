@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * --
  */
 // tag::adocBegin[]
-  @Disabled
+@Disabled
 public class ArtistTest {
 
   private static EntityManagerFactory emf;

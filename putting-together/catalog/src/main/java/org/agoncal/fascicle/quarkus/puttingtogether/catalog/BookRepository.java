@@ -30,38 +30,38 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class BookRepository {
 
-    // ======================================
-    // =             Injection              =
-    // ======================================
+  // ======================================
+  // =             Injection              =
+  // ======================================
 
-    @Inject
-    EntityManager entityManager;
+  @Inject
+  EntityManager entityManager;
 
-    // ======================================
-    // =              Methods               =
-    // ======================================
+  // ======================================
+  // =              Methods               =
+  // ======================================
 
-    public Book findById(final Long id) {
-        return entityManager.find(Book.class, id);
-    }
+  public Book findById(final Long id) {
+    return entityManager.find(Book.class, id);
+  }
 
-    public List<Book> findAll() {
-        return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
-    }
+  public List<Book> findAll() {
+    return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
+  }
 
-    @Transactional(REQUIRED)
-    public Book create(final Book book) {
-        entityManager.persist(book);
-        return book;
-    }
+  @Transactional(REQUIRED)
+  public Book create(final Book book) {
+    entityManager.persist(book);
+    return book;
+  }
 
-    @Transactional(REQUIRED)
-    public Book update(final Book book) {
-        return entityManager.merge(book);
-    }
+  @Transactional(REQUIRED)
+  public Book update(final Book book) {
+    return entityManager.merge(book);
+  }
 
-    @Transactional(REQUIRED)
-    public void deleteById(final Long id) {
-        Optional.ofNullable(findById(id)).ifPresent(entityManager::remove);
-    }
+  @Transactional(REQUIRED)
+  public void deleteById(final Long id) {
+    Optional.ofNullable(findById(id)).ifPresent(entityManager::remove);
+  }
 }

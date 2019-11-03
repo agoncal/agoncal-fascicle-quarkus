@@ -26,100 +26,100 @@ import javax.persistence.SequenceGenerator;
 //@ApiModel( description = "Book representation" )
 public class Book {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
-    @SequenceGenerator(name = "id", sequenceName = "id")
-    private Long id;
-    private String author;
-    private String title;
-    private Integer year;
-    private String genre;
-    private String isbn;
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+  @SequenceGenerator(name = "id", sequenceName = "id")
+  private Long id;
+  private String author;
+  private String title;
+  private Integer year;
+  private String genre;
+  private String isbn;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Book() {
-    }
+  public Book() {
+  }
 
-    public Book(final String author, final String title, final Integer year, final String genre, final String isbn) {
-        this.author = author;
-        this.title = title;
-        this.year = year;
-        this.genre = genre;
-        this.isbn = isbn;
-    }
+  public Book(final String author, final String title, final Integer year, final String genre, final String isbn) {
+    this.author = author;
+    this.title = title;
+    this.year = year;
+    this.genre = genre;
+    this.isbn = isbn;
+  }
 
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
+  // ======================================
+  // =         Getters & setters          =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(final Long id) {
-        this.id = id;
-    }
+  public void setId(final Long id) {
+    this.id = id;
+  }
 
-    public String getAuthor() {
-        return author;
-    }
+  public String getAuthor() {
+    return author;
+  }
 
-    public void setAuthor(final String author) {
-        this.author = author;
-    }
+  public void setAuthor(final String author) {
+    this.author = author;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(final String title) {
-        this.title = title;
-    }
+  public void setTitle(final String title) {
+    this.title = title;
+  }
 
-    public Integer getYear() {
-        return year;
-    }
+  public Integer getYear() {
+    return year;
+  }
 
-    public void setYear(final Integer year) {
-        this.year = year;
-    }
+  public void setYear(final Integer year) {
+    this.year = year;
+  }
 
-    public String getGenre() {
-        return genre;
-    }
+  public String getGenre() {
+    return genre;
+  }
 
-    public void setGenre(final String genre) {
-        this.genre = genre;
-    }
+  public void setGenre(final String genre) {
+    this.genre = genre;
+  }
 
-    public String getIsbn() {
-        return isbn;
-    }
+  public String getIsbn() {
+    return isbn;
+  }
 
-    public void setIsbn(final String isbn) {
-        this.isbn = isbn;
-    }
+  public void setIsbn(final String isbn) {
+    this.isbn = isbn;
+  }
 
-    // ======================================
-    // =   Methods hash, equals, toString   =
-    // ======================================
+  // ======================================
+  // =   Methods hash, equals, toString   =
+  // ======================================
 
-    @Override
-    public String toString() {
-        return "Book{" +
-            "id=" + id +
-            ", author='" + author + '\'' +
-            ", title='" + title + '\'' +
-            ", year=" + year +
-            ", genre='" + genre + '\'' +
-            ", isbn='" + isbn + '\'' +
-            '}';
-    }
+  @Override
+  public String toString() {
+    return "Book{" +
+      "id=" + id +
+      ", author='" + author + '\'' +
+      ", title='" + title + '\'' +
+      ", year=" + year +
+      ", genre='" + genre + '\'' +
+      ", isbn='" + isbn + '\'' +
+      '}';
+  }
 }
