@@ -38,18 +38,18 @@ public class ArtistResourceTest {
     // end::adocShouldGetAllAuthors[]
   }
 
-//  @Test
-//  public void shouldGetArtist() {
-//     tag::adocShouldGetArtist[]
-//    String artists = target("/artists").request().get(String.class);
+  @Test
+  public void shouldGetArtist() {
+      // tag::adocShouldGetArtist[]
+//    String artists = given().get("/artists").then().extract().response().asString();
 //    String id = JsonPath.parse(artists).read("$.[0].id");
 //    Response response = target("/artists").path(id).request().get();
 //    assertEquals(200, response.getStatus());
 //    String artist = response.readEntity(String.class);
 //    assertEquals("John", JsonPath.parse(artist).read("$.firstName"));
 //    assertEquals("Lennon", JsonPath.parse(artist).read("$.lastName"));
-//     end::adocShouldGetArtist[]
-//  }
+    // end::adocShouldGetArtist[]
+  }
 
   @Test
   public void shouldCountArtist() {
@@ -65,16 +65,20 @@ public class ArtistResourceTest {
     // end::shouldCountArtist[]
   }
 
-//  @Test
-//  public void shouldCreateArtist() {
-//    // tag::adocShouldCreateArtist[]
-//    Integer nbArtists = target("/artists/count").request().get(Integer.class);
-//    Artist artist = new Artist().firstName("George").lastName("Martin");
-//    Response response = target("/artists").request().post(Entity.json(artist));
-//    assertEquals(201, response.getStatus());
-//    assertEquals(new Integer(nbArtists + 1), target("/artists/count").request().get(Integer.class));
-//    // end::adocShouldCreateArtist[]
-//  }
+  @Test
+  public void shouldCreateArtist() {
+    // tag::adocShouldCreateArtist[]
+    Artist artist = new Artist().firstName("George").lastName("Martin");
+    given().
+      contentType(MediaType.APPLICATION_JSON).
+      body(artist).
+    when().
+      post("/artists").
+    then().
+      assertThat().
+        statusCode(is(201));
+    // end::adocShouldCreateArtist[]
+  }
 //
 //  @Test
 //  public void shouldDeleteArtist() {
