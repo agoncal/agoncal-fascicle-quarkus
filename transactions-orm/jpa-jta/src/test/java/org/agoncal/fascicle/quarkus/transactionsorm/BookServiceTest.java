@@ -1,12 +1,17 @@
 package org.agoncal.fascicle.quarkus.transactionsorm;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -32,7 +37,7 @@ public class BookServiceTest {
     book = service.createBook(book);
     assertNotNull(book.getId(), "Id should not be null");
 
-    List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
+    List<Book> allBooks = service.findAllBooks();
     assertTrue(allBooks.size() >= 1);
     // end::shouldCreateABook[]
   }
@@ -49,12 +54,10 @@ public class BookServiceTest {
     book.chapter(4, new Chapter("EJB"));
 
     // Persists the book to the database
-    tx.begin();
-    em.persist(book);
-    tx.commit();
+    service.createBook(book);
 
     // Checks the book
-    Book foundBook = em.find(Book.class, book.getId());
+    Book foundBook = service.findBook(book.getId());
     assertEquals(3, foundBook.getTags().size());
     assertEquals(4, foundBook.getChapters().size());
     // end::shouldCreateABookWithTagsAndChapters[]
@@ -71,14 +74,10 @@ public class BookServiceTest {
     sendil.book(book);
 
     // Persists the book to the database
-    tx.begin();
-    em.persist(book);
-    em.persist(deepu);
-    em.persist(sendil);
-    tx.commit();
+    service.createBook(book);
 
     // Checks the book
-    Book foundBook = em.find(Book.class, book.getId());
+    Book foundBook = service.findBook(book.getId());
     assertEquals(2, foundBook.getAuthors().size());
     // end::shouldCreateABookWithTwoAuthors[]
   }
@@ -90,16 +89,14 @@ public class BookServiceTest {
     Book book = new Book().title("H2G2").price(12.5F).description("The Hitchhiker's Guide to the Galaxy").isbn("1-84023-742-3").nbOfPages(354).illustrations(true);
 
     // Persists the book to the database
-    tx.begin();
-    em.persist(book);
-    tx.commit();
+    service.createBook( book);
     Assertions.assertNotNull(book.getId(), "Id should not be null");
 
     // Retrieves all the books from the database
-    List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
+    List<Book> allBooks = service.findAllBooks();
 
     // Retrieves all the H2G2 books from the database
-    List<Book> h2g2Books = em.createNamedQuery("findBookH2G2", Book.class).getResultList();
+    List<Book> h2g2Books = service.findAllH2G2Books();
     assertEquals(1, h2g2Books.size());
 
     assertTrue(allBooks.size() >= h2g2Books.size());
@@ -114,14 +111,11 @@ public class BookServiceTest {
     author.book(book);
 
     // Persists the book to the database
-    tx.begin();
-    em.persist(book);
-    em.persist(author);
-    tx.commit();
+    service.createBook(book);
     assertNotNull(book.getId(), "Id should not be null");
 
     // Checks the book
-    Book foundBook = em.find(Book.class, book.getId());
+    Book foundBook = service.findBook(book.getId());
     assertEquals(1, foundBook.getAuthors().size());
   }
 
@@ -134,9 +128,7 @@ public class BookServiceTest {
 
     // Persists the book to the database
     assertThrows(RollbackException.class, () -> {
-      tx.begin();
-      em.persist(book);
-      tx.commit();
+      service.createBook(book);
     });
   }
 
@@ -148,10 +140,8 @@ public class BookServiceTest {
 
     // Persists the book to the database
     assertThrows(RollbackException.class, () -> {
-      tx.begin();
-      em.persist(book1);
-      em.persist(book2);
-      tx.commit();
+      service.createBook(book1);
+      service.createBook(book2);
     });
   }
 }
