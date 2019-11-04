@@ -17,9 +17,10 @@ public class AuthorResourceTest {
     when().
       get("/authors").
     then().
-      statusCode(200).
-        and().
-      body(is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
   }
 
   @Test
@@ -28,9 +29,10 @@ public class AuthorResourceTest {
     when().
       get("/authors/0").
     then().
-      statusCode(200).
-        and().
-      body(is("Isaac Asimov"));
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(is("Isaac Asimov"));
   }
 }
 // end::adocSnippet[]

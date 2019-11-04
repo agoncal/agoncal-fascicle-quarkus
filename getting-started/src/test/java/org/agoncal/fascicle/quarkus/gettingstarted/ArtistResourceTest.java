@@ -3,8 +3,10 @@ package org.agoncal.fascicle.quarkus.gettingstarted;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import javax.ws.rs.core.MediaType;
+
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 
 /**
  * @author Antonio Goncalves
@@ -12,7 +14,7 @@ import static org.hamcrest.CoreMatchers.containsString;
  * --
  */
 
-
+// @formatter:off
 // tag::adocBegin[]
 @QuarkusTest
 public class ArtistResourceTest {
@@ -26,24 +28,19 @@ public class ArtistResourceTest {
   public void shouldGetAllArtists() {
     // tag::adocShouldGetAllArtists[]
     given().
-      when().
+    when().
       get("/artists").
-      then().
-      statusCode(200).
+    then().
+      assertThat().
+        statusCode(is(200)).
       and().
-      body(containsString("John"));
-
-//    Response response = target("/artists").request().get();
-//    assertEquals(200, response.getStatus());
-//    String artists = response.readEntity(String.class);
-//    assertEquals("John", JsonPath.parse(artists).read("$.[0].firstName"));
-//    assertEquals("Lennon", JsonPath.parse(artists).read("$.[0].lastName"));
+        body("size()", is(4));
     // end::adocShouldGetAllAuthors[]
   }
-//
+
 //  @Test
 //  public void shouldGetArtist() {
-//    // tag::adocShouldGetArtist[]
+//     tag::adocShouldGetArtist[]
 //    String artists = target("/artists").request().get(String.class);
 //    String id = JsonPath.parse(artists).read("$.[0].id");
 //    Response response = target("/artists").path(id).request().get();
@@ -51,17 +48,23 @@ public class ArtistResourceTest {
 //    String artist = response.readEntity(String.class);
 //    assertEquals("John", JsonPath.parse(artist).read("$.firstName"));
 //    assertEquals("Lennon", JsonPath.parse(artist).read("$.lastName"));
-//    // end::adocShouldGetArtist[]
+//     end::adocShouldGetArtist[]
 //  }
-//
-//  @Test
-//  public void shouldCountArtist() {
-//    // tag::shouldCountArtist[]
-//    Response response = target("/artists/count").request().get();
-//    assertEquals(200, response.getStatus());
-//    // end::shouldCountArtist[]
-//  }
-//
+
+  @Test
+  public void shouldCountArtist() {
+    // tag::shouldCountArtist[]
+    given().
+    when().
+      get("/artists/count").
+    then().
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(is("4"));
+    // end::shouldCountArtist[]
+  }
+
 //  @Test
 //  public void shouldCreateArtist() {
 //    // tag::adocShouldCreateArtist[]
