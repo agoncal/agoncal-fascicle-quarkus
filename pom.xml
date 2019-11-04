@@ -18,11 +18,16 @@
     <module>understanding</module>
   </modules>
 
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
+
+  <!-- tag::adocBom[] -->
   <properties>
-    <version.java>1.8</version.java>
-    <!-- Quarkus -->
     <version.quarkus>0.27.0</version.quarkus>
+    <!-- tag::adocSkip[] -->
     <!-- Other -->
+    <version.java>1.8</version.java>
     <!-- Test -->
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>1.8</version.antrun.plugin>
@@ -57,15 +62,11 @@
     <maven.compiler.target>${version.java}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- end::adocSkip[] -->
   </properties>
-
-  <prerequisites>
-    <maven>3.0.0</maven>
-  </prerequisites>
 
   <dependencyManagement>
     <dependencies>
-      <!-- Quarkus -->
       <dependency>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-bom</artifactId>
@@ -73,11 +74,14 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- tag::adocSkip[] -->
       <!-- Other -->
 
       <!-- Test -->
+      <!-- end::adocSkip[] -->
     </dependencies>
   </dependencyManagement>
+  <!-- end::adocBom[] -->
 
   <build>
     <pluginManagement>
