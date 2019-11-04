@@ -1,11 +1,17 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.ws.rs.core.MediaType;
 
+import java.util.UUID;
+
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -15,6 +21,7 @@ import static org.hamcrest.CoreMatchers.is;
  */
 
 // @formatter:off
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 // tag::adocBegin[]
 @QuarkusTest
 public class ArtistResourceTest {
@@ -25,6 +32,7 @@ public class ArtistResourceTest {
   // ======================================
 
   @Test
+  @Order(1)
   public void shouldGetAllArtists() {
     // tag::adocShouldGetAllArtists[]
     given().
@@ -39,19 +47,25 @@ public class ArtistResourceTest {
   }
 
   @Test
+  @Order(2)
   public void shouldGetArtist() {
-      // tag::adocShouldGetArtist[]
-//    String artists = given().get("/artists").then().extract().response().asString();
-//    String id = JsonPath.parse(artists).read("$.[0].id");
-//    Response response = target("/artists").path(id).request().get();
-//    assertEquals(200, response.getStatus());
-//    String artist = response.readEntity(String.class);
-//    assertEquals("John", JsonPath.parse(artist).read("$.firstName"));
-//    assertEquals("Lennon", JsonPath.parse(artist).read("$.lastName"));
+    // tag::adocShouldGetArtist[]
+    UUID id = given().get("/artists").then().extract().response().jsonPath().getUUID("id[0]");
+
+    given().
+      pathParam("id", id).
+    when().
+      get("/artists/{id}").
+    then().
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(containsString("John"));
     // end::adocShouldGetArtist[]
   }
 
   @Test
+  @Order(3)
   public void shouldCountArtist() {
     // tag::shouldCountArtist[]
     given().
@@ -66,6 +80,7 @@ public class ArtistResourceTest {
   }
 
   @Test
+  @Order(4)
   public void shouldCreateArtist() {
     // tag::adocShouldCreateArtist[]
     Artist artist = new Artist().firstName("George").lastName("Martin");
@@ -79,16 +94,47 @@ public class ArtistResourceTest {
         statusCode(is(201));
     // end::adocShouldCreateArtist[]
   }
-//
-//  @Test
-//  public void shouldDeleteArtist() {
-//    // tag::adocShouldDeleteArtist[]
-//    Integer nbArtists = target("/artists/count").request().get(Integer.class);
-//    String artists = target("/artists").request().get(String.class);
-//    String id = JsonPath.parse(artists).read("$.[0].id");
-//    Response response = target("/artists").path(id).request().delete();
-//    assertEquals(204, response.getStatus());
-//    assertEquals(new Integer(nbArtists - 1), target("/artists/count").request().get(Integer.class));
-//    // end::adocShouldDeleteArtist[]
-//  }
+
+  @Test
+  @Order(5)
+  public void shouldCountArtistAfterCreate() {
+    given().
+    when().
+      get("/artists/count").
+    then().
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(is("5"));
+  }
+
+
+  @Test
+  @Order(6)
+  public void shouldDeleteArtist() {
+    // tag::adocShouldDeleteArtist[]
+    UUID id = given().get("/artists").then().extract().response().jsonPath().getUUID("id[0]");
+
+    given().
+      pathParam("id", id).
+    when().
+      delete("/artists/{id}").
+    then().
+      assertThat().
+        statusCode(is(204));
+    // end::adocShouldDeleteArtist[]
+  }
+
+  @Test
+  @Order(7)
+  public void shouldCountArtistAfterDelete() {
+    given().
+    when().
+      get("/artists/count").
+    then().
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(is("4"));
+  }
 }
