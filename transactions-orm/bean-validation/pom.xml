@@ -4,20 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>transactions-orm</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
+  <artifactId>bean-validation</artifactId>
   <version>1.0</version>
-  <packaging>pom</packaging>
-  <name>Quarkus :: Transactions and ORM</name>
+  <name>Quarkus :: Transactions and ORM :: Bean Validation</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>transactions-orm</artifactId>
     <version>1.0</version>
   </parent>
 
-  <modules>
-    <module>bean-validation</module>
-    <module>jpa-jta</module>
-  </modules>
 </project>

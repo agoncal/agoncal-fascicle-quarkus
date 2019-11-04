@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>first-step</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
+  <artifactId>jpa-jta</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: First Step</name>
+  <name>Quarkus :: Transactions and ORM :: JPA JTA</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>transactions-orm</artifactId>
     <version>1.0</version>
   </parent>
 
@@ -25,18 +25,13 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-hibernate-orm</artifactId>
     </dependency>
 
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
