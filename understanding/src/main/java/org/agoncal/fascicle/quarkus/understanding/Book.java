@@ -1,20 +1,13 @@
 package org.agoncal.fascicle.quarkus.understanding;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
 // tag::adocSnippet[]
-@Entity
 public class Book {
 
-  @Id
-  @GeneratedValue
   private Long id;
   private String title;
   private Float price;

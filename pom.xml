@@ -11,10 +11,16 @@
 
   <modules>
     <module>advanced</module>
+    <module>event-driven-microservices</module>
+    <module>fault-tolerance</module>
     <module>first-step</module>
     <module>getting-started</module>
+    <module>http-microservices</module>
     <module>integrating</module>
+    <module>observability</module>
     <module>putting-together</module>
+    <module>testing</module>
+    <module>transactions-orm</module>
     <module>understanding</module>
   </modules>
 
