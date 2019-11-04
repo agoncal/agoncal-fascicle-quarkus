@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-TREE_COMMAND="tree --noreport --dirsfirst -I 'target|tree.sh|tree.txt|getting-started.iml|bootstrap.sh'"
-eval "$TREE_COMMAND" > tree.txt
+COMMAND="tree --noreport --dirsfirst -I 'target|tree.sh|tree.txt|dependency-tree.sh|dependency-tree.txt|getting-started.iml|bootstrap.sh'"
+eval "$COMMAND" > tree.txt
