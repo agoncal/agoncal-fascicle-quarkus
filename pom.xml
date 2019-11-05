@@ -27,7 +27,7 @@
   <properties>
     <version.java>1.8</version.java>
     <!-- Quarkus -->
-    <version.quarkus>0.27.0</version.quarkus>
+    <version.quarkus>0.28.1</version.quarkus>
     <!-- Other -->
     <!-- Test -->
     <!-- Core Maven Plugins -->
