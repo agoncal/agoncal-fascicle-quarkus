@@ -1,0 +1,6 @@
+## Database configuration
+quarkus.datasource.url=jdbc:h2:mem:cdbookstoreDB
+quarkus.datasource.driver=org.h2.Driver
+# drop and create the database at startup (use `update` to only update the schema)
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.log.sql=true
