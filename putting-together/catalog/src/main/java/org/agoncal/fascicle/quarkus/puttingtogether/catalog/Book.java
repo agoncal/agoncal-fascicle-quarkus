@@ -16,29 +16,24 @@
  */
 package org.agoncal.fascicle.quarkus.puttingtogether.catalog;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
-//@ApiModel( description = "Book representation" )
-public class Book {
+@Schema(description = "Book representation")
+public class Book extends PanacheEntity {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
-  @SequenceGenerator(name = "id", sequenceName = "id")
-  private Long id;
-  private String author;
-  private String title;
-  private Integer year;
-  private String genre;
-  private String isbn;
+  public String author;
+  public String title;
+  public Integer year;
+  public String genre;
+  public String isbn;
 
   // ======================================
   // =            Constructors            =
@@ -52,58 +47,6 @@ public class Book {
     this.title = title;
     this.year = year;
     this.genre = genre;
-    this.isbn = isbn;
-  }
-
-  // ======================================
-  // =         Getters & setters          =
-  // ======================================
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(final Long id) {
-    this.id = id;
-  }
-
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(final String author) {
-    this.author = author;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(final String title) {
-    this.title = title;
-  }
-
-  public Integer getYear() {
-    return year;
-  }
-
-  public void setYear(final Integer year) {
-    this.year = year;
-  }
-
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(final String genre) {
-    this.genre = genre;
-  }
-
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public void setIsbn(final String isbn) {
     this.isbn = isbn;
   }
 

@@ -1,6 +1,7 @@
 // tag::adocPingHero[]
-package org.agoncal.fascicle.quarkus.puttingtogether.generator;
+package org.agoncal.fascicle.quarkus.puttingtogether.generator.health;
 
+import org.agoncal.fascicle.quarkus.puttingtogether.generator.NumberResource;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Liveness;
