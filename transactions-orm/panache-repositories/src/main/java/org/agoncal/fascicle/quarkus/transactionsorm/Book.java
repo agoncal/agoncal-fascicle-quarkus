@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static javax.persistence.CascadeType.PERSIST;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -45,7 +47,7 @@ public class Book extends Item {
   @MapKeyColumn(name = "position")
   private Map<Integer, Chapter> chapters = new HashMap<>();
 
-  @ManyToMany
+  @ManyToMany(cascade = PERSIST)
   @JoinTable(name = "books_authors",
     joinColumns = {@JoinColumn(name = "book_fk")},
     inverseJoinColumns = {@JoinColumn(name = "author_fk")}
