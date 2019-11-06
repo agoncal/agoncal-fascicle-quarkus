@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
-import javax.persistence.RollbackException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -125,26 +124,13 @@ public class BookServiceTest {
   }
 
   @Test
-  public void shouldFailCreatingABookButNotAuthor() throws Exception {
-
-    // Creates an instance of book
-    Author author = new Author().firstName("Antonio").lastName("Goncalves");
-    Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-74023-742-6").nbOfPages(354).author(author);
-
-    // Persists the book to the database
-    assertThrows(RollbackException.class, () -> {
-      bookService.createBook(book);
-    });
-  }
-
-  @Test
   public void shouldFailCreatingTwoBooksWithSameISBN() throws Exception {
 
     Book book1 = new Book().title("Java EE 7").price(23.5F).isbn("1111").nbOfPages(354);
     Book book2 = new Book().title("Java EE 8").price(34.25F).isbn("1111").nbOfPages(482);
 
     // Persists the book to the database
-    assertThrows(RollbackException.class, () -> {
+    assertThrows(Exception.class, () -> {
       bookService.createBook(book1);
       bookService.createBook(book2);
     });
