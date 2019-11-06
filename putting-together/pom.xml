@@ -20,6 +20,7 @@
     <module>catalog</module>
     <module>generator</module>
     <module>inventory</module>
+    <module>load</module>
   </modules>
 
 </project>
