@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.transactionsorm;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
  * --
  */
 // tag::adocSnippet[]
+@ApplicationScoped
 @Transactional(SUPPORTS)
 public class BookService {
 
