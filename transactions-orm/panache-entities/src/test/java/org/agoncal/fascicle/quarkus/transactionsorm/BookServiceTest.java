@@ -39,7 +39,7 @@ public class BookServiceTest {
     Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-84023-742-2").nbOfPages(354);
 
     book = bookService.createBook(book);
-    assertNotNull(book.getId(), "Id should not be null");
+    assertNotNull(book.id, "Id should not be null");
 
     List<Book> allBooks = bookService.findAllBooks();
     assertTrue(allBooks.size() >= 1);
@@ -61,9 +61,9 @@ public class BookServiceTest {
     bookService.createBook(book);
 
     // Checks the book
-    Book foundBook = bookService.findBook(book.getId());
-    assertEquals(3, foundBook.getTags().size());
-    assertEquals(4, foundBook.getChapters().size());
+    Book foundBook = bookService.findBook(book.id);
+    assertEquals(3, foundBook.tags.size());
+    assertEquals(4, foundBook.chapters.size());
     // end::shouldCreateABookWithTagsAndChapters[]
   }
 
@@ -81,8 +81,8 @@ public class BookServiceTest {
     bookService.createBook(book);
 
     // Checks the book
-    Book foundBook = bookService.findBook(book.getId());
-    assertEquals(2, foundBook.getAuthors().size());
+    Book foundBook = bookService.findBook(book.id);
+    assertEquals(2, foundBook.authors.size());
     // end::shouldCreateABookWithTwoAuthors[]
   }
 
@@ -94,7 +94,7 @@ public class BookServiceTest {
 
     // Persists the book to the database
     bookService.createBook( book);
-    Assertions.assertNotNull(book.getId(), "Id should not be null");
+    Assertions.assertNotNull(book.id, "Id should not be null");
 
     // Retrieves all the books from the database
     List<Book> allBooks = bookService.findAllBooks();
@@ -116,11 +116,11 @@ public class BookServiceTest {
 
     // Persists the book to the database
     bookService.createBook(book);
-    assertNotNull(book.getId(), "Id should not be null");
+    assertNotNull(book.id, "Id should not be null");
 
     // Checks the book
-    Book foundBook = bookService.findBook(book.getId());
-    assertEquals(1, foundBook.getAuthors().size());
+    Book foundBook = bookService.findBook(book.id);
+    assertEquals(1, foundBook.authors.size());
   }
 
   @Test

@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.transactionsorm;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -11,15 +11,11 @@ import javax.persistence.MappedSuperclass;
  */
 // tag::adocSnippet[]
 @MappedSuperclass
-public class Item {
+public class Item extends PanacheEntity {
 
-  @Id
-  @GeneratedValue
-  protected Long id;
-  protected String title;
-  protected String description;
-  protected Float price;
+  String title;
+  String description;
+  Float price;
 
-  // Getters, setters
 }
 // end::adocSnippet[]

@@ -1,8 +1,6 @@
 package org.agoncal.fascicle.quarkus.transactionsorm;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -19,26 +17,22 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class BookService {
 
-  // Obtains an entity manager
-  @PersistenceContext(unitName = "cdbookstorePU")
-  private EntityManager em;
-
   @Transactional(REQUIRED)
   public Book createBook(Book book) {
-    em.persist(book);
+    Book.persist(book);
     return book;
   }
 
   public Book findBook(Long id) {
-    return em.find(Book.class, id);
+    return Book.findById(id);
   }
 
   public List<Book> findAllBooks() {
-    return em.createNamedQuery("findAllBooks", Book.class).getResultList();
+    return Book.listAll();
   }
 
   public List<Book> findAllH2G2Books() {
-    return em.createNamedQuery("findBookH2G2", Book.class).getResultList();
+    return Book.list("title", "H2G2");
   }
 }
 // end::adocSnippet[]
