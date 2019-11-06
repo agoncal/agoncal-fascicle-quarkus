@@ -9,9 +9,9 @@ import static io.restassured.RestAssured.given;
 public class NumberResourceTest {
 
   @Test
-  public void checkHealth() {
+  public void checkNumberGenerator() {
     given()
-      .when().get("/numbers/health")
+      .when().get("/numbers/book")
       .then()
       .statusCode(200);
 //      .body(is("Alive and Kicking !!!"));
