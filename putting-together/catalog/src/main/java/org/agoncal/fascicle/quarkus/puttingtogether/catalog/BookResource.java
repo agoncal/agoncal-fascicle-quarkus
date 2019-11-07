@@ -16,6 +16,7 @@
  */
 package org.agoncal.fascicle.quarkus.puttingtogether.catalog;
 
+import org.agoncal.fascicle.quarkus.puttingtogether.catalog.client.NumberGeneratorService;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -62,8 +63,9 @@ public class BookResource {
   // ======================================
   // =             Injection              =
   // ======================================
-//    @Inject
-//    private NumbersApi numbersApi;
+
+    @Inject
+    private NumberGeneratorService numberGenerator;
 
   @Inject
   BookRepository bookRepository;
@@ -159,6 +161,6 @@ public class BookResource {
   @APIResponse(responseCode = "200", description = "Wraps the Number API to retrieve a Book Number", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = String.class)))
   public Response number() {
     log.info("Invoking the number-api");
-    return Response.ok(/*numbersApi.generateBookNumber()*/).build();
+    return Response.ok(numberGenerator.generateBookNumber()).build();
   }
 }

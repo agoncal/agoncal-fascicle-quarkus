@@ -29,25 +29,39 @@ public class Book extends PanacheEntity {
   // =             Attributes             =
   // ======================================
 
-  public String author;
+  public String isbn;
   public String title;
+  public String author;
   public Integer year;
   public String genre;
-  public String isbn;
 
   // ======================================
-  // =            Constructors            =
+  // =   Constructors, getters, setters   =
   // ======================================
 
-  public Book() {
+  public Book isbn(String isbn) {
+    this.isbn = isbn;
+    return this;
   }
 
-  public Book(final String author, final String title, final Integer year, final String genre, final String isbn) {
-    this.author = author;
+  public Book title(String title) {
     this.title = title;
+    return this;
+  }
+
+  public Book author(String author) {
+    this.author = author;
+    return this;
+  }
+
+  public Book year(Integer year) {
     this.year = year;
+    return this;
+  }
+
+  public Book genre(String genre) {
     this.genre = genre;
-    this.isbn = isbn;
+    return this;
   }
 
   // ======================================
@@ -57,12 +71,12 @@ public class Book extends PanacheEntity {
   @Override
   public String toString() {
     return "Book{" +
-      "id=" + id +
-      ", author='" + author + '\'' +
+      "isbn='" + isbn + '\'' +
       ", title='" + title + '\'' +
+      ", author='" + author + '\'' +
       ", year=" + year +
       ", genre='" + genre + '\'' +
-      ", isbn='" + isbn + '\'' +
+      ", id=" + id +
       '}';
   }
 }
