@@ -42,7 +42,7 @@ public class BookServiceTest {
     assertTrue(allBooks.size() >= 1);
     // end::shouldCreateABook[]
   }
-//
+// TODO
 //  @Test
 //  public void shouldCreateABookWithTagsAndChapters() throws Exception {
 //

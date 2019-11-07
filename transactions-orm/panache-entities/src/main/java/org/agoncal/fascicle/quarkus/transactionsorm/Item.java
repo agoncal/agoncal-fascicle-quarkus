@@ -3,6 +3,8 @@ package org.agoncal.fascicle.quarkus.transactionsorm;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Antonio Goncalves
@@ -13,9 +15,11 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Item extends PanacheEntity {
 
-  String title;
-  String description;
-  Float price;
+  @NotNull
+  public String title;
+  @Size(max = 512)
+  public String description;
+  public Float price;
 
 }
 // end::adocSnippet[]

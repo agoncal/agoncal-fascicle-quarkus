@@ -5,6 +5,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +20,16 @@ import java.util.List;
 public class Author extends PanacheEntity {
 
   @Column(name = "first_name", length = 50)
-  String firstName;
+  public String firstName;
   @Column(name = "last_name", nullable = false)
-  String lastName;
+  public String lastName;
   @Column(length = 2000)
-  String bio;
-  String email;
+  public  String bio;
+  @Email
+  public  String email;
 
   @ManyToMany(mappedBy = "authors")
-  List<Book> books = new ArrayList<>();
+  public List<Book> books = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]

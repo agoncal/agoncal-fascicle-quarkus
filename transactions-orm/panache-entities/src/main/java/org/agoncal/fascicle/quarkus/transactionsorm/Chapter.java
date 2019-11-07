@@ -12,8 +12,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Chapter {
 
-  String title;
-  String description;
+  public String title;
+  public String description;
 
   // Constructors, getters, setters
   // tag::adocSkip[]

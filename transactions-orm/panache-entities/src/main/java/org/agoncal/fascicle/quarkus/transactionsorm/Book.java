@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapKeyColumn;
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,31 +26,32 @@ import static javax.persistence.CascadeType.PERSIST;
 public class Book extends Item {
 
   @Column(nullable = false, unique = true)
-  String isbn;
+  public String isbn;
   @Column(name = "nb_Of_pages")
-  Integer nbOfPages;
-  Boolean illustrations;
+  @Min(10)
+  public Integer nbOfPages;
+  public Boolean illustrations;
 
   @ElementCollection
   @CollectionTable(name = "tags",
     joinColumns = {@JoinColumn(name = "book_fk")}
   )
   @Column(name = "value")
-  List<String> tags = new ArrayList<>();
+  public List<String> tags = new ArrayList<>();
 
   @ElementCollection
   @CollectionTable(name = "book_chapters",
     joinColumns = {@JoinColumn(name = "book_fk")}
   )
   @MapKeyColumn(name = "position")
-  Map<Integer, Chapter> chapters = new HashMap<>();
+  public Map<Integer, Chapter> chapters = new HashMap<>();
 
   @ManyToMany(cascade = PERSIST)
   @JoinTable(name = "books_authors",
     joinColumns = {@JoinColumn(name = "book_fk")},
     inverseJoinColumns = {@JoinColumn(name = "author_fk")}
   )
-  List<Author> authors = new ArrayList<>();
+  public List<Author> authors = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
