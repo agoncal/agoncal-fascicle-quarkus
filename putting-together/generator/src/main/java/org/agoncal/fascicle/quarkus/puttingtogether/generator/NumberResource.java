@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.puttingtogether.generator;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -25,6 +26,9 @@ public class NumberResource {
 
   private final Logger log = LoggerFactory.getLogger(NumberResource.class);
 
+  @ConfigProperty(name = "book.number.prefix")
+  private String prefix;
+
   @GET
   @Path("book")
   @Operation(summary = "Generates a book number")
@@ -33,6 +37,6 @@ public class NumberResource {
   @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumber method", unit = MetricUnits.MILLISECONDS)
   public Response generateBookNumber() {
     log.info("Generating a book number");
-    return Response.ok("BK-" + Math.random()).build();
+    return Response.ok(prefix + Math.random()).build();
   }
 }
