@@ -41,7 +41,7 @@ public class CustomerResource {
         .add("street", "21 Ritherdon Rd")
         .add("city", "Brighton")
         .add("country", "UK"))
-      .add("phoneNumber", Json.createArrayBuilder()
+      .add("phoneNumbers", Json.createArrayBuilder()
         .add(Json.createObjectBuilder()
           .add("type", "mobile")
           .add("number", "+33 123 456"))
