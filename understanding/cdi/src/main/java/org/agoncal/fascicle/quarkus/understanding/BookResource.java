@@ -17,7 +17,6 @@ public class BookResource {
 
   @GET
   @Path("/isbn")
-  @Produces(MediaType.TEXT_PLAIN)
   public String getISBN() {
     return numberGenerator.generateNumber();
   }

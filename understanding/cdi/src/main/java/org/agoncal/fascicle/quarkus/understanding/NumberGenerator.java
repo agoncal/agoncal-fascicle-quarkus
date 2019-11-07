@@ -4,11 +4,9 @@ package org.agoncal.fascicle.quarkus.understanding;
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
  */
+// tag::adocSnippet[]
 public interface NumberGenerator {
-
-    // ======================================
-    // =          Business methods          =
-    // ======================================
 
     String generateNumber();
 }
+// end::adocSnippet[]

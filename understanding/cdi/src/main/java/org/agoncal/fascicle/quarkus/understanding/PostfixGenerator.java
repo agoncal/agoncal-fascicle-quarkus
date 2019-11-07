@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.understanding;
 
 import javax.enterprise.inject.Produces;
 
+// tag::adocSnippet[]
 public class PostfixGenerator {
 
     @Produces
@@ -16,3 +17,4 @@ public class PostfixGenerator {
         return 8;
     }
 }
+// end::adocSnippet[]
