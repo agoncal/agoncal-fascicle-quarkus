@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.quarkus.transactionsorm;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-
 import javax.persistence.Embeddable;
 
 /**
@@ -12,7 +10,7 @@ import javax.persistence.Embeddable;
 // @formatter:off
 // tag::adocSnippet[]
 @Embeddable
-public class Chapter extends PanacheEntity {
+public class Chapter {
 
   String title;
   String description;
