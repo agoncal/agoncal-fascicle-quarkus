@@ -19,7 +19,6 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class BookService {
 
-  // Obtains an entity manager
   @PersistenceContext(unitName = "cdbookstorePU")
   private EntityManager em;
 
