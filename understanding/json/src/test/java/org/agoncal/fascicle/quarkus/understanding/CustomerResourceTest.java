@@ -23,5 +23,17 @@ public class CustomerResourceTest {
       and().
         body(containsString("2019.11"));
   }
+
+  @Test
+  public void shouldGetJSonP() {
+    given().
+    when().
+      get("/customers/jsonp").
+    then().
+      assertThat().
+        statusCode(is(200)).
+      and().
+        body(containsString("21 Ritherdon Rd"));
+  }
 }
 // end::adocSnippet[]
