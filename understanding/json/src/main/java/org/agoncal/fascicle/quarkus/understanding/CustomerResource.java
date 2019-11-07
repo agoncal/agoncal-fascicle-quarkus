@@ -23,7 +23,7 @@ public class CustomerResource {
   @GET
   @Path("/jsonb")
   public Response getJSonB() {
-    Customer customer = new Customer().firstName("Antonio").lastName("Goncalves").email("agoncal.fascicle@gmail.com ").dateOfBirth(LocalDate.now());
+    Customer customer = new Customer().firstName("Antonio").lastName("Goncalves").email("agoncal.fascicle@gmail.com ").phoneNumber("+33 123 456").dateOfBirth(LocalDate.now());
     return Response.ok(customer).build();
   }
 

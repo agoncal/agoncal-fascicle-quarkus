@@ -1,5 +1,10 @@
 package org.agoncal.fascicle.quarkus.understanding;
 
+import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbPropertyOrder;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.json.bind.config.PropertyOrderStrategy;
 import java.time.LocalDate;
 
 /**
@@ -8,12 +13,18 @@ import java.time.LocalDate;
  * --
  */
 // tag::adocSnippet[]
+@JsonbPropertyOrder(PropertyOrderStrategy.REVERSE)
 public class Customer {
 
+  @JsonbProperty(value = "first-name")
   private String firstName;
+  @JsonbProperty("last-name")
   private String lastName;
   private String email;
+  @JsonbTransient
   private String phoneNumber;
+  @JsonbProperty(value = "date-of-birth", nillable = true)
+  @JsonbDateFormat("yyyy.MM")
   private LocalDate dateOfBirth;
 
   // Constructors, getters, setters

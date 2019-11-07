@@ -21,7 +21,7 @@ public class CustomerResourceTest {
       assertThat().
         statusCode(is(200)).
       and().
-        body(containsString("Antonio"));
+        body(containsString("2019.11"));
   }
 }
 // end::adocSnippet[]
