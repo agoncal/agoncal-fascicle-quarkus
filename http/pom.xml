@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>data</artifactId>
+  <artifactId>http</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Data, Transactions and ORM</name>
+  <name>Quarkus :: HTTP Microservices</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
@@ -17,9 +17,7 @@
   </parent>
 
   <modules>
-    <module>bean-validation</module>
-    <module>jpa</module>
-    <module>panache-entities</module>
-    <module>panache-repositories</module>
+    <module>json</module>
   </modules>
+
 </project>
