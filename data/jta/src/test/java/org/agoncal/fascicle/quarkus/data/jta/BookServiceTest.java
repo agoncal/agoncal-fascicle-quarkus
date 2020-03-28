@@ -1,6 +1,10 @@
-package org.agoncal.fascicle.quarkus.data.jpa;
+package org.agoncal.fascicle.quarkus.data.jta;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.agoncal.fascicle.quarkus.data.jta.Author;
+import org.agoncal.fascicle.quarkus.data.jta.Book;
+import org.agoncal.fascicle.quarkus.data.jta.BookService;
+import org.agoncal.fascicle.quarkus.data.jta.Chapter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
