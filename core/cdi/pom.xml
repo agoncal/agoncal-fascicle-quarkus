@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.understanding</groupId>
-  <artifactId>json</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.core</groupId>
+  <artifactId>cdi</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Understanding :: JSon</name>
+  <name>Quarkus :: Core :: CDI</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>understanding</artifactId>
+    <artifactId>core</artifactId>
     <version>1.0</version>
   </parent>
 
@@ -26,10 +26,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
 
     <!-- Test -->
