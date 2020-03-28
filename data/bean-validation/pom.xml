@@ -11,7 +11,7 @@
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>transactions-orm</artifactId>
+    <artifactId>data</artifactId>
     <version>1.0</version>
   </parent>
 

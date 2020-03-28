@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>event-driven-microservices</artifactId>
+  <artifactId>communication</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Event-Driven Microservices</name>
+  <name>Quarkus :: Communication</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>

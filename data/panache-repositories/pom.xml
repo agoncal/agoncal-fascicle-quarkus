@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
-  <artifactId>panache-entities</artifactId>
+  <artifactId>panache-repositories</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Transactions and ORM :: Panache Entities</name>
+  <name>Quarkus :: Transactions and ORM :: Panache Repositories</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>transactions-orm</artifactId>
+    <artifactId>data</artifactId>
     <version>1.0</version>
   </parent>
 
@@ -26,14 +26,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-orm-panache</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -53,7 +45,6 @@
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${version.quarkus}</version>
         <executions>
           <execution>
             <goals>

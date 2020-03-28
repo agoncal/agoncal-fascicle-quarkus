@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
-  <artifactId>panache-repositories</artifactId>
+  <artifactId>jpa-jta</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Transactions and ORM :: Panache Repositories</name>
+  <name>Quarkus :: Transactions and ORM :: JPA JTA</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>transactions-orm</artifactId>
+    <artifactId>data</artifactId>
     <version>1.0</version>
   </parent>
 
@@ -23,6 +23,7 @@
   </properties>
 
   <dependencies>
+    <!-- Quarkus -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm</artifactId>
@@ -43,18 +44,6 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${version.quarkus}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>build</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <systemProperties>
@@ -64,37 +53,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>native</id>
-      <activation>
-        <property>
-          <name>native</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-                <configuration>
-                  <systemProperties>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                  </systemProperties>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <properties>
-        <quarkus.package.type>native</quarkus.package.type>
-      </properties>
-    </profile>
-  </profiles>
 </project>

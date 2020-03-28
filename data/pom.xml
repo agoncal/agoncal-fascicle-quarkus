@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>fault-tolerance</artifactId>
+  <artifactId>data</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Fault Tolerance</name>
+  <name>Quarkus :: Data, Transactions and ORM</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
@@ -16,4 +16,10 @@
     <version>1.0</version>
   </parent>
 
+  <modules>
+    <module>bean-validation</module>
+    <module>jpa-jta</module>
+    <module>panache-entities</module>
+    <module>panache-repositories</module>
+  </modules>
 </project>
