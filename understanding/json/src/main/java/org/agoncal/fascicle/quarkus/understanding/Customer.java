@@ -1,0 +1,117 @@
+package org.agoncal.fascicle.quarkus.understanding;
+
+import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbPropertyOrder;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.json.bind.config.PropertyOrderStrategy;
+import java.time.LocalDate;
+
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
+// tag::adocSnippet[]
+@JsonbPropertyOrder(PropertyOrderStrategy.REVERSE)
+public class Customer {
+
+  @JsonbProperty(value = "first-name")
+  private String firstName;
+  @JsonbProperty("last-name")
+  private String lastName;
+  private String email;
+  @JsonbTransient
+  private String phoneNumber;
+  @JsonbProperty(value = "date-of-birth", nillable = true)
+  @JsonbDateFormat("yyyy.MM")
+  private LocalDate dateOfBirth;
+
+  // Constructors, getters, setters
+  // tag::adocSkip[]
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public Customer firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public Customer lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Customer email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public Customer phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public Customer dateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
+  // ======================================
+  // =         hash, equals, toString     =
+  // ======================================
+
+  @Override
+  public String toString() {
+    return "Customer{" +
+      "firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", email='" + email + '\'' +
+      ", phoneNumber='" + phoneNumber + '\'' +
+      ", dateOfBirth=" + dateOfBirth +
+      '}';
+  }
+  // end::adocSkip[]
+}
+// end::adocSnippet[]

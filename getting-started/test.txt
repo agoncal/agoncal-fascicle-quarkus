@@ -1,0 +1,50 @@
+[INFO] ------------------------
+[INFO] Building Getting Started
+[INFO] ------------------------
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile)
+[INFO]
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test)
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.agoncal.fascicle.quarkus.gettingstarted.ArtistResourceTest
+2019-11-04 15:35:26,689 INFO  [io.qua.dep.QuarkusAugmentor] (main) Beginning quarkus augmentation
+2019-11-04 15:35:27,221 INFO  [io.qua.resteasy] (build-9) Resteasy running without servlet container.
+2019-11-04 15:35:27,221 INFO  [io.qua.resteasy] (build-9) - Add quarkus-undertow to run Resteasy within a servlet container
+2019-11-04 15:35:27,257 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 568ms
+2019-11-04 15:35:27,724 INFO  [io.quarkus] (main) Quarkus 0.27.0 started in 0.439s. Listening on: http://0.0.0.0:8081
+2019-11-04 15:35:27,725 INFO  [io.quarkus] (main) Profile test activated.
+2019-11-04 15:35:27,725 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
+[ERROR] Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.931 s <<< FAILURE! - in org.agoncal.fascicle.quarkus.gettingstarted.ArtistResourceTest
+[ERROR] shouldCreateArtist  Time elapsed: 0.136 s  <<< ERROR!
+java.lang.IllegalStateException: Cannot serialize object because no JSON serializer found in classpath. Please put either Jackson (Databind) or Gson in the classpath.
+	at org.agoncal.fascicle.quarkus.gettingstarted.ArtistResourceTest.shouldCreateArtist(ArtistResourceTest.java:74)
+
+2019-11-04 15:35:28,826 INFO  [io.quarkus] (main) Quarkus stopped in 0.027s
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Errors:
+[ERROR]   ArtistResourceTest.shouldCreateArtist:74 » IllegalState Cannot serialize objec...
+[INFO]
+[ERROR] Tests run: 4, Failures: 0, Errors: 1, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.945 s
+[INFO] Finished at: 2019-11-04T15:35:29+01:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project getting-started: There are test failures.
+[ERROR]
+[ERROR] Please refer to /Users/agoncal/Documents/Code/Agoncal/agoncal-fascicle-quarkus/getting-started/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

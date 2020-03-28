@@ -1,10 +1,7 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.time.LocalDate;
+import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author Antonio Goncalves
@@ -13,20 +10,11 @@ import java.time.LocalDate;
  */
 // @formatter:off
 // tag::adocSnippet[]
-@Entity
 public class Artist {
 
-  @Id
-  @GeneratedValue
-  private Long id;
-  @Column(nullable = false)
+  private UUID id;
   private String firstName;
-  @Column(nullable = false)
   private String lastName;
-  private String email;
-  @Column(length = 2000)
-  private String bio;
-  private LocalDate dateOfBirth;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -34,21 +22,31 @@ public class Artist {
   public Artist() {
   }
 
-  public Artist(String firstName, String lastName, String email, String bio, LocalDate dateOfBirth) {
+  public Artist(UUID id, String firstName, String lastName) {
+    this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
-    this.bio = bio;
-    this.dateOfBirth = dateOfBirth;
   }
 
+  public Artist(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  public Artist(UUID id) {
+    this.id = id;
+  }
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
 
-  public Long getId() {
+  public UUID getId() {
     return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
   }
 
   public String getFirstName() {
@@ -77,57 +75,30 @@ public class Artist {
     return this;
   }
 
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public Artist email(String email) {
-    this.email = email;
-    return this;
-  }
-
-  public String getBio() {
-    return bio;
-  }
-
-  public void setBio(String bio) {
-    this.bio = bio;
-  }
-
-  public Artist bio(String bio) {
-    this.bio = bio;
-    return this;
-  }
-
-  public LocalDate getDateOfBirth() {
-    return dateOfBirth;
-  }
-
-  public void setDateOfBirth(LocalDate dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
-
-  public Artist dateOfBirth(LocalDate dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-    return this;
-  }
-
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
 
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Artist artist = (Artist) o;
+    return id.equals(artist.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
+
   @Override
   public String toString() {
     return "Artist{" +
-      "firstName='" + firstName + '\'' +
+      "id='" + id + '\'' +
+      ", firstName='" + firstName + '\'' +
       ", lastName='" + lastName + '\'' +
-      ", email='" + email + '\'' +
-      ", bio='" + bio + '\'' +
-//      ", dateOfBirth=" + dateOfBirth +
       '}';
   }
   // end::adocSkip[]

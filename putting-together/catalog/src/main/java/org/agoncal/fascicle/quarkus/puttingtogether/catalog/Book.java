@@ -16,95 +16,52 @@
  */
 package org.agoncal.fascicle.quarkus.puttingtogether.catalog;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
-//@ApiModel( description = "Book representation" )
-public class Book {
+@Schema(description = "Book representation")
+public class Book extends PanacheEntity {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
-  @SequenceGenerator(name = "id", sequenceName = "id")
-  private Long id;
-  private String author;
-  private String title;
-  private Integer year;
-  private String genre;
-  private String isbn;
+  public String isbn;
+  public String title;
+  public String author;
+  public Integer year;
+  public String genre;
 
   // ======================================
-  // =            Constructors            =
+  // =   Constructors, getters, setters   =
   // ======================================
 
-  public Book() {
-  }
-
-  public Book(final String author, final String title, final Integer year, final String genre, final String isbn) {
-    this.author = author;
-    this.title = title;
-    this.year = year;
-    this.genre = genre;
+  public Book isbn(String isbn) {
     this.isbn = isbn;
+    return this;
   }
 
-  // ======================================
-  // =         Getters & setters          =
-  // ======================================
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(final Long id) {
-    this.id = id;
-  }
-
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(final String author) {
-    this.author = author;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(final String title) {
+  public Book title(String title) {
     this.title = title;
+    return this;
   }
 
-  public Integer getYear() {
-    return year;
+  public Book author(String author) {
+    this.author = author;
+    return this;
   }
 
-  public void setYear(final Integer year) {
+  public Book year(Integer year) {
     this.year = year;
+    return this;
   }
 
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(final String genre) {
+  public Book genre(String genre) {
     this.genre = genre;
-  }
-
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public void setIsbn(final String isbn) {
-    this.isbn = isbn;
+    return this;
   }
 
   // ======================================
@@ -114,12 +71,12 @@ public class Book {
   @Override
   public String toString() {
     return "Book{" +
-      "id=" + id +
-      ", author='" + author + '\'' +
+      "isbn='" + isbn + '\'' +
       ", title='" + title + '\'' +
+      ", author='" + author + '\'' +
       ", year=" + year +
       ", genre='" + genre + '\'' +
-      ", isbn='" + isbn + '\'' +
+      ", id=" + id +
       '}';
   }
 }

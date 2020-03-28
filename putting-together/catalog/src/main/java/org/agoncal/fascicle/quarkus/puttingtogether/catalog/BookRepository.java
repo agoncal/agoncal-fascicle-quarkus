@@ -16,52 +16,14 @@
  */
 package org.agoncal.fascicle.quarkus.puttingtogether.catalog;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
+import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
+
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(SUPPORTS)
-public class BookRepository {
+public class BookRepository implements PanacheRepository<Book> {
 
-  // ======================================
-  // =             Injection              =
-  // ======================================
-
-  @Inject
-  EntityManager entityManager;
-
-  // ======================================
-  // =              Methods               =
-  // ======================================
-
-  public Book findById(final Long id) {
-    return entityManager.find(Book.class, id);
-  }
-
-  public List<Book> findAll() {
-    return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
-  }
-
-  @Transactional(REQUIRED)
-  public Book create(final Book book) {
-    entityManager.persist(book);
-    return book;
-  }
-
-  @Transactional(REQUIRED)
-  public Book update(final Book book) {
-    return entityManager.merge(book);
-  }
-
-  @Transactional(REQUIRED)
-  public void deleteById(final Long id) {
-    Optional.ofNullable(findById(id)).ifPresent(entityManager::remove);
-  }
 }

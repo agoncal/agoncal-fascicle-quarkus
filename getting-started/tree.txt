@@ -1,0 +1,15 @@
+.
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── org/agoncal/fascicle/quarkus/gettingstarted
+│   │   │       ├── Artist.java
+│   │   │       └── ArtistResource.java
+│   │   └── resources
+│   │       └── application.properties
+│   └── test
+│       └── java
+│           └── org/agoncal/fascicle/quarkus/gettingstarted
+│               ├── ArtistResourceTest.java
+│               └── NativeArtistResourceIT.java
+└── pom.xml

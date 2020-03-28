@@ -1,7 +1,13 @@
 package org.agoncal.fascicle.quarkus.puttingtogether.generator;
 
-import org.eclipse.microprofile.config.Config;
-import org.eclipse.microprofile.config.ConfigProvider;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,37 +15,28 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.concurrent.TimeUnit;
+
+import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
 @ApplicationScoped
 @Path("/numbers")
-@Produces(MediaType.TEXT_PLAIN)
-//@Api(value = "numbers", description = "Generating all sorts of numbers.")
+@Produces(TEXT_PLAIN)
 public class NumberResource {
 
   private final Logger log = LoggerFactory.getLogger(NumberResource.class);
 
-  private int numberApiFakeTimeout = 0;
+  @ConfigProperty(name = "book.number.prefix")
+  private String prefix;
 
   @GET
   @Path("book")
-//    @ApiOperation(value = "Generates a book number.", response = String.class)
-  public Response generateBookNumber() throws InterruptedException {
-    final Config config = ConfigProvider.getConfig();
-    config.getOptionalValue("NUMBER_API_FAKE_TIMEOUT", Integer.class).ifPresent(t -> numberApiFakeTimeout = t);
-    log.info("Waiting for " + numberApiFakeTimeout + " seconds");
-    TimeUnit.SECONDS.sleep(numberApiFakeTimeout);
+  @Operation(summary = "Generates a book number")
+  @APIResponse(responseCode = "200", content = @Content(mediaType = TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
+  @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumber method has been invoked")
+  @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumber method", unit = MetricUnits.MILLISECONDS)
+  public Response generateBookNumber() {
     log.info("Generating a book number");
-    return Response.ok("BK-" + Math.random()).build();
-  }
-
-  @GET
-  @Path("health")
-//    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
-  public Response health() {
-    log.info("Alive and Kicking !!!");
-    return Response.ok().build();
+    return Response.ok(prefix + Math.random()).build();
   }
 }
