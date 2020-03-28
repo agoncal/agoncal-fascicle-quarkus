@@ -7,7 +7,7 @@
   <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
   <artifactId>jpa-jta</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Transactions and ORM :: JPA JTA</name>
+  <name>Quarkus :: Data, Transactions and ORM :: JPA JTA</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>

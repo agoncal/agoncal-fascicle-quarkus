@@ -7,7 +7,7 @@
   <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
   <artifactId>bean-validation</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Transactions and ORM :: Bean Validation</name>
+  <name>Quarkus :: Data, Transactions and ORM :: Bean Validation</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
