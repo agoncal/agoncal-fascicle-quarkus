@@ -15,6 +15,7 @@ import java.util.Random;
 @EightDigits
 public class IssnGenerator implements NumberGenerator {
 
+    // tag::adocProducer[]
     @Inject
     @EightDigits
     String prefix;
@@ -23,6 +24,8 @@ public class IssnGenerator implements NumberGenerator {
     @EightDigits
     int postfix;
 
+    // end::adocProducer[]
+    // tag::adocLifecycle[]
     @PostConstruct
     void init() {
         System.out.println("\n=> IssnGenerator PostConstruct");
@@ -35,6 +38,7 @@ public class IssnGenerator implements NumberGenerator {
         System.out.println("=> IssnGenerator PreDestroy");
     }
 
+    // end::adocLifecycle[]
     public String generateNumber() {
         return prefix + "-" + Math.abs(new Random().nextInt()) + "-" + postfix;
     }
