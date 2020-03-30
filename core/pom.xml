@@ -17,7 +17,7 @@
   </parent>
 
   <modules>
-    <module>cdi</module>
+    <module>configuration</module>
   </modules>
 
 </project>
