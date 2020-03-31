@@ -18,12 +18,13 @@ public class Invoice {
   Float vatRate;
   Float vatAmount;
   Float total;
-  @ConfigProperty(name = "invoice.allowsDiscount", defaultValue = "false")
+  @ConfigProperty(name = "invoice.allowsDiscount", defaultValue = "true")
   Boolean allowsDiscount;
-  @ConfigProperty(name = "invoice.discountRate")
+  @ConfigProperty(name = "invoice.discountRate", defaultValue = "2.5")
   Float discountRate;
   @ConfigProperty(name = "invoice.terms")
   String terms;
   @ConfigProperty(name = "invoice.penalties")
   String penalties;
 }
+// end::adocSnippet[]

@@ -1,12 +1,12 @@
 package org.agoncal.fascicle.quarkus.core.configuration.properties;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @QuarkusTest
@@ -18,7 +18,7 @@ class InvoiceTest {
   @Inject
   InvoiceConfiguration invoiceConfiguration;
 
-  @Test @Disabled
+  @Test
   public void shouldCalculateInvoice() {
     invoice.vatRate = invoiceConfiguration.vatRate;
     invoice.allowsDiscount = invoiceConfiguration.allowsDiscount;
@@ -30,7 +30,7 @@ class InvoiceTest {
     invoice.total = invoice.subtotal + invoice.vatAmount;
     assertEquals(50f, invoice.vatAmount);
     assertEquals(550f, invoice.total);
-    assertTrue(invoice.allowsDiscount);
+    assertFalse(invoice.allowsDiscount);
     assertTrue(invoice.terms.startsWith("Payment"));
     assertTrue(invoice.penalties.startsWith("In case"));
   }
