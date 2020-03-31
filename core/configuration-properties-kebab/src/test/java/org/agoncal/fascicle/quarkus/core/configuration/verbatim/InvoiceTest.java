@@ -28,6 +28,7 @@ class InvoiceTest {
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);
     invoice.total = invoice.subtotal + invoice.vatAmount;
+    assertEquals(10f, invoice.vatRate);
     assertEquals(50f, invoice.vatAmount);
     assertEquals(550f, invoice.total);
     assertFalse(invoice.allowsDiscount);
