@@ -7,7 +7,7 @@
   <groupId>org.agoncal.fascicle.quarkus.transactions-orm</groupId>
   <artifactId>panache-repositories</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Transactions and ORM :: Panache Repositories</name>
+  <name>Quarkus :: Data, Transactions and ORM :: Panache Repositories</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>

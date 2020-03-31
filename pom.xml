@@ -17,7 +17,7 @@
     <module>data</module>
     <module>first-step</module>
     <module>getting-started</module>
-    <module>http-microservices</module>
+    <module>http</module>
     <module>integrating</module>
     <module>observability</module>
     <module>putting-together</module>
