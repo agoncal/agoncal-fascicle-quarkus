@@ -26,7 +26,7 @@ class InvoiceTest {
     assertEquals(550f, invoice.total);
     assertFalse(invoice.allowsDiscount);
     assertTrue(invoice.terms.startsWith("Payment"));
-    assertTrue(invoice.penalties.startsWith("In case"));
+    assertTrue(invoice.penalties.startsWith("Penalty"));
   }
 
   @Test
@@ -46,6 +46,6 @@ class InvoiceTest {
     assertEquals(550f, invoice.total);
     assertFalse(invoice.allowsDiscount);
     assertTrue(invoice.terms.startsWith("Payment"));
-    assertTrue(invoice.penalties.startsWith("In case"));
+    assertTrue(invoice.penalties.startsWith("Penalty"));
   }
 }

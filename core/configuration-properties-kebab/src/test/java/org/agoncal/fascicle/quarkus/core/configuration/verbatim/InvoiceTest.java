@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.core.configuration.properties;
+package org.agoncal.fascicle.quarkus.core.configuration.verbatim;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
