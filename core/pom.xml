@@ -18,7 +18,8 @@
 
   <modules>
     <module>configuration</module>
-<!--    <module>configuration-yaml</module>-->
+    <module>configuration-properties</module>
+    <module>configuration-yaml</module>
   </modules>
 
 </project>

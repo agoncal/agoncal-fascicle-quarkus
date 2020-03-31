@@ -2,22 +2,21 @@ package org.agoncal.fascicle.quarkus.core.configuration.yaml;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.enterprise.context.ApplicationScoped;
-import java.time.LocalDate;
+import javax.inject.Singleton;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@ApplicationScoped
+@Singleton
 // tag::adocSnippet[]
 public class Invoice {
 
-  LocalDate invoiceDate;
   Float subtotal;
   @ConfigProperty(name = "invoice.vatRate", defaultValue = "10")
   Float vatRate;
+  Float vatAmount;
   Float total;
   @ConfigProperty(name = "invoice.allowsDiscount", defaultValue = "false")
   Boolean allowsDiscount;
@@ -27,18 +26,4 @@ public class Invoice {
   String terms;
   @ConfigProperty(name = "invoice.penalties")
   String penalties;
-
-  @Override
-  public String toString() {
-    return "Invoice{" +
-      "invoiceDate=" + invoiceDate +
-      ", subtotal=" + subtotal +
-      ", vatRate=" + vatRate +
-      ", total=" + total +
-      ", allowsDiscount=" + allowsDiscount +
-      ", discountRate=" + discountRate +
-      ", terms='" + terms + '\'' +
-      ", penalties='" + penalties + '\'' +
-      '}';
-  }
 }

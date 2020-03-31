@@ -2,14 +2,14 @@ package org.agoncal.fascicle.quarkus.core.configuration;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Singleton;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@ApplicationScoped
+@Singleton
 // tag::adocSnippet[]
 public class Invoice {
 

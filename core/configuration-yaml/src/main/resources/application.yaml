@@ -1,0 +1,6 @@
+invoice:
+  vatRate: 10
+  allowsDiscount: true
+  discountRate: 2.5
+  terms: Payment upon receipt
+  penalties: In case of late payment, a penalty of 3 times the legal interest rate will be applied
