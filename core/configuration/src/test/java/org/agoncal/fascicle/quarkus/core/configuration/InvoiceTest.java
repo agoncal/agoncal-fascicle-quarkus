@@ -50,4 +50,12 @@ class InvoiceTest {
     assertTrue(invoice.terms.startsWith("Payment"));
     assertTrue(invoice.penalties.startsWith("Penalty"));
   }
+
+  @Test
+  public void shouldGetQuarkusProperties() {
+    Config config = ConfigProvider.getConfig();
+    //assertEquals("tot", config.getValue("quarkus.application.name", String.class));
+    //assertEquals("tot", config.getValue("quarkus.application.version", String.class));
+    assertEquals("tot", config.getValue("quarkus.banner.path", String.class));
+  }
 }
