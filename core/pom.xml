@@ -18,10 +18,10 @@
 
   <modules>
     <module>configuration</module>
-<!--    <module>configuration-properties</module>-->
-<!--    <module>configuration-properties-kebab</module>-->
+    <module>configuration-properties</module>
+    <module>configuration-properties-kebab</module>
     <module>configuration-quarkus</module>
-<!--    <module>configuration-yaml</module>-->
+    <module>configuration-yaml</module>
   </modules>
 
 </project>
