@@ -6,6 +6,7 @@ import org.jboss.logging.Logger;
 
 import javax.enterprise.event.Observes;
 
+// tag::adocSnippet[]
 public class AppLifecycleBean {
 
   private static final Logger LOGGER = Logger.getLogger(AppLifecycleBean.class);
@@ -18,3 +19,4 @@ public class AppLifecycleBean {
     LOGGER.info("The application is stopping...");
   }
 }
+// end::adocSnippet[]
