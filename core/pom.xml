@@ -22,6 +22,7 @@
     <module>configuration-properties-kebab</module>
     <module>configuration-quarkus</module>
     <module>configuration-yaml</module>
+    <module>lifecycle</module>
   </modules>
 
 </project>
