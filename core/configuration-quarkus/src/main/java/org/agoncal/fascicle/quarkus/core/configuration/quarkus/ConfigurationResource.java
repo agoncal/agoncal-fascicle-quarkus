@@ -49,6 +49,6 @@ public class ConfigurationResource {
     LOGGER.info(config.getValue("quarkus.http.read-timeout", String.class));
     LOGGER.info(config.getValue("quarkus.log.level", String.class));
     LOGGER.info(config.getValue("quarkus.log.min-level", String.class));
-    // tag::adocSnippet[]
+    // end::adocSnippet[]
   }
 }
