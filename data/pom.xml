@@ -17,8 +17,6 @@
   </parent>
 
   <modules>
-    <module>bean-validation</module>
-    <module>jpa</module>
     <module>jta</module>
     <module>panache-entities</module>
     <module>panache-repositories</module>
