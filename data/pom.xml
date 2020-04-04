@@ -19,6 +19,5 @@
   <modules>
     <module>jta</module>
     <module>panache-entities</module>
-    <module>panache-repositories</module>
   </modules>
 </project>
