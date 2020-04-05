@@ -17,7 +17,8 @@ public class Publisher extends PanacheEntity {
   public String name;
 
   public static Publisher findByName(String name) {
-    return find("name", name).firstResult();
+    Publisher publisher = find("name", name).firstResult();
+    return publisher;
   }
 
   public static void deleteAPress() {
