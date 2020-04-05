@@ -48,6 +48,7 @@ class PublisherServiceTest {
   @Test
   @Order(2)
   void shouldAddAnPublisher() {
+    // Persists a publisher
     Publisher publisher = new Publisher();
     publisher.name = DEFAULT_NAME;
     publisher = publisherService.persistPublisher(publisher);
