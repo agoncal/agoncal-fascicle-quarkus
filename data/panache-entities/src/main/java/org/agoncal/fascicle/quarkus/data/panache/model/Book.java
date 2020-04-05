@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +27,6 @@ public class Book extends Item {
   // ======================================
 
   @Column(length = 15)
-  @NotNull
   private String isbn;
 
   @Column(name = "nb_of_pages")
