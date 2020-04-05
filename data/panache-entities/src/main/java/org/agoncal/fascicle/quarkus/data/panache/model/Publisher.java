@@ -10,6 +10,7 @@ import javax.persistence.Entity;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Entity
 public class Publisher extends PanacheEntity {
 
@@ -25,3 +26,4 @@ public class Publisher extends PanacheEntity {
     delete("name", "APress");
   }
 }
+// end::adocSnippet[]
