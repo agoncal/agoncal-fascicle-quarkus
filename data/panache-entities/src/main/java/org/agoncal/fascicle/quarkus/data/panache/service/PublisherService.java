@@ -42,4 +42,12 @@ public class PublisherService {
     Publisher publisher = Publisher.findById(id);
     publisher.delete();
   }
+
+  public Publisher findByName(String name) {
+    return Publisher.findByName(name);
+  }
+
+  public void deleteAPress() {
+    Publisher.deleteAPress();
+  }
 }

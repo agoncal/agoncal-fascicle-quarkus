@@ -83,11 +83,17 @@ class PublisherServiceTest {
 
   @Test
   @Order(4)
-  void shouldRemoveAnPublisher() {
+  void shouldRemoveAPublisher() {
     // Deletes the previously created publisher
     publisherService.deletePublisher(publisherId);
 
     // Checks there is less a publisher in the database
     assertEquals(nbPublishers, publisherService.findAllPublishers().size());
+  }
+
+  @Test
+  @Order(5)
+  public void shouldDeleteApress() {
+    assertNotNull(publisherService.findByName("APress"));
   }
 }

@@ -16,4 +16,11 @@ public class Publisher extends PanacheEntity {
   @Column(length = 30)
   public String name;
 
+  public static Publisher findByName(String name) {
+    return find("name", name).firstResult();
+  }
+
+  public static void deleteAPress() {
+    delete("name", "APress");
+  }
 }
