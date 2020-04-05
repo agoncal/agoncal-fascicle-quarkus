@@ -36,8 +36,8 @@ class BookServiceTest {
   private static final String UPDATED_ISBN = "Isbn (updated)";
   private static final Integer DEFAULT_NB_OF_PAGES = 1;
   private static final Integer UPDATED_NB_OF_PAGES = 2;
-  private static final Instant DEFAULT_PUBLICATION_DATE = null;
-  private static final Instant UPDATED_PUBLICATION_DATE = null;
+  private static final Instant DEFAULT_PUBLICATION_DATE = Instant.ofEpochSecond(1000);
+  private static final Instant UPDATED_PUBLICATION_DATE = Instant.ofEpochSecond(5000);
   private static final Language DEFAULT_LANGUAGE = Language.ENGLISH;
   private static final Language UPDATED_LANGUAGE = Language.CHINESE;
 
@@ -71,6 +71,8 @@ class BookServiceTest {
     book.nbOfPage = DEFAULT_NB_OF_PAGES;
     book.publicationDate = DEFAULT_PUBLICATION_DATE;
     book.language = DEFAULT_LANGUAGE;
+
+    assertFalse(book.isPersistent());
     book = bookService.persistBook(book);
 
     // Checks the book has been created
@@ -107,6 +109,7 @@ class BookServiceTest {
 
     // Checks the book has been updated
     book = bookService.findBookById(bookId).get();
+    assertTrue(book.isPersistent());
     assertEquals(UPDATED_TITLE, book.title);
     assertEquals(UPDATED_DESCRIPTION, book.description);
     assertEquals(UPDATED_UNIT_COST, book.unitCost);
@@ -131,6 +134,8 @@ class BookServiceTest {
 
   @Test
   void shouldFindEnglishBooks() {
+    assertEquals(bookService.findAllBooks().size(), bookService.countAll());
+    assertEquals(bookService.findEnglishBooks().size(), bookService.countEnglishBooks());
     assertTrue(bookService.findAllBooks().size() > bookService.findEnglishBooks().size());
   }
 }

@@ -44,6 +44,12 @@ public class Book extends Item {
   public Publisher publisher;
 
   public static List<Book> findEnglishBooks(){
-    return list("language", Language.ENGLISH);
+    List<Book> books = list("language", Language.ENGLISH);
+    return books;
+  }
+
+  public static long countEnglishBooks(){
+    long nbBooks = count("language", Language.ENGLISH);
+    return nbBooks;
   }
 }

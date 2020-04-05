@@ -47,4 +47,8 @@ public class CDService {
     CD cd = CD.findById(id);
     cd.delete();
   }
+
+  public List<CD> findLikeGenre(String genre){
+    return CD.findLikeGenre(genre);
+  }
 }

@@ -52,4 +52,12 @@ public class BookService {
   public List<Book> findEnglishBooks(){
     return Book.findEnglishBooks();
   }
+
+  public long countEnglishBooks(){
+    return Book.countEnglishBooks();
+  }
+
+  public long countAll() {
+    return Book.count();
+  }
 }

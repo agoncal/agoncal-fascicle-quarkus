@@ -9,8 +9,8 @@ import javax.persistence.InheritanceType;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

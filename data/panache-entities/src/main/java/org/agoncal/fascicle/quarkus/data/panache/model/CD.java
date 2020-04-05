@@ -6,12 +6,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 public class CD extends Item {
@@ -27,4 +28,9 @@ public class CD extends Item {
   @ManyToMany
   @JoinTable(name = "cd_musician", joinColumns = @JoinColumn(name = "cd_fk"), inverseJoinColumns = @JoinColumn(name = "musician_fk"))
   public Set<Musician> musicians = new HashSet<>();
+
+  public static List<CD> findLikeGenre(String genre) {
+    List<CD> cds = list("genre like ?1", "%" + genre + "%");
+    return cds;
+  }
 }

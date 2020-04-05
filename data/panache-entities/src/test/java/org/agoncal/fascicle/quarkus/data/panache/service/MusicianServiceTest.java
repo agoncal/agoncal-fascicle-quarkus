@@ -9,6 +9,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -31,8 +32,8 @@ class MusicianServiceTest {
   private static final String UPDATED_LAST_NAME = "Last Name (updated)";
   private static final String DEFAULT_BIO = "Bio";
   private static final String UPDATED_BIO = "Bio (updated)";
-  private static final LocalDate DEFAULT_DATE_OF_BIRTH = null;
-  private static final LocalDate UPDATED_DATE_OF_BIRTH = null;
+  private static final LocalDate DEFAULT_DATE_OF_BIRTH = LocalDate.of(1970, Month.FEBRUARY, 1);
+  private static final LocalDate UPDATED_DATE_OF_BIRTH = LocalDate.of(1980, Month.APRIL, 2);
   private static final String DEFAULT_INSTRUMENT = "Instrument";
   private static final String UPDATED_INSTRUMENT = "Instrument (udpated)";
 
@@ -64,6 +65,8 @@ class MusicianServiceTest {
     musician.bio = DEFAULT_BIO;
     musician.dateOfBirth = DEFAULT_DATE_OF_BIRTH;
     musician.preferredInstrument = DEFAULT_INSTRUMENT;
+
+    assertFalse(musician.isPersistent());
     musician = musicianService.persistMusician(musician);
 
     // Checks the musician has been created
@@ -96,6 +99,7 @@ class MusicianServiceTest {
 
     // Checks the musician has been updated
     musician = musicianService.findMusicianById(musicianId).get();
+    assertTrue(musician.isPersistent());
     assertEquals(UPDATED_FIRST_NAME, musician.firstName);
     assertEquals(UPDATED_LAST_NAME, musician.lastName);
     assertEquals(UPDATED_BIO, musician.bio);

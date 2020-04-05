@@ -66,6 +66,8 @@ class CDServiceTest {
     cd.totalDuration = DEFAULT_TOTAL_DURATION;
     cd.musicCompany = DEFAULT_MUSIC_COMPANY;
     cd.genre = DEFAULT_GENRE;
+
+    assertFalse(cd.isPersistent());
     cd = cdService.persistCD(cd);
 
     // Checks the cd has been created
@@ -100,6 +102,7 @@ class CDServiceTest {
 
     // Checks the cd has been updated
     cd = cdService.findCDById(cdId).get();
+    assertTrue(cd.isPersistent());
     assertEquals(UPDATED_TITLE, cd.title);
     assertEquals(UPDATED_DESCRIPTION, cd.description);
     assertEquals(UPDATED_UNIT_COST, cd.unitCost);
@@ -119,5 +122,12 @@ class CDServiceTest {
 
     // Checks there is less a cd in the database
     assertEquals(nbCDs, cdService.findAllCDs().size());
+  }
+
+  @Test
+  void shouldFindGenre() {
+    assertEquals(1, cdService.findLikeGenre("Jazz").size());
+    assertEquals(4, cdService.findLikeGenre("Pop").size());
+    assertEquals(3, cdService.findLikeGenre("Pop Rock").size());
   }
 }

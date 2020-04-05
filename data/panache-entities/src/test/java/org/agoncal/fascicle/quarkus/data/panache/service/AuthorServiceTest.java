@@ -10,6 +10,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -32,8 +33,8 @@ class AuthorServiceTest {
   private static final String UPDATED_LAST_NAME = "Last Name (updated)";
   private static final String DEFAULT_BIO = "Bio";
   private static final String UPDATED_BIO = "Bio (updated)";
-  private static final LocalDate DEFAULT_DATE_OF_BIRTH = null;
-  private static final LocalDate UPDATED_DATE_OF_BIRTH = null;
+  private static final LocalDate DEFAULT_DATE_OF_BIRTH = LocalDate.of(1970, Month.FEBRUARY, 1);
+  private static final LocalDate UPDATED_DATE_OF_BIRTH = LocalDate.of(1980, Month.APRIL, 2);
   private static final Language DEFAULT_LANGUAGE = Language.ENGLISH;
   private static final Language UPDATED_LANGUAGE = Language.CHINESE;
 
@@ -65,6 +66,8 @@ class AuthorServiceTest {
     author.bio = DEFAULT_BIO;
     author.dateOfBirth = DEFAULT_DATE_OF_BIRTH;
     author.preferredLanguage = DEFAULT_LANGUAGE;
+
+    assertFalse(author.isPersistent());
     author = authorService.persistAuthor(author);
 
     // Checks the author has been created
@@ -97,6 +100,7 @@ class AuthorServiceTest {
 
     // Checks the author has been updated
     author = authorService.findAuthorById(authorId).get();
+    assertTrue(author.isPersistent());
     assertEquals(UPDATED_FIRST_NAME, author.firstName);
     assertEquals(UPDATED_LAST_NAME, author.lastName);
     assertEquals(UPDATED_BIO, author.bio);
