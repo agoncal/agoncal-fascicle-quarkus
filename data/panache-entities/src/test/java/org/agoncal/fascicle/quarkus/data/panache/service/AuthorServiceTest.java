@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -32,8 +32,8 @@ class AuthorServiceTest {
   private static final String UPDATED_LAST_NAME = "Last Name (updated)";
   private static final String DEFAULT_BIO = "Bio";
   private static final String UPDATED_BIO = "Bio (updated)";
-  private static final Date DEFAULT_DATE_OF_BIRTH = null;
-  private static final Date UPDATED_DATE_OF_BIRTH = null;
+  private static final LocalDate DEFAULT_DATE_OF_BIRTH = null;
+  private static final LocalDate UPDATED_DATE_OF_BIRTH = null;
   private static final Language DEFAULT_LANGUAGE = Language.ENGLISH;
   private static final Language UPDATED_LANGUAGE = Language.CHINESE;
 

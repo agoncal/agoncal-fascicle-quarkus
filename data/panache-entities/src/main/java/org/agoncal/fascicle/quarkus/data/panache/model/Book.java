@@ -10,8 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import java.util.Date;
+import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,8 +30,7 @@ public class Book extends Item {
   public Integer nbOfPage;
 
   @Column(name = "publication_date")
-  @Temporal(TemporalType.DATE)
-  public Date publicationDate;
+  public Instant publicationDate;
 
   @Enumerated(EnumType.STRING)
   public Language language;
@@ -42,4 +42,8 @@ public class Book extends Item {
   @ManyToOne
   @JoinColumn(name = "publisher_pk")
   public Publisher publisher;
+
+  public static List<Book> findEnglishBooks(){
+    return list("language", Language.ENGLISH);
+  }
 }

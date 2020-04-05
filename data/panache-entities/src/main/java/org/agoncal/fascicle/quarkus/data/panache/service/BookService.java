@@ -48,4 +48,8 @@ public class BookService {
     Book book = Book.findById(id);
     book.delete();
   }
+
+  public List<Book> findEnglishBooks(){
+    return Book.findEnglishBooks();
+  }
 }

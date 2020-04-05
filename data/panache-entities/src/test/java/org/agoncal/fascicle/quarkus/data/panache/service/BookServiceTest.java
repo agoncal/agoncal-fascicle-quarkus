@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -36,8 +36,8 @@ class BookServiceTest {
   private static final String UPDATED_ISBN = "Isbn (updated)";
   private static final Integer DEFAULT_NB_OF_PAGES = 1;
   private static final Integer UPDATED_NB_OF_PAGES = 2;
-  private static final Date DEFAULT_PUBLICATION_DATE = null;
-  private static final Date UPDATED_PUBLICATION_DATE = null;
+  private static final Instant DEFAULT_PUBLICATION_DATE = null;
+  private static final Instant UPDATED_PUBLICATION_DATE = null;
   private static final Language DEFAULT_LANGUAGE = Language.ENGLISH;
   private static final Language UPDATED_LANGUAGE = Language.CHINESE;
 
@@ -127,5 +127,10 @@ class BookServiceTest {
 
     // Checks there is less a book in the database
     assertEquals(nbBooks, bookService.findAllBooks().size());
+  }
+
+  @Test
+  void shouldFindEnglishBooks() {
+    assertTrue(bookService.findAllBooks().size() > bookService.findEnglishBooks().size());
   }
 }
