@@ -4,6 +4,8 @@ import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +18,9 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
+
+  @Inject
+  private EntityManager em;
 
   public Book persistBook(Book book) {
     Book.persist(book);

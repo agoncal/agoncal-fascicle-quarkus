@@ -1,14 +1,14 @@
 package org.agoncal.fascicle.quarkus.data.jpa.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
 import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlAttribute;
 import java.time.LocalDate;
 import java.time.Period;
 
