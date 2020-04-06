@@ -21,9 +21,25 @@ public class Musician extends Artist {
   // ======================================
 
   @Column(name = "preferred_instrument")
-  public String preferredInstrument;
+  private String preferredInstrument;
 
   @ManyToMany
   @JoinTable(name = "musician_cd", joinColumns = @JoinColumn(name = "musician_fk"), inverseJoinColumns = @JoinColumn(name = "cd_fk"))
-  public Set<CD> cds = new HashSet<>();
+  private Set<CD> cds = new HashSet<>();
+
+  public String getPreferredInstrument() {
+    return preferredInstrument;
+  }
+
+  public void setPreferredInstrument(String preferredInstrument) {
+    this.preferredInstrument = preferredInstrument;
+  }
+
+  public Set<CD> getCds() {
+    return cds;
+  }
+
+  public void setCds(Set<CD> cds) {
+    this.cds = cds;
+  }
 }

@@ -18,19 +18,51 @@ import java.util.Set;
 public class CD extends Item {
 
   @Column(name = "total_duration")
-  public Float totalDuration;
+  private Float totalDuration;
 
   @Column(name = "music_company")
-  public String musicCompany;
+  private String musicCompany;
 
-  public String genre;
+  private String genre;
 
   @ManyToMany
   @JoinTable(name = "cd_musician", joinColumns = @JoinColumn(name = "cd_fk"), inverseJoinColumns = @JoinColumn(name = "musician_fk"))
-  public Set<Musician> musicians = new HashSet<>();
+  private Set<Musician> musicians = new HashSet<>();
 
-  public static List<CD> findLikeGenre(String genre) {
-    List<CD> cds = list("genre like ?1", "%" + genre + "%");
-    return cds;
+//  public static List<CD> findLikeGenre(String genre) {
+//    List<CD> cds = list("genre like ?1", "%" + genre + "%");
+//    return cds;
+//  }
+
+  public Float getTotalDuration() {
+    return totalDuration;
+  }
+
+  public void setTotalDuration(Float totalDuration) {
+    this.totalDuration = totalDuration;
+  }
+
+  public String getMusicCompany() {
+    return musicCompany;
+  }
+
+  public void setMusicCompany(String musicCompany) {
+    this.musicCompany = musicCompany;
+  }
+
+  public String getGenre() {
+    return genre;
+  }
+
+  public void setGenre(String genre) {
+    this.genre = genre;
+  }
+
+  public Set<Musician> getMusicians() {
+    return musicians;
+  }
+
+  public void setMusicians(Set<Musician> musicians) {
+    this.musicians = musicians;
   }
 }

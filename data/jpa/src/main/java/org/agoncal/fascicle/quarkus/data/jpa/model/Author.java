@@ -18,5 +18,13 @@ public class Author extends Artist {
 
   @Column(name = "preferred_Language")
   @Enumerated
-  public Language preferredLanguage;
+  private Language preferredLanguage;
+
+  public Language getPreferredLanguage() {
+    return preferredLanguage;
+  }
+
+  public void setPreferredLanguage(Language preferredLanguage) {
+    this.preferredLanguage = preferredLanguage;
+  }
 }

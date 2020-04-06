@@ -22,32 +22,81 @@ import java.util.Set;
 public class Book extends Item {
 
   @Column(length = 15)
-  public String isbn;
+  private String isbn;
 
   @Column(name = "nb_of_pages")
-  public Integer nbOfPage;
+  private Integer nbOfPage;
 
   @Column(name = "publication_date")
-  public Instant publicationDate;
+  private Instant publicationDate;
 
   @Enumerated(EnumType.STRING)
-  public Language language;
+  private Language language;
 
   @OneToMany
   @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_fk"), inverseJoinColumns = @JoinColumn(name = "author_fk"))
-  public Set<Author> authors = new HashSet<>();
+  private Set<Author> authors = new HashSet<>();
 
   @ManyToOne
   @JoinColumn(name = "publisher_pk")
-  public Publisher publisher;
+  private Publisher publisher;
 
-  public static List<Book> findEnglishBooks(){
-    List<Book> books = list("language", Language.ENGLISH);
-    return books;
+//  public static List<Book> findEnglishBooks(){
+//    List<Book> books = list("language", Language.ENGLISH);
+//    return books;
+//  }
+//
+//  public static long countEnglishBooks(){
+//    long nbBooks = count("language", Language.ENGLISH);
+//    return nbBooks;
+//  }
+
+
+  public String getIsbn() {
+    return isbn;
   }
 
-  public static long countEnglishBooks(){
-    long nbBooks = count("language", Language.ENGLISH);
-    return nbBooks;
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
+
+  public Integer getNbOfPage() {
+    return nbOfPage;
+  }
+
+  public void setNbOfPage(Integer nbOfPage) {
+    this.nbOfPage = nbOfPage;
+  }
+
+  public Instant getPublicationDate() {
+    return publicationDate;
+  }
+
+  public void setPublicationDate(Instant publicationDate) {
+    this.publicationDate = publicationDate;
+  }
+
+  public Language getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(Language language) {
+    this.language = language;
+  }
+
+  public Set<Author> getAuthors() {
+    return authors;
+  }
+
+  public void setAuthors(Set<Author> authors) {
+    this.authors = authors;
+  }
+
+  public Publisher getPublisher() {
+    return publisher;
+  }
+
+  public void setPublisher(Publisher publisher) {
+    this.publisher = publisher;
   }
 }

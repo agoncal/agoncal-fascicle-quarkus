@@ -12,18 +12,31 @@ import javax.persistence.Entity;
  */
 // tag::adocSnippet[]
 @Entity
-public class Publisher extends PanacheEntity {
+public class Publisher {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  protected Long id;
 
   @Column(length = 30)
-  public String name;
+  private String name;
 
-  public static Publisher findByName(String name) {
-    Publisher publisher = find("name", name).firstResult();
-    return publisher;
+//  public static Publisher findByName(String name) {
+//    Publisher publisher = find("name", name).firstResult();
+//    return publisher;
+//  }
+//
+//  public static void deleteAPress() {
+//    delete("name", "APress");
+//  }
+
+
+  public String getName() {
+    return name;
   }
 
-  public static void deleteAPress() {
-    delete("name", "APress");
+  public void setName(String name) {
+    this.name = name;
   }
 }
 // end::adocSnippet[]

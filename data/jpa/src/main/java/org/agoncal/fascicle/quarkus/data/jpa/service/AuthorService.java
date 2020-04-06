@@ -17,8 +17,11 @@ public class AuthorService {
 
   private static final Logger LOGGER = Logger.getLogger(AuthorService.class);
 
+  @Inject
+  private EntityManager em;
+
   public Author persistAuthor(Author author) {
-    Author.persist(author);
+    em.persist(author);
     return author;
   }
 
