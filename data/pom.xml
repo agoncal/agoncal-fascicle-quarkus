@@ -17,7 +17,7 @@
   </parent>
 
   <modules>
-    <module>jta</module>
-    <module>panache-entities</module>
+    <module>jpa</module>
+    <module>panache</module>
   </modules>
 </project>
