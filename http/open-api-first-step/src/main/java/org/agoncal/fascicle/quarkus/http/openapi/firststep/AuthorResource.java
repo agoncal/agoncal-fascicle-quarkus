@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.TEXT_PLAIN)
 @Tag(name = "Author Endpoint")
 public class AuthorResource {
-  // QUARKUS
+
   String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
 
   @GET
