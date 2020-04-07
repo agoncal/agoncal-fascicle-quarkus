@@ -18,6 +18,7 @@
 
   <modules>
     <module>json</module>
+    <module>open-api-first-step</module>
   </modules>
 
 </project>
