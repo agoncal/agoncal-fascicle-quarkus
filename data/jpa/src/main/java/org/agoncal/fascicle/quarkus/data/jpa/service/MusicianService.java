@@ -4,6 +4,8 @@ import org.agoncal.fascicle.quarkus.data.jpa.model.Musician;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +18,9 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 public class MusicianService {
 
   private static final Logger LOGGER = Logger.getLogger(MusicianService.class);
+
+  @Inject
+  private EntityManager em;
 
   public Musician persistMusician(Musician musician) {
     Musician.persist(musician);
