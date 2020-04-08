@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
-  <artifactId>configuration-quarkus</artifactId>
+  <artifactId>config-first-step</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Core :: Configuration Quarkus</name>
+  <name>Quarkus :: Core :: Configuration :: First Step</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -18,23 +17,16 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-core</artifactId>
     </dependency>
-
-    <!-- tag::adocJson[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-logging-json</artifactId>
+      <artifactId>quarkus-arc</artifactId>
     </dependency>
-    <!-- end::adocJson[] -->
+    <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -65,5 +57,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>

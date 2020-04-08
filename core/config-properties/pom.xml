@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
-  <artifactId>configuration-properties</artifactId>
+  <artifactId>config-properties</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Core :: Configuration Properties</name>
+  <name>Quarkus :: Core :: Configuration :: Properties</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -24,6 +24,7 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
+    <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -57,5 +58,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>

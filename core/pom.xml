@@ -17,11 +17,12 @@
   </parent>
 
   <modules>
-    <module>configuration</module>
-    <module>configuration-properties</module>
-    <module>configuration-properties-kebab</module>
-    <module>configuration-quarkus</module>
-    <module>configuration-yaml</module>
+    <module>config</module>
+    <module>config-first-step</module>
+    <module>config-properties</module>
+    <module>config-properties-kebab</module>
+    <module>config-quarkus</module>
+    <module>config-yaml</module>
     <module>lifecycle</module>
   </modules>
 

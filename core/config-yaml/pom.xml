@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
-  <artifactId>configuration-yaml</artifactId>
+  <artifactId>config-yaml</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Core :: Configuration YAML</name>
+  <name>Quarkus :: Core :: Configuration :: YAML</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
