@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.microprofile.config.firststep;
+package org.agoncal.fascicle.quarkus.core.configuration.firststep;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 

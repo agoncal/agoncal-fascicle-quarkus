@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.microprofile.config.firststep;
+package org.agoncal.fascicle.quarkus.core.configuration.firststep;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
