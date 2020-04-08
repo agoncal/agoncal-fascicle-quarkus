@@ -26,6 +26,6 @@ public class NumberService {
   private String generateNumber() {
     return Math.random() + "-";
   }
-  // tag::adocSkip[]
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
