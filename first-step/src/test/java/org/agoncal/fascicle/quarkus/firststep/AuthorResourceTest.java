@@ -36,8 +36,8 @@ public class AuthorResourceTest {
   }
 
   @Test
-  public void shouldNotFindAnAuthor() {
-    // tag::adocShouldNotFindAnAuthor[]
+  public void shouldNotFindResource() {
+    // tag::adocShouldNotFindResource[]
     get("/dummy").
     then()
       .statusCode(404);
