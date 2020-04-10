@@ -12,6 +12,7 @@ import static io.restassured.RestAssured.get;
  * --
  */
 // @formatter:off
+// tag::adocSnippet[]
 @QuarkusTest
 public class AuthorResourceTest {
 
@@ -44,3 +45,4 @@ public class AuthorResourceTest {
     // end::adocShouldNotFindResource[]
   }
 }
+// end::adocSnippet[]
