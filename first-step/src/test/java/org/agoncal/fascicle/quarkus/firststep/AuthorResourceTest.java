@@ -18,31 +18,18 @@ public class AuthorResourceTest {
 
   @Test
   public void shouldGetAllAuthors() {
-    // tag::adocShouldGetAllAuthors[]
     get("/authors").
     then()
       .statusCode(200)
       .body(Is.is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
-    // end::adocShouldGetAllAuthors[]
   }
 
   @Test
   public void shouldGetAnAuthor() {
-    // tag::adocShouldGetAuthor[]
     get("/authors/0").
     then()
       .statusCode(200)
       .body(Is.is("Isaac Asimov"));
-    // end::adocShouldGetAuthor[]
-  }
-
-  @Test
-  public void shouldNotFindResource() {
-    // tag::adocShouldNotFindResource[]
-    get("/dummy").
-    then()
-      .statusCode(404);
-    // end::adocShouldNotFindResource[]
   }
 }
 // end::adocSnippet[]
