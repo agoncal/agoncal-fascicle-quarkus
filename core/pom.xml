@@ -17,8 +17,12 @@
   </parent>
 
   <modules>
+    <module>cdi-events</module>
+    <module>cdi-events-qualifiers</module>
+    <module>cdi-injection</module>
+    <module>cdi-injection-default</module>
+    <module>cdi-qualifiers</module>
     <module>config</module>
-    <module>config-first-step</module>
     <module>config-properties</module>
     <module>config-properties-kebab</module>
     <module>config-quarkus</module>
