@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 @QuarkusTest
 public class CustomerResourceTest {
 
@@ -71,7 +72,11 @@ public class CustomerResourceTest {
   @Test
   public void shouldPingOne() {
 // tag::adoconeline[]
-    Response response = ClientBuilder.newClient().target("http://localhost:8081/customers").request(MediaType.TEXT_PLAIN).get();
+    Response response = ClientBuilder
+      .newClient()
+      .target("http://localhost:8081/customers")
+      .request(MediaType.TEXT_PLAIN)
+      .get();
 // end::adoconeline[]
     Assertions.assertEquals(200, response.getStatus());
   }
