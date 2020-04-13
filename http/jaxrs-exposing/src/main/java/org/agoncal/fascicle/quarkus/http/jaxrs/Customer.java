@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -7,6 +8,7 @@ import java.util.Date;
  * http://www.antoniogoncalves.org
  * --
  */
+@XmlRootElement
 public class Customer {
 
   // ======================================
@@ -130,5 +132,21 @@ public class Customer {
 
   public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
+  }
+
+
+  // ======================================
+  // =         hash, equals, toString     =
+  // ======================================
+
+  @Override
+  public String toString() {
+    return "Customer{" +
+      "id='" + id + '\'' +
+      ", firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", email='" + email + '\'' +
+      ", phoneNumber='" + phoneNumber + '\'' +
+      '}';
   }
 }
