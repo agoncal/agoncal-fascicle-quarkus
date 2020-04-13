@@ -36,9 +36,6 @@ public class CustomerResourceTest {
 
   @Test
   public void shouldGetCustomerAsPlainText() {
-//    Response response = target("/customers").request(TEXT_PLAIN).get();
-//    assertEquals(200, response.getStatus());
-//    assertEquals(CUSTOMER_TEXT, response.readEntity(String.class));
     given()
       .header(ACCEPT, TEXT_PLAIN).
     when()
@@ -46,14 +43,10 @@ public class CustomerResourceTest {
     then()
       .statusCode(OK.getStatusCode())
       .body(Is.is(CUSTOMER_TEXT));
-
   }
 
   @Test
   public void shouldGetCustomerAsHTML() {
-//    Response response = target("/customers").request(TEXT_HTML).get();
-//    assertEquals(200, response.getStatus());
-//    assertEquals(CUSTOMER_HTML, response.readEntity(String.class));
     given()
       .header(ACCEPT, TEXT_HTML).
     when()
@@ -65,9 +58,6 @@ public class CustomerResourceTest {
 
   @Test
   public void shouldGetCustomerAsXML() {
-//    Response response = target("/customers").request(APPLICATION_XML).get();
-//    assertEquals(200, response.getStatus());
-//    assertEquals(CUSTOMER_XML, response.readEntity(String.class));
     given()
       .header(ACCEPT, APPLICATION_XML).
     when()
@@ -79,9 +69,6 @@ public class CustomerResourceTest {
 
   @Test
   public void shouldGetCustomerAsJSON() {
-//    Response response = target("/customers").request(APPLICATION_JSON).get();
-//    assertEquals(200, response.getStatus());
-//    assertEquals(CUSTOMER_JSON, response.readEntity(String.class));
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()

@@ -134,7 +134,6 @@ public class Customer {
     this.creationDate = creationDate;
   }
 
-
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
