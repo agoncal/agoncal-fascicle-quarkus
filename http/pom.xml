@@ -18,6 +18,7 @@
 
   <modules>
     <module>jaxrs-exposing</module>
+    <module>jaxrs-invoking</module>
     <module>json</module>
     <module>open-api-first-step</module>
   </modules>
