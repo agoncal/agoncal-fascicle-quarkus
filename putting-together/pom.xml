@@ -17,11 +17,17 @@
   </parent>
 
   <modules>
-    <module>catalog</module>
-    <module>generator</module>
-    <module>infrastructure</module>
-    <module>inventory</module>
-    <module>load</module>
+    <module>rest-book</module>
+    <module>rest-number</module>
   </modules>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
