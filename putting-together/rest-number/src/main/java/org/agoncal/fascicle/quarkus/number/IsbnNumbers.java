@@ -5,16 +5,27 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import javax.json.bind.annotation.JsonbProperty;
 
 // tag::adocSnippet[]
+// tag::adocOpenAPI[]
 @Schema(description = "Several formats of book ISBN numbers")
+// end::adocOpenAPI[]
 public class IsbnNumbers {
 
+  // tag::adocOpenAPI[]
   @Schema(required = true)
+  // end::adocOpenAPI[]
+  // tag::adocJSONB[]
   @JsonbProperty("isbn_10")
+  // end::adocJSONB[]
   private String isbn10;
+  // tag::adocOpenAPI[]
   @Schema(required = true)
+  // end::adocOpenAPI[]
+  // tag::adocJSONB[]
   @JsonbProperty("isbn_13")
+  // end::adocJSONB[]
   private String isbn13;
 
+  // Getters and setters
   // tag::adocSkip[]
   public String getIsbn10() {
     return isbn10;
