@@ -1,0 +1,17 @@
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.agoncal.fascicle.quarkus.number.NumberResourceTest
+[INFO] Quarkus started in 0.586s. Listening on: http://0.0.0.0:8081
+[INFO] Profile test activated.
+[INFO] Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-health, smallrye-openapi, swagger-ui]
+[INFO] ISBN numbers generated BookNumbers{isbn10='1-9635127-0-7', isbn13='978-1-7424-9845-4'}
+
+[INFO] Quarkus stopped in 0.029s
+
+[INFO] Results:
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] -------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] -------------------------------------------------

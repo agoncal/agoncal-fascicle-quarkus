@@ -12,11 +12,12 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasKey;
 
 //@formatter:off
+// tag::adocSnippet[]
 @QuarkusTest
 public class NumberResourceTest {
 
   @Test
-  void shouldGenerateBookNumber() {
+  void shouldGenerateIsbnNumbers() {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
@@ -26,6 +27,7 @@ public class NumberResourceTest {
       .body("$", hasKey("isbn_10"))
       .body("$", hasKey("isbn_13"));
   }
+  // tag::adocSkip[]
 
   @Test
   void shouldPingOpenAPI() {
@@ -82,4 +84,6 @@ public class NumberResourceTest {
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
