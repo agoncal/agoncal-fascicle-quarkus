@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.number;
 
 import com.github.javafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -32,9 +31,6 @@ public class NumberResource {
   @Operation(summary = "Generates ISBN numbers", description = "These ISBN numbers have several formats: ISBN 13 and ISBN 10")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = IsbnNumbers.class)))
   // end::adocOpenAPI[]
-  // tag::adocMetrics[]
-  @Counted(name = "generateIsbnNumbers", description = "Counts how many times the generateIsbnNumbers method has been invoked")
-  // end::adocMetrics[]
   public Response generateIsbnNumbers() {
     Faker faker = new Faker();
     IsbnNumbers isbnNumbers = new IsbnNumbers();

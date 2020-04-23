@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.book;
 
 import com.github.javafaker.Faker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
@@ -29,6 +30,9 @@ public class BookResource {
 
   @GET
   @Fallback(fallbackMethod = "fallbackGetRandomBook")
+  // tag::adocMetrics[]
+  @Counted(name = "generateIsbnNumbers", description = "Counts how many times the generateIsbnNumbers method has been invoked")
+  // end::adocMetrics[]
   public Response getRandomBook() {
 
     IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();

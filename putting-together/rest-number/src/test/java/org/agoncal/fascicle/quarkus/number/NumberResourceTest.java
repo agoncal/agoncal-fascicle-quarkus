@@ -71,14 +71,15 @@ public class NumberResourceTest {
     when()
       .get("/metrics/application").
     then()
-      .statusCode(OK.getStatusCode());
+      .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
   void shouldNotFindDummy() {
-    given()
-      .when().get("/api/numbers/dummy")
-      .then()
+    given().
+    when()
+      .get("/api/numbers/dummy").
+    then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
 }

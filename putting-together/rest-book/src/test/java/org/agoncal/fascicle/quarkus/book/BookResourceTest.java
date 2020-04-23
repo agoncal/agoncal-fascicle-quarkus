@@ -1,9 +1,7 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
@@ -14,10 +12,24 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasKey;
 
 //@formatter:off
-// tag::adocHeader[]
 @QuarkusTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
+
+  @Test
+  void shouldGetRandomBook() {
+    given()
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+    when()
+      .get("/api/books").
+    then()
+      .statusCode(OK.getStatusCode())
+      .body("$", hasKey("isbn_10"))
+      .body("$", hasKey("isbn_13"))
+      .body("$", hasKey("title"))
+      .body("$", hasKey("author"))
+      .body("$", hasKey("genre"))
+      .body("$", hasKey("publisher"));
+  }
 
   @Test
   void shouldPingOpenAPI() {
@@ -39,25 +51,39 @@ public class BookResourceTest {
   }
 
   @Test
-  public void shouldNotFindDummy() {
+  void shouldPingLiveness() {
     given().
     when()
-      .get("/api/books/dummy").
+      .get("/health/live").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
-  void shouldGetRandomBook() {
-    given()
-      .when().get("/api/books").
+  void shouldPingReadiness() {
+    given().
+    when()
+      .get("/health/ready").
     then()
-      .statusCode(OK.getStatusCode())
-      .body("$", hasKey("isbn_13"))
-      .body("$", hasKey("isbn_10"))
-      .body("$", hasKey("title"))
-      .body("$", hasKey("author"))
-      .body("$", hasKey("genre"))
-      .body("$", hasKey("publisher"));
+      .statusCode(NOT_FOUND.getStatusCode());
+  }
+
+  @Test
+  void shouldPingMetrics() {
+    given()
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+    when()
+      .get("/metrics/application").
+    then()
+      .statusCode(OK.getStatusCode());
+  }
+
+  @Test
+  void shouldNotFindDummy() {
+    given().
+    when()
+      .get("/api/books/dummy").
+    then()
+      .statusCode(NOT_FOUND.getStatusCode());
   }
 }
