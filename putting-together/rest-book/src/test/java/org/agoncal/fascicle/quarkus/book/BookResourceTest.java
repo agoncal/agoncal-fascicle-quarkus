@@ -12,6 +12,7 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasKey;
 
 //@formatter:off
+// tag::adocSnippet[]
 @QuarkusTest
 public class BookResourceTest {
 
@@ -30,6 +31,7 @@ public class BookResourceTest {
       .body("$", hasKey("genre"))
       .body("$", hasKey("publisher"));
   }
+  // tag::adocSkip[]
 
   @Test
   void shouldPingOpenAPI() {
@@ -86,4 +88,6 @@ public class BookResourceTest {
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
