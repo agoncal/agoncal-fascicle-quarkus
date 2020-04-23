@@ -9,14 +9,18 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+//@formatter:off
 // tag::adocSnippet[]
 @ApplicationPath("/")
 @OpenAPIDefinition(
-  info = @Info(title = "Number API",
+  info = @Info(
+          title = "Number API",
     description = "This API allows to generate all sorts of ISBN numbers",
-    version = "1.0",
-    contact = @Contact(name = "@agoncal", url = "https://twitter.com/agoncal")),
-  externalDocs = @ExternalDocumentation(url = "https://github.com/agoncal/agoncal-fascicle-quarkus", description = "All the Understanding Quarkus code"),
+        version = "1.0",
+        contact = @Contact(name = "@agoncal", url = "https://twitter.com/agoncal")),
+   externalDocs = @ExternalDocumentation(
+            url = "https://github.com/agoncal/agoncal-fascicle-quarkus",
+    description = "All the Understanding Quarkus code"),
   tags = {
     @Tag(name = "api", description = "Public API that can be used by anybody"),
     @Tag(name = "numbers", description = "Anybody interested in ISBN numbers")
