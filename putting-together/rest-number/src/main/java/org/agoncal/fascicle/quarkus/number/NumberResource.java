@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 @Produces(MediaType.APPLICATION_JSON)
 public class NumberResource {
 
-  private final static Logger LOGGER = Logger.getLogger(NumberResource.class.getName());
+  private final static Logger LOGGER = Logger.getLogger("NumberResource");
 
   // tag::adocConfig[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")

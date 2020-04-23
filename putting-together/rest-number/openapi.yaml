@@ -1,4 +1,3 @@
----
 openapi: 3.0.1
 info:
   title: Number API
@@ -8,13 +7,13 @@ info:
     url: https://twitter.com/agoncal
   version: "1.0"
 externalDocs:
-  description: All the Understanding MicroProfile code
-  url: https://github.com/agoncal/agoncal-fascicle-microprofile
+  description: All the Understanding Quarkus code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus
 tags:
 - name: api
   description: Public API that can be used by anybody
 - name: numbers
-  description: Anybody interested in numbers
+  description: Anybody interested in ISBN numbers
 paths:
   /api/numbers:
     get:

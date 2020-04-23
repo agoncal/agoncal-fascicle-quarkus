@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 @Consumes(MediaType.APPLICATION_JSON)
 public class BookResource {
 
-  private final static Logger LOGGER = Logger.getLogger(BookResource.class.getName());
+  private final static Logger LOGGER = Logger.getLogger("BookResource");
 
   @Inject
   @RestClient
