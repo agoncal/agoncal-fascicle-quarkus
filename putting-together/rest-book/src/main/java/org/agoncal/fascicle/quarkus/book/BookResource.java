@@ -34,7 +34,8 @@ public class BookResource {
   @Fallback(fallbackMethod = "fallbackGetRandomBook")
   // end::adocFaultTolerance[]
   // tag::adocMetrics[]
-  @Counted(name = "generateIsbnNumbers", description = "Counts how many times the generateIsbnNumbers method has been invoked")
+  @Counted(name = "getRandomBook",
+    description = "Counts how many times the getRandomBook method has been invoked")
   // end::adocMetrics[]
   public Response getRandomBook() {
 
