@@ -1,0 +1,26 @@
+# tag::adocSnippet[]
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+tags:
+  - name: Author Endpoint
+paths:
+  /authors/{index}:
+    get:
+      summary: Returns an author for a given index
+      parameters:
+        - name: index
+          in: path
+          description: Author index
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: The author is not found for a given index
+        "200":
+          description: OK
+          content:
+            text/plain: {}
+# end::adocSnippet[]

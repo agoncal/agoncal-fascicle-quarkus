@@ -1,0 +1,5 @@
+invoice:
+  vatRate: 10
+  allowsDiscount: false
+  terms: Payment upon receipt
+  penalties: Penalty in case of late payment

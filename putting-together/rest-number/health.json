@@ -1,0 +1,9 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Ping Number REST Endpoint",
+      "status": "UP"
+    }
+  ]
+}

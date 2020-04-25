@@ -1,0 +1,10 @@
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+paths:
+  /api/numbers:
+    get:
+      responses:
+        "200":
+          description: OK

@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: Number API
+  description: This API allows to generate all sorts of ISBN numbers
+  contact:
+    name: '@agoncal'
+    url: https://twitter.com/agoncal
+  version: "1.0"
+externalDocs:
+  description: All the Understanding Quarkus code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus
+tags:
+- name: api
+  description: Public API that can be used by anybody
+- name: numbers
+  description: Anybody interested in ISBN numbers
+paths:
+  /api/numbers:
+    get:
+      summary: Generates ISBN numbers
+      description: 'These ISBN numbers have several formats: ISBN 13 and ISBN 10'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsbnNumbers'
+components:
+  schemas:
+    IsbnNumbers:
+      description: Several formats of book ISBN numbers
+      required:
+      - isbn_10
+      - isbn_13
+      type: object
+      properties:
+        isbn_10:
+          type: string
+        isbn_13:
+          type: string

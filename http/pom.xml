@@ -17,7 +17,11 @@
   </parent>
 
   <modules>
+    <module>jaxrs-exposing</module>
+    <module>jaxrs-invoking</module>
     <module>json</module>
+    <module>json-binding</module>
+    <module>open-api-first-step</module>
   </modules>
 
 </project>
