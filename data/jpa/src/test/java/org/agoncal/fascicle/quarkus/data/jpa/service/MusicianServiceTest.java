@@ -73,6 +73,7 @@ class MusicianServiceTest {
     assertEquals(DEFAULT_BIO, musician.getBio());
     assertEquals(DEFAULT_DATE_OF_BIRTH, musician.getDateOfBirth());
     assertEquals(DEFAULT_INSTRUMENT, musician.getPreferredInstrument());
+    assertTrue(musician.getAge() > 45);
 
     // Checks there is an extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());
@@ -101,6 +102,7 @@ class MusicianServiceTest {
     assertEquals(UPDATED_BIO, musician.getBio());
     assertEquals(UPDATED_DATE_OF_BIRTH, musician.getDateOfBirth());
     assertEquals(UPDATED_INSTRUMENT, musician.getPreferredInstrument());
+    assertTrue(musician.getAge() < 45);
 
     // Checks there is no extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());

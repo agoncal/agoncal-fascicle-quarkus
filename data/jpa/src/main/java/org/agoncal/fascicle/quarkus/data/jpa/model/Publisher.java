@@ -22,16 +22,6 @@ public class Publisher {
   @Column(length = 30)
   private String name;
 
-//  public static Publisher findByName(String name) {
-//    Publisher publisher = find("name", name).firstResult();
-//    return publisher;
-//  }
-//
-//  public static void deleteAPress() {
-//    delete("name", "APress");
-//  }
-
-
   public Long getId() {
     return id;
   }

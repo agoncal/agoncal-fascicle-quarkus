@@ -74,6 +74,7 @@ class AuthorServiceTest {
     assertEquals(DEFAULT_BIO, author.getBio());
     assertEquals(DEFAULT_DATE_OF_BIRTH, author.getDateOfBirth());
     assertEquals(DEFAULT_LANGUAGE, author.getPreferredLanguage());
+    assertTrue(author.getAge() > 45);
 
     // Checks there is an extra author in the database
     assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
@@ -93,6 +94,7 @@ class AuthorServiceTest {
     assertEquals(DEFAULT_BIO, author.getBio());
     assertEquals(DEFAULT_DATE_OF_BIRTH, author.getDateOfBirth());
     assertEquals(DEFAULT_LANGUAGE, author.getPreferredLanguage());
+    assertTrue(author.getAge() > 45);
   }
 
   @Test
@@ -116,6 +118,7 @@ class AuthorServiceTest {
     assertEquals(UPDATED_BIO, author.getBio());
     assertEquals(UPDATED_DATE_OF_BIRTH, author.getDateOfBirth());
     assertEquals(UPDATED_LANGUAGE, author.getPreferredLanguage());
+    assertTrue(author.getAge() < 45);
 
     // Checks there is no extra author in the database
     assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());

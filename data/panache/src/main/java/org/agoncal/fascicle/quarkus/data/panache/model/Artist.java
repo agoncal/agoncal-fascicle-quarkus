@@ -41,7 +41,7 @@ public class Artist extends PanacheEntity {
   @PostLoad
   @PostPersist
   @PostUpdate
-  public void calculateAge() {
+  protected void calculateAge() {
     if (dateOfBirth == null) {
       age = null;
       return;

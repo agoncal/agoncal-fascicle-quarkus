@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.NamedQuery;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
@@ -18,7 +17,6 @@ import java.time.Period;
  * http://www.antoniogoncalves.org
  * --
  */
-@NamedQuery(name = "Artist.findByName", query = "SELECT a FROM Author a WHERE a.lastName = :name")
 @MappedSuperclass
 public class Artist {
 

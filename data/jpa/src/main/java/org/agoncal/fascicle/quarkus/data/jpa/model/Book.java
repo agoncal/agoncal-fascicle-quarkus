@@ -41,17 +41,6 @@ public class Book extends Item {
   @JoinColumn(name = "publisher_pk")
   private Publisher publisher;
 
-//  public static List<Book> findEnglishBooks(){
-//    List<Book> books = list("language", Language.ENGLISH);
-//    return books;
-//  }
-//
-//  public static long countEnglishBooks(){
-//    long nbBooks = count("language", Language.ENGLISH);
-//    return nbBooks;
-//  }
-
-
   public String getIsbn() {
     return isbn;
   }
