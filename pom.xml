@@ -27,7 +27,7 @@
   </modules>
 
   <properties>
-    <version.java>1.8</version.java>
+    <version.java>11</version.java>
     <!-- Quarkus -->
     <quarkus-plugin.version>1.4.1.Final</quarkus-plugin.version>
     <quarkus.platform.version>1.4.1.Final</quarkus.platform.version>
@@ -83,11 +83,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- tag::adocSkip[] -->
-      <!-- Other -->
-
-      <!-- Test -->
-      <!-- end::adocSkip[] -->
     </dependencies>
   </dependencyManagement>
   <!-- end::adocBom[] -->
