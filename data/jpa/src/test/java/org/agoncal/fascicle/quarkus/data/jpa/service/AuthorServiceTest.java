@@ -3,7 +3,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Author;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Language;
-import org.agoncal.fascicle.quarkus.data.jpa.service.AuthorService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -62,51 +61,49 @@ class AuthorServiceTest {
   void shouldAddAnAuthor() {
     // Persists an author
     Author author = new Author();
-    author.firstName = DEFAULT_FIRST_NAME;
-    author.lastName = DEFAULT_LAST_NAME;
-    author.bio = DEFAULT_BIO;
-    author.dateOfBirth = DEFAULT_DATE_OF_BIRTH;
-    author.preferredLanguage = DEFAULT_LANGUAGE;
+    author.setFirstName(DEFAULT_FIRST_NAME);
+    author.setLastName(DEFAULT_LAST_NAME);
+    author.setBio(DEFAULT_BIO);
+    author.setDateOfBirth(DEFAULT_DATE_OF_BIRTH);
+    author.setPreferredLanguage(DEFAULT_LANGUAGE);
 
-    assertFalse(author.isPersistent());
     author = authorService.persistAuthor(author);
 
     // Checks the author has been created
     assertNotNull(authorId);
-    assertEquals(DEFAULT_FIRST_NAME, author.firstName);
-    assertEquals(DEFAULT_LAST_NAME, author.lastName);
-    assertEquals(DEFAULT_BIO, author.bio);
-    assertEquals(DEFAULT_DATE_OF_BIRTH, author.dateOfBirth);
-    assertEquals(DEFAULT_LANGUAGE, author.preferredLanguage);
+    assertEquals(DEFAULT_FIRST_NAME, author.getFirstName());
+    assertEquals(DEFAULT_LAST_NAME, author.getLastName());
+    assertEquals(DEFAULT_BIO, author.getBio());
+    assertEquals(DEFAULT_DATE_OF_BIRTH, author.getDateOfBirth());
+    assertEquals(DEFAULT_LANGUAGE, author.getPreferredLanguage());
 
     // Checks there is an extra author in the database
     assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
 
-    authorId = author.id;
+    authorId = author.getId();
   }
 
   @Test
   @Order(3)
   void shouldUpdateAnAuthor() {
     Author author = new Author();
-    author.id = authorId;
-    author.firstName = UPDATED_FIRST_NAME;
-    author.lastName = UPDATED_LAST_NAME;
-    author.bio = UPDATED_BIO;
-    author.dateOfBirth = UPDATED_DATE_OF_BIRTH;
-    author.preferredLanguage = UPDATED_LANGUAGE;
+    author.setId(authorId);
+    author.setFirstName( UPDATED_FIRST_NAME);
+    author.setLastName( UPDATED_LAST_NAME);
+    author.setBio(UPDATED_BIO);
+    author.setDateOfBirth( UPDATED_DATE_OF_BIRTH);
+    author.setPreferredLanguage( UPDATED_LANGUAGE);
 
     // Updates the previously created author
     authorService.updateAuthor(author);
 
     // Checks the author has been updated
     author = authorService.findAuthorById(authorId).get();
-    assertTrue(author.isPersistent());
-    assertEquals(UPDATED_FIRST_NAME, author.firstName);
-    assertEquals(UPDATED_LAST_NAME, author.lastName);
-    assertEquals(UPDATED_BIO, author.bio);
-    assertEquals(UPDATED_DATE_OF_BIRTH, author.dateOfBirth);
-    assertEquals(UPDATED_LANGUAGE, author.preferredLanguage);
+    assertEquals(UPDATED_FIRST_NAME, author.getFirstName());
+    assertEquals(UPDATED_LAST_NAME, author.getLastName());
+    assertEquals(UPDATED_BIO, author.getBio());
+    assertEquals(UPDATED_DATE_OF_BIRTH, author.getDateOfBirth());
+    assertEquals(UPDATED_LANGUAGE, author.getPreferredLanguage());
 
     // Checks there is no extra author in the database
     assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());

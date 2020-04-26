@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Musician;
-import org.agoncal.fascicle.quarkus.data.jpa.service.MusicianService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -61,51 +60,49 @@ class MusicianServiceTest {
   void shouldAddAnMusician() {
     // Persists an musician
     Musician musician = new Musician();
-    musician.firstName = DEFAULT_FIRST_NAME;
-    musician.lastName = DEFAULT_LAST_NAME;
-    musician.bio = DEFAULT_BIO;
-    musician.dateOfBirth = DEFAULT_DATE_OF_BIRTH;
-    musician.preferredInstrument = DEFAULT_INSTRUMENT;
+    musician.setFirstName(DEFAULT_FIRST_NAME);
+    musician.setLastName(DEFAULT_LAST_NAME);
+    musician.setBio(DEFAULT_BIO);
+    musician.setDateOfBirth(DEFAULT_DATE_OF_BIRTH);
+    musician.setPreferredInstrument(DEFAULT_INSTRUMENT);
 
-    assertFalse(musician.isPersistent());
     musician = musicianService.persistMusician(musician);
 
     // Checks the musician has been created
     assertNotNull(musicianId);
-    assertEquals(DEFAULT_FIRST_NAME, musician.firstName);
-    assertEquals(DEFAULT_LAST_NAME, musician.lastName);
-    assertEquals(DEFAULT_BIO, musician.bio);
-    assertEquals(DEFAULT_DATE_OF_BIRTH, musician.dateOfBirth);
-    assertEquals(DEFAULT_INSTRUMENT, musician.preferredInstrument);
+    assertEquals(DEFAULT_FIRST_NAME, musician.getFirstName());
+    assertEquals(DEFAULT_LAST_NAME, musician.getLastName());
+    assertEquals(DEFAULT_BIO, musician.getBio());
+    assertEquals(DEFAULT_DATE_OF_BIRTH, musician.getDateOfBirth());
+    assertEquals(DEFAULT_INSTRUMENT, musician.getPreferredInstrument());
 
     // Checks there is an extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());
 
-    musicianId = musician.id;
+    musicianId = musician.getId();
   }
 
   @Test
   @Order(3)
   void shouldUpdateAnMusician() {
     Musician musician = new Musician();
-    musician.id = musicianId;
-    musician.firstName = UPDATED_FIRST_NAME;
-    musician.lastName = UPDATED_LAST_NAME;
-    musician.bio = UPDATED_BIO;
-    musician.dateOfBirth = UPDATED_DATE_OF_BIRTH;
-    musician.preferredInstrument = UPDATED_INSTRUMENT;
+    musician.setId(musicianId);
+    musician.setFirstName(UPDATED_FIRST_NAME);
+    musician.setLastName(UPDATED_LAST_NAME);
+    musician.setBio(UPDATED_BIO);
+    musician.setDateOfBirth(UPDATED_DATE_OF_BIRTH);
+    musician.setPreferredInstrument(UPDATED_INSTRUMENT);
 
     // Updates the previously created musician
     musicianService.updateMusician(musician);
 
     // Checks the musician has been updated
     musician = musicianService.findMusicianById(musicianId).get();
-    assertTrue(musician.isPersistent());
-    assertEquals(UPDATED_FIRST_NAME, musician.firstName);
-    assertEquals(UPDATED_LAST_NAME, musician.lastName);
-    assertEquals(UPDATED_BIO, musician.bio);
-    assertEquals(UPDATED_DATE_OF_BIRTH, musician.dateOfBirth);
-    assertEquals(UPDATED_INSTRUMENT, musician.preferredInstrument);
+    assertEquals(UPDATED_FIRST_NAME, musician.getFirstName());
+    assertEquals(UPDATED_LAST_NAME, musician.getLastName());
+    assertEquals(UPDATED_BIO, musician.getBio());
+    assertEquals(UPDATED_DATE_OF_BIRTH, musician.getDateOfBirth());
+    assertEquals(UPDATED_INSTRUMENT, musician.getPreferredInstrument());
 
     // Checks there is no extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());

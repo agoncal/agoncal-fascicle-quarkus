@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
+import org.agoncal.fascicle.quarkus.data.jpa.model.Language;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -14,55 +15,54 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
 
   @Inject
-  private EntityManager em;
+  EntityManager em;
 
+  @Transactional(REQUIRED)
   public Book persistBook(Book book) {
-    Book.persist(book);
+    em.persist(book);
     return book;
   }
 
-  @Transactional(SUPPORTS)
   public List<Book> findAllBooks() {
-    return Book.listAll();
+    return em.createQuery("select b from Book b", Book.class).getResultList();
   }
 
-  @Transactional(SUPPORTS)
   public Optional<Book> findBookById(Long id) {
-    return Book.findByIdOptional(id);
+    Book book = em.find(Book.class, id);
+    return book != null ? Optional.of(book) : Optional.empty();
   }
 
+  @Transactional(REQUIRED)
   public Book updateBook(Book book) {
-    Book entity = Book.findById(book.id);
-    entity.title = book.title;
-    entity.description = book.description;
-    entity.unitCost = book.unitCost;
-    entity.isbn = book.isbn;
-    entity.nbOfPage = book.nbOfPage;
-    entity.publicationDate = book.publicationDate;
-    entity.language = book.language;
-    return entity;
+    return em.merge(book);
   }
 
+  @Transactional(REQUIRED)
   public void deleteBook(Long id) {
-    Book book = Book.findById(id);
-    book.delete();
+    em.remove(em.find(Book.class, id));
   }
 
-  public List<Book> findEnglishBooks(){
-    return Book.findEnglishBooks();
+  public long countAllBooks() {
+    return em.createQuery("select count(b) from Book b", Long.class).getSingleResult();
   }
 
-  public long countEnglishBooks(){
-    return Book.countEnglishBooks();
+  public List<Book> findEnglishBooks() {
+    List<Book> books = em.createQuery("SELECT b FROM Book b WHERE b.language = :language", Book.class)
+      .setParameter("language", Language.ENGLISH)
+      .getResultList();
+    return books;
   }
 
-  public long countAll() {
-    return Book.count();
+  public long countEnglishBooks() {
+    long nbBooks = em.createQuery("SELECT count(b) FROM Book b WHERE b.language = :language", Long.class)
+      .setParameter("language", Language.ENGLISH)
+      .getSingleResult();
+    return nbBooks;
   }
 }

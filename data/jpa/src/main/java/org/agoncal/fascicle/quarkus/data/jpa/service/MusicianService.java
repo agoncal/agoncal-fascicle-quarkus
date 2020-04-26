@@ -14,41 +14,36 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class MusicianService {
 
   private static final Logger LOGGER = Logger.getLogger(MusicianService.class);
 
   @Inject
-  private EntityManager em;
+  EntityManager em;
 
+  @Transactional(REQUIRED)
   public Musician persistMusician(Musician musician) {
-    Musician.persist(musician);
+    em.persist(musician);
     return musician;
   }
 
-  @Transactional(SUPPORTS)
   public List<Musician> findAllMusicians() {
-    return Musician.listAll();
+    return em.createQuery("select m from Musician m", Musician.class).getResultList();
   }
 
-  @Transactional(SUPPORTS)
   public Optional<Musician> findMusicianById(Long id) {
-    return Musician.findByIdOptional(id);
+    Musician musician = em.find(Musician.class, id);
+    return musician != null ? Optional.of(musician) : Optional.empty();
   }
 
+  @Transactional(REQUIRED)
   public Musician updateMusician(Musician musician) {
-    Musician entity = Musician.findById(musician.id);
-    entity.firstName = musician.firstName;
-    entity.lastName = musician.lastName;
-    entity.bio = musician.bio;
-    entity.dateOfBirth = musician.dateOfBirth;
-    entity.preferredInstrument = musician.preferredInstrument;
-    return entity;
+    return em.merge(musician);
   }
 
+  @Transactional(REQUIRED)
   public void deleteMusician(Long id) {
-    Musician musician = Musician.findById(id);
-    musician.delete();
+    em.remove(em.find(Musician.class, id));
   }
 }

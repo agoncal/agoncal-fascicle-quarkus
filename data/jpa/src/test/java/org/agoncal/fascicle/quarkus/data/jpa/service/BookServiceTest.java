@@ -3,7 +3,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Language;
-import org.agoncal.fascicle.quarkus.data.jpa.service.BookService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -65,59 +64,57 @@ class BookServiceTest {
   void shouldAddAnBook() {
     // Persists a book
     Book book = new Book();
-    book.title = DEFAULT_TITLE;
-    book.description = DEFAULT_DESCRIPTION;
-    book.unitCost = DEFAULT_UNIT_COST;
-    book.isbn = DEFAULT_ISBN;
-    book.nbOfPage = DEFAULT_NB_OF_PAGES;
-    book.publicationDate = DEFAULT_PUBLICATION_DATE;
-    book.language = DEFAULT_LANGUAGE;
+    book.setTitle( DEFAULT_TITLE);
+    book.setDescription( DEFAULT_DESCRIPTION);
+    book.setUnitCost( DEFAULT_UNIT_COST);
+    book.setIsbn( DEFAULT_ISBN);
+    book.setNbOfPage( DEFAULT_NB_OF_PAGES);
+    book.setPublicationDate( DEFAULT_PUBLICATION_DATE);
+    book.setLanguage( DEFAULT_LANGUAGE);
 
-    assertFalse(book.isPersistent());
     book = bookService.persistBook(book);
 
     // Checks the book has been created
     assertNotNull(bookId);
-    assertEquals(DEFAULT_TITLE, book.title);
-    assertEquals(DEFAULT_DESCRIPTION, book.description);
-    assertEquals(DEFAULT_UNIT_COST, book.unitCost);
-    assertEquals(DEFAULT_ISBN, book.isbn);
-    assertEquals(DEFAULT_NB_OF_PAGES, book.nbOfPage);
-    assertEquals(DEFAULT_PUBLICATION_DATE, book.publicationDate);
-    assertEquals(DEFAULT_LANGUAGE, book.language);
+    assertEquals(DEFAULT_TITLE, book.getTitle());
+    assertEquals(DEFAULT_DESCRIPTION, book.getDescription());
+    assertEquals(DEFAULT_UNIT_COST, book.getUnitCost());
+    assertEquals(DEFAULT_ISBN, book.getIsbn());
+    assertEquals(DEFAULT_NB_OF_PAGES, book.getNbOfPage());
+    assertEquals(DEFAULT_PUBLICATION_DATE, book.getPublicationDate());
+    assertEquals(DEFAULT_LANGUAGE, book.getLanguage());
 
     // Checks there is an extra book in the database
     assertEquals(nbBooks + 1, bookService.findAllBooks().size());
 
-    bookId = book.id;
+    bookId = book.getId();
   }
 
   @Test
   @Order(3)
   void shouldUpdateAnBook() {
     Book book = new Book();
-    book.id = bookId;
-    book.title = UPDATED_TITLE;
-    book.description = UPDATED_DESCRIPTION;
-    book.unitCost = UPDATED_UNIT_COST;
-    book.isbn = UPDATED_ISBN;
-    book.nbOfPage = UPDATED_NB_OF_PAGES;
-    book.publicationDate = UPDATED_PUBLICATION_DATE;
-    book.language = UPDATED_LANGUAGE;
+    book.setId( bookId);
+    book.setTitle( UPDATED_TITLE);
+    book.setDescription( UPDATED_DESCRIPTION);
+    book.setUnitCost( UPDATED_UNIT_COST);
+    book.setIsbn( UPDATED_ISBN);
+    book.setNbOfPage( UPDATED_NB_OF_PAGES);
+    book.setPublicationDate( UPDATED_PUBLICATION_DATE);
+    book.setLanguage( UPDATED_LANGUAGE);
 
     // Updates the previously created book
     bookService.updateBook(book);
 
     // Checks the book has been updated
     book = bookService.findBookById(bookId).get();
-    assertTrue(book.isPersistent());
-    assertEquals(UPDATED_TITLE, book.title);
-    assertEquals(UPDATED_DESCRIPTION, book.description);
-    assertEquals(UPDATED_UNIT_COST, book.unitCost);
-    assertEquals(UPDATED_ISBN, book.isbn);
-    assertEquals(UPDATED_NB_OF_PAGES, book.nbOfPage);
-    assertEquals(UPDATED_PUBLICATION_DATE, book.publicationDate);
-    assertEquals(UPDATED_LANGUAGE, book.language);
+    assertEquals(UPDATED_TITLE, book.getTitle());
+    assertEquals(UPDATED_DESCRIPTION, book.getDescription());
+    assertEquals(UPDATED_UNIT_COST, book.getUnitCost());
+    assertEquals(UPDATED_ISBN, book.getIsbn());
+    assertEquals(UPDATED_NB_OF_PAGES, book.getNbOfPage());
+    assertEquals(UPDATED_PUBLICATION_DATE, book.getPublicationDate());
+    assertEquals(UPDATED_LANGUAGE, book.getLanguage());
 
     // Checks there is no extra book in the database
     assertEquals(nbBooks + 1, bookService.findAllBooks().size());
@@ -135,7 +132,7 @@ class BookServiceTest {
 
   @Test
   void shouldFindEnglishBooks() {
-    assertEquals(bookService.findAllBooks().size(), bookService.countAll());
+    assertEquals(bookService.findAllBooks().size(), bookService.countAllBooks());
     assertEquals(bookService.findEnglishBooks().size(), bookService.countEnglishBooks());
     assertTrue(bookService.findAllBooks().size() > bookService.findEnglishBooks().size());
   }

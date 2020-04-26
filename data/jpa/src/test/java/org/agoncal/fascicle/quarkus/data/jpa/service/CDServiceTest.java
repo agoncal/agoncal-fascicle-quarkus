@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.jpa.model.CD;
-import org.agoncal.fascicle.quarkus.data.jpa.service.CDService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -61,55 +60,53 @@ class CDServiceTest {
   void shouldAddAnCD() {
     // Persists a cd
     CD cd = new CD();
-    cd.title = DEFAULT_TITLE;
-    cd.description = DEFAULT_DESCRIPTION;
-    cd.unitCost = DEFAULT_UNIT_COST;
-    cd.totalDuration = DEFAULT_TOTAL_DURATION;
-    cd.musicCompany = DEFAULT_MUSIC_COMPANY;
-    cd.genre = DEFAULT_GENRE;
+    cd.setTitle( DEFAULT_TITLE);
+    cd.setDescription( DEFAULT_DESCRIPTION);
+    cd.setUnitCost( DEFAULT_UNIT_COST);
+    cd.setTotalDuration( DEFAULT_TOTAL_DURATION);
+    cd.setMusicCompany( DEFAULT_MUSIC_COMPANY);
+    cd.setGenre( DEFAULT_GENRE);
 
-    assertFalse(cd.isPersistent());
     cd = cdService.persistCD(cd);
 
     // Checks the cd has been created
     assertNotNull(cdId);
-    assertEquals(DEFAULT_TITLE, cd.title);
-    assertEquals(DEFAULT_DESCRIPTION, cd.description);
-    assertEquals(DEFAULT_UNIT_COST, cd.unitCost);
-    assertEquals(DEFAULT_TOTAL_DURATION, cd.totalDuration);
-    assertEquals(DEFAULT_MUSIC_COMPANY, cd.musicCompany);
-    assertEquals(DEFAULT_GENRE, cd.genre);
+    assertEquals(DEFAULT_TITLE, cd.getTitle());
+    assertEquals(DEFAULT_DESCRIPTION, cd.getDescription());
+    assertEquals(DEFAULT_UNIT_COST, cd.getUnitCost());
+    assertEquals(DEFAULT_TOTAL_DURATION, cd.getTotalDuration());
+    assertEquals(DEFAULT_MUSIC_COMPANY, cd.getMusicCompany());
+    assertEquals(DEFAULT_GENRE, cd.getGenre());
 
     // Checks there is an extra cd in the database
     assertEquals(nbCDs + 1, cdService.findAllCDs().size());
 
-    cdId = cd.id;
+    cdId = cd.getId();
   }
 
   @Test
   @Order(3)
   void shouldUpdateAnCD() {
     CD cd = new CD();
-    cd.id = cdId;
-    cd.title = UPDATED_TITLE;
-    cd.description = UPDATED_DESCRIPTION;
-    cd.unitCost = UPDATED_UNIT_COST;
-    cd.totalDuration = UPDATED_TOTAL_DURATION;
-    cd.musicCompany = UPDATED_MUSIC_COMPANY;
-    cd.genre = UPDATED_GENRE;
+    cd.setId( cdId);
+    cd.setTitle( UPDATED_TITLE);
+    cd.setDescription( UPDATED_DESCRIPTION);
+    cd.setUnitCost( UPDATED_UNIT_COST);
+    cd.setTotalDuration( UPDATED_TOTAL_DURATION);
+    cd.setMusicCompany( UPDATED_MUSIC_COMPANY);
+    cd.setGenre( UPDATED_GENRE);
 
     // Updates the previously created cd
     cdService.updateCD(cd);
 
     // Checks the cd has been updated
     cd = cdService.findCDById(cdId).get();
-    assertTrue(cd.isPersistent());
-    assertEquals(UPDATED_TITLE, cd.title);
-    assertEquals(UPDATED_DESCRIPTION, cd.description);
-    assertEquals(UPDATED_UNIT_COST, cd.unitCost);
-    assertEquals(UPDATED_TOTAL_DURATION, cd.totalDuration);
-    assertEquals(UPDATED_MUSIC_COMPANY, cd.musicCompany);
-    assertEquals(UPDATED_GENRE, cd.genre);
+    assertEquals(UPDATED_TITLE, cd.getTitle());
+    assertEquals(UPDATED_DESCRIPTION, cd.getDescription());
+    assertEquals(UPDATED_UNIT_COST, cd.getUnitCost());
+    assertEquals(UPDATED_TOTAL_DURATION, cd.getTotalDuration());
+    assertEquals(UPDATED_MUSIC_COMPANY, cd.getMusicCompany());
+    assertEquals(UPDATED_GENRE, cd.getGenre());
 
     // Checks there is no extra cd in the database
     assertEquals(nbCDs + 1, cdService.findAllCDs().size());

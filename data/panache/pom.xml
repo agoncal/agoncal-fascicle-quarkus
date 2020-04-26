@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.data</groupId>
-  <artifactId>panache-entities</artifactId>
+  <artifactId>panache</artifactId>
   <version>1.0</version>
   <name>Quarkus :: Data, Transactions and ORM :: Panache</name>
 

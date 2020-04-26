@@ -14,46 +14,43 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class CDService {
 
   private static final Logger LOGGER = Logger.getLogger(CDService.class);
 
   @Inject
-  private EntityManager em;
+  EntityManager em;
 
+  @Transactional(REQUIRED)
   public CD persistCD(CD cd) {
-    CD.persist(cd);
+    em.persist(cd);
     return cd;
   }
 
-  @Transactional(SUPPORTS)
   public List<CD> findAllCDs() {
-    return CD.listAll();
+    return em.createQuery("select c from CD c", CD.class).getResultList();
   }
 
-  @Transactional(SUPPORTS)
   public Optional<CD> findCDById(Long id) {
-    return CD.findByIdOptional(id);
+    CD cd = em.find(CD.class, id);
+    return cd != null ? Optional.of(cd) : Optional.empty();
   }
 
+  @Transactional(REQUIRED)
   public CD updateCD(CD cd) {
-    CD entity = CD.findById(cd.id);
-    entity.title = cd.title;
-    entity.description = cd.description;
-    entity.unitCost = cd.unitCost;
-    entity.totalDuration = cd.totalDuration;
-    entity.musicCompany = cd.musicCompany;
-    entity.genre = cd.genre;
-    return entity;
+    return em.merge(cd);
   }
 
+  @Transactional(REQUIRED)
   public void deleteCD(Long id) {
-    CD cd = CD.findById(id);
-    cd.delete();
+    em.remove(em.find(CD.class, id));
   }
 
   public List<CD> findLikeGenre(String genre){
-    return CD.findLikeGenre(genre);
+    List<CD> cds = em.createQuery("SELECT c FROM CD c WHERE c.genre like :genre", CD.class)
+      .setParameter("genre", genre)
+      .getResultList();
+    return cds;
   }
 }

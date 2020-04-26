@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Publisher;
-import org.agoncal.fascicle.quarkus.data.jpa.service.PublisherService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -51,32 +50,32 @@ class PublisherServiceTest {
   void shouldAddAnPublisher() {
     // Persists a publisher
     Publisher publisher = new Publisher();
-    publisher.name = DEFAULT_NAME;
+    publisher.setName(DEFAULT_NAME);
     publisher = publisherService.persistPublisher(publisher);
 
     // Checks the publisher has been created
     assertNotNull(publisherId);
-    assertEquals(DEFAULT_NAME, publisher.name);
+    assertEquals(DEFAULT_NAME, publisher.getName());
 
     // Checks there is an extra publisher in the database
     assertEquals(nbPublishers + 1, publisherService.findAllPublishers().size());
 
-    publisherId = publisher.id;
+    publisherId = publisher.getId();
   }
 
   @Test
   @Order(3)
   void shouldUpdateAnPublisher() {
     Publisher publisher = new Publisher();
-    publisher.id = publisherId;
-    publisher.name = UPDATED_NAME;
+    publisher.setId(publisherId);
+    publisher.setName(UPDATED_NAME);
 
     // Updates the previously created publisher
     publisherService.updatePublisher(publisher);
 
     // Checks the publisher has been updated
     publisher = publisherService.findPublisherById(publisherId).get();
-    assertEquals(UPDATED_NAME, publisher.name);
+    assertEquals(UPDATED_NAME, publisher.getName());
 
     // Checks there is no extra publisher in the database
     assertEquals(nbPublishers + 1, publisherService.findAllPublishers().size());

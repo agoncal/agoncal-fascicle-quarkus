@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQuery;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
@@ -17,6 +18,7 @@ import java.time.Period;
  * http://www.antoniogoncalves.org
  * --
  */
+@NamedQuery(name = "Artist.findByName", query = "SELECT a FROM Author a WHERE a.lastName = :name")
 @MappedSuperclass
 public class Artist {
 
@@ -53,6 +55,14 @@ public class Artist {
     }
 
     age = Period.between(dateOfBirth, LocalDate.now()).getYears();
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getFirstName() {
