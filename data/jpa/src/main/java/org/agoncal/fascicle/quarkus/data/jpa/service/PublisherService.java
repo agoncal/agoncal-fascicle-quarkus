@@ -54,8 +54,9 @@ public class PublisherService {
     return publisher != null ? Optional.of(publisher) : Optional.empty();
   }
 
+  @Transactional(REQUIRED)
   public int deleteByName(String name) {
-    int rowsDeleted = em.createQuery("DELETE FROM Publisher p WHERE p.name = :name ", Publisher.class)
+    int rowsDeleted = em.createQuery("DELETE FROM Publisher p WHERE p.name = :name ")
       .setParameter("name", name)
       .executeUpdate();
     return rowsDeleted;

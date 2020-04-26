@@ -10,7 +10,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -50,9 +49,8 @@ class MusicianServiceTest {
   @Test
   @Order(1)
   void shouldGetInitialMusicians() {
-    List<Musician> musicians = musicianService.findAllMusicians();
-    assertTrue(musicians.size() > 0);
-    nbMusicians = musicians.size();
+    nbMusicians = musicianService.findAllMusicians().size();
+    assertTrue(nbMusicians > 0);
   }
 
   @Test

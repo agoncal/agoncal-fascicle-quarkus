@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -50,9 +49,8 @@ class CDServiceTest {
   @Test
   @Order(1)
   void shouldGetInitialCDs() {
-    List<CD> cds = cdService.findAllCDs();
-    assertTrue(cds.size() > 0);
-    nbCDs = cds.size();
+    nbCDs = cdService.findAllCDs().size();
+    assertTrue(nbCDs > 0);
   }
 
   @Test
@@ -60,12 +58,12 @@ class CDServiceTest {
   void shouldAddAnCD() {
     // Persists a cd
     CD cd = new CD();
-    cd.setTitle( DEFAULT_TITLE);
-    cd.setDescription( DEFAULT_DESCRIPTION);
-    cd.setUnitCost( DEFAULT_UNIT_COST);
-    cd.setTotalDuration( DEFAULT_TOTAL_DURATION);
-    cd.setMusicCompany( DEFAULT_MUSIC_COMPANY);
-    cd.setGenre( DEFAULT_GENRE);
+    cd.setTitle(DEFAULT_TITLE);
+    cd.setDescription(DEFAULT_DESCRIPTION);
+    cd.setUnitCost(DEFAULT_UNIT_COST);
+    cd.setTotalDuration(DEFAULT_TOTAL_DURATION);
+    cd.setMusicCompany(DEFAULT_MUSIC_COMPANY);
+    cd.setGenre(DEFAULT_GENRE);
 
     cd = cdService.persistCD(cd);
 
@@ -88,13 +86,13 @@ class CDServiceTest {
   @Order(3)
   void shouldUpdateAnCD() {
     CD cd = new CD();
-    cd.setId( cdId);
-    cd.setTitle( UPDATED_TITLE);
-    cd.setDescription( UPDATED_DESCRIPTION);
-    cd.setUnitCost( UPDATED_UNIT_COST);
-    cd.setTotalDuration( UPDATED_TOTAL_DURATION);
-    cd.setMusicCompany( UPDATED_MUSIC_COMPANY);
-    cd.setGenre( UPDATED_GENRE);
+    cd.setId(cdId);
+    cd.setTitle(UPDATED_TITLE);
+    cd.setDescription(UPDATED_DESCRIPTION);
+    cd.setUnitCost(UPDATED_UNIT_COST);
+    cd.setTotalDuration(UPDATED_TOTAL_DURATION);
+    cd.setMusicCompany(UPDATED_MUSIC_COMPANY);
+    cd.setGenre(UPDATED_GENRE);
 
     // Updates the previously created cd
     cdService.updateCD(cd);
@@ -124,6 +122,8 @@ class CDServiceTest {
 
   @Test
   void shouldFindGenre() {
+    assertEquals(1, cdService.findLikeGenre("Ja").size());
+    assertEquals(1, cdService.findLikeGenre("zz").size());
     assertEquals(1, cdService.findLikeGenre("Jazz").size());
     assertEquals(4, cdService.findLikeGenre("Pop").size());
     assertEquals(3, cdService.findLikeGenre("Pop Rock").size());

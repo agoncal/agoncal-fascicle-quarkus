@@ -47,9 +47,9 @@ public class CDService {
     em.remove(em.find(CD.class, id));
   }
 
-  public List<CD> findLikeGenre(String genre){
+  public List<CD> findLikeGenre(String genre) {
     List<CD> cds = em.createQuery("SELECT c FROM CD c WHERE c.genre like :genre", CD.class)
-      .setParameter("genre", genre)
+      .setParameter("genre", "%" + genre + "%")
       .getResultList();
     return cds;
   }

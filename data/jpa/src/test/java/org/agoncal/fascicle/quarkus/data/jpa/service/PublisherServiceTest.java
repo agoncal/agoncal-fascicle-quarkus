@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -40,9 +39,8 @@ class PublisherServiceTest {
   @Test
   @Order(1)
   void shouldGetInitialPublishers() {
-    List<Publisher> publishers = publisherService.findAllPublishers();
-    assertTrue(publishers.size() > 0);
-    nbPublishers = publishers.size();
+    nbPublishers = publisherService.findAllPublishers().size();
+    assertTrue(nbPublishers > 0);
   }
 
   @Test
@@ -65,6 +63,16 @@ class PublisherServiceTest {
 
   @Test
   @Order(3)
+  void shouldFindThePublisherByName() {
+    Publisher publisher = publisherService.findByName(DEFAULT_NAME).get();
+
+    // Checks the publisher has been created
+    assertNotNull(publisherId);
+    assertEquals(DEFAULT_NAME, publisher.getName());
+  }
+
+  @Test
+  @Order(4)
   void shouldUpdateAnPublisher() {
     Publisher publisher = new Publisher();
     publisher.setId(publisherId);
@@ -82,7 +90,7 @@ class PublisherServiceTest {
   }
 
   @Test
-  @Order(4)
+  @Order(5)
   void shouldRemoveAPublisher() {
     // Deletes the previously created publisher
     publisherService.deletePublisher(publisherId);
@@ -92,8 +100,10 @@ class PublisherServiceTest {
   }
 
   @Test
-  @Order(5)
-  public void shouldDeleteApress() {
-    assertNotNull(publisherService.findByName("APress"));
+  @Order(6)
+  public void shouldDeleteByName() {
+    assertTrue(publisherService.deleteByName("Wrox Press") == 1);
+    // Checks there is less a publisher in the database
+    assertEquals(nbPublishers - 1, publisherService.findAllPublishers().size());
   }
 }

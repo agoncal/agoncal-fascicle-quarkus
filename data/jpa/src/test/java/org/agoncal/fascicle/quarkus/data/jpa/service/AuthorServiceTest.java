@@ -11,7 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -51,9 +50,8 @@ class AuthorServiceTest {
   @Test
   @Order(1)
   void shouldGetInitialAuthors() {
-    List<Author> authors = authorService.findAllAuthors();
-    assertTrue(authors.size() > 0);
-    nbAuthors = authors.size();
+    nbAuthors = authorService.findAllAuthors().size();
+    assertTrue(nbAuthors > 0);
   }
 
   @Test
@@ -85,14 +83,28 @@ class AuthorServiceTest {
 
   @Test
   @Order(3)
+  void shouldFindTheAuthorByName() {
+    Author author = authorService.findByName(DEFAULT_LAST_NAME).get();
+
+    // Checks the author has been created
+    assertNotNull(authorId);
+    assertEquals(DEFAULT_FIRST_NAME, author.getFirstName());
+    assertEquals(DEFAULT_LAST_NAME, author.getLastName());
+    assertEquals(DEFAULT_BIO, author.getBio());
+    assertEquals(DEFAULT_DATE_OF_BIRTH, author.getDateOfBirth());
+    assertEquals(DEFAULT_LANGUAGE, author.getPreferredLanguage());
+  }
+
+  @Test
+  @Order(4)
   void shouldUpdateAnAuthor() {
     Author author = new Author();
     author.setId(authorId);
-    author.setFirstName( UPDATED_FIRST_NAME);
-    author.setLastName( UPDATED_LAST_NAME);
+    author.setFirstName(UPDATED_FIRST_NAME);
+    author.setLastName(UPDATED_LAST_NAME);
     author.setBio(UPDATED_BIO);
-    author.setDateOfBirth( UPDATED_DATE_OF_BIRTH);
-    author.setPreferredLanguage( UPDATED_LANGUAGE);
+    author.setDateOfBirth(UPDATED_DATE_OF_BIRTH);
+    author.setPreferredLanguage(UPDATED_LANGUAGE);
 
     // Updates the previously created author
     authorService.updateAuthor(author);
@@ -110,7 +122,7 @@ class AuthorServiceTest {
   }
 
   @Test
-  @Order(4)
+  @Order(5)
   void shouldRemoveAnAuthor() {
     // Deletes the previously created author
     authorService.deleteAuthor(authorId);
