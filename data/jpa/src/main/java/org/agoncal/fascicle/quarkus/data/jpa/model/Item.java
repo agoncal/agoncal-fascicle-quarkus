@@ -19,16 +19,16 @@ public class Item {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  protected Long id;
 
   @Column(length = 100)
-  private String title;
+  protected String title;
 
   @Column(length = 3000)
-  private String description;
+  protected String description;
 
   @Column(name = "unit_cost")
-  private Float unitCost;
+  protected Float unitCost;
 
   public Long getId() {
     return id;

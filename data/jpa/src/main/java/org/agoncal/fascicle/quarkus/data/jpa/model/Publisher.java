@@ -17,7 +17,7 @@ public class Publisher {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  protected Long id;
+  private Long id;
 
   @Column(length = 30)
   private String name;
