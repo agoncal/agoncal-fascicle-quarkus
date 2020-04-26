@@ -10,7 +10,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
 import java.time.Instant;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -39,29 +38,40 @@ class BookServiceTest {
   private static final Instant DEFAULT_PUBLICATION_DATE = Instant.ofEpochSecond(1000);
   private static final Instant UPDATED_PUBLICATION_DATE = Instant.ofEpochSecond(5000);
   private static final Language DEFAULT_LANGUAGE = Language.ENGLISH;
-  private static final Language UPDATED_LANGUAGE = Language.CHINESE;
+  private static final Language UPDATED_LANGUAGE = Language.ENGLISH;
 
   private static int nbBooks;
+  private static int nbEnglishBooks;
   private static long bookId;
 
   @Test
   void shouldNotGetUnknownBook() {
     Long randomId = new Random().nextLong();
-    Optional<Book> book = bookService.findBookById(randomId);
+    Optional<Book> book = bookService.findByIdOptional(randomId);
     assertFalse(book.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialBooks() {
-    List<Book> books = bookService.findAllBooks();
-    assertTrue(books.size() > 0);
-    nbBooks = books.size();
+    nbBooks = bookService.findAll().size();
+    long countBooks = bookService.count();
+    assertEquals(nbBooks, countBooks);
+    assertTrue(nbBooks > 0);
   }
 
   @Test
   @Order(2)
-  void shouldAddAnBook() {
+  void shouldGetEnglishBooks() {
+    nbEnglishBooks = bookService.findEnglishBooks().size();
+    long countEnglishBooks = bookService.countEnglishBooks();
+    assertEquals(nbEnglishBooks, countEnglishBooks);
+    assertTrue(nbBooks > nbEnglishBooks);
+  }
+
+  @Test
+  @Order(3)
+  void shouldAddABook() {
     // Persists a book
     Book book = new Book();
     book.title = DEFAULT_TITLE;
@@ -73,7 +83,7 @@ class BookServiceTest {
     book.language = DEFAULT_LANGUAGE;
 
     assertFalse(book.isPersistent());
-    book = bookService.persistBook(book);
+    book = bookService.persist(book);
 
     // Checks the book has been created
     assertNotNull(bookId);
@@ -86,13 +96,14 @@ class BookServiceTest {
     assertEquals(DEFAULT_LANGUAGE, book.language);
 
     // Checks there is an extra book in the database
-    assertEquals(nbBooks + 1, bookService.findAllBooks().size());
+    assertEquals(nbBooks + 1, bookService.findAll().size());
+    assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
 
     bookId = book.id;
   }
 
   @Test
-  @Order(3)
+  @Order(4)
   void shouldUpdateAnBook() {
     Book book = new Book();
     book.id = bookId;
@@ -105,10 +116,10 @@ class BookServiceTest {
     book.language = UPDATED_LANGUAGE;
 
     // Updates the previously created book
-    bookService.updateBook(book);
+    bookService.update(book);
 
     // Checks the book has been updated
-    book = bookService.findBookById(bookId).get();
+    book = bookService.findByIdOptional(bookId).get();
     assertTrue(book.isPersistent());
     assertEquals(UPDATED_TITLE, book.title);
     assertEquals(UPDATED_DESCRIPTION, book.description);
@@ -119,23 +130,18 @@ class BookServiceTest {
     assertEquals(UPDATED_LANGUAGE, book.language);
 
     // Checks there is no extra book in the database
-    assertEquals(nbBooks + 1, bookService.findAllBooks().size());
+    assertEquals(nbBooks + 1, bookService.findAll().size());
+    assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
   }
 
   @Test
-  @Order(4)
-  void shouldRemoveAnBook() {
+  @Order(5)
+  void shouldRemoveABook() {
     // Deletes the previously created book
-    bookService.deleteBook(bookId);
+    bookService.deleteById(bookId);
 
     // Checks there is less a book in the database
-    assertEquals(nbBooks, bookService.findAllBooks().size());
-  }
-
-  @Test
-  void shouldFindEnglishBooks() {
-    assertEquals(bookService.findAllBooks().size(), bookService.countAll());
-    assertEquals(bookService.findEnglishBooks().size(), bookService.countEnglishBooks());
-    assertTrue(bookService.findAllBooks().size() > bookService.findEnglishBooks().size());
+    assertEquals(nbBooks, bookService.findAll().size());
+    assertEquals(nbEnglishBooks, bookService.findEnglishBooks().size());
   }
 }

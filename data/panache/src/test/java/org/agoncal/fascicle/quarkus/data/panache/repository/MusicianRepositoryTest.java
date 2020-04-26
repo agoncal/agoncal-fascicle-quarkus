@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.data.panache.repository;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panache.model.Musician;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled("https://github.com/quarkusio/quarkus/issues/7188")
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MusicianRepositoryTest {
@@ -50,9 +51,8 @@ class MusicianRepositoryTest {
   @Test
   @Order(1)
   void shouldGetInitialMusicians() {
-    List<Musician> musicians = musicianRepository.findAll().list();
-    assertTrue(musicians.size() > 0);
-    nbMusicians = musicians.size();
+    nbMusicians = musicianRepository.findAll().list().size();
+    assertTrue(nbMusicians > 0);
   }
 
   @Test
@@ -76,6 +76,7 @@ class MusicianRepositoryTest {
     assertEquals(DEFAULT_BIO, musician.bio);
     assertEquals(DEFAULT_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(DEFAULT_INSTRUMENT, musician.preferredInstrument);
+    assertTrue(musician.age > 45);
 
     // Checks there is an extra musician in the database
     assertEquals(nbMusicians + 1, musicianRepository.findAll().list().size());
@@ -95,7 +96,7 @@ class MusicianRepositoryTest {
     musician.preferredInstrument = UPDATED_INSTRUMENT;
 
     // Updates the previously created musician
-    musicianRepository.updateMusician(musician);
+    musicianRepository.update(musician);
 
     // Checks the musician has been updated
     musician = musicianRepository.findByIdOptional(musicianId).get();
@@ -105,6 +106,7 @@ class MusicianRepositoryTest {
     assertEquals(UPDATED_BIO, musician.bio);
     assertEquals(UPDATED_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(UPDATED_INSTRUMENT, musician.preferredInstrument);
+    assertTrue(musician.age < 45);
 
     // Checks there is no extra musician in the database
     assertEquals(nbMusicians + 1, musicianRepository.findAll().list().size());
@@ -114,7 +116,7 @@ class MusicianRepositoryTest {
   @Order(4)
   void shouldRemoveAnMusician() {
     // Deletes the previously created musician
-    musicianRepository.delete(musicianRepository.findById(musicianId));
+    musicianRepository.deleteById(musicianId);
 
     // Checks there is less a musician in the database
     assertEquals(nbMusicians, musicianRepository.findAll().list().size());

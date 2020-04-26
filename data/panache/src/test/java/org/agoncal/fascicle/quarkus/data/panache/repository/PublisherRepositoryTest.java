@@ -2,13 +2,13 @@ package org.agoncal.fascicle.quarkus.data.panache.repository;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panache.model.Publisher;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled("https://github.com/quarkusio/quarkus/issues/7188")
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PublisherRepositoryTest {
@@ -40,9 +41,8 @@ class PublisherRepositoryTest {
   @Test
   @Order(1)
   void shouldGetInitialPublishers() {
-    List<Publisher> publishers = publisherRepository.findAll().list();
-    assertTrue(publishers.size() > 0);
-    nbPublishers = publishers.size();
+    nbPublishers = publisherRepository.findAll().list().size();
+    assertTrue(nbPublishers > 0);
   }
 
   @Test
@@ -65,13 +65,23 @@ class PublisherRepositoryTest {
 
   @Test
   @Order(3)
-  void shouldUpdateAnPublisher() {
+  void shouldFindThePublisherByName() {
+    Publisher publisher = publisherRepository.findByName(DEFAULT_NAME).get();
+
+    // Checks the publisher has been created
+    assertNotNull(publisherId);
+    assertEquals(DEFAULT_NAME, publisher.name);
+  }
+
+  @Test
+  @Order(4)
+  void shouldUpdateAPublisher() {
     Publisher publisher = new Publisher();
     publisher.id = publisherId;
     publisher.name = UPDATED_NAME;
 
     // Updates the previously created publisher
-    publisherRepository.updatePublisher(publisher);
+    publisherRepository.update(publisher);
 
     // Checks the publisher has been updated
     publisher = publisherRepository.findByIdOptional(publisherId).get();
@@ -82,18 +92,20 @@ class PublisherRepositoryTest {
   }
 
   @Test
-  @Order(4)
+  @Order(5)
   void shouldRemoveAPublisher() {
     // Deletes the previously created publisher
-    publisherRepository.delete(publisherRepository.findById(publisherId));
+    publisherRepository.deleteById(publisherId);
 
     // Checks there is less a publisher in the database
     assertEquals(nbPublishers, publisherRepository.findAll().list().size());
   }
 
   @Test
-  @Order(5)
-  public void shouldDeleteApress() {
-    assertNotNull(publisherRepository.findByName("APress"));
+  @Order(6)
+  public void shouldDeleteByName() {
+    assertTrue(publisherRepository.deleteByName("Wrox Press") == 1);
+    // Checks there is less a publisher in the database
+    assertEquals(nbPublishers - 1, publisherRepository.findAll().list().size());
   }
 }

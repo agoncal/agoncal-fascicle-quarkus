@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.service;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panache.model.Author;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -12,38 +12,37 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class AuthorService {
 
-  private static final Logger LOGGER = Logger.getLogger(AuthorService.class);
-
-  public Author persistAuthor(Author author) {
+  @Transactional(REQUIRED)
+  public Author persist(Author author) {
     Author.persist(author);
     return author;
   }
 
-  @Transactional(SUPPORTS)
-  public List<Author> findAllAuthors() {
+  public List<Author> findAll() {
     return Author.listAll();
   }
 
-  @Transactional(SUPPORTS)
-  public Optional<Author> findAuthorById(Long id) {
+  public Optional<Author> findByIdOptional(Long id) {
     return Author.findByIdOptional(id);
   }
 
-  public Author updateAuthor(Author author) {
-    Author entity = Author.findById(author.id);
-    entity.firstName = author.firstName;
-    entity.lastName = author.lastName;
-    entity.bio = author.bio;
-    entity.dateOfBirth = author.dateOfBirth;
-    entity.preferredLanguage = author.preferredLanguage;
-    return entity;
+  @Transactional(REQUIRED)
+  public Author update(Author author) {
+    return Panache.getEntityManager().merge(author);
   }
 
-  public void deleteAuthor(Long id) {
-    Author author = Author.findById(id);
-    author.delete();
+  @Transactional(REQUIRED)
+  public void deleteById(Long id) {
+    Author.deleteById(id);
+  }
+
+  public Optional<Author> findByName(String name) {
+    Author author = Panache.getEntityManager().createQuery("SELECT a FROM Author a WHERE a.lastName = :name", Author.class)
+      .setParameter("name", name)
+      .getSingleResult();
+    return author != null ? Optional.of(author) : Optional.empty();
   }
 }

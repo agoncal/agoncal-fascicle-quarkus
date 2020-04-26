@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.CD;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,33 +16,31 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class CDService {
 
-  private static final Logger LOGGER = Logger.getLogger(CDService.class);
-
   @Inject
   EntityManager em;
 
   @Transactional(REQUIRED)
-  public CD persistCD(CD cd) {
+  public CD persist(CD cd) {
     em.persist(cd);
     return cd;
   }
 
-  public List<CD> findAllCDs() {
+  public List<CD> findAll() {
     return em.createQuery("select c from CD c", CD.class).getResultList();
   }
 
-  public Optional<CD> findCDById(Long id) {
+  public Optional<CD> findByIdOptional(Long id) {
     CD cd = em.find(CD.class, id);
     return cd != null ? Optional.of(cd) : Optional.empty();
   }
 
   @Transactional(REQUIRED)
-  public CD updateCD(CD cd) {
+  public CD update(CD cd) {
     return em.merge(cd);
   }
 
   @Transactional(REQUIRED)
-  public void deleteCD(Long id) {
+  public void deleteById(Long id) {
     em.remove(em.find(CD.class, id));
   }
 

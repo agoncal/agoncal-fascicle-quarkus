@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -43,16 +42,15 @@ class CDServiceTest {
   @Test
   void shouldNotGetUnknownCD() {
     Long randomId = new Random().nextLong();
-    Optional<CD> cd = cdService.findCDById(randomId);
+    Optional<CD> cd = cdService.findByIdOptional(randomId);
     assertFalse(cd.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialCDs() {
-    List<CD> cds = cdService.findAllCDs();
-    assertTrue(cds.size() > 0);
-    nbCDs = cds.size();
+    nbCDs = cdService.findAll().size();
+    assertTrue(nbCDs > 0);
   }
 
   @Test
@@ -68,7 +66,7 @@ class CDServiceTest {
     cd.genre = DEFAULT_GENRE;
 
     assertFalse(cd.isPersistent());
-    cd = cdService.persistCD(cd);
+    cd = cdService.persist(cd);
 
     // Checks the cd has been created
     assertNotNull(cdId);
@@ -80,7 +78,7 @@ class CDServiceTest {
     assertEquals(DEFAULT_GENRE, cd.genre);
 
     // Checks there is an extra cd in the database
-    assertEquals(nbCDs + 1, cdService.findAllCDs().size());
+    assertEquals(nbCDs + 1, cdService.findAll().size());
 
     cdId = cd.id;
   }
@@ -98,10 +96,10 @@ class CDServiceTest {
     cd.genre = UPDATED_GENRE;
 
     // Updates the previously created cd
-    cdService.updateCD(cd);
+    cdService.update(cd);
 
     // Checks the cd has been updated
-    cd = cdService.findCDById(cdId).get();
+    cd = cdService.findByIdOptional(cdId).get();
     assertTrue(cd.isPersistent());
     assertEquals(UPDATED_TITLE, cd.title);
     assertEquals(UPDATED_DESCRIPTION, cd.description);
@@ -111,21 +109,23 @@ class CDServiceTest {
     assertEquals(UPDATED_GENRE, cd.genre);
 
     // Checks there is no extra cd in the database
-    assertEquals(nbCDs + 1, cdService.findAllCDs().size());
+    assertEquals(nbCDs + 1, cdService.findAll().size());
   }
 
   @Test
   @Order(4)
   void shouldRemoveAnCD() {
     // Deletes the previously created cd
-    cdService.deleteCD(cdId);
+    cdService.deleteById(cdId);
 
     // Checks there is less a cd in the database
-    assertEquals(nbCDs, cdService.findAllCDs().size());
+    assertEquals(nbCDs, cdService.findAll().size());
   }
 
   @Test
   void shouldFindGenre() {
+    assertEquals(1, cdService.findLikeGenre("Ja").size());
+    assertEquals(1, cdService.findLikeGenre("zz").size());
     assertEquals(1, cdService.findLikeGenre("Jazz").size());
     assertEquals(4, cdService.findLikeGenre("Pop").size());
     assertEquals(3, cdService.findLikeGenre("Pop Rock").size());

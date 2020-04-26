@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.service;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panache.model.CD;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -12,40 +12,31 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class CDService {
 
-  private static final Logger LOGGER = Logger.getLogger(CDService.class);
-
-  public CD persistCD(CD cd) {
+  @Transactional(REQUIRED)
+  public CD persist(CD cd) {
     CD.persist(cd);
     return cd;
   }
 
-  @Transactional(SUPPORTS)
-  public List<CD> findAllCDs() {
+  public List<CD> findAll() {
     return CD.listAll();
   }
 
-  @Transactional(SUPPORTS)
-  public Optional<CD> findCDById(Long id) {
+  public Optional<CD> findByIdOptional(Long id) {
     return CD.findByIdOptional(id);
   }
 
-  public CD updateCD(CD cd) {
-    CD entity = CD.findById(cd.id);
-    entity.title = cd.title;
-    entity.description = cd.description;
-    entity.unitCost = cd.unitCost;
-    entity.totalDuration = cd.totalDuration;
-    entity.musicCompany = cd.musicCompany;
-    entity.genre = cd.genre;
-    return entity;
+  @Transactional(REQUIRED)
+  public CD update(CD cd) {
+    return Panache.getEntityManager().merge(cd);
   }
 
-  public void deleteCD(Long id) {
-    CD cd = CD.findById(id);
-    cd.delete();
+  @Transactional(REQUIRED)
+  public void deleteById(Long id) {
+    CD.deleteById(id);
   }
 
   public List<CD> findLikeGenre(String genre){

@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.Publisher;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,33 +16,31 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class PublisherService {
 
-  private static final Logger LOGGER = Logger.getLogger(PublisherService.class);
-
   @Inject
   EntityManager em;
 
   @Transactional(REQUIRED)
-  public Publisher persistPublisher(Publisher publisher) {
+  public Publisher persist(Publisher publisher) {
     em.persist(publisher);
     return publisher;
   }
 
-  public List<Publisher> findAllPublishers() {
+  public List<Publisher> findAll() {
     return em.createQuery("select p from Publisher p", Publisher.class).getResultList();
   }
 
-  public Optional<Publisher> findPublisherById(Long id) {
+  public Optional<Publisher> findByIdOptional(Long id) {
     Publisher publisher = em.find(Publisher.class, id);
     return publisher != null ? Optional.of(publisher) : Optional.empty();
   }
 
   @Transactional(REQUIRED)
-  public Publisher updatePublisher(Publisher publisher) {
+  public Publisher update(Publisher publisher) {
     return em.merge(publisher);
   }
 
   @Transactional(REQUIRED)
-  public void deletePublisher(Long id) {
+  public void deleteById(Long id) {
     em.remove(em.find(Publisher.class, id));
   }
 

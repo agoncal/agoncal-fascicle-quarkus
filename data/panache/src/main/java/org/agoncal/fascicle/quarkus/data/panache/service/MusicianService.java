@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.service;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panache.model.Musician;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -12,38 +12,30 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class MusicianService {
 
-  private static final Logger LOGGER = Logger.getLogger(MusicianService.class);
-
-  public Musician persistMusician(Musician musician) {
+  @Transactional(REQUIRED)
+  public Musician persist(Musician musician) {
     Musician.persist(musician);
     return musician;
   }
 
-  @Transactional(SUPPORTS)
-  public List<Musician> findAllMusicians() {
+  public List<Musician> findAll() {
     return Musician.listAll();
   }
 
-  @Transactional(SUPPORTS)
-  public Optional<Musician> findMusicianById(Long id) {
+  public Optional<Musician> findByIdOptional(Long id) {
     return Musician.findByIdOptional(id);
   }
 
-  public Musician updateMusician(Musician musician) {
-    Musician entity = Musician.findById(musician.id);
-    entity.firstName = musician.firstName;
-    entity.lastName = musician.lastName;
-    entity.bio = musician.bio;
-    entity.dateOfBirth = musician.dateOfBirth;
-    entity.preferredInstrument = musician.preferredInstrument;
-    return entity;
+  @Transactional(REQUIRED)
+  public Musician update(Musician musician) {
+    return Panache.getEntityManager().merge(musician);
   }
 
-  public void deleteMusician(Long id) {
-    Musician musician = Musician.findById(id);
-    musician.delete();
+  @Transactional(REQUIRED)
+  public void deleteById(Long id) {
+    Musician.deleteById(id);
   }
 }

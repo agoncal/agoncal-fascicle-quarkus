@@ -42,14 +42,14 @@ class CDServiceTest {
   @Test
   void shouldNotGetUnknownCD() {
     Long randomId = new Random().nextLong();
-    Optional<CD> cd = cdService.findCDById(randomId);
+    Optional<CD> cd = cdService.findByIdOptional(randomId);
     assertFalse(cd.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialCDs() {
-    nbCDs = cdService.findAllCDs().size();
+    nbCDs = cdService.findAll().size();
     assertTrue(nbCDs > 0);
   }
 
@@ -65,7 +65,7 @@ class CDServiceTest {
     cd.setMusicCompany(DEFAULT_MUSIC_COMPANY);
     cd.setGenre(DEFAULT_GENRE);
 
-    cd = cdService.persistCD(cd);
+    cd = cdService.persist(cd);
 
     // Checks the cd has been created
     assertNotNull(cdId);
@@ -77,7 +77,7 @@ class CDServiceTest {
     assertEquals(DEFAULT_GENRE, cd.getGenre());
 
     // Checks there is an extra cd in the database
-    assertEquals(nbCDs + 1, cdService.findAllCDs().size());
+    assertEquals(nbCDs + 1, cdService.findAll().size());
 
     cdId = cd.getId();
   }
@@ -95,10 +95,10 @@ class CDServiceTest {
     cd.setGenre(UPDATED_GENRE);
 
     // Updates the previously created cd
-    cdService.updateCD(cd);
+    cdService.update(cd);
 
     // Checks the cd has been updated
-    cd = cdService.findCDById(cdId).get();
+    cd = cdService.findByIdOptional(cdId).get();
     assertEquals(UPDATED_TITLE, cd.getTitle());
     assertEquals(UPDATED_DESCRIPTION, cd.getDescription());
     assertEquals(UPDATED_UNIT_COST, cd.getUnitCost());
@@ -107,17 +107,17 @@ class CDServiceTest {
     assertEquals(UPDATED_GENRE, cd.getGenre());
 
     // Checks there is no extra cd in the database
-    assertEquals(nbCDs + 1, cdService.findAllCDs().size());
+    assertEquals(nbCDs + 1, cdService.findAll().size());
   }
 
   @Test
   @Order(4)
   void shouldRemoveAnCD() {
     // Deletes the previously created cd
-    cdService.deleteCD(cdId);
+    cdService.deleteById(cdId);
 
     // Checks there is less a cd in the database
-    assertEquals(nbCDs, cdService.findAllCDs().size());
+    assertEquals(nbCDs, cdService.findAll().size());
   }
 
   @Test

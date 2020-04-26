@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -33,16 +32,15 @@ class PublisherServiceTest {
   @Test
   void shouldNotGetUnknownPublisher() {
     Long randomId = new Random().nextLong();
-    Optional<Publisher> publisher = publisherService.findPublisherById(randomId);
+    Optional<Publisher> publisher = publisherService.findByIdOptional(randomId);
     assertFalse(publisher.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialPublishers() {
-    List<Publisher> publishers = publisherService.findAllPublishers();
-    assertTrue(publishers.size() > 0);
-    nbPublishers = publishers.size();
+    nbPublishers = publisherService.findAll().size();
+    assertTrue(nbPublishers > 0);
   }
 
   @Test
@@ -51,49 +49,61 @@ class PublisherServiceTest {
     // Persists a publisher
     Publisher publisher = new Publisher();
     publisher.name = DEFAULT_NAME;
-    publisher = publisherService.persistPublisher(publisher);
+    publisher = publisherService.persist(publisher);
 
     // Checks the publisher has been created
     assertNotNull(publisherId);
     assertEquals(DEFAULT_NAME, publisher.name);
 
     // Checks there is an extra publisher in the database
-    assertEquals(nbPublishers + 1, publisherService.findAllPublishers().size());
+    assertEquals(nbPublishers + 1, publisherService.findAll().size());
 
     publisherId = publisher.id;
   }
 
   @Test
   @Order(3)
-  void shouldUpdateAnPublisher() {
+  void shouldFindThePublisherByName() {
+    Publisher publisher = publisherService.findByName(DEFAULT_NAME).get();
+
+    // Checks the publisher has been created
+    assertNotNull(publisherId);
+    assertEquals(DEFAULT_NAME, publisher.name);
+  }
+
+  @Test
+  @Order(4)
+  void shouldUpdateAPublisher() {
     Publisher publisher = new Publisher();
     publisher.id = publisherId;
     publisher.name = UPDATED_NAME;
 
     // Updates the previously created publisher
-    publisherService.updatePublisher(publisher);
+    publisherService.update(publisher);
 
     // Checks the publisher has been updated
-    publisher = publisherService.findPublisherById(publisherId).get();
+    publisher = publisherService.findByIdOptional(publisherId).get();
     assertEquals(UPDATED_NAME, publisher.name);
 
     // Checks there is no extra publisher in the database
-    assertEquals(nbPublishers + 1, publisherService.findAllPublishers().size());
-  }
-
-  @Test
-  @Order(4)
-  void shouldRemoveAPublisher() {
-    // Deletes the previously created publisher
-    publisherService.deletePublisher(publisherId);
-
-    // Checks there is less a publisher in the database
-    assertEquals(nbPublishers, publisherService.findAllPublishers().size());
+    assertEquals(nbPublishers + 1, publisherService.findAll().size());
   }
 
   @Test
   @Order(5)
-  public void shouldDeleteApress() {
-    assertNotNull(publisherService.findByName("APress"));
+  void shouldRemoveAPublisher() {
+    // Deletes the previously created publisher
+    publisherService.deleteById(publisherId);
+
+    // Checks there is less a publisher in the database
+    assertEquals(nbPublishers, publisherService.findAll().size());
+  }
+
+  @Test
+  @Order(6)
+  public void shouldDeleteByName() {
+    assertTrue(publisherService.deleteByName("Wrox Press") == 1);
+    // Checks there is less a publisher in the database
+    assertEquals(nbPublishers - 1, publisherService.findAll().size());
   }
 }

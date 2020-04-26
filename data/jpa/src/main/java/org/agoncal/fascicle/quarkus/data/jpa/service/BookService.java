@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Language;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -18,37 +17,35 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class BookService {
 
-  private static final Logger LOGGER = Logger.getLogger(BookService.class);
-
   @Inject
   EntityManager em;
 
   @Transactional(REQUIRED)
-  public Book persistBook(Book book) {
+  public Book persist(Book book) {
     em.persist(book);
     return book;
   }
 
-  public List<Book> findAllBooks() {
+  public List<Book> findAll() {
     return em.createQuery("select b from Book b", Book.class).getResultList();
   }
 
-  public Optional<Book> findBookById(Long id) {
+  public Optional<Book> findByIdOptional(Long id) {
     Book book = em.find(Book.class, id);
     return book != null ? Optional.of(book) : Optional.empty();
   }
 
   @Transactional(REQUIRED)
-  public Book updateBook(Book book) {
+  public Book update(Book book) {
     return em.merge(book);
   }
 
   @Transactional(REQUIRED)
-  public void deleteBook(Long id) {
+  public void deleteById(Long id) {
     em.remove(em.find(Book.class, id));
   }
 
-  public long countAllBooks() {
+  public long count() {
     return em.createQuery("select count(b) from Book b", Long.class).getSingleResult();
   }
 

@@ -11,7 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -44,16 +43,15 @@ class AuthorServiceTest {
   @Test
   void shouldNotGetUnknownAuthor() {
     Long randomId = new Random().nextLong();
-    Optional<Author> author = authorService.findAuthorById(randomId);
+    Optional<Author> author = authorService.findByIdOptional(randomId);
     assertFalse(author.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialAuthors() {
-    List<Author> authors = authorService.findAllAuthors();
-    assertTrue(authors.size() > 0);
-    nbAuthors = authors.size();
+    nbAuthors = authorService.findAll().size();
+    assertTrue(nbAuthors > 0);
   }
 
   @Test
@@ -68,7 +66,7 @@ class AuthorServiceTest {
     author.preferredLanguage = DEFAULT_LANGUAGE;
 
     assertFalse(author.isPersistent());
-    author = authorService.persistAuthor(author);
+    author = authorService.persist(author);
 
     // Checks the author has been created
     assertNotNull(authorId);
@@ -77,15 +75,31 @@ class AuthorServiceTest {
     assertEquals(DEFAULT_BIO, author.bio);
     assertEquals(DEFAULT_DATE_OF_BIRTH, author.dateOfBirth);
     assertEquals(DEFAULT_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age > 45);
 
     // Checks there is an extra author in the database
-    assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors + 1, authorService.findAll().size());
 
     authorId = author.id;
   }
 
   @Test
   @Order(3)
+  void shouldFindTheAuthorByName() {
+    Author author = authorService.findByName(DEFAULT_LAST_NAME).get();
+
+    // Checks the author has been created
+    assertNotNull(authorId);
+    assertEquals(DEFAULT_FIRST_NAME, author.firstName);
+    assertEquals(DEFAULT_LAST_NAME, author.lastName);
+    assertEquals(DEFAULT_BIO, author.bio);
+    assertEquals(DEFAULT_DATE_OF_BIRTH, author.dateOfBirth);
+    assertEquals(DEFAULT_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age > 45);
+  }
+
+  @Test
+  @Order(4)
   void shouldUpdateAnAuthor() {
     Author author = new Author();
     author.id = authorId;
@@ -96,28 +110,29 @@ class AuthorServiceTest {
     author.preferredLanguage = UPDATED_LANGUAGE;
 
     // Updates the previously created author
-    authorService.updateAuthor(author);
+    authorService.update(author);
 
     // Checks the author has been updated
-    author = authorService.findAuthorById(authorId).get();
+    author = authorService.findByIdOptional(authorId).get();
     assertTrue(author.isPersistent());
     assertEquals(UPDATED_FIRST_NAME, author.firstName);
     assertEquals(UPDATED_LAST_NAME, author.lastName);
     assertEquals(UPDATED_BIO, author.bio);
     assertEquals(UPDATED_DATE_OF_BIRTH, author.dateOfBirth);
     assertEquals(UPDATED_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age < 45);
 
     // Checks there is no extra author in the database
-    assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors + 1, authorService.findAll().size());
   }
 
   @Test
-  @Order(4)
+  @Order(5)
   void shouldRemoveAnAuthor() {
     // Deletes the previously created author
-    authorService.deleteAuthor(authorId);
+    authorService.deleteById(authorId);
 
     // Checks there is less a author in the database
-    assertEquals(nbAuthors, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors, authorService.findAll().size());
   }
 }

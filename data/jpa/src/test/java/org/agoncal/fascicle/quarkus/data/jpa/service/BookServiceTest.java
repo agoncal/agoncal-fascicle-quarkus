@@ -47,15 +47,15 @@ class BookServiceTest {
   @Test
   void shouldNotGetUnknownBook() {
     Long randomId = new Random().nextLong();
-    Optional<Book> book = bookService.findBookById(randomId);
+    Optional<Book> book = bookService.findByIdOptional(randomId);
     assertFalse(book.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialBooks() {
-    nbBooks = bookService.findAllBooks().size();
-    long countBooks = bookService.countAllBooks();
+    nbBooks = bookService.findAll().size();
+    long countBooks = bookService.count();
     assertEquals(nbBooks, countBooks);
     assertTrue(nbBooks > 0);
   }
@@ -82,7 +82,7 @@ class BookServiceTest {
     book.setPublicationDate(DEFAULT_PUBLICATION_DATE);
     book.setLanguage(DEFAULT_LANGUAGE);
 
-    book = bookService.persistBook(book);
+    book = bookService.persist(book);
 
     // Checks the book has been created
     assertNotNull(bookId);
@@ -95,7 +95,7 @@ class BookServiceTest {
     assertEquals(DEFAULT_LANGUAGE, book.getLanguage());
 
     // Checks there is an extra book in the database
-    assertEquals(nbBooks + 1, bookService.findAllBooks().size());
+    assertEquals(nbBooks + 1, bookService.findAll().size());
     assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
 
     bookId = book.getId();
@@ -115,10 +115,10 @@ class BookServiceTest {
     book.setLanguage(UPDATED_LANGUAGE);
 
     // Updates the previously created book
-    bookService.updateBook(book);
+    bookService.update(book);
 
     // Checks the book has been updated
-    book = bookService.findBookById(bookId).get();
+    book = bookService.findByIdOptional(bookId).get();
     assertEquals(UPDATED_TITLE, book.getTitle());
     assertEquals(UPDATED_DESCRIPTION, book.getDescription());
     assertEquals(UPDATED_UNIT_COST, book.getUnitCost());
@@ -128,7 +128,7 @@ class BookServiceTest {
     assertEquals(UPDATED_LANGUAGE, book.getLanguage());
 
     // Checks there is no extra book in the database
-    assertEquals(nbBooks + 1, bookService.findAllBooks().size());
+    assertEquals(nbBooks + 1, bookService.findAll().size());
     assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
   }
 
@@ -136,10 +136,10 @@ class BookServiceTest {
   @Order(5)
   void shouldRemoveABook() {
     // Deletes the previously created book
-    bookService.deleteBook(bookId);
+    bookService.deleteById(bookId);
 
     // Checks there is less a book in the database
-    assertEquals(nbBooks, bookService.findAllBooks().size());
+    assertEquals(nbBooks, bookService.findAll().size());
     assertEquals(nbEnglishBooks, bookService.findEnglishBooks().size());
   }
 }

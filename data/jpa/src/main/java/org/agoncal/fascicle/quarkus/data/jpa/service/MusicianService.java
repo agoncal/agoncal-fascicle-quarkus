@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.Musician;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,33 +16,31 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class MusicianService {
 
-  private static final Logger LOGGER = Logger.getLogger(MusicianService.class);
-
   @Inject
   EntityManager em;
 
   @Transactional(REQUIRED)
-  public Musician persistMusician(Musician musician) {
+  public Musician persist(Musician musician) {
     em.persist(musician);
     return musician;
   }
 
-  public List<Musician> findAllMusicians() {
+  public List<Musician> findAll() {
     return em.createQuery("select m from Musician m", Musician.class).getResultList();
   }
 
-  public Optional<Musician> findMusicianById(Long id) {
+  public Optional<Musician> findByIdOptional(Long id) {
     Musician musician = em.find(Musician.class, id);
     return musician != null ? Optional.of(musician) : Optional.empty();
   }
 
   @Transactional(REQUIRED)
-  public Musician updateMusician(Musician musician) {
+  public Musician update(Musician musician) {
     return em.merge(musician);
   }
 
   @Transactional(REQUIRED)
-  public void deleteMusician(Long id) {
+  public void deleteById(Long id) {
     em.remove(em.find(Musician.class, id));
   }
 }

@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.data.panache.repository;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panache.model.Author;
 import org.agoncal.fascicle.quarkus.data.panache.model.Language;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled("https://github.com/quarkusio/quarkus/issues/7188")
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class AuthorRepositoryTest {
@@ -51,9 +52,8 @@ class AuthorRepositoryTest {
   @Test
   @Order(1)
   void shouldGetInitialAuthors() {
-    List<Author> authors = authorRepository.findAll().list();
-    assertTrue(authors.size() > 0);
-    nbAuthors = authors.size();
+    nbAuthors = authorRepository.findAll().list().size();
+    assertTrue(nbAuthors > 0);
   }
 
   @Test
@@ -77,6 +77,7 @@ class AuthorRepositoryTest {
     assertEquals(DEFAULT_BIO, author.bio);
     assertEquals(DEFAULT_DATE_OF_BIRTH, author.dateOfBirth);
     assertEquals(DEFAULT_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age > 45);
 
     // Checks there is an extra author in the database
     assertEquals(nbAuthors + 1, authorRepository.findAll().list().size());
@@ -86,6 +87,21 @@ class AuthorRepositoryTest {
 
   @Test
   @Order(3)
+  void shouldFindTheAuthorByName() {
+    Author author = authorRepository.findByName(DEFAULT_LAST_NAME).get();
+
+    // Checks the author has been created
+    assertNotNull(authorId);
+    assertEquals(DEFAULT_FIRST_NAME, author.firstName);
+    assertEquals(DEFAULT_LAST_NAME, author.lastName);
+    assertEquals(DEFAULT_BIO, author.bio);
+    assertEquals(DEFAULT_DATE_OF_BIRTH, author.dateOfBirth);
+    assertEquals(DEFAULT_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age > 45);
+  }
+
+  @Test
+  @Order(4)
   void shouldUpdateAnAuthor() {
     Author author = new Author();
     author.id = authorId;
@@ -96,7 +112,7 @@ class AuthorRepositoryTest {
     author.preferredLanguage = UPDATED_LANGUAGE;
 
     // Updates the previously created author
-    authorRepository.updateAuthor(author);
+    authorRepository.update(author);
 
     // Checks the author has been updated
     author = authorRepository.findByIdOptional(authorId).get();
@@ -106,16 +122,17 @@ class AuthorRepositoryTest {
     assertEquals(UPDATED_BIO, author.bio);
     assertEquals(UPDATED_DATE_OF_BIRTH, author.dateOfBirth);
     assertEquals(UPDATED_LANGUAGE, author.preferredLanguage);
+    assertTrue(author.age < 45);
 
     // Checks there is no extra author in the database
     assertEquals(nbAuthors + 1, authorRepository.findAll().list().size());
   }
 
   @Test
-  @Order(4)
+  @Order(5)
   void shouldRemoveAnAuthor() {
     // Deletes the previously created author
-    authorRepository.delete(authorRepository.findById(authorId));
+    authorRepository.deleteById(authorId);
 
     // Checks there is less a author in the database
     assertEquals(nbAuthors, authorRepository.findAll().list().size());

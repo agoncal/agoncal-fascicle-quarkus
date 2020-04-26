@@ -1,31 +1,29 @@
 package org.agoncal.fascicle.quarkus.data.panache.repository;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import org.agoncal.fascicle.quarkus.data.panache.model.Publisher;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
 public class PublisherRepository implements PanacheRepository<Publisher> {
 
-  private static final Logger LOGGER = Logger.getLogger(PublisherRepository.class);
-
-  public Publisher updatePublisher(Publisher publisher) {
-    Publisher entity = Publisher.findById(publisher.id);
-    entity.name = publisher.name;
-    return entity;
+  @Transactional(REQUIRED)
+  public Publisher update(Publisher publisher) {
+    return Panache.getEntityManager().merge(publisher);
   }
 
-  public Publisher findByName(String name) {
+  public Optional<Publisher> findByName(String name) {
     return Publisher.findByName(name);
   }
 
-  public void deleteAPress() {
-    Publisher.deleteAPress();
+  @Transactional(REQUIRED)
+  public long deleteByName(String name) {
+    return Publisher.deleteByName(name);
   }
 }

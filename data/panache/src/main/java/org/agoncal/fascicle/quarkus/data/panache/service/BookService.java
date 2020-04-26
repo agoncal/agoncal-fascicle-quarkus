@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.service;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panache.model.Book;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -12,41 +12,35 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class BookService {
 
-  private static final Logger LOGGER = Logger.getLogger(BookService.class);
-
-  public Book persistBook(Book book) {
+  @Transactional(REQUIRED)
+  public Book persist(Book book) {
     Book.persist(book);
     return book;
   }
 
-  @Transactional(SUPPORTS)
-  public List<Book> findAllBooks() {
+  public List<Book> findAll() {
     return Book.listAll();
   }
 
-  @Transactional(SUPPORTS)
-  public Optional<Book> findBookById(Long id) {
+  public Optional<Book> findByIdOptional(Long id) {
     return Book.findByIdOptional(id);
   }
 
-  public Book updateBook(Book book) {
-    Book entity = Book.findById(book.id);
-    entity.title = book.title;
-    entity.description = book.description;
-    entity.unitCost = book.unitCost;
-    entity.isbn = book.isbn;
-    entity.nbOfPage = book.nbOfPage;
-    entity.publicationDate = book.publicationDate;
-    entity.language = book.language;
-    return entity;
+  @Transactional(REQUIRED)
+  public Book update(Book book) {
+    return Panache.getEntityManager().merge(book);
   }
 
-  public void deleteBook(Long id) {
-    Book book = Book.findById(id);
-    book.delete();
+  @Transactional(REQUIRED)
+  public void deleteById(Long id) {
+    Book.deleteById(id);
+  }
+
+  public long count() {
+    return Book.count();
   }
 
   public List<Book> findEnglishBooks(){
@@ -55,9 +49,5 @@ public class BookService {
 
   public long countEnglishBooks(){
     return Book.countEnglishBooks();
-  }
-
-  public long countAll() {
-    return Book.count();
   }
 }

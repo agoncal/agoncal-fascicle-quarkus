@@ -2,13 +2,13 @@ package org.agoncal.fascicle.quarkus.data.panache.repository;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panache.model.CD;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled("https://github.com/quarkusio/quarkus/issues/7188")
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CDRepositoryTest {
@@ -50,9 +51,8 @@ class CDRepositoryTest {
   @Test
   @Order(1)
   void shouldGetInitialCDs() {
-    List<CD> cds = cdRepository.findAll().list();
-    assertTrue(cds.size() > 0);
-    nbCDs = cds.size();
+    nbCDs = cdRepository.findAll().list().size();
+    assertTrue(nbCDs > 0);
   }
 
   @Test
@@ -98,7 +98,7 @@ class CDRepositoryTest {
     cd.genre = UPDATED_GENRE;
 
     // Updates the previously created cd
-    cdRepository.updateCD(cd);
+    cdRepository.update(cd);
 
     // Checks the cd has been updated
     cd = cdRepository.findByIdOptional(cdId).get();
@@ -118,7 +118,7 @@ class CDRepositoryTest {
   @Order(4)
   void shouldRemoveAnCD() {
     // Deletes the previously created cd
-    cdRepository.delete(cdRepository.findById(cdId));
+    cdRepository.deleteById(cdId);
 
     // Checks there is less a cd in the database
     assertEquals(nbCDs, cdRepository.findAll().list().size());
@@ -126,6 +126,8 @@ class CDRepositoryTest {
 
   @Test
   void shouldFindGenre() {
+    assertEquals(1, cdRepository.findLikeGenre("Ja").size());
+    assertEquals(1, cdRepository.findLikeGenre("zz").size());
     assertEquals(1, cdRepository.findLikeGenre("Jazz").size());
     assertEquals(4, cdRepository.findLikeGenre("Pop").size());
     assertEquals(3, cdRepository.findLikeGenre("Pop Rock").size());

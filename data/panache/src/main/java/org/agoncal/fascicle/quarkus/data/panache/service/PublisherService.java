@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.service;
 
+import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panache.model.Publisher;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -12,42 +12,39 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(SUPPORTS)
 public class PublisherService {
 
-  private static final Logger LOGGER = Logger.getLogger(PublisherService.class);
-
-  public Publisher persistPublisher(Publisher publisher) {
+  @Transactional(REQUIRED)
+  public Publisher persist(Publisher publisher) {
     Publisher.persist(publisher);
     return publisher;
   }
 
-  @Transactional(SUPPORTS)
-  public List<Publisher> findAllPublishers() {
+  public List<Publisher> findAll() {
     return Publisher.listAll();
   }
 
-  @Transactional(SUPPORTS)
-  public Optional<Publisher> findPublisherById(Long id) {
+  public Optional<Publisher> findByIdOptional(Long id) {
     return Publisher.findByIdOptional(id);
   }
 
-  public Publisher updatePublisher(Publisher publisher) {
-    Publisher entity = Publisher.findById(publisher.id);
-    entity.name = publisher.name;
-    return entity;
+  @Transactional(REQUIRED)
+  public Publisher update(Publisher publisher) {
+    return Panache.getEntityManager().merge(publisher);
   }
 
-  public void deletePublisher(Long id) {
-    Publisher publisher = Publisher.findById(id);
-    publisher.delete();
+  @Transactional(REQUIRED)
+  public void deleteById(Long id) {
+    Publisher.deleteById(id);
   }
 
-  public Publisher findByName(String name) {
+  public Optional<Publisher> findByName(String name) {
     return Publisher.findByName(name);
   }
 
-  public void deleteAPress() {
-    Publisher.deleteAPress();
+  @Transactional(REQUIRED)
+  public long deleteByName(String name) {
+    return Publisher.deleteByName(name);
   }
 }

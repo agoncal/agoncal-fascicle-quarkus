@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.data.panache.repository;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panache.model.Book;
 import org.agoncal.fascicle.quarkus.data.panache.model.Language;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import javax.inject.Inject;
 import java.time.Instant;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Disabled("https://github.com/quarkusio/quarkus/issues/7188")
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BookRepositoryTest {
@@ -42,6 +43,7 @@ class BookRepositoryTest {
   private static final Language UPDATED_LANGUAGE = Language.CHINESE;
 
   private static int nbBooks;
+  private static int nbEnglishBooks;
   private static long bookId;
 
   @Test
@@ -54,14 +56,24 @@ class BookRepositoryTest {
   @Test
   @Order(1)
   void shouldGetInitialBooks() {
-    List<Book> books = bookRepository.findAll().list();
-    assertTrue(books.size() > 0);
-    nbBooks = books.size();
+    nbBooks = bookRepository.findAll().list().size();
+    long countBooks = bookRepository.count();
+    assertEquals(nbBooks, countBooks);
+    assertTrue(nbBooks > 0);
   }
 
   @Test
   @Order(2)
-  void shouldAddAnBook() {
+  void shouldGetEnglishBooks() {
+    nbEnglishBooks = bookRepository.findEnglishBooks().size();
+    long countEnglishBooks = bookRepository.countEnglishBooks();
+    assertEquals(nbEnglishBooks, countEnglishBooks);
+    assertTrue(nbBooks > nbEnglishBooks);
+  }
+
+  @Test
+  @Order(3)
+  void shouldAddABook() {
     // Persists a book
     Book book = new Book();
     book.title = DEFAULT_TITLE;
@@ -87,12 +99,13 @@ class BookRepositoryTest {
 
     // Checks there is an extra book in the database
     assertEquals(nbBooks + 1, bookRepository.findAll().list().size());
+    assertEquals(nbEnglishBooks + 1, bookRepository.findEnglishBooks().size());
 
     bookId = book.id;
   }
 
   @Test
-  @Order(3)
+  @Order(4)
   void shouldUpdateAnBook() {
     Book book = new Book();
     book.id = bookId;
@@ -105,7 +118,7 @@ class BookRepositoryTest {
     book.language = UPDATED_LANGUAGE;
 
     // Updates the previously created book
-    bookRepository.updateBook(book);
+    bookRepository.update(book);
 
     // Checks the book has been updated
     book = bookRepository.findByIdOptional(bookId).get();
@@ -120,22 +133,17 @@ class BookRepositoryTest {
 
     // Checks there is no extra book in the database
     assertEquals(nbBooks + 1, bookRepository.findAll().list().size());
+    assertEquals(nbEnglishBooks + 1, bookRepository.findEnglishBooks().size());
   }
 
   @Test
-  @Order(4)
-  void shouldRemoveAnBook() {
+  @Order(5)
+  void shouldRemoveABook() {
     // Deletes the previously created book
-    bookRepository.delete(bookRepository.findById(bookId));
+    bookRepository.deleteById(bookId);
 
     // Checks there is less a book in the database
     assertEquals(nbBooks, bookRepository.findAll().list().size());
-  }
-
-  @Test
-  void shouldFindEnglishBooks() {
-    assertEquals(bookRepository.findAll().list().size(), bookRepository.countAll());
-    assertEquals(bookRepository.findEnglishBooks().size(), bookRepository.countEnglishBooks());
-    assertTrue(bookRepository.findAll().list().size() > bookRepository.findEnglishBooks().size());
+    assertEquals(nbEnglishBooks, bookRepository.findEnglishBooks().size());
   }
 }

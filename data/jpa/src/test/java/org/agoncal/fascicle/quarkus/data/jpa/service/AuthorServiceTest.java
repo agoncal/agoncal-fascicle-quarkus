@@ -43,14 +43,14 @@ class AuthorServiceTest {
   @Test
   void shouldNotGetUnknownAuthor() {
     Long randomId = new Random().nextLong();
-    Optional<Author> author = authorService.findAuthorById(randomId);
+    Optional<Author> author = authorService.findByIdOptional(randomId);
     assertFalse(author.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialAuthors() {
-    nbAuthors = authorService.findAllAuthors().size();
+    nbAuthors = authorService.findAll().size();
     assertTrue(nbAuthors > 0);
   }
 
@@ -65,7 +65,7 @@ class AuthorServiceTest {
     author.setDateOfBirth(DEFAULT_DATE_OF_BIRTH);
     author.setPreferredLanguage(DEFAULT_LANGUAGE);
 
-    author = authorService.persistAuthor(author);
+    author = authorService.persist(author);
 
     // Checks the author has been created
     assertNotNull(authorId);
@@ -77,7 +77,7 @@ class AuthorServiceTest {
     assertTrue(author.getAge() > 45);
 
     // Checks there is an extra author in the database
-    assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors + 1, authorService.findAll().size());
 
     authorId = author.getId();
   }
@@ -109,10 +109,10 @@ class AuthorServiceTest {
     author.setPreferredLanguage(UPDATED_LANGUAGE);
 
     // Updates the previously created author
-    authorService.updateAuthor(author);
+    authorService.update(author);
 
     // Checks the author has been updated
-    author = authorService.findAuthorById(authorId).get();
+    author = authorService.findByIdOptional(authorId).get();
     assertEquals(UPDATED_FIRST_NAME, author.getFirstName());
     assertEquals(UPDATED_LAST_NAME, author.getLastName());
     assertEquals(UPDATED_BIO, author.getBio());
@@ -121,16 +121,16 @@ class AuthorServiceTest {
     assertTrue(author.getAge() < 45);
 
     // Checks there is no extra author in the database
-    assertEquals(nbAuthors + 1, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors + 1, authorService.findAll().size());
   }
 
   @Test
   @Order(5)
   void shouldRemoveAnAuthor() {
     // Deletes the previously created author
-    authorService.deleteAuthor(authorId);
+    authorService.deleteById(authorId);
 
     // Checks there is less a author in the database
-    assertEquals(nbAuthors, authorService.findAllAuthors().size());
+    assertEquals(nbAuthors, authorService.findAll().size());
   }
 }

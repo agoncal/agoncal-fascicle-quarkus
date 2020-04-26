@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
 import org.agoncal.fascicle.quarkus.data.jpa.model.Author;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,33 +16,31 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class AuthorService {
 
-  private static final Logger LOGGER = Logger.getLogger(AuthorService.class);
-
   @Inject
   EntityManager em;
 
   @Transactional(REQUIRED)
-  public Author persistAuthor(Author author) {
+  public Author persist(Author author) {
     em.persist(author);
     return author;
   }
 
-  public List<Author> findAllAuthors() {
+  public List<Author> findAll() {
     return em.createQuery("select a from Author a", Author.class).getResultList();
   }
 
-  public Optional<Author> findAuthorById(Long id) {
+  public Optional<Author> findByIdOptional(Long id) {
     Author author = em.find(Author.class, id);
     return author != null ? Optional.of(author) : Optional.empty();
   }
 
   @Transactional(REQUIRED)
-  public Author updateAuthor(Author author) {
+  public Author update(Author author) {
     return em.merge(author);
   }
 
   @Transactional(REQUIRED)
-  public void deleteAuthor(Long id) {
+  public void deleteById(Long id) {
     em.remove(em.find(Author.class, id));
   }
 

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -43,16 +42,15 @@ class MusicianServiceTest {
   @Test
   void shouldNotGetUnknownMusician() {
     Long randomId = new Random().nextLong();
-    Optional<Musician> musician = musicianService.findMusicianById(randomId);
+    Optional<Musician> musician = musicianService.findByIdOptional(randomId);
     assertFalse(musician.isPresent());
   }
 
   @Test
   @Order(1)
   void shouldGetInitialMusicians() {
-    List<Musician> musicians = musicianService.findAllMusicians();
-    assertTrue(musicians.size() > 0);
-    nbMusicians = musicians.size();
+    nbMusicians = musicianService.findAll().size();
+    assertTrue(nbMusicians > 0);
   }
 
   @Test
@@ -67,7 +65,7 @@ class MusicianServiceTest {
     musician.preferredInstrument = DEFAULT_INSTRUMENT;
 
     assertFalse(musician.isPersistent());
-    musician = musicianService.persistMusician(musician);
+    musician = musicianService.persist(musician);
 
     // Checks the musician has been created
     assertNotNull(musicianId);
@@ -76,9 +74,10 @@ class MusicianServiceTest {
     assertEquals(DEFAULT_BIO, musician.bio);
     assertEquals(DEFAULT_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(DEFAULT_INSTRUMENT, musician.preferredInstrument);
+    assertTrue(musician.age > 45);
 
     // Checks there is an extra musician in the database
-    assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());
+    assertEquals(nbMusicians + 1, musicianService.findAll().size());
 
     musicianId = musician.id;
   }
@@ -95,28 +94,29 @@ class MusicianServiceTest {
     musician.preferredInstrument = UPDATED_INSTRUMENT;
 
     // Updates the previously created musician
-    musicianService.updateMusician(musician);
+    musicianService.update(musician);
 
     // Checks the musician has been updated
-    musician = musicianService.findMusicianById(musicianId).get();
+    musician = musicianService.findByIdOptional(musicianId).get();
     assertTrue(musician.isPersistent());
     assertEquals(UPDATED_FIRST_NAME, musician.firstName);
     assertEquals(UPDATED_LAST_NAME, musician.lastName);
     assertEquals(UPDATED_BIO, musician.bio);
     assertEquals(UPDATED_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(UPDATED_INSTRUMENT, musician.preferredInstrument);
+    assertTrue(musician.age < 45);
 
     // Checks there is no extra musician in the database
-    assertEquals(nbMusicians + 1, musicianService.findAllMusicians().size());
+    assertEquals(nbMusicians + 1, musicianService.findAll().size());
   }
 
   @Test
   @Order(4)
   void shouldRemoveAnMusician() {
     // Deletes the previously created musician
-    musicianService.deleteMusician(musicianId);
+    musicianService.deleteById(musicianId);
 
     // Checks there is less a musician in the database
-    assertEquals(nbMusicians, musicianService.findAllMusicians().size());
+    assertEquals(nbMusicians, musicianService.findAll().size());
   }
 }
