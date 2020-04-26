@@ -40,9 +40,6 @@ public class AuthorService {
   }
 
   public Optional<Author> findByName(String name) {
-    Author author = Panache.getEntityManager().createQuery("SELECT a FROM Author a WHERE a.lastName = :name", Author.class)
-      .setParameter("name", name)
-      .getSingleResult();
-    return author != null ? Optional.of(author) : Optional.empty();
+    return Author.findByName(name);
   }
 }

@@ -19,8 +19,7 @@ public class Publisher extends PanacheEntity {
   public String name;
 
   public static Optional<Publisher> findByName(String name) {
-    Publisher publisher = find("name", name).firstResult();
-    return publisher != null ? Optional.of(publisher) : Optional.empty();
+    return find("name", name).firstResultOptional();
   }
 
   public static long deleteByName(String name) {
