@@ -12,6 +12,7 @@ import java.util.Optional;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 @Transactional(SUPPORTS)
 public class PublisherService {
@@ -19,11 +20,16 @@ public class PublisherService {
   @Inject
   EntityManager em;
 
-  @Transactional(REQUIRED)
-  public Publisher persist(Publisher publisher) {
+  @Inject
+  StatisticsService statistics;
+
+  @Transactional(value = REQUIRED, rollbackOn = StatisticsException.class)
+  public Publisher persist(Publisher publisher) throws StatisticsException {
     em.persist(publisher);
+    statistics.addNew(publisher);
     return publisher;
   }
+  // tag::adocSkip[]
 
   public List<Publisher> findAll() {
     return em.createQuery("select p from Publisher p", Publisher.class).getResultList();
@@ -58,4 +64,6 @@ public class PublisherService {
       .executeUpdate();
     return rowsDeleted;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]

@@ -29,8 +29,8 @@
   <properties>
     <version.java>11</version.java>
     <!-- Quarkus -->
-    <quarkus-plugin.version>1.4.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.4.1.Final</quarkus.platform.version>
+    <quarkus-plugin.version>1.4.2.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.4.2.Final</quarkus.platform.version>
     <!-- Other -->
     <!-- Test -->
     <!-- Core Maven Plugins -->
