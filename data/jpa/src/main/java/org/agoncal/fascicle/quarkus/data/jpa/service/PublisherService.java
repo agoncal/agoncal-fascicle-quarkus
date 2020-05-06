@@ -24,7 +24,7 @@ public class PublisherService {
   StatisticsService statistics;
 
   @Transactional(value = REQUIRED, rollbackOn = StatisticsException.class)
-  public Publisher persist(Publisher publisher) throws StatisticsException {
+  public Publisher persist(Publisher publisher) throws Exception {
     em.persist(publisher);
     statistics.addNew(publisher);
     return publisher;

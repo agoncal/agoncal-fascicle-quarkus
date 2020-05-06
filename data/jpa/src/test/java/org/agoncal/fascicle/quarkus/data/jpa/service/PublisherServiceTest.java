@@ -45,7 +45,7 @@ class PublisherServiceTest {
 
   @Test
   @Order(2)
-  void shouldAddAnPublisher() throws StatisticsException {
+  void shouldAddAnPublisher() throws Exception {
     // Persists a publisher
     Publisher publisher = new Publisher();
     publisher.setName(DEFAULT_NAME);
