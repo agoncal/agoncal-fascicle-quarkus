@@ -21,7 +21,7 @@
     <module>jaxrs-invoking</module>
     <module>json</module>
     <module>json-binding</module>
-    <module>open-api-first-step</module>
+    <module>open-api-default</module>
   </modules>
 
 </project>

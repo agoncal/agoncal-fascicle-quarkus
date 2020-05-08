@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.http</groupId>
-  <artifactId>open-api-first-step</artifactId>
+  <artifactId>open-api-default</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: HTTP Microservices :: OpenAPI ::  First Step</name>
+  <name>Quarkus :: HTTP Microservices :: OpenAPI :: Default</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
