@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.quarkus.http.openapi.dflt;
 
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -22,7 +20,7 @@ public class AuthorResource {
 
   @GET
   @Path("/{index}")
-  public String getScifiAuthor(@Parameter(description = "Author index", required = true) @PathParam("index") int index) {
+  public String getScifiAuthor(@PathParam("index") int index) {
     return scifiAuthors[index];
   }
 }

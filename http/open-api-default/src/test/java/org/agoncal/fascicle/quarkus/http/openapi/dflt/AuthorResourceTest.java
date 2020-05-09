@@ -3,6 +3,11 @@ package org.agoncal.fascicle.quarkus.http.openapi.dflt;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -46,5 +51,21 @@ public class AuthorResourceTest {
       .get("/swagger-ui").
       then()
       .statusCode(OK.getStatusCode());
+  }
+
+  @Test
+  void shouldWriteOpenAPIFile()throws Exception {
+    String yamlFile = given()
+      .header(ACCEPT, "application/yaml").
+        when()
+      .get("/openapi").
+        then()
+      .statusCode(OK.getStatusCode())
+      .extract().asString();
+
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("openapi.yaml"))));
+    yamlFile = yamlFile.substring(yamlFile.indexOf('\n')+1);
+    bw.write(yamlFile);
+    bw.close();
   }
 }
