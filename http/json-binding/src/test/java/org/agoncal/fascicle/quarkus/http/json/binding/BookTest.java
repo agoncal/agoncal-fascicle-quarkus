@@ -52,7 +52,6 @@ public class BookTest {
 
     Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2").nbOfPages(354).illustrations(false).description("Best Sci-fi book ever");
 
-    Jsonb jsonb = JsonbBuilder.create();
     String json = jsonb.toJson(book);
 
     output(bw, json, "shouldMarshallABook");

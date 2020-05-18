@@ -65,7 +65,6 @@ public class PurchaseOrderTest {
     po.addOrderLine(o1);
     po.addOrderLine(o2);
 
-    Jsonb jsonb = JsonbBuilder.create();
     String json = jsonb.toJson(po);
 
     output(bw, json, "shouldMarshallAPurchaseOrder");
