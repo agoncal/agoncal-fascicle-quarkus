@@ -20,7 +20,8 @@
     <module>jaxrs-exposing</module>
     <module>jaxrs-invoking</module>
     <module>json</module>
-    <module>json-binding</module>
+    <module>jsonb-custom</module>
+    <module>jsonb-default</module>
     <module>open-api-default</module>
   </modules>
 

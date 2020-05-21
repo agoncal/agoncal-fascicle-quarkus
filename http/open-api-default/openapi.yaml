@@ -6,12 +6,12 @@ paths:
   /authors/{index}:
     get:
       parameters:
-        - name: index
-          in: path
-          required: true
-          schema:
-            format: int32
-            type: integer
+      - name: index
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
       responses:
         "200":
           description: OK
