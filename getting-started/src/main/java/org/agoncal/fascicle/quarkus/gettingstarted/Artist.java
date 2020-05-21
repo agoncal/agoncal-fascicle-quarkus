@@ -28,11 +28,6 @@ public class Artist {
     this.lastName = lastName;
   }
 
-  public Artist(String firstName, String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-
   public Artist(UUID id) {
     this.id = id;
   }
