@@ -56,7 +56,7 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
     <!-- end::adocDependencies[] -->
-    <!-- tag::adocTest[] -->
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -67,12 +67,7 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!-- end::adocTest[] -->
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
 
   <!-- tag::adocBuild[] -->
@@ -106,7 +101,7 @@
     </plugins>
   </build>
 <!-- end::adocBuild[] -->
-<!-- tag::adocNative[] -->
+<!-- tag::adocProfile[] -->
   <profiles>
     <profile>
       <id>native</id>
@@ -141,5 +136,5 @@
       </properties>
     </profile>
   </profiles>
-<!-- end::adocNative[] -->
+<!-- end::adocProfile[] -->
 </project>
