@@ -1,5 +1,7 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -11,8 +13,11 @@ import java.util.UUID;
 // tag::adocSnippet[]
 public class Artist {
 
+  @JsonbTransient
   private UUID id;
+  @JsonbProperty("first_name")
   private String firstName;
+  @JsonbProperty("last_name")
   private String lastName;
 
   // Constructors, getters, setters
