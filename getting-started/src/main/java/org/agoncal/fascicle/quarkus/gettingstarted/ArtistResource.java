@@ -52,24 +52,6 @@ public class ArtistResource {
 
   // tag::adocSkip[]
   /**
-   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
-   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 | jq
-   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
-   * curl -X GET http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
-   */
-  // end::adocSkip[]
-  @GET
-  @Path("/{id}")
-  public Response getArtist(@PathParam("id") UUID id) {
-    Artist artist = artists.stream()
-      .filter(a -> id.equals(a.getId()))
-      .findFirst()
-      .orElse(null);
-    return Response.ok(artist).build();
-  }
-
-  // tag::adocSkip[]
-  /**
    * curl http://localhost:8080/cdbookstore/artists/count
    * curl http://localhost:8080/cdbookstore/artists/count -v
    * curl -X GET -H "Accept: text/plain" http://localhost:8080/cdbookstore/artists/count -v
@@ -83,6 +65,22 @@ public class ArtistResource {
   }
 
   // tag::adocSkip[]
+  /**
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 | jq
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
+   * curl -X GET http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   */
+  @GET
+  @Path("/{id}")
+  public Response getArtist(@PathParam("id") UUID id) {
+    Artist artist = artists.stream()
+      .filter(a -> id.equals(a.getId()))
+      .findFirst()
+      .orElse(null);
+    return Response.ok(artist).build();
+  }
+
   /**
    * curl -d '{"id":"8b3445fe-a0f8-4189-b39c-4c35dcd685b2", "firstName":"George", "lastName":"Martin"}' -X POST -H "Content-Type: application/json" http://localhost:8080/cdbookstore/artists -v
    */
