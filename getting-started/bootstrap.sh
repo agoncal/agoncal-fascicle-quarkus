@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# tag::adocSnippet
+# tag::adocSnippet[]
 mvn io.quarkus:quarkus-maven-plugin:1.4.2.Final:create \
      -DprojectGroupId=org.agoncal.fascicle.quarkus \
      -DprojectArtifactId=getting-started \
@@ -7,4 +7,4 @@ mvn io.quarkus:quarkus-maven-plugin:1.4.2.Final:create \
      -DclassName="org.agoncal.fascicle.quarkus.gettingstarted.ArtistResource" \
      -Dpath="/artists" \
      -Dextensions="resteasy-jsonb"
-# end::adocSnippet
+# end::adocSnippet[]
