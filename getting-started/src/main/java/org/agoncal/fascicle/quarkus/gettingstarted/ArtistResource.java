@@ -21,7 +21,6 @@ import java.util.UUID;
  * http://www.antoniogoncalves.org
  * --
  */
-
 // tag::adocSnippet[]
 @Path("/artists")
 @Produces(MediaType.APPLICATION_JSON)
