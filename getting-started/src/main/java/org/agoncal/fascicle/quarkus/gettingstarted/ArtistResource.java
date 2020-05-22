@@ -24,7 +24,9 @@ import java.util.UUID;
 // tag::adocSnippet[]
 @Path("/artists")
 @Produces(MediaType.APPLICATION_JSON)
+// tag::adocSkip[]
 @Consumes(MediaType.APPLICATION_JSON)
+// end::adocSkip[]
 public class ArtistResource {
 
   private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
