@@ -22,19 +22,15 @@ import static org.hamcrest.CoreMatchers.is;
 
 // @formatter:off
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// tag::adocBegin[]
+// tag::adocSnippet[]
 @QuarkusTest
 public class ArtistResourceTest {
 
-  // end::adocBegin[]
-  // ======================================
-  // =              Methods               =
-  // ======================================
-
   @Test
+  // tag::adocSkip[]
   @Order(1)
+  // end::adocSkip[]
   public void shouldGetAllArtists() {
-    // tag::adocShouldGetAllArtists[]
     given().
     when().
       get("/artists").
@@ -43,13 +39,13 @@ public class ArtistResourceTest {
         statusCode(is(200)).
       and().
         body("size()", is(4));
-    // end::adocShouldGetAllAuthors[]
   }
 
   @Test
+  // tag::adocSkip[]
   @Order(2)
+  // end::adocSkip[]
   public void shouldGetArtist() {
-    // tag::adocShouldGetArtist[]
     UUID id = given().get("/artists").then().extract().response().jsonPath().getUUID("id[0]");
 
     given().
@@ -61,13 +57,13 @@ public class ArtistResourceTest {
         statusCode(is(200)).
       and().
         body(containsString("John"));
-    // end::adocShouldGetArtist[]
   }
 
   @Test
+  // tag::adocSkip[]
   @Order(3)
+  // end::adocSkip[]
   public void shouldCountArtist() {
-    // tag::shouldCountArtist[]
     given().
     when().
       get("/artists/count").
@@ -76,13 +72,11 @@ public class ArtistResourceTest {
         statusCode(is(200)).
       and().
         body(is("4"));
-    // end::shouldCountArtist[]
   }
-
+  // tag::adocSkip[]
   @Test
   @Order(4)
   public void shouldCreateArtist() {
-    // tag::adocShouldCreateArtist[]
     Artist artist = new Artist().firstName("George").lastName("Martin");
     given().
       contentType(MediaType.APPLICATION_JSON).
@@ -92,7 +86,6 @@ public class ArtistResourceTest {
     then().
       assertThat().
         statusCode(is(201));
-    // end::adocShouldCreateArtist[]
   }
 
   @Test
@@ -112,7 +105,6 @@ public class ArtistResourceTest {
   @Test
   @Order(6)
   public void shouldDeleteArtist() {
-    // tag::adocShouldDeleteArtist[]
     UUID id = given().get("/artists").then().extract().response().jsonPath().getUUID("id[0]");
 
     given().
@@ -122,7 +114,6 @@ public class ArtistResourceTest {
     then().
       assertThat().
         statusCode(is(204));
-    // end::adocShouldDeleteArtist[]
   }
 
   @Test
@@ -137,4 +128,6 @@ public class ArtistResourceTest {
       and().
         body(is("4"));
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]

@@ -29,10 +29,10 @@ import java.util.UUID;
 public class ArtistResource {
 
   private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
-    new Artist(UUID.randomUUID(), "John", "Lennon"),
-    new Artist(UUID.randomUUID(), "Paul", "McCartney"),
-    new Artist(UUID.randomUUID(), "George", "Harrison"),
-    new Artist(UUID.randomUUID(), "Ringo", "Starr")
+    new Artist().id(UUID.randomUUID()).firstName("John").lastName("Lennon"),
+    new Artist().id(UUID.randomUUID()).firstName("Paul").lastName("McCartney"),
+    new Artist().id(UUID.randomUUID()).firstName("George").lastName("Harrison"),
+    new Artist().id(UUID.randomUUID()).firstName("Ringo").lastName("Starr")
   ));
 
   // tag::adocSkip[]
@@ -102,7 +102,7 @@ public class ArtistResource {
   @DELETE
   @Path("/{id}")
   public Response deleteArtist(@PathParam("id") UUID id) {
-    artists.remove((new Artist(id)));
+    artists.remove((new Artist().id(id)));
     return Response.noContent().build();
   }
   // end::adocCreateDelete[]

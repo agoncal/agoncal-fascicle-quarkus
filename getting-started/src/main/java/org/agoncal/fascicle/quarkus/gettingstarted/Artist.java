@@ -8,7 +8,6 @@ import java.util.UUID;
  * http://www.antoniogoncalves.org
  * --
  */
-// @formatter:off
 // tag::adocSnippet[]
 public class Artist {
 
@@ -18,19 +17,6 @@ public class Artist {
 
   // Constructors, getters, setters
   // tag::adocSkip[]
-  // @formatter:on
-  public Artist() {
-  }
-
-  public Artist(UUID id, String firstName, String lastName) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-
-  public Artist(UUID id) {
-    this.id = id;
-  }
 
   // ======================================
   // =          Getters & Setters         =
@@ -42,6 +28,11 @@ public class Artist {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  public Artist id(UUID id) {
+    this.id = id;
+    return this;
   }
 
   public String getFirstName() {
