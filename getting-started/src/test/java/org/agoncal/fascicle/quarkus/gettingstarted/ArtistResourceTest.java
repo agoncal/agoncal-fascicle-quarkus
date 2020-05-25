@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.containsString;
 
 /**
  * @author Antonio Goncalves
@@ -25,7 +26,10 @@ public class ArtistResourceTest {
       assertThat().
         statusCode(is(200)).
       and().
-        body("size()", is(4));
+        body("first_name[0]", containsString("John")).
+        body("first_name[1]", containsString("Paul")).
+        body("first_name[2]", containsString("George")).
+        body("first_name[3]", containsString("Ringo"));
   }
 
   @Test
