@@ -4,8 +4,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.containsString;
 
 /**
  * @author Antonio Goncalves
@@ -26,10 +26,7 @@ public class ArtistResourceTest {
       .assertThat()
         .statusCode(is(200))
       .and()
-        .body("first_name[0]", containsString("John"))
-        .body("first_name[1]", containsString("Paul"))
-        .body("first_name[2]", containsString("George"))
-        .body("first_name[3]", containsString("Ringo"));
+        .body("size()", equalTo(4));
   }
 
   @Test
