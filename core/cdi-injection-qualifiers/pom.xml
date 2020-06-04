@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
-  <artifactId>cdi-qualifiers</artifactId>
+  <artifactId>cdi-injection-qualifiers</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Core :: CDI :: Qualifiers</name>
+  <name>Quarkus :: Core :: CDI :: Injection with Qualifiers</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>

@@ -1,7 +1,6 @@
-package org.agoncal.fascicle.quarkus.core.cdi.injection;
+package org.agoncal.fascicle.quarkus.core.cdi.alternatives;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**
@@ -9,20 +8,12 @@ import javax.inject.Inject;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @ApplicationScoped
 public class BookService {
 
-  // ======================================
-  // =             Attributes             =
-  // ======================================
-
   @Inject
-  @Default
   NumberGenerator numberGenerator;
-
-  // ======================================
-  // =          Business methods          =
-  // ======================================
 
   public Book createBook(String title, Float price, String description) {
     Book book = new Book(title, price, description);
@@ -30,3 +21,4 @@ public class BookService {
     return book;
   }
 }
+// end::adocSnippet[]
