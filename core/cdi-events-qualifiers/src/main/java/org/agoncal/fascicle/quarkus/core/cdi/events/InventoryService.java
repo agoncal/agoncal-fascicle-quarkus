@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.quarkus.core.cdi.events;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -13,11 +13,11 @@ import java.util.logging.Logger;
  * --
  */
 // tag::adocSnippet[]
-@ApplicationScoped
+@Singleton
 public class InventoryService {
 
   @Inject
-  private Logger logger;
+  Logger logger;
 
   List<Book> inventory = new ArrayList<>();
 
