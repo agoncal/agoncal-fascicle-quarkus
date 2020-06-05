@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * --
  */
 @QuarkusTest
-public class NumberGeneratorTest {
+public class BookServiceTest {
 
   @Inject
   BookService bookService;
