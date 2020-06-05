@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.core.cdi.injection;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**
@@ -8,15 +9,16 @@ import javax.inject.Inject;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 @ApplicationScoped
-public class BookService {
+public class LegacyBookService {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
   // tag::adocSnippet[]
-  @Inject
+  @Inject @Default
   NumberGenerator numberGenerator;
   // end::adocSnippet[]
 
