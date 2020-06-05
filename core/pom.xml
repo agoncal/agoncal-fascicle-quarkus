@@ -22,6 +22,7 @@
     <module>cdi-injection</module>
     <module>cdi-injection-alternatives</module>
     <module>cdi-injection-default</module>
+    <module>cdi-injection-point</module>
     <module>cdi-injection-qualifiers</module>
     <module>config</module>
     <module>config-properties</module>
