@@ -12,7 +12,9 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class LegacyBookService {
 
+  // tag::adocSkip[]
   @Inject
+  // end::adocSkip[]
   @EightDigits
   NumberGenerator numberGenerator;
 
