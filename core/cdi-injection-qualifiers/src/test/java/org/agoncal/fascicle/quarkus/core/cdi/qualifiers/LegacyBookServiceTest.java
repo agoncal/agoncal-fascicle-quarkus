@@ -13,10 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * --
  */
 @QuarkusTest
-public class NumberGeneratorTest {
-
-  @Inject
-  BookService bookService;
+public class LegacyBookServiceTest {
 
   @Inject
   LegacyBookService legacyBookService;
@@ -24,12 +21,6 @@ public class NumberGeneratorTest {
   // ======================================
   // =              Methods               =
   // ======================================
-
-  @Test
-  public void shouldCheckNumberIsThirteenDigits() {
-    Book book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
-    assertTrue(book.getIsbn().startsWith("13"));
-  }
 
   @Test
   public void shouldCheckNumberIsEightDigits() {

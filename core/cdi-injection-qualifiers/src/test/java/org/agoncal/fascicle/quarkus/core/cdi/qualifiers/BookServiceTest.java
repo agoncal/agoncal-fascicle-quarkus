@@ -1,11 +1,11 @@
-package org.agoncal.fascicle.quarkus.core.cdi.alternatives;
+package org.agoncal.fascicle.quarkus.core.cdi.qualifiers;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -23,8 +23,8 @@ public class BookServiceTest {
   // ======================================
 
   @Test
-  public void shouldCheckNumberIsMock() {
+  public void shouldCheckNumberIsThirteenDigits() {
     Book book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
-    assertEquals("MOCK", book.getIsbn());
+    assertTrue(book.getIsbn().startsWith("13"));
   }
 }
