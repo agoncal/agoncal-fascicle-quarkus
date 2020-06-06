@@ -15,31 +15,21 @@ import javax.inject.Singleton;
 public class Invoice {
 
   Float subtotal;
-  // tag::adocSkip[]
   @Inject
-  // end::adocSkip[]
   @ConfigProperty(defaultValue = "10")
   Float vatRate;
   Float vatAmount;
   Float total;
-  // tag::adocSkip[]
   @Inject
-  // end::adocSkip[]
   @ConfigProperty(defaultValue = "true")
   Boolean allowsDiscount;
-  // tag::adocSkip[]
   @Inject
-  // end::adocSkip[]
   @ConfigProperty(defaultValue = "2.5")
   Float discountRate;
-  // tag::adocSkip[]
   @Inject
-  // end::adocSkip[]
   @ConfigProperty
   String terms;
-  // tag::adocSkip[]
   @Inject
-  // end::adocSkip[]
   @ConfigProperty
   String penalties;
 }
