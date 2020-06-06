@@ -11,26 +11,22 @@ import javax.inject.Singleton;
  * --
  */
 @Singleton
+// @formatter:off
 // tag::adocSnippet[]
 public class Invoice {
 
   Float subtotal;
-  @Inject
-  @ConfigProperty(defaultValue = "10")
+  @Inject @ConfigProperty(defaultValue = "10")
   Float vatRate;
   Float vatAmount;
   Float total;
-  @Inject
-  @ConfigProperty(defaultValue = "true")
+  @Inject @ConfigProperty(defaultValue = "true")
   Boolean allowsDiscount;
-  @Inject
-  @ConfigProperty(defaultValue = "2.5")
+  @Inject @ConfigProperty(defaultValue = "2.5")
   Float discountRate;
-  @Inject
-  @ConfigProperty
+  @Inject @ConfigProperty
   String terms;
-  @Inject
-  @ConfigProperty
+  @Inject @ConfigProperty
   String penalties;
 }
 // end::adocSnippet[]
