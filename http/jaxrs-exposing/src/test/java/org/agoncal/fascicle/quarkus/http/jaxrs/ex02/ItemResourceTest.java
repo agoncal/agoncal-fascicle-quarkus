@@ -13,7 +13,7 @@ import static javax.ws.rs.core.Response.Status.OK;
  * http://www.antoniogoncalves.org
  * --
  */
-//@formatter:off
+// @formatter:off
 @QuarkusTest
 public class ItemResourceTest {
 

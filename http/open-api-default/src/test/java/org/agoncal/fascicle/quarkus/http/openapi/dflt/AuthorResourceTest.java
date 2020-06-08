@@ -19,7 +19,7 @@ import static org.hamcrest.CoreMatchers.is;
  * http://www.antoniogoncalves.org
  * --
  */
-//@formatter:off
+// @formatter:off
 @QuarkusTest
 public class AuthorResourceTest {
 

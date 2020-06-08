@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
-//@formatter:off
+// @formatter:off
 // tag::adocSnippet[]
 @Path("/api/numbers")
 @Produces(MediaType.APPLICATION_JSON)
