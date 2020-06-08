@@ -18,19 +18,19 @@ class InvoiceTest {
   @Inject
   Invoice invoice;
 
-  // tag::shouldCalculateInvoiceProgrammaticallyInjection[]
+  // tag::adocShouldCalculateInvoiceProgrammaticallyInjection[]
   @Inject
   Config config;
 
-  // end::shouldCalculateInvoiceProgrammaticallyInjection[]
+  // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
   @Test
   public void shouldCalculateInvoiceProgrammaticallyInjection() {
-  // tag::shouldCalculateInvoiceProgrammaticallyInjection[]
+  // tag::adocShouldCalculateInvoiceProgrammaticallyInjection[]
   invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
   invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
   invoice.terms = config.getValue("invoice.terms", String.class);
   invoice.penalties = config.getValue("invoice.penalties", String.class);
-  // end::shouldCalculateInvoiceProgrammaticallyInjection[]
+  // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
 
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);
