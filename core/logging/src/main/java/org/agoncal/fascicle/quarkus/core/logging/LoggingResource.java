@@ -43,10 +43,10 @@ public class LoggingResource {
     // tag::adocConfig[]
     Config config = ConfigProvider.getConfig();
 
-    LOGGER.info("quarkus.log.level: " + config.getValue("quarkus.log.level", String.class));
-    LOGGER.info("quarkus.log.min-level: " + config.getValue("quarkus.log.min-level", String.class));
-    LOGGER.info("quarkus.log.console.json: " + config.getValue("quarkus.log.console.json", Boolean.class));
-    LOGGER.info("quarkus.log.console.json.pretty-print: " + config.getValue("quarkus.log.console.json.pretty-print", Boolean.class));
+    LOGGER.info(config.getValue("quarkus.log.level", String.class));
+    LOGGER.info(config.getValue("quarkus.log.min-level", String.class));
+    LOGGER.info(config.getValue("quarkus.log.console.json", Boolean.class));
+    LOGGER.info(config.getValue("quarkus.log.console.json.pretty-print", Boolean.class));
     // end::adocConfig[]
   }
 }
