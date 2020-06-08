@@ -25,12 +25,12 @@ class InvoiceTest {
   // end::shouldCalculateInvoiceProgrammaticallyInjection[]
   @Test
   public void shouldCalculateInvoiceProgrammaticallyInjection() {
-    // tag::shouldCalculateInvoiceProgrammaticallyInjection[]
-    invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
-    invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
-    invoice.terms = config.getValue("invoice.terms", String.class);
-    invoice.penalties = config.getValue("invoice.penalties", String.class);
-    // end::shouldCalculateInvoiceProgrammaticallyInjection[]
+  // tag::shouldCalculateInvoiceProgrammaticallyInjection[]
+  invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
+  invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
+  invoice.terms = config.getValue("invoice.terms", String.class);
+  invoice.penalties = config.getValue("invoice.penalties", String.class);
+  // end::shouldCalculateInvoiceProgrammaticallyInjection[]
 
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);
