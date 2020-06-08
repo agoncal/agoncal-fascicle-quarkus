@@ -41,6 +41,7 @@ public class ConfigurationResource {
   public void displayConfigurationInTest() {
     // tag::adocSnippet[]
     Config config = ConfigProvider.getConfig();
+
     LOGGER.info(config.getValue("quarkus.banner.enabled", Boolean.class));
     LOGGER.info(config.getValue("quarkus.default-locale", String.class));
     LOGGER.info(config.getValue("quarkus.http.port", String.class));
