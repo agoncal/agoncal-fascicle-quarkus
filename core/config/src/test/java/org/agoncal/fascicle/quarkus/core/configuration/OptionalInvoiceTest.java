@@ -22,13 +22,13 @@ class OptionalInvoiceTest {
   Config config;
 
   @Test
-  public void shouldCalculateInvoiceProgrammaticallyInjection() {
+  public void shouldCalculateInvoiceProgrammaticallyOptional() {
     invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
     invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
-    // tag::adocShouldCalculateInvoiceProgrammaticallyInjection[]
+    // tag::adocShouldCalculateInvoiceProgrammaticallyOptional[]
     invoice.terms = config.getOptionalValue("invoice.terms", String.class);
     invoice.penalties = config.getOptionalValue("invoice.penalties", String.class);
-    // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
+    // end::adocShouldCalculateInvoiceProgrammaticallyOptional[]
 
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);
