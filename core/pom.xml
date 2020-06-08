@@ -30,6 +30,7 @@
     <module>config-quarkus</module>
     <module>config-yaml</module>
     <module>lifecycle</module>
+    <module>profiles</module>
   </modules>
 
 </project>
