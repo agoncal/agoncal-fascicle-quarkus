@@ -25,6 +25,6 @@ public class BookServiceTest {
   @Test
   public void shouldCheckNumberIsThirteenDigits() {
     Book book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
-    assertTrue(book.getIsbn().startsWith("TEST"));
+    assertTrue(book.getIsbn().startsWith("TST"));
   }
 }
