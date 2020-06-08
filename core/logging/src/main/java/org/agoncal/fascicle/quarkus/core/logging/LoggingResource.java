@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.core.logging;
 
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
+import org.jboss.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,7 +10,6 @@ import javax.ws.rs.Path;
 @Path("/logs")
 public class LoggingResource {
 
-  private static  org.jboss.logging.Logger LOGGER = org.jboss.logging.Logger.getLogger(LoggingResource.class);
 
   @GET
   public void displayLogs() {
@@ -27,6 +27,19 @@ public class LoggingResource {
 
     System.out.println("###########################################");
 
+    // tag::adocLevels[]
+    Logger LOGGER = Logger.getLogger(LoggingResource.class);
+
+    LOGGER.fatal("Fatal");
+    LOGGER.error("Error");
+    LOGGER.warn("Warning");
+    LOGGER.info("Information");
+    LOGGER.debug("Debug");
+    LOGGER.trace("Trace");
+    // end::adocLevels[]
+
+    System.out.println("###########################################");
+
     // tag::adocConfig[]
     Config config = ConfigProvider.getConfig();
 
@@ -35,16 +48,5 @@ public class LoggingResource {
     LOGGER.info("quarkus.log.console.json: " + config.getValue("quarkus.log.console.json", Boolean.class));
     LOGGER.info("quarkus.log.console.json.pretty-print: " + config.getValue("quarkus.log.console.json.pretty-print", Boolean.class));
     // end::adocConfig[]
-
-    System.out.println("###########################################");
-
-    // tag::adocLevels[]
-    LOGGER.fatal("Fatal");
-    LOGGER.error("Error");
-    LOGGER.warn("Warning");
-    LOGGER.info("Information");
-    LOGGER.debug("Debug");
-    LOGGER.trace("Trace");
-    // end::adocLevels[]
   }
 }
