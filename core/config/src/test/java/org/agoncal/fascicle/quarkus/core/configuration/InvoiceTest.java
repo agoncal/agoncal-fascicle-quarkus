@@ -60,6 +60,7 @@ class InvoiceTest {
   public void shouldCalculateInvoiceProgrammatically() {
     // tag::adocShouldCalculateInvoiceProgrammatically[]
     Config config = ConfigProvider.getConfig();
+
     invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
     invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
     invoice.terms = config.getValue("invoice.terms", String.class);
