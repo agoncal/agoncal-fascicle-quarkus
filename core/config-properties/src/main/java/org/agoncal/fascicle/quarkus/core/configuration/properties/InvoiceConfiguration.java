@@ -4,7 +4,7 @@ import io.quarkus.arc.config.ConfigProperties;
 import io.quarkus.arc.config.ConfigProperties.NamingStrategy;
 
 // tag::adocSnippet[]
-@ConfigProperties(prefix = "invoice", namingStrategy = NamingStrategy.VERBATIM)
+@ConfigProperties(prefix = "inv", namingStrategy = NamingStrategy.VERBATIM)
 public class InvoiceConfiguration {
 
   public Float vatRate;
