@@ -31,10 +31,11 @@ public class LoggingResource {
 
     System.out.println("###########################################");
 
+    Exception exception = new Exception();
     // tag::adocLevels[]
     Logger LOGGER = Logger.getLogger(LoggingResource.class);
 
-    LOGGER.fatal("Fatal");
+    LOGGER.fatal("Fatal", exception);
     LOGGER.error("Error");
     LOGGER.warn("Warning");
     LOGGER.info("Information");
