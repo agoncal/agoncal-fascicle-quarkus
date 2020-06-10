@@ -14,16 +14,17 @@ import javax.inject.Singleton;
 public class Invoice {
 
   Float subtotal;
-  @ConfigProperty(name = "invoice.vatRate", defaultValue = "10")
+  @ConfigProperty(name = "app.invoice.vatRate", defaultValue = "10")
   Float vatRate;
   Float vatAmount;
   Float total;
-  @ConfigProperty(name = "invoice.allowsDiscount", defaultValue = "true")
+  @ConfigProperty(name = "app.invoice.allowsDiscount", defaultValue = "true")
   Boolean allowsDiscount;
-  @ConfigProperty(name = "invoice.discountRate", defaultValue = "2.5")
+  @ConfigProperty(name = "app.invoice.discountRate", defaultValue = "2.5")
   Float discountRate;
-  @ConfigProperty(name = "invoice.terms")
+  @ConfigProperty(name = "app.invoice.terms")
   String terms;
-  @ConfigProperty(name = "invoice.penalties")
+  @ConfigProperty(name = "app.invoice.penalties")
   String penalties;
 }
+// end::adocSnippet[]

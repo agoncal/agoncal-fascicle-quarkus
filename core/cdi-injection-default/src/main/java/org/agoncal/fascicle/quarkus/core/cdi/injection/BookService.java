@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.core.cdi.injection;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**
@@ -16,9 +15,10 @@ public class BookService {
   // =             Attributes             =
   // ======================================
 
+  // tag::adocSnippet[]
   @Inject
-  @Default
-  private NumberGenerator numberGenerator;
+  NumberGenerator numberGenerator;
+  // end::adocSnippet[]
 
   // ======================================
   // =          Business methods          =

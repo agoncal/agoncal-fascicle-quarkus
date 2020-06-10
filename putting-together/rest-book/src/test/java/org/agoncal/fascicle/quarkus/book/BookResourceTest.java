@@ -11,7 +11,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasKey;
 
-//@formatter:off
+// @formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
 public class BookResourceTest {

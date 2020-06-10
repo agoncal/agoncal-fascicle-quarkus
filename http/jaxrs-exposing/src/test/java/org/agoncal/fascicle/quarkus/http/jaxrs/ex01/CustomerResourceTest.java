@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-//@formatter:off
+// @formatter:off
 @QuarkusTest
 public class CustomerResourceTest {
 

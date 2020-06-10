@@ -20,14 +20,18 @@
     <module>cdi-events</module>
     <module>cdi-events-qualifiers</module>
     <module>cdi-injection</module>
+    <module>cdi-injection-alternatives</module>
     <module>cdi-injection-default</module>
-    <module>cdi-qualifiers</module>
+    <module>cdi-injection-point</module>
+    <module>cdi-injection-qualifiers</module>
     <module>config</module>
     <module>config-properties</module>
     <module>config-properties-kebab</module>
     <module>config-quarkus</module>
     <module>config-yaml</module>
     <module>lifecycle</module>
+    <module>logging</module>
+    <module>profiles</module>
   </modules>
 
 </project>

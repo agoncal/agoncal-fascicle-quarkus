@@ -1,3 +1,0 @@
-// tag::shouldMarshallABook[]
-{"description":"Best Sci-fi book ever","illustrations":false,"isbn":"1-84023-742-2","nbOfPages":354,"price":12.5,"title":"H2G2"}
-// end::shouldMarshallABook[]

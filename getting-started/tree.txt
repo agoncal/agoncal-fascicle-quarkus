@@ -1,15 +1,23 @@
 .
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── org/agoncal/fascicle/quarkus/gettingstarted
-│   │   │       ├── Artist.java
-│   │   │       └── ArtistResource.java
-│   │   └── resources
-│   │       └── application.properties
-│   └── test
-│       └── java
-│           └── org/agoncal/fascicle/quarkus/gettingstarted
-│               ├── ArtistResourceTest.java
-│               └── NativeArtistResourceIT.java
-└── pom.xml
+├─ README.md
+├─ mvnw
+├─ mvnw.cmd
+├─ pom.xml
+└─ src
+   ├─ main
+   │  ├─ docker
+   │  │  ├─ Dockerfile.jvm
+   │  │  └─ Dockerfile.native
+   │  ├─ java
+   │  │  └─ org/agoncal/fascicle/quarkus/gettingstarted
+   │  │     └─ ArtistResource.java
+   │  └─ resources
+   │     ├─ META-INF
+   │     │  └─ resources
+   │     │     └─ index.html
+   │     └─ application.properties
+   └─ test
+      └─ java
+         └─ org/agoncal/fascicle/quarkus/gettingstarted
+            ├─ ArtistResourceTest.java
+            └─ NativeArtistResourceIT.java

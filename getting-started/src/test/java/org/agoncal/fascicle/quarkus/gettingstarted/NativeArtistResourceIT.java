@@ -8,8 +8,10 @@ import io.quarkus.test.junit.NativeImageTest;
  * --
  */
 
+// tag::adocSnippet[]
 @NativeImageTest
 public class NativeArtistResourceIT extends ArtistResourceTest {
 
     // Execute the same tests but in native mode.
 }
+// end::adocSnippet[]

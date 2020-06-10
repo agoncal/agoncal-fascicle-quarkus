@@ -20,8 +20,10 @@
     <module>jaxrs-exposing</module>
     <module>jaxrs-invoking</module>
     <module>json</module>
-    <module>json-binding</module>
-    <module>open-api-first-step</module>
+    <module>jsonb-custom</module>
+    <module>jsonb-default</module>
+    <module>open-api-default</module>
+    <module>panache-rest</module>
   </modules>
 
 </project>

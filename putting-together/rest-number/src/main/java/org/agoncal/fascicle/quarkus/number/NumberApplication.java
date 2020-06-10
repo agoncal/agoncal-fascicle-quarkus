@@ -9,7 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-//@formatter:off
+// @formatter:off
 // tag::adocSnippet[]
 @ApplicationPath("/")
 @OpenAPIDefinition(

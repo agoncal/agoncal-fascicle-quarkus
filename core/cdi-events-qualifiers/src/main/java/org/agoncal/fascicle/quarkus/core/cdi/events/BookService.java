@@ -6,23 +6,22 @@ import javax.inject.Inject;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
+// @formatter:off
 // tag::adocSnippet[]
-  @ApplicationScoped
+@ApplicationScoped
 public class BookService {
 
   @Inject
   NumberGenerator numberGenerator;
 
-  @Inject
-  @Added
+  @Inject @Added
   Event<Book> bookAddedEvent;
 
-  @Inject
-  @Removed
-  private Event<Book> bookRemovedEvent;
+  @Inject @Removed
+  Event<Book> bookRemovedEvent;
 
   public Book createBook(String title, Float price, String description) {
     Book book = new Book(title, price, description);
