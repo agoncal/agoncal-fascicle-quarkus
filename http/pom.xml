@@ -23,6 +23,7 @@
     <module>jsonb-custom</module>
     <module>jsonb-default</module>
     <module>open-api-default</module>
+    <module>panache-rest</module>
   </modules>
 
 </project>
