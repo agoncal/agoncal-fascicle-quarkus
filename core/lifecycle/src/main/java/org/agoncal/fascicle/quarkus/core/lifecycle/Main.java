@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.core.lifecycle;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;
 
+// tag::adocSnippet[]
 @QuarkusMain
 public class Main {
 
@@ -11,3 +12,4 @@ public class Main {
     Quarkus.run(args);
   }
 }
+// end::adocSnippet[]
