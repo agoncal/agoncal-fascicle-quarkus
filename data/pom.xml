@@ -18,6 +18,7 @@
 
   <modules>
     <module>jpa-advanced</module>
+    <module>jpa-custom</module>
     <module>jpa-default</module>
     <module>panache</module>
   </modules>

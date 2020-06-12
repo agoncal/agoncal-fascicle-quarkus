@@ -1,8 +1,11 @@
-package org.agoncal.fascicle.quarkus.data.jpa.dflt;
+package org.agoncal.fascicle.quarkus.data.jpa.custom;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.time.Instant;
 
 /**
  * @author Antonio Goncalves
@@ -16,12 +19,17 @@ public class Book {
   @Id
   @GeneratedValue
   private Long id;
+  @Column(name = "book_title", nullable = false, updatable = false)
   private String title;
   private Float price;
+  @Column(length = 2000)
   private String description;
   private String isbn;
+  @Column(name = "nb_of_pages", nullable = false)
   private Integer nbOfPages;
   private Boolean illustrations;
+  @Transient
+  private Instant creationDate;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -116,6 +124,14 @@ public class Book {
     return this;
   }
 
+  public Instant getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(Instant creationDate) {
+    this.creationDate = creationDate;
+  }
+
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
@@ -131,6 +147,7 @@ public class Book {
     sb.append(", isbn='").append(isbn).append('\'');
     sb.append(", nbOfPages=").append(nbOfPages);
     sb.append(", illustrations=").append(illustrations);
+    sb.append(", creationDate=").append(creationDate);
     sb.append('}');
     return sb.toString();
   }
