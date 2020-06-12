@@ -14,9 +14,10 @@ import java.util.Set;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
+// @formatter:off
 // tag::adocSnippet[]
 @Entity
 public class Book extends Item {
@@ -34,7 +35,10 @@ public class Book extends Item {
   private Language language;
 
   @OneToMany
-  @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_fk"), inverseJoinColumns = @JoinColumn(name = "author_fk"))
+  @JoinTable(name = "book_author",
+    joinColumns = @JoinColumn(name = "book_fk"),
+    inverseJoinColumns = @JoinColumn(name = "author_fk")
+  )
   private Set<Author> authors = new HashSet<>();
 
   @ManyToOne
