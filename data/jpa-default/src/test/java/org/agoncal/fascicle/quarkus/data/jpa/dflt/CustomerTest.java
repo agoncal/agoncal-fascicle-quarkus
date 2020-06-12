@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -120,16 +119,11 @@ public class CustomerTest {
 
     // Removes the object from the database
     em.remove(customer);
-
-    // The objects are still available until GC
-    assertEquals(customer.getFirstName(), "Anthony");
-    assertEquals(address.getCity(), "London");
+    em.remove(address);
 
     // The entities are not in the database
-    customer = em.find(Customer.class, customer.getId());
-    assertNull(customer);
-    address = em.find(Address.class, address.getId());
-    assertNotNull(address);
+    assertNull(em.find(Customer.class, customer.getId()));
+    assertNull(em.find(Address.class, address.getId()));
     // end::adocRemove[]
   }
 }
