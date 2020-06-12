@@ -17,7 +17,8 @@
   </parent>
 
   <modules>
-    <module>jpa</module>
+    <module>jpa-advanced</module>
+    <module>jpa-default</module>
     <module>panache</module>
   </modules>
 </project>

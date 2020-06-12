@@ -7,7 +7,7 @@
   <groupId>org.agoncal.fascicle.quarkus.data</groupId>
   <artifactId>jpa</artifactId>
   <version>1.0</version>
-  <name>Quarkus :: Data, Transactions and ORM :: JPA</name>
+  <name>Quarkus :: Data, Transactions and ORM :: JPA :: Advanced</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
