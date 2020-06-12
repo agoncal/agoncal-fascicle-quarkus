@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.time.Instant;
 
@@ -14,6 +15,7 @@ import java.time.Instant;
  */
 // tag::adocSnippet[]
 @Entity
+@Table(name = "t_book")
 public class Book {
 
   @Id
