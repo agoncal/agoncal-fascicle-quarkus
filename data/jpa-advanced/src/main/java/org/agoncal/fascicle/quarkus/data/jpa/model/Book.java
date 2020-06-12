@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,6 +17,7 @@ import java.util.Set;
  *         http://www.antoniogoncalves.org
  *         --
  */
+// tag::adocSnippet[]
 @Entity
 public class Book extends Item {
 
@@ -40,6 +40,9 @@ public class Book extends Item {
   @ManyToOne
   @JoinColumn(name = "publisher_pk")
   private Publisher publisher;
+
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   public String getIsbn() {
     return isbn;
@@ -88,4 +91,6 @@ public class Book extends Item {
   public void setPublisher(Publisher publisher) {
     this.publisher = publisher;
   }
+  // end::adocSkip[]
 }
+// tag::adocSnippet[]

@@ -13,9 +13,10 @@ import javax.persistence.InheritanceType;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Item {
+public abstract class Item {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +30,9 @@ public class Item {
 
   @Column(name = "unit_cost")
   protected Float unitCost;
+
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   public Long getId() {
     return id;
@@ -61,4 +65,6 @@ public class Item {
   public void setUnitCost(Float unitCost) {
     this.unitCost = unitCost;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
