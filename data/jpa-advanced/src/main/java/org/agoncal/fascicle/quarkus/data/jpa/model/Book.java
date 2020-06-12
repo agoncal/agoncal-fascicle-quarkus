@@ -93,4 +93,4 @@ public class Book extends Item {
   }
   // end::adocSkip[]
 }
-// tag::adocSnippet[]
+// end::adocSnippet[]
