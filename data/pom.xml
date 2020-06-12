@@ -20,6 +20,7 @@
     <module>jpa-advanced</module>
     <module>jpa-custom</module>
     <module>jpa-default</module>
+    <module>jpa-query</module>
     <module>panache</module>
   </modules>
 </project>
