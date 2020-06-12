@@ -1,11 +1,11 @@
 CREATE TABLE BOOK
 (
     ID            BIGINT NOT NULL,
-    DESCRIPTION   VARCHAR,
+    DESCRIPTION   VARCHAR(255),
     ILLUSTRATIONS BOOLEAN,
-    ISBN          VARCHAR,
+    ISBN          VARCHAR(255),
     NBOFPAGES     INTEGER,
-    PRICE         DOUBLE,
-    TITLE         VARCHAR,
+    PRICE         FLOAT,
+    TITLE         VARCHAR(255),
     PRIMARY KEY (ID)
 )
