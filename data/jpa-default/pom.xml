@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.data</groupId>
   <artifactId>jpa-default</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Quarkus :: Data, Transactions and ORM :: JPA :: Default</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>data</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -31,16 +31,15 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-narayana-jta</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-h2</artifactId>
+    </dependency>
 
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-test-h2</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
