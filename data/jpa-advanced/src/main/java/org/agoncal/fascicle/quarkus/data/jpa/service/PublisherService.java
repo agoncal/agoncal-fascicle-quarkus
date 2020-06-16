@@ -14,7 +14,9 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 // tag::adocSnippet[]
 @ApplicationScoped
+// tag::adocSupport[]
 @Transactional(SUPPORTS)
+// end::adocSupport[]
 public class PublisherService {
 
   @Inject
@@ -30,6 +32,7 @@ public class PublisherService {
     statistics.addNew(publisher);
     return publisher;
   }
+
   // end::adocException[]
   // tag::adocTransaction[]
   public List<Publisher> findAll() {
@@ -45,6 +48,7 @@ public class PublisherService {
   public Publisher update(Publisher publisher) {
     return em.merge(publisher);
   }
+
   // end::adocTransaction[]
   // tag::adocSkip[]
   @Transactional(REQUIRED)
