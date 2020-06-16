@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
 /**
@@ -21,8 +23,10 @@ public class Book {
   @Id
   @GeneratedValue
   private Long id;
+  @NotNull
   @Column(name = "book_title", nullable = false, updatable = false)
   private String title;
+  @Min(1)
   private Float price;
   @Column(length = 2000)
   private String description;
