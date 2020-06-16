@@ -17,6 +17,7 @@
   </parent>
 
   <modules>
+    <module>bean-validation</module>
     <module>jpa-advanced</module>
     <module>jpa-custom</module>
     <module>jpa-default</module>
