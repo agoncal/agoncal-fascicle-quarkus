@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.jpa.service;
 
+import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Publisher;
 import org.agoncal.fascicle.quarkus.data.jpa.repository.StatisticsRepository;
 
@@ -19,5 +20,11 @@ public class StatisticsService {
     repository.add(publisher);
     repository.computeNewStatistics();
   }
+
+  // tag::adocSkip[]
+  @Transactional
+  public void addNew(Book book) {
+  }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
