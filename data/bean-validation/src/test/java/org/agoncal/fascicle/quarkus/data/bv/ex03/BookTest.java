@@ -1,47 +1,29 @@
 package org.agoncal.fascicle.quarkus.data.bv.ex03;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
- * <p>
- * <p>
  * http://www.antoniogoncalves.org
  * --
  */
+@QuarkusTest
 public class BookTest {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  private static ValidatorFactory vf;
-  private static Validator validator;
-
-  // ======================================
-  // =          Lifecycle Methods         =
-  // ======================================
-
-  @BeforeAll
-  static void init() {
-    vf = Validation.buildDefaultValidatorFactory();
-    validator = vf.getValidator();
-  }
-
-  @AfterAll
-  static void close() {
-    vf.close();
-  }
+  @Inject
+  Validator validator;
 
   // ======================================
   // =              Methods               =
