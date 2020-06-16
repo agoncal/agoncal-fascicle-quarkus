@@ -33,7 +33,7 @@ public class PublisherService {
   // end::adocException[]
   // tag::adocTransaction[]
   public List<Publisher> findAll() {
-    return em.createQuery("select p from Publisher p", Publisher.class).getResultList();
+    return em.createQuery("SELECT p FROM Publisher p", Publisher.class).getResultList();
   }
 
   public Optional<Publisher> findByIdOptional(Long id) {
@@ -46,7 +46,7 @@ public class PublisherService {
     return em.merge(publisher);
   }
   // end::adocTransaction[]
-  // end::adocSkip[]
+  // tag::adocSkip[]
   @Transactional(REQUIRED)
   public void deleteById(Long id) {
     em.remove(em.find(Publisher.class, id));
