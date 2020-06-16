@@ -21,13 +21,11 @@ public class CardValidator {
 
   @AssertTrue
   public Boolean validate(@NotNull CreditCard creditCard) {
-
     return algorithm.validate(creditCard.getNumber(), creditCard.getControlNumber());
   }
 
   @AssertTrue
   public Boolean validate(@NotNull String number, @Future Date expiryDate, @NotNull Integer controlNumber) {
-
     return algorithm.validate(number, controlNumber);
   }
   // tag::adocSkip[]
