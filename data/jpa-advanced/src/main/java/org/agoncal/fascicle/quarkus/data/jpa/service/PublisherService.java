@@ -20,6 +20,7 @@ public class PublisherService {
   @Inject
   EntityManager em;
 
+  // tag::adocException[]
   @Inject
   StatisticsService statistics;
 
@@ -29,8 +30,8 @@ public class PublisherService {
     statistics.addNew(publisher);
     return publisher;
   }
-  // tag::adocSkip[]
-
+  // end::adocException[]
+  // tag::adocTransaction[]
   public List<Publisher> findAll() {
     return em.createQuery("select p from Publisher p", Publisher.class).getResultList();
   }
@@ -44,7 +45,8 @@ public class PublisherService {
   public Publisher update(Publisher publisher) {
     return em.merge(publisher);
   }
-
+  // end::adocTransaction[]
+  // end::adocSkip[]
   @Transactional(REQUIRED)
   public void deleteById(Long id) {
     em.remove(em.find(Publisher.class, id));
