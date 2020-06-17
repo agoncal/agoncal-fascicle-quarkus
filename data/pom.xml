@@ -23,5 +23,6 @@
     <module>jpa-default</module>
     <module>jpa-query</module>
     <module>panache</module>
+    <module>panache-entities</module>
   </modules>
 </project>
