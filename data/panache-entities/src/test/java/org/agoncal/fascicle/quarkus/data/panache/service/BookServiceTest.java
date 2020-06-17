@@ -30,7 +30,7 @@ class BookServiceTest {
   private static final String DEFAULT_DESCRIPTION = "Description";
   private static final String UPDATED_DESCRIPTION = "Description (updated)";
   private static final Float DEFAULT_UNIT_COST = 1f;
-  private static final Float UPDATED_UNIT_COST = 2f;
+  private static final Float UPDATED_UNIT_COST = 9f;
   private static final String DEFAULT_ISBN = "Isbn";
   private static final String UPDATED_ISBN = "Isbn (updated)";
   private static final Integer DEFAULT_NB_OF_PAGES = 1;
@@ -42,6 +42,7 @@ class BookServiceTest {
 
   private static int nbBooks;
   private static int nbEnglishBooks;
+  private static int nbCheapBooks;
   private static long bookId;
 
   @Test
@@ -58,6 +59,7 @@ class BookServiceTest {
     long countBooks = bookService.count();
     assertEquals(nbBooks, countBooks);
     assertTrue(nbBooks > 0);
+    assertEquals(0, bookService.findBetweenPrices(0f, 2f).size());
   }
 
   @Test
@@ -98,6 +100,7 @@ class BookServiceTest {
     // Checks there is an extra book in the database
     assertEquals(nbBooks + 1, bookService.findAll().size());
     assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
+    assertEquals(1, bookService.findBetweenPrices(0f, 2f).size());
 
     bookId = book.id;
   }
@@ -132,6 +135,7 @@ class BookServiceTest {
     // Checks there is no extra book in the database
     assertEquals(nbBooks + 1, bookService.findAll().size());
     assertEquals(nbEnglishBooks + 1, bookService.findEnglishBooks().size());
+    assertEquals(0, bookService.findBetweenPrices(0f, 2f).size());
   }
 
   @Test

@@ -1,5 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panache.model;
 
+import io.quarkus.panache.common.Parameters;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -57,5 +59,11 @@ public class Book extends Item {
   public static long countEnglishBooks(){
     long nbBooks = count("language", Language.ENGLISH);
     return nbBooks;
+  }
+
+  public static List<Book> findBetweenPrices(Float min, Float max) {
+    List<Book> books = list("unitCost between :min and :max",
+      Parameters.with("min", min).and("max", max));
+    return books;
   }
 }

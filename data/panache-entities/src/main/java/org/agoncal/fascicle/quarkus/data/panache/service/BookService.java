@@ -50,4 +50,8 @@ public class BookService {
   public long countEnglishBooks(){
     return Book.countEnglishBooks();
   }
+
+  public List<Book> findBetweenPrices(Float min, Float max) {
+    return Book.findBetweenPrices(min, max);
+  }
 }

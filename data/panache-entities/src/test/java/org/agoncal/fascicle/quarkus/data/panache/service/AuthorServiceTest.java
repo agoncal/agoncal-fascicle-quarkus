@@ -51,6 +51,7 @@ class AuthorServiceTest {
   @Order(1)
   void shouldGetInitialAuthors() {
     nbAuthors = authorService.findAll().size();
+    assertEquals(nbAuthors, authorService.findAllOrderByName().size());
     assertTrue(nbAuthors > 0);
   }
 

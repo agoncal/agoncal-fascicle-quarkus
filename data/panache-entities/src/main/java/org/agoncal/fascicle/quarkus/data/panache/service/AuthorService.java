@@ -42,4 +42,8 @@ public class AuthorService {
   public Optional<Author> findByName(String name) {
     return Author.findByName(name);
   }
+
+  public List<Author> findAllOrderByName() {
+    return Author.findAllOrderByName();
+  }
 }
