@@ -14,6 +14,7 @@ import java.util.Set;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 // tag::adocSnippet[]
 @Entity
 public class CD extends Item {
@@ -32,7 +33,10 @@ public class CD extends Item {
   public String genre;
 
   @ManyToMany
-  @JoinTable(name = "cd_musician", joinColumns = @JoinColumn(name = "cd_fk"), inverseJoinColumns = @JoinColumn(name = "musician_fk"))
+  @JoinTable(name = "cd_musician",
+    joinColumns = @JoinColumn(name = "cd_fk"),
+    inverseJoinColumns = @JoinColumn(name = "musician_fk")
+  )
   public Set<Musician> musicians = new HashSet<>();
 
   // tag::adocSkip[]
