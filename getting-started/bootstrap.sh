@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # tag::adocSnippet[]
-mvn io.quarkus:quarkus-maven-plugin:1.5.0.Final:create \
+mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
      -DprojectGroupId=org.agoncal.fascicle.quarkus \
      -DprojectArtifactId=getting-started \
      -DprojectVersion=1.0 \

@@ -5,11 +5,11 @@
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>http</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   <groupId>org.agoncal.fascicle.quarkus.http</groupId>
   <artifactId>panache-rest</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Quarkus :: HTTP Microservices :: Panache REST</name>
   <dependencies>
     <dependency>
@@ -36,6 +36,8 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
     </dependency>
+
+    <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>

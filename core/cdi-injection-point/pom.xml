@@ -5,13 +5,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
   <artifactId>cdi-injection-point</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Quarkus :: Core :: CDI :: Injection Point</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>core</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>

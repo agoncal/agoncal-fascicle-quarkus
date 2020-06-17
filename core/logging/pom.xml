@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.core</groupId>
   <artifactId>logging</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Quarkus :: Core :: Logging</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>core</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>

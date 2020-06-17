@@ -6,18 +6,23 @@
 
   <groupId>org.agoncal.fascicle.quarkus</groupId>
   <artifactId>data</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Quarkus :: Data, Transactions and ORM</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>quarkus</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>jpa</module>
+    <module>bean-validation</module>
+    <module>jpa-advanced</module>
+    <module>jpa-custom</module>
+    <module>jpa-default</module>
+    <module>jpa-query</module>
     <module>panache</module>
+    <module>panache-entities</module>
   </modules>
 </project>
