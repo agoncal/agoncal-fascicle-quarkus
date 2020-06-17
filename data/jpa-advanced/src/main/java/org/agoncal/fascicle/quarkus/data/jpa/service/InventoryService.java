@@ -32,8 +32,8 @@ public class InventoryService {
       tx.rollback();
     }
   }
-
   // tag::adocSkip[]
+
   private void sendShippingMessage() {
   }
 
