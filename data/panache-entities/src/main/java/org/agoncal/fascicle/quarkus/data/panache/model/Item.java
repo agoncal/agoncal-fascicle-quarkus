@@ -12,13 +12,15 @@ import javax.persistence.InheritanceType;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Item extends PanacheEntity {
-
+  // tag::adocSkip[]
   // ======================================
   // =             Attributes             =
   // ======================================
+  // end::adocSkip[]
 
   @Column(length = 100)
   public String title;
@@ -29,3 +31,4 @@ public class Item extends PanacheEntity {
   @Column(name = "unit_cost")
   public Float unitCost;
 }
+// end::adocSnippet[]
