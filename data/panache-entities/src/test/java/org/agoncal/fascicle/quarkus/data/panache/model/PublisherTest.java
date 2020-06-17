@@ -77,6 +77,6 @@ class PublisherTest {
     // tag::adocSkip[]
     });
     // end::adocSkip[]
-    // tag::adocSnippet[]
+    // end::adocSnippet[]
   }
 }
