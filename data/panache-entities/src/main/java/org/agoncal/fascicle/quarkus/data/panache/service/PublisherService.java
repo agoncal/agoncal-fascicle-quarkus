@@ -11,6 +11,7 @@ import java.util.Optional;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 @Transactional(SUPPORTS)
 public class PublisherService {
@@ -30,13 +31,14 @@ public class PublisherService {
   }
 
   @Transactional(REQUIRED)
-  public Publisher update(Publisher publisher) {
-    return Panache.getEntityManager().merge(publisher);
-  }
-
-  @Transactional(REQUIRED)
   public void deleteById(Long id) {
     Publisher.deleteById(id);
+  }
+
+  // tag::adocSkip[]
+  @Transactional(REQUIRED)
+  public Publisher update(Publisher publisher) {
+    return Panache.getEntityManager().merge(publisher);
   }
 
   public Optional<Publisher> findByName(String name) {
@@ -47,4 +49,6 @@ public class PublisherService {
   public long deleteByName(String name) {
     return Publisher.deleteByName(name);
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
