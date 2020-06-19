@@ -37,6 +37,6 @@ class AuthorTest {
     // tag::adocSkip[]
     assertEquals(14, authors.size());
     // end::adocSkip[]
-    // end::adocShouldFind[]
+    // end::adocShouldSort[]
   }
 }
