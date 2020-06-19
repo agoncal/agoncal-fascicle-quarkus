@@ -107,7 +107,7 @@ class BookTest {
       Parameters.with("min", min).and("max", max));
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
-    // end::adocShouldQueryWithParameters[]
+    // end::adocSkip[]
 
     // Passing an enumeration
     List<Book> englishBooks = Book.list("language", Language.ENGLISH);
