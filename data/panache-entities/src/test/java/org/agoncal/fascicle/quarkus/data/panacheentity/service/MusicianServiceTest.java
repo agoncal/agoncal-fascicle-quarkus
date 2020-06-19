@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.service;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician;
-import org.agoncal.fascicle.quarkus.data.panacheentity.service.MusicianService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

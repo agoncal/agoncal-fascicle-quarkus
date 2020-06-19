@@ -25,7 +25,7 @@ class PublisherTest {
 
     // tag::adocSnippet[]
     // Creating a publisher
-    org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher publisher = new org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher();
+    Publisher publisher = new Publisher();
     publisher.name = "AGoncal Fascicle";
 
     // Persist it
@@ -36,23 +36,23 @@ class PublisherTest {
     // end::adocSkip[]
 
     // Getting a list of all Publisher entities
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher> allPublishers = org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher.listAll();
+    List<Publisher> allPublishers = Publisher.listAll();
     // tag::adocSkip[]
     assertTrue(allPublishers.size() > 1);
     // end::adocSkip[]
 
     // Finding a specific publisher by ID
-    publisher = org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher.findById(publisherId);
+    publisher = Publisher.findById(publisherId);
     // tag::adocSkip[]
     assertEquals("AGoncal Fascicle", publisher.name);
     // end::adocSkip[]
 
     // Finding a specific publisher by ID via an Optional
-    Optional<org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher> optional = org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher.findByIdOptional(publisherId);
+    Optional<Publisher> optional = Publisher.findByIdOptional(publisherId);
     publisher = optional.orElseThrow(() -> new EntityNotFoundException());
 
     // Counting all publishers
-    long countAll = org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher.count();
+    long countAll = Publisher.count();
     // tag::adocSkip[]
     assertTrue(countAll > 1);
     // end::adocSkip[]
@@ -64,7 +64,7 @@ class PublisherTest {
     }
 
     // Delete by id
-    boolean deleted = org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher.deleteById(publisherId);
+    boolean deleted = Publisher.deleteById(publisherId);
     // tag::adocSkip[]
     assertFalse(deleted);
     // end::adocSkip[]

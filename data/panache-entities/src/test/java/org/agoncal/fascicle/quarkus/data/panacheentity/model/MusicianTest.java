@@ -3,7 +3,6 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.panache.common.Page;
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -20,7 +19,7 @@ class MusicianTest {
 
     // tag::adocSnippet[]
     // Create a query for all musicians
-    PanacheQuery<org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician> musicianQuery = org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician.findAll();
+    PanacheQuery<Musician> musicianQuery = Musician.findAll();
     // tag::adocSkip[]
     assertEquals(13, musicianQuery.count());
     // end::adocSkip[]
@@ -29,19 +28,19 @@ class MusicianTest {
     musicianQuery.page(Page.ofSize(5));
 
     // Get the first page
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician> firstPage = musicianQuery.list();
+    List<Musician> firstPage = musicianQuery.list();
     // tag::adocSkip[]
     assertEquals(5, firstPage.size());
     // end::adocSkip[]
 
     // Get the second page
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician> secondPage = musicianQuery.nextPage().list();
+    List<Musician> secondPage = musicianQuery.nextPage().list();
     // tag::adocSkip[]
     assertEquals(5, secondPage.size());
     // end::adocSkip[]
 
     // Get the third page
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician> lastPage = musicianQuery.nextPage().list();
+    List<Musician> lastPage = musicianQuery.nextPage().list();
     // tag::adocSkip[]
     assertEquals(3, lastPage.size());
     // end::adocSkip[]

@@ -3,8 +3,6 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Book;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Language;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -25,11 +23,11 @@ class BookTest {
 
     // tag::adocShouldFind[]
     // Find returns a PanacheQuery
-    PanacheQuery<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> bookQuery = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.find("nbOfPage > 100 ORDER BY title");
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> books     = bookQuery.list();
+    PanacheQuery<Book> bookQuery = Book.find("nbOfPage > 100 ORDER BY title");
+    List<Book> books     = bookQuery.list();
     Long nbBooks         = bookQuery.count();
-    org.agoncal.fascicle.quarkus.data.panacheentity.model.Book firstBook       = bookQuery.firstResult();
-    Optional<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> oBook = bookQuery.firstResultOptional();
+    Book firstBook       = bookQuery.firstResult();
+    Optional<Book> oBook = bookQuery.firstResultOptional();
     // tag::adocSkip[]
     assertEquals(5, books.size());
     assertEquals(5, nbBooks);
@@ -38,11 +36,11 @@ class BookTest {
     // end::adocSkip[]
 
     // list() is a shortcut to find().list()
-    books = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.find("nbOfPage > 100 ORDER BY title").list();
+    books = Book.find("nbOfPage > 100 ORDER BY title").list();
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
-    books = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("nbOfPage > 100 ORDER BY title");
+    books = Book.list("nbOfPage > 100 ORDER BY title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
@@ -52,22 +50,22 @@ class BookTest {
   @Test
   void shouldQuery() {
 
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> books;
+    List<Book> books;
     // tag::adocShouldQuery[]
     // Full JPQL query
-    books = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("SELECT b FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
+    books = Book.list("SELECT b FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
 
     // Simplified JPQL query
-    books = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
+    books = Book.list("FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
 
     // Very simplified JPQL query
-    books = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("nbOfPage > 100 ORDER BY title");
+    books = Book.list("nbOfPage > 100 ORDER BY title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
@@ -79,17 +77,17 @@ class BookTest {
 
     float min = 0f;
     float max = 30f;
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> cheapBooks;
+    List<Book> cheapBooks;
 
     // tag::adocShouldQueryWithParameters[]
     // Hard coded parameters
-    cheapBooks = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("unitCost between 0 and 30");
+    cheapBooks = Book.list("unitCost between 0 and 30");
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
 
     // Position parameters
-    cheapBooks = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("unitCost between ?1 and ?2", min, max);
+    cheapBooks = Book.list("unitCost between ?1 and ?2", min, max);
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
@@ -98,20 +96,20 @@ class BookTest {
     Map<String, Object> params = new HashMap<>();
     params.put("min", min);
     params.put("max", max);
-    cheapBooks = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("unitCost between :min and :max", params);
+    cheapBooks = Book.list("unitCost between :min and :max", params);
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
 
     // Using the Parameters class
-    cheapBooks = org.agoncal.fascicle.quarkus.data.panacheentity.model.Book.list("unitCost between :min and :max",
+    cheapBooks = Book.list("unitCost between :min and :max",
       Parameters.with("min", min).and("max", max));
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
 
     // Passing an enumeration
-    List<org.agoncal.fascicle.quarkus.data.panacheentity.model.Book> englishBooks = Book.list("language", Language.ENGLISH);
+    List<Book> englishBooks = Book.list("language", Language.ENGLISH);
     // tag::adocSkip[]
     assertEquals(4, englishBooks.size());
     // end::adocSkip[]

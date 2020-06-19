@@ -22,8 +22,8 @@ public class Publisher extends PanacheEntity {
 
   @Column(length = 30)
   public String name;
-
   // tag::adocSkip[]
+
   // ======================================
   // =              Methods               =
   // ======================================
