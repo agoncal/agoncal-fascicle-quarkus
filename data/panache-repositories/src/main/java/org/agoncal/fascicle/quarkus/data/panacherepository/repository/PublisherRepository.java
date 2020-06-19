@@ -7,13 +7,16 @@ import org.agoncal.fascicle.quarkus.data.panacherepository.model.Publisher;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 public class PublisherRepository implements PanacheRepository<Publisher> {
 
+  // tag::adocSkip[]
   public Publisher update(Publisher publisher) {
     return Panache.getEntityManager().merge(publisher);
   }
 
+  // end::adocSkip[]
   public Optional<Publisher> findByName(String name) {
     return find("name", name).firstResultOptional();
   }
@@ -22,3 +25,4 @@ public class PublisherRepository implements PanacheRepository<Publisher> {
     return delete("name", name);
   }
 }
+// end::adocSnippet[]
