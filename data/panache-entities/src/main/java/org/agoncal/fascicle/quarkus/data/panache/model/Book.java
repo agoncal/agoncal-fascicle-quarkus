@@ -17,16 +17,19 @@ import java.util.Set;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
+// @formatter:off
+// tag::adocSnippet[]
 @Entity
 public class Book extends Item {
 
+  // tag::adocSkip[]
   // ======================================
   // =             Attributes             =
   // ======================================
-
+  // end::adocSkip[]
   @Column(length = 15)
   public String isbn;
 
@@ -40,23 +43,27 @@ public class Book extends Item {
   public Language language;
 
   @OneToMany
-  @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_fk"), inverseJoinColumns = @JoinColumn(name = "author_fk"))
+  @JoinTable(name = "book_author",
+    joinColumns = @JoinColumn(name = "book_fk"),
+    inverseJoinColumns = @JoinColumn(name = "author_fk")
+  )
   public Set<Author> authors = new HashSet<>();
 
   @ManyToOne
   @JoinColumn(name = "publisher_pk")
   public Publisher publisher;
 
+  // tag::adocSkip[]
   // ======================================
   // =              Methods               =
   // ======================================
-
-  public static List<Book> findEnglishBooks(){
+  // end::adocSkip[]
+  public static List<Book> findEnglishBooks() {
     List<Book> books = list("language", Language.ENGLISH);
     return books;
   }
 
-  public static long countEnglishBooks(){
+  public static long countEnglishBooks() {
     long nbBooks = count("language", Language.ENGLISH);
     return nbBooks;
   }
@@ -67,3 +74,4 @@ public class Book extends Item {
     return books;
   }
 }
+// end::adocSnippet[]
