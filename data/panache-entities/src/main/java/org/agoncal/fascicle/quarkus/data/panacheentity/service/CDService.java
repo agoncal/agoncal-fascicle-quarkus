@@ -1,7 +1,7 @@
-package org.agoncal.fascicle.quarkus.data.panache.service;
+package org.agoncal.fascicle.quarkus.data.panacheentity.service;
 
 import io.quarkus.hibernate.orm.panache.Panache;
-import org.agoncal.fascicle.quarkus.data.panache.model.CD;
+import org.agoncal.fascicle.quarkus.data.panacheentity.model.CD;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;

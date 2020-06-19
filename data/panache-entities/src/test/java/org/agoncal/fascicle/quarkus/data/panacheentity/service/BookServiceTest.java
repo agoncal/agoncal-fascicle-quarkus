@@ -1,8 +1,9 @@
-package org.agoncal.fascicle.quarkus.data.panache.service;
+package org.agoncal.fascicle.quarkus.data.panacheentity.service;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.data.panache.model.Book;
-import org.agoncal.fascicle.quarkus.data.panache.model.Language;
+import org.agoncal.fascicle.quarkus.data.panacheentity.model.Book;
+import org.agoncal.fascicle.quarkus.data.panacheentity.model.Language;
+import org.agoncal.fascicle.quarkus.data.panacheentity.service.BookService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.data.panache.model;
+package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 
 /**
  * @author Antonio Goncalves
