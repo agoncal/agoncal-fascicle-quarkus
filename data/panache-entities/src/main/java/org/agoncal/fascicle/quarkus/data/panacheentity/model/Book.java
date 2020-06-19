@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 
 import io.quarkus.panache.common.Parameters;
+import io.quarkus.panache.common.Sort;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -72,6 +73,10 @@ public class Book extends Item {
     List<Book> books = list("unitCost between :min and :max",
       Parameters.with("min", min).and("max", max));
     return books;
+  }
+
+  public static List<Book> findAllOrderByTitle() {
+    return listAll(Sort.by("title").and("publicationDate"));
   }
 }
 // end::adocSnippet[]

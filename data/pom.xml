@@ -22,7 +22,6 @@
     <module>jpa-custom</module>
     <module>jpa-default</module>
     <module>jpa-query</module>
-    <module>panache</module>
     <module>panache-entities</module>
     <module>panache-repositories</module>
   </modules>

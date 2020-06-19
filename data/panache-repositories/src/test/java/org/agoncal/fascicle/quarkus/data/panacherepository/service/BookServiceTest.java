@@ -1,8 +1,8 @@
-package org.agoncal.fascicle.quarkus.data.panacheentity.service;
+package org.agoncal.fascicle.quarkus.data.panacherepository.service;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Book;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Language;
+import org.agoncal.fascicle.quarkus.data.panacherepository.model.Book;
+import org.agoncal.fascicle.quarkus.data.panacherepository.model.Language;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -60,7 +60,6 @@ class BookServiceTest {
     assertEquals(nbBooks, countBooks);
     assertTrue(nbBooks > 0);
     assertEquals(0, bookService.findBetweenPrices(0f, 2f).size());
-    assertEquals(nbBooks, bookService.findAllOrderByTitle().size());
   }
 
   @Test

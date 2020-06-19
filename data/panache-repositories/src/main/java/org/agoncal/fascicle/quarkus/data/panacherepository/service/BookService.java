@@ -1,9 +1,11 @@
-package org.agoncal.fascicle.quarkus.data.panacheentity.service;
+package org.agoncal.fascicle.quarkus.data.panacherepository.service;
 
 import io.quarkus.hibernate.orm.panache.Panache;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Book;
+import org.agoncal.fascicle.quarkus.data.panacherepository.model.Book;
+import org.agoncal.fascicle.quarkus.data.panacherepository.repository.BookRepository;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -15,18 +17,21 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @Transactional(SUPPORTS)
 public class BookService {
 
+  @Inject
+  BookRepository repository;
+
   @Transactional(REQUIRED)
   public Book persist(Book book) {
-    Book.persist(book);
+    repository.persist(book);
     return book;
   }
 
   public List<Book> findAll() {
-    return Book.listAll();
+    return repository.listAll();
   }
 
   public Optional<Book> findByIdOptional(Long id) {
-    return Book.findByIdOptional(id);
+    return repository.findByIdOptional(id);
   }
 
   @Transactional(REQUIRED)
@@ -36,26 +41,22 @@ public class BookService {
 
   @Transactional(REQUIRED)
   public void deleteById(Long id) {
-    Book.deleteById(id);
+    repository.deleteById(id);
   }
 
   public long count() {
-    return Book.count();
+    return repository.count();
   }
 
   public List<Book> findEnglishBooks(){
-    return Book.findEnglishBooks();
+    return repository.findEnglishBooks();
   }
 
   public long countEnglishBooks(){
-    return Book.countEnglishBooks();
+    return repository.countEnglishBooks();
   }
 
   public List<Book> findBetweenPrices(Float min, Float max) {
-    return Book.findBetweenPrices(min, max);
-  }
-
-  public List<Book> findAllOrderByTitle() {
-    return Book.findAllOrderByTitle();
+    return repository.findBetweenPrices(min, max);
   }
 }
