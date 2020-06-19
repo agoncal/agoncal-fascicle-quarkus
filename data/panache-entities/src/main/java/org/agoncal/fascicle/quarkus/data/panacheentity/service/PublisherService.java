@@ -34,8 +34,8 @@ public class PublisherService {
   public void deleteById(Long id) {
     Publisher.deleteById(id);
   }
-
   // tag::adocSkip[]
+
   @Transactional(REQUIRED)
   public Publisher update(Publisher publisher) {
     return Panache.getEntityManager().merge(publisher);
