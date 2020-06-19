@@ -36,6 +36,10 @@ class BookTest {
     // end::adocSkip[]
 
     // list() is a shortcut to find().list()
+    books = Book.find("nbOfPage > 100 ORDER BY title").list();
+    // tag::adocSkip[]
+    assertEquals(5, books.size());
+    // end::adocSkip[]
     books = Book.list("nbOfPage > 100 ORDER BY title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
@@ -46,9 +50,10 @@ class BookTest {
   @Test
   void shouldQuery() {
 
+    List<Book> books;
     // tag::adocShouldQuery[]
     // Full JPQL query
-    List<Book> books = Book.list("SELECT b FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
+    books = Book.list("SELECT b FROM Book b WHERE b.nbOfPage > 100 ORDER BY b.title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
     // end::adocSkip[]
@@ -63,12 +68,6 @@ class BookTest {
     books = Book.list("nbOfPage > 100 ORDER BY title");
     // tag::adocSkip[]
     assertEquals(5, books.size());
-    // end::adocSkip[]
-
-    // Counting
-    Long nbBooks = Book.count("nbOfPage > 100");
-    // tag::adocSkip[]
-    assertEquals(5, nbBooks);
     // end::adocSkip[]
     // end::adocShouldQuery[]
   }

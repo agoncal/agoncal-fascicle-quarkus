@@ -19,40 +19,40 @@ class MusicianTest {
 
     // tag::adocSnippet[]
     // Create a query for all musicians
-    PanacheQuery<Musician> allMusiciansQuery = Musician.findAll();
+    PanacheQuery<Musician> musicianQuery = Musician.findAll();
     // tag::adocSkip[]
-    assertEquals(13, allMusiciansQuery.count());
+    assertEquals(13, musicianQuery.count());
     // end::adocSkip[]
 
     // Make it use pages of 5 entries at a time
-    allMusiciansQuery.page(Page.ofSize(5));
+    musicianQuery.page(Page.ofSize(5));
 
     // Get the first page
-    List<Musician> firstPage = allMusiciansQuery.list();
+    List<Musician> firstPage = musicianQuery.list();
     // tag::adocSkip[]
     assertEquals(5, firstPage.size());
     // end::adocSkip[]
 
     // Get the second page
-    List<Musician> secondPage = allMusiciansQuery.nextPage().list();
+    List<Musician> secondPage = musicianQuery.nextPage().list();
     // tag::adocSkip[]
     assertEquals(5, secondPage.size());
     // end::adocSkip[]
 
     // Get the third page
-    List<Musician> lastPage = allMusiciansQuery.nextPage().list();
+    List<Musician> lastPage = musicianQuery.nextPage().list();
     // tag::adocSkip[]
     assertEquals(3, lastPage.size());
     // end::adocSkip[]
 
     // Get page 3 using index
-    List<Musician> page3 = allMusiciansQuery.page(Page.of(2, 5)).list();
+    List<Musician> page3 = musicianQuery.page(Page.of(2, 5)).list();
     // tag::adocSkip[]
     assertEquals(3, page3.size());
     // end::adocSkip[]
 
     // Get the number of pages
-    int numberOfPages = allMusiciansQuery.pageCount();
+    int numberOfPages = musicianQuery.pageCount();
     // end::adocSnippet[]
     assertEquals(3, numberOfPages);
   }
