@@ -23,7 +23,7 @@ import static org.wildfly.common.Assert.assertFalse;
 class PublisherRepositoryTest {
 
   @Inject
-  PublisherRepository repository;
+  PublisherRepository publisherRepository;
 
   @Test
   void shouldManagePublishers() {
@@ -34,42 +34,42 @@ class PublisherRepositoryTest {
     publisher.name = "AGoncal Fascicle";
 
     // Persist it
-    repository.persist(publisher);
+    publisherRepository.persist(publisher);
     // tag::adocSkip[]
     Long publisherId = publisher.id;
     assertNotNull(publisherId);
     // end::adocSkip[]
 
     // Getting a list of all Publisher entities
-    List<Publisher> allPublishers = repository.listAll();
+    List<Publisher> allPublishers = publisherRepository.listAll();
     // tag::adocSkip[]
     assertTrue(allPublishers.size() > 1);
     // end::adocSkip[]
 
     // Finding a specific publisher by ID
-    publisher = repository.findById(publisherId);
+    publisher = publisherRepository.findById(publisherId);
     // tag::adocSkip[]
     assertEquals("AGoncal Fascicle", publisher.name);
     // end::adocSkip[]
 
     // Finding a specific publisher by ID via an Optional
-    Optional<Publisher> optional = repository.findByIdOptional(publisherId);
+    Optional<Publisher> optional = publisherRepository.findByIdOptional(publisherId);
     publisher = optional.orElseThrow(() -> new EntityNotFoundException());
 
     // Counting all publishers
-    long countAll = repository.count();
+    long countAll = publisherRepository.count();
     // tag::adocSkip[]
     assertTrue(countAll > 1);
     // end::adocSkip[]
 
     // Check if it's persistent
-    if (repository.isPersistent(publisher)) {
+    if (publisherRepository.isPersistent(publisher)) {
       // delete it
-      repository.delete(publisher);
+      publisherRepository.delete(publisher);
     }
 
     // Delete by id
-    boolean deleted = repository.deleteById(publisherId);
+    boolean deleted = publisherRepository.deleteById(publisherId);
     // tag::adocSkip[]
     assertFalse(deleted);
     // end::adocSkip[]
@@ -78,7 +78,7 @@ class PublisherRepositoryTest {
     // tag::adocSkip[]
     assertThrows(PersistenceException.class, () -> {
     // end::adocSkip[]
-    repository.deleteAll();
+    publisherRepository.deleteAll();
     // tag::adocSkip[]
     });
     // end::adocSkip[]
