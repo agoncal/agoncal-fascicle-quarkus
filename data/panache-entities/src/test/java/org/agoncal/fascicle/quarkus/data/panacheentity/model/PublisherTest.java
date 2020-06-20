@@ -35,7 +35,7 @@ class PublisherTest {
     assertNotNull(publisherId);
     // end::adocSkip[]
 
-    // Getting a list of all Publisher entities
+    // Getting a list of all publisher entities
     List<Publisher> allPublishers = Publisher.listAll();
     // tag::adocSkip[]
     assertTrue(allPublishers.size() > 1);
@@ -59,7 +59,7 @@ class PublisherTest {
 
     // Check if it's persistent
     if (publisher.isPersistent()) {
-      // delete it
+      // Delete it
       publisher.delete();
     }
 
