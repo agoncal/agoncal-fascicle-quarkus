@@ -38,8 +38,8 @@ public class CD extends Item {
     inverseJoinColumns = @JoinColumn(name = "musician_fk")
   )
   public Set<Musician> musicians = new HashSet<>();
-
   // tag::adocSkip[]
+
   // ======================================
   // =              Methods               =
   // ======================================

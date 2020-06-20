@@ -29,6 +29,7 @@ public class Publisher extends PanacheEntity {
   // ======================================
   // end::adocSkip[]
   // tag::adocQuery[]
+
   public static Optional<Publisher> findByName(String name) {
     return find("name", name).firstResultOptional();
   }
