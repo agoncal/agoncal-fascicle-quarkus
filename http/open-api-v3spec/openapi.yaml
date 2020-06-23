@@ -1,0 +1,37 @@
+# tag::adocSnippet[]
+# tag::adocVersion[]
+openapi: 3.0.1
+# end::adocVersion[]
+# tag::adocInfo[]
+info:
+  title: Generated API
+  version: "1.0"
+tags:
+  - name: Author Endpoint
+# end::adocInfo[]
+# tag::adocPath[]
+paths:
+  /authors/{index}:
+    get:
+      summary: Returns an author for a given index
+      # end::adocPath[]
+      # tag::adocParameters[]
+      parameters:
+        - name: index
+          in: path
+          description: Author index
+          required: true
+          schema:
+            format: int32
+            type: integer
+      # end::adocParameters[]
+      # tag::adocResponses[]
+      responses:
+        "204":
+          description: The author is not found for a given index
+        "200":
+          description: OK
+          content:
+            text/plain: {}
+# end::adocResponses[]
+# end::adocSnippet[]
