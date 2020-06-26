@@ -1,0 +1,172 @@
+# tag::adocInfo[]
+openapi: 3.0.1
+info:
+  title: Book API
+  description: This API allows CRUD operations on books
+  contact:
+    name: '@agoncal'
+    url: https://twitter.com/agoncal
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: "1.0"
+externalDocs:
+  description: All the MicroProfile fascicle code
+  url: https://github.com/agoncal/agoncal-fascicle-microprofile
+# end::adocInfo[]
+# tag::adocServer[]
+servers:
+  - url: http://{host}.cdbookstore/{port}
+    description: CD-Book Store server 1
+    variables:
+      host:
+        default: localhost
+        description: CD-Book Store main server
+      port:
+        default: "80"
+        description: CD-Book Store listening port
+# end::adocServer[]
+# tag::adocTag[]
+tags:
+  - name: api
+    description: Public API that can be used by anybody
+  - name: books
+    description: Anybody interested in books
+  - name: BETA
+    description: This API is still in BETA. Use carefully
+# end::adocTag[]
+# tag::adocResponse[]
+paths:
+  /api/books:
+    get:
+      summary: Returns all the books from the database
+      responses:
+        "204":
+          description: No books
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    # end::adocResponse[]
+    put:
+      summary: Updates an exiting  book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        "200":
+          description: The updated book
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+    # tag::adocRequestBody[]
+    post:
+      summary: Creates a book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      # end::adocRequestBody[]
+      responses:
+        "201":
+          description: The URI of the created book
+          content:
+            application/json:
+              schema:
+                format: uri
+                type: string
+  /api/books/ping:
+    get:
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  # tag::adocOperation[]
+  /api/books/random:
+    get:
+      tags:
+        - BETA
+      summary: Returns a random book
+      description: Each time this API is invoked, a random book is returned from the
+        database
+      responses:
+        "200":
+          description: OK
+  # end::adocOperation[]
+  # tag::adocParameter[]
+  /api/books/{id}:
+    get:
+      summary: Returns a book for a given identifier
+      parameters:
+        - name: id
+          in: path
+          description: Book identifier
+          required: true
+          schema:
+            format: int64
+            type: integer
+      # end::adocParameter[]
+      responses:
+        "404":
+          description: The book is not found for the given identifier
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+    delete:
+      summary: Deletes an exiting book
+      parameters:
+        - name: id
+          in: path
+          description: Book identifier
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "204":
+          description: The book has been successfully deleted
+# tag::adocSchema[]
+components:
+  schemas:
+    Book:
+      description: Book representation
+      required:
+        - id
+        - isbn
+        - title
+      type: object
+      properties:
+        author:
+          type: string
+        description:
+          type: string
+        id:
+          format: int64
+          type: integer
+          readOnly: true
+        isbn:
+          type: string
+          example: "9798629562115"
+        price:
+          $ref: '#/components/schemas/BigDecimal'
+        title:
+          type: string
+    # end::adocSchema[]
+    BigDecimal:
+      type: number

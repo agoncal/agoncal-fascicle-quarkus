@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+# tag::adocPath[]
+paths:
+  /authors/{index}:
+    get:
+      summary: Returns an author for a given index
+# end::adocPath[]
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            format: int32
+            type: integer
+# tag::adocResponse[]
+      responses:
+        "204":
+          description: Author not found
+        "200":
+          description: Author returned for a given index
+          content:
+            text/plain:
+              schema:
+                type: string
+# end::adocResponse[]

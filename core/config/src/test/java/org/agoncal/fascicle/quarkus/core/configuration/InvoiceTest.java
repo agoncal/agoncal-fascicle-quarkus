@@ -24,7 +24,7 @@ class InvoiceTest {
 
   // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
   @Test
-  public void shouldCalculateInvoiceProgrammaticallyInjection() {
+  public void adocShouldCalculateInvoiceProgrammaticallyInjection() {
   // tag::adocShouldCalculateInvoiceProgrammaticallyInjection[]
   invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
   invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);

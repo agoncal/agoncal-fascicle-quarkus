@@ -1,17 +1,21 @@
+# tag::adocSnippet[]
 openapi: 3.0.1
 info:
   title: Generated API
   version: "1.0"
+# tag::adocPath[]
 paths:
   /authors/{index}:
     get:
+# end::adocPath[]
       parameters:
-      - name: index
-        in: path
-        required: true
-        schema:
-          format: int32
-          type: integer
+        - name: index
+          in: path
+          required: true
+          schema:
+            format: int32
+            type: integer
+# tag::adocResponse[]
       responses:
         "200":
           description: OK
@@ -19,3 +23,5 @@ paths:
             text/plain:
               schema:
                 type: string
+# end::adocResponse[]
+# end::adocSnippet[]
