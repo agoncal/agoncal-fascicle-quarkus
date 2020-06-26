@@ -6,6 +6,7 @@ info:
 paths:
   /authors/{index}:
     get:
+      summary: Returns an author for a given index
 # end::adocPath[]
       parameters:
         - name: index
@@ -16,8 +17,10 @@ paths:
             type: integer
 # tag::adocResponse[]
       responses:
+        "204":
+          description: Author not found
         "200":
-          description: OK
+          description: Author returned for a given index
           content:
             text/plain:
               schema:
