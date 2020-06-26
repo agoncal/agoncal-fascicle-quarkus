@@ -28,8 +28,10 @@ public class AuthorResource {
   @GET
   @Path("/{index}")
   @Operation(summary = "Returns an author for a given index")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.TEXT_PLAIN))
-  @APIResponse(responseCode = "204", description = "The author is not found for a given index")
+  @APIResponse(
+    responseCode = "200",
+    content = @Content(mediaType = MediaType.TEXT_PLAIN)
+  )
   public String getScifiAuthor(@Parameter(description = "Author index", required = true) @PathParam("index") int index) {
     return scifiAuthors[index];
   }
