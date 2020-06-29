@@ -7,12 +7,8 @@ import javax.json.bind.annotation.JsonbProperty;
  * http://www.antoniogoncalves.org
  * --
  */
-public class Customer {
+public class Customer extends Person {
 
-  @JsonbProperty("first_name")
-  private String firstName;
-  @JsonbProperty("last_name")
-  private String lastName;
   private String email;
   @JsonbProperty("phone_number")
   private String phoneNumber;
