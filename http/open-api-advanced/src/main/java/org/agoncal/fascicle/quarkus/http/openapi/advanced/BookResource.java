@@ -58,7 +58,9 @@ public class BookResource {
   // tag::adocResponse[]
   @GET
   @Operation(summary = "Returns all the books from the database")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
+  @APIResponse(responseCode = "200",
+               content = @Content(mediaType = APPLICATION_JSON,
+                schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
   @APIResponse(responseCode = "204", description = "No books")
   public Response getAllBooks() {
     // end::adocResponse[]
@@ -92,9 +94,9 @@ public class BookResource {
   @POST
   public Response createBook(@RequestBody(
                                 required = true,
-                                content = @Content(mediaType = APPLICATION_JSON,
-                                schema = @Schema(implementation = Book.class)))
-                             Book book, @Context UriInfo uriInfo) {
+                                 content = @Content(mediaType = APPLICATION_JSON,
+                                  schema = @Schema(implementation = Book.class)))
+                                Book book, @Context UriInfo uriInfo) {
     // end::adocRequestBody[]
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
