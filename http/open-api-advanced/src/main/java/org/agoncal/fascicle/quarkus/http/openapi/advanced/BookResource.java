@@ -30,6 +30,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 
+// @formatter:off
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
@@ -48,7 +49,7 @@ public class BookResource {
     description = "Each time this API is invoked, a random book is returned from the database"
   )
   public Response getRandomBook() {
-  // end::adocOperation[]
+    // end::adocOperation[]
     Book book = service.findRandomBook();
     LOGGER.debug("Found random book " + book);
     return Response.ok(book).build();
@@ -60,7 +61,7 @@ public class BookResource {
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
   @APIResponse(responseCode = "204", description = "No books")
   public Response getAllBooks() {
-  // end::adocResponse[]
+    // end::adocResponse[]
     List<Book> books = service.findAllBooks();
     LOGGER.debug("Total number of books " + books);
     return Response.ok(books).build();
@@ -72,8 +73,9 @@ public class BookResource {
   // tag::adocParameter[]
   @GET
   @Path("/{id}")
-  public Response getBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
-  // end::adocParameter[]
+  public Response getBook(@Parameter(description = "Book identifier", required = true)
+                          @PathParam("id") Long id) {
+    // end::adocParameter[]
     Optional<Book> book = service.findBookById(id);
     if (book.isPresent()) {
       LOGGER.debug("Found book " + book);
@@ -88,8 +90,12 @@ public class BookResource {
   @APIResponse(responseCode = "201", description = "The URI of the created book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
   // tag::adocRequestBody[]
   @POST
-  public Response createBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) Book book, @Context UriInfo uriInfo) {
-  // end::adocRequestBody[]
+  public Response createBook(@RequestBody(
+                                required = true,
+                                content = @Content(mediaType = APPLICATION_JSON,
+                                schema = @Schema(implementation = Book.class)))
+                             Book book, @Context UriInfo uriInfo) {
+    // end::adocRequestBody[]
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
     LOGGER.debug("New book created with URI " + builder.build().toString());
