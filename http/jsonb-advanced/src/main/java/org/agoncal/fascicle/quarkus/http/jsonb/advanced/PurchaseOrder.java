@@ -10,6 +10,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 public class PurchaseOrder {
 
   private Long id;
@@ -20,6 +21,8 @@ public class PurchaseOrder {
   private CreditCard creditCard;
   private Customer customer;
 
+  // Constructors, getters, setters
+  // tag::adocSkip[]
   // ======================================
   // =          Getters & Setters         =
   // ======================================
@@ -90,4 +93,6 @@ public class PurchaseOrder {
     this.customer = customer;
     return this;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
