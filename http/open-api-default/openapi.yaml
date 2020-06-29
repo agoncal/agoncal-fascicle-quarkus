@@ -1,3 +1,4 @@
+# tag::adocSnippet[]
 openapi: 3.0.1
 info:
   title: Generated API
@@ -23,3 +24,4 @@ paths:
               schema:
                 type: string
 # end::adocResponse[]
+# end::adocSnippet[]
