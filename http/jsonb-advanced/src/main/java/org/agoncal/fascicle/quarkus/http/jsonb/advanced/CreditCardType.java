@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.http.jsonb.dflt;
+package org.agoncal.fascicle.quarkus.http.jsonb.advanced;
 
 /**
  * @author Antonio Goncalves

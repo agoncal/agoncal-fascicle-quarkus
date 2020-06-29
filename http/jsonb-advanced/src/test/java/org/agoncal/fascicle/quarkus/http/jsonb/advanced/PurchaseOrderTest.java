@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.http.jsonb.dflt;
+package org.agoncal.fascicle.quarkus.http.jsonb.advanced;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.time.LocalDate;
 
-import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.CreditCardType.VISA;
-import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.UtilTest.initBufferedWriter;
-import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.UtilTest.output;
+import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.CreditCardType.VISA;
+import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.initBufferedWriter;
+import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -42,7 +42,7 @@ public class PurchaseOrderTest {
 
   @BeforeAll
   static void initFile() throws FileNotFoundException {
-    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/dflt/PurchaseOrder.json");
+    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/advanced/PurchaseOrder.json");
   }
 
   @AfterAll

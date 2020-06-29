@@ -19,9 +19,10 @@
   <modules>
     <module>jaxrs-exposing</module>
     <module>jaxrs-invoking</module>
-    <module>json</module>
+    <module>jsonb-advanced</module>
     <module>jsonb-custom</module>
     <module>jsonb-default</module>
+    <module>jsonp</module>
     <module>open-api-advanced</module>
     <module>open-api-custom</module>
     <module>open-api-default</module>
