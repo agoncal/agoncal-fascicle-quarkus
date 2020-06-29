@@ -7,7 +7,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
@@ -48,7 +47,6 @@ public class BookResource {
     summary = "Returns a random book",
     description = "Each time this API is invoked, a random book is returned from the database"
   )
-  @Tag(name = "BETA", description = "This API is still in BETA. Use carefully")
   public Response getRandomBook() {
   // end::adocOperation[]
     Book book = service.findRandomBook();
