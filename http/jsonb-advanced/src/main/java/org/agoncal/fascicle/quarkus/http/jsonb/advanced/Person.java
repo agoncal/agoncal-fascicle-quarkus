@@ -7,7 +7,7 @@ import javax.json.bind.annotation.JsonbProperty;
  * http://www.antoniogoncalves.org
  * --
  */
-public class Person {
+public abstract class Person {
 
   @JsonbProperty("first_name")
   protected String firstName;
