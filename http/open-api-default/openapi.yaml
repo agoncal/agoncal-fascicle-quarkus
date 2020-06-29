@@ -2,9 +2,11 @@ openapi: 3.0.1
 info:
   title: Generated API
   version: "1.0"
+# tag::adocPath[]
 paths:
   /authors/{index}:
     get:
+# end::adocPath[]
       parameters:
       - name: index
         in: path
@@ -13,9 +15,11 @@ paths:
           format: int32
           type: integer
       responses:
+# tag::adocResponse[]
         "200":
           description: OK
           content:
             text/plain:
               schema:
                 type: string
+# end::adocResponse[]

@@ -14,7 +14,7 @@ public class PurchaseOrder {
 
   private Long id;
   private LocalDate date;
-  @JsonbProperty("content")
+  @JsonbProperty("purchase_order_content")
   private List<OrderLine> orderLines;
   @JsonbProperty("credit_card")
   private CreditCard creditCard;
