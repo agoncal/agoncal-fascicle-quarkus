@@ -9,7 +9,7 @@ import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.OK;
 
-//@formatter:off
+// @formatter:off
 @QuarkusTest
 public class BookResourceTest {
 

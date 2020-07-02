@@ -1,13 +1,13 @@
 package org.agoncal.fascicle.quarkus.http.json;
 
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 
 /**
  * @author Antonio Goncalves
@@ -22,17 +22,10 @@ public class CustomerResource {
   // =           Public Methods           =
   // ======================================
 
+  @Path("/getCustomer")
+  // tag::adocGetCustomer[]
   @GET
-  @Path("/jsonb")
-  public Response getJSonB() {
-    Customer customer = new Customer().firstName("Antonio").lastName("Goncalves").email("agoncal.fascicle@gmail.com ").phoneNumber("+33 123 456").dateOfBirth(LocalDate.now());
-    return Response.ok(customer).build();
-  }
-
-  @Path("/jsonp")
-  // tag::adocSnippet[]
-  @GET
-  public Response getJSonP() {
+  public Response getCustomer() {
     JsonObject customer = Json.createObjectBuilder()
       .add("firstName", "Antonio")
       .add("lastName", "Goncalves")
@@ -51,5 +44,21 @@ public class CustomerResource {
       .build();
     return Response.ok(customer).build();
   }
-  // end::adocSnippet[]
+  // end::adocGetCustomer[]
+
+  @Path("/getPhones")
+  // tag::adocGetPhones[]
+  @GET
+  public Response getPhones() {
+    JsonArray phones =  Json.createArrayBuilder()
+        .add(Json.createObjectBuilder()
+          .add("type", "mobile")
+          .add("number", "+33 123 456"))
+        .add(Json.createObjectBuilder()
+          .add("type", "home")
+          .add("number", "+33 646 555"))
+      .build();
+    return Response.ok(phones).build();
+  }
+  // end::adocGetPhones[]
 }
