@@ -70,7 +70,7 @@ public class BookTest {
 
     // tag::adocSnippet[]
     // Creates a book instance
-    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2").nbOfPages(354);
+    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2");
 
     // Creates Jsonb using a builder
     Jsonb jsonb = JsonbBuilder.create();
@@ -80,12 +80,11 @@ public class BookTest {
     System.out.println(json);
 
     // Deserializes back
-    book = jsonb.fromJson("{\"isbn\":\"1-84023-742-2\",\"nbOfPages\":354,\"price\":12.5,\"title\":\"H2G2\"}", Book.class);
+    book = jsonb.fromJson("{\"isbn\":\"1-84023-742-2\",\"price\":12.5,\"title\":\"H2G2\"}", Book.class);
     // end::adocSnippet[]
 
     assertEquals("H2G2", book.getTitle());
     assertEquals(12.5F, book.getPrice());
     assertEquals("1-84023-742-2", book.getIsbn());
-    assertEquals(354, book.getNbOfPages());
   }
 }
