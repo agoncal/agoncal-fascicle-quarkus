@@ -18,7 +18,6 @@ import java.util.Map;
  * http://www.antoniogoncalves.org
  * --
  */
-// @formatter:off
 public class CustomerParserGenerator {
 
   public void parseEvents() throws IOException {
@@ -46,40 +45,36 @@ public class CustomerParserGenerator {
 
   public String parseCustomer() throws IOException {
 
-    String email = null;
-
     // tag::adocParseCustomer[]
     FileReader file = new FileReader("src/main/resources/customer.json");
     JsonParser parser = Json.createParser(file);
 
     while (parser.hasNext()) {
       JsonParser.Event event = parser.next();
-      while (parser.hasNext() &&
-             (event.equals(JsonParser.Event.KEY_NAME) &&
-               !parser.getString().matches("email"))) {
-        event = parser.next();
-      }
-
-      if (event.equals(JsonParser.Event.KEY_NAME) && parser.getString().matches(" email")) {
-        parser.next();
-        email = parser.getString();
+      switch (event) {
+        case KEY_NAME:
+          if (parser.getString().equals("email")) {
+            parser.next();
+            return parser.getString();
+          }
+          break;
       }
     }
 
-    return email;
     // end::adocParseCustomer[]
+    return null;
   }
 
-  public JsonObject parseString() throws FileNotFoundException {
+  public JsonParser.Event parseString() throws FileNotFoundException {
     // tag::adocParseString[]
     StringReader string = new StringReader("{\"hello\":\"world\"}");
     JsonParser parser = Json.createParser(string);
 
     // end::adocParseString[]
-    return parser.getObject();
+    return parser.next();
   }
 
-  public JsonObject parseStringWithConfig() throws FileNotFoundException {
+  public JsonParser.Event parseStringWithConfig() throws FileNotFoundException {
     Map<String, Boolean> config = new HashMap<>();
     config.put(JsonGenerator.PRETTY_PRINTING, true);
 
@@ -89,7 +84,7 @@ public class CustomerParserGenerator {
     JsonParser parser = factory.createParser(string);
 
     // end::adocParseString[]
-    return parser.getObject();
+    return parser.next();
   }
 
   public JsonObject readCustomer() throws FileNotFoundException {

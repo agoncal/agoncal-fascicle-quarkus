@@ -2,8 +2,7 @@ package org.agoncal.fascicle.quarkus.http.jsonp;
 
 import org.junit.jupiter.api.Test;
 
-import javax.json.JsonObject;
-
+import javax.json.stream.JsonParser;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -28,16 +27,16 @@ class CustomerParserGeneratorTest {
   @Test
   void parseString() throws FileNotFoundException {
     CustomerParserGenerator parser = new CustomerParserGenerator();
-    JsonObject jsonObject = parser.parseString();
+    JsonParser.Event event = parser.parseString();
 
-    assertEquals("world", jsonObject.getJsonString("hello").getString());
+    assertEquals("START_OBJECT", event.name());
   }
 
   @Test
   void parseStringWithConfig() throws FileNotFoundException {
     CustomerParserGenerator parser = new CustomerParserGenerator();
-    JsonObject jsonObject = parser.parseStringWithConfig();
+    JsonParser.Event event = parser.parseStringWithConfig();
 
-    assertEquals("world", jsonObject.getJsonString("hello").getString());
+    assertEquals("START_OBJECT", event.name());
   }
 }
