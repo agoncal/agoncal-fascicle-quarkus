@@ -70,7 +70,8 @@ public class CustomerReaderWriter {
 
   public JsonObject readCustomer() throws FileNotFoundException {
     // tag::adocReadCustomer[]
-    JsonReader reader = Json.createReader(new FileReader("src/main/resources/customer.json"));
+    FileReader file = new FileReader("src/main/resources/customer.json");
+    JsonReader reader = Json.createReader(file);
     JsonObject jsonObject = reader.readObject();
     // end::adocReadCustomer[]
     return jsonObject;
