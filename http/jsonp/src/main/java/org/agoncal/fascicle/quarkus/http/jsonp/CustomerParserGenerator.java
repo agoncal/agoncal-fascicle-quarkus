@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import java.util.Map;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 public class CustomerParserGenerator {
 
   public void parseEvents() throws IOException {
@@ -95,5 +97,35 @@ public class CustomerParserGenerator {
     JsonObject jsonObject = reader.readObject();
     // end::adocReadCustomer[]
     return jsonObject;
+  }
+
+  public StringWriter generateCustomer() throws FileNotFoundException {
+    // tag::adocGenerateCustomer[]
+    StringWriter writer = new StringWriter();
+    JsonGenerator generator = Json.createGenerator(writer);
+    generator
+      .writeStartObject()
+      .write("firstName", "Antonio")
+      .write("lastName", "Goncalves")
+      .write("email", "agoncal.fascicle@gmail.com")
+        .writeStartObject("address")
+          .write("street", "21 Ritherdon Rd")
+          .write("city", "Brighton")
+          .write("country", "UK")
+        .writeEnd()
+        .writeStartArray("phoneNumbers")
+          .writeStartObject()
+            .write("type", "mobile")
+            .write("number", "+33 123 456")
+          .writeEnd()
+          .writeStartObject()
+            .write("type", "home")
+            .write("number", "+33 646 555")
+          .writeEnd()
+        .writeEnd()
+      .writeEnd()
+    .close();
+    // end::adocGenerateCustomer[]
+    return writer;
   }
 }

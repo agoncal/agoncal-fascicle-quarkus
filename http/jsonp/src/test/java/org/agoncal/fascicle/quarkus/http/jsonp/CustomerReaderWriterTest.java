@@ -40,7 +40,6 @@ class CustomerReaderWriterTest {
       assertEquals("Brighton", address.getJsonString("city").getString());
       assertEquals("UK", address.getJsonString("country").getString());
       assertEquals(2, phones.size());
-      //phones.
     }
 
 
