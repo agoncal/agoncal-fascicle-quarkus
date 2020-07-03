@@ -68,12 +68,12 @@ public class CustomerResource {
   @Produces(APPLICATION_JSON)
   public JsonArray getPhones() {
     JsonArray phones =  Json.createArrayBuilder()
-        .add(Json.createObjectBuilder()
-          .add("type", "mobile")
-          .add("number", "+33 123 456"))
-        .add(Json.createObjectBuilder()
-          .add("type", "home")
-          .add("number", "+33 646 555"))
+      .add(Json.createObjectBuilder()
+        .add("type", "mobile")
+        .add("number", "+33 123 456"))
+      .add(Json.createObjectBuilder()
+        .add("type", "home")
+        .add("number", "+33 646 555"))
       .build();
     return phones;
   }
