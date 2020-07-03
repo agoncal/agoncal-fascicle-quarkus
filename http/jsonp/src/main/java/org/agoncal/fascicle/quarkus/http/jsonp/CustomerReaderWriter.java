@@ -70,7 +70,7 @@ public class CustomerReaderWriter {
   }
 
   public JsonObject readString() throws FileNotFoundException {
-    // tag::adocReadCustomer
+    // tag::adocReadCustomer[]
     StringReader string = new StringReader("{\"hello\":\"world\"}");
     JsonReader reader = Json.createReader(string);
 
@@ -80,7 +80,7 @@ public class CustomerReaderWriter {
   }
 
   public JsonObject readCustomer() throws FileNotFoundException {
-    // tag::adocReadCustomer
+    // tag::adocReadCustomer[]
     FileReader file = new FileReader("src/main/resources/customer.json");
     JsonReader reader = Json.createReader(file);
     JsonObject jsonObject = reader.readObject();
