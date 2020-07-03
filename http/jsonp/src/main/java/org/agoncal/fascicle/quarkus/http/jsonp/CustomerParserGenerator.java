@@ -55,7 +55,7 @@ public class CustomerParserGenerator {
         case KEY_NAME:
           if (parser.getString().equals("email")) {
             parser.next();
-            return parser.getString();
+            System.out.println("Email: " + parser.getString());
           }
           break;
       }
