@@ -9,6 +9,8 @@ import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.not;
 
 // @formatter:off
 @QuarkusTest
@@ -20,6 +22,22 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/customers/getCustomer").
+    then()
+      .statusCode(OK.getStatusCode())
+      .body("firstName", Is.is("Antonio"))
+      .body("lastName", Is.is("Goncalves"))
+      .body("email", Is.is("agoncal.fascicle@gmail.com"))
+      .body("$",  not(hasKey("address.street")))
+      .body("$",  not(hasKey("address.city")))
+      .body("$",  not(hasKey("address.country")));
+  }
+
+  @Test
+  public void shouldGetCustomerDetails() {
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/customers/getCustomerDetails").
     then()
       .statusCode(OK.getStatusCode())
       .body("firstName", Is.is("Antonio"))

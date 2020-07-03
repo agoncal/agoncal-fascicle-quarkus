@@ -7,7 +7,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 /**
  * @author Antonio Goncalves
@@ -25,7 +24,20 @@ public class CustomerResource {
   @Path("/getCustomer")
   // tag::adocGetCustomer[]
   @GET
-  public Response getCustomer() {
+  public JsonObject getCustomer() {
+    JsonObject customer = Json.createObjectBuilder()
+      .add("firstName", "Antonio")
+      .add("lastName", "Goncalves")
+      .add("email", "agoncal.fascicle@gmail.com")
+      .build();
+    return customer;
+  }
+  // end::adocGetCustomer[]
+
+  @Path("/getCustomerDetails")
+  // tag::adocGetCustomerDetails[]
+  @GET
+  public JsonObject getCustomerDetails() {
     JsonObject customer = Json.createObjectBuilder()
       .add("firstName", "Antonio")
       .add("lastName", "Goncalves")
@@ -42,14 +54,14 @@ public class CustomerResource {
           .add("type", "home")
           .add("number", "+33 646 555")))
       .build();
-    return Response.ok(customer).build();
+    return customer;
   }
-  // end::adocGetCustomer[]
+  // end::adocGetCustomerDetails[]
 
   @Path("/getPhones")
   // tag::adocGetPhones[]
   @GET
-  public Response getPhones() {
+  public JsonArray getPhones() {
     JsonArray phones =  Json.createArrayBuilder()
         .add(Json.createObjectBuilder()
           .add("type", "mobile")
@@ -58,7 +70,7 @@ public class CustomerResource {
           .add("type", "home")
           .add("number", "+33 646 555"))
       .build();
-    return Response.ok(phones).build();
+    return phones;
   }
   // end::adocGetPhones[]
 }
