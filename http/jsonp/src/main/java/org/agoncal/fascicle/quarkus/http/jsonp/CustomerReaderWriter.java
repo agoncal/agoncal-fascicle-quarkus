@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,13 +69,22 @@ public class CustomerReaderWriter {
     // end::adocWriteCustomerWithConfig[]
   }
 
+  public JsonObject readString() throws FileNotFoundException {
+    // tag::adocReadCustomer
+    StringReader string = new StringReader("{\"hello\":\"world\"}");
+    JsonReader reader = Json.createReader(string);
+
+    // end::adocReadCustomer[]
+    JsonObject jsonObject = reader.readObject();
+    return jsonObject;
+  }
+
   public JsonObject readCustomer() throws FileNotFoundException {
-    // tag::adocReadCustomer[]
+    // tag::adocReadCustomer
     FileReader file = new FileReader("src/main/resources/customer.json");
     JsonReader reader = Json.createReader(file);
     JsonObject jsonObject = reader.readObject();
     // end::adocReadCustomer[]
     return jsonObject;
   }
-
 }

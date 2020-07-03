@@ -25,7 +25,7 @@ class CustomerReaderWriterTest {
     }
 
     @Test
-    void readPurchaseOrder() throws FileNotFoundException {
+    void readCustomer() throws FileNotFoundException {
       CustomerReaderWriter reader = new CustomerReaderWriter();
       JsonObject jsonObject = reader.readCustomer();
 
@@ -43,8 +43,17 @@ class CustomerReaderWriterTest {
       //phones.
     }
 
+
     @Test
-    void navigatePurchaseOrder() throws FileNotFoundException {
+    void readString() throws FileNotFoundException {
+      CustomerReaderWriter reader = new CustomerReaderWriter();
+      JsonObject jsonObject = reader.readString();
+
+      assertEquals("world", jsonObject.getJsonString("hello").getString());
+    }
+
+    @Test
+    void navigateCustomer() throws FileNotFoundException {
       CustomerReaderWriter reader = new CustomerReaderWriter();
       JsonObject jsonObject = reader.readCustomer();
 
