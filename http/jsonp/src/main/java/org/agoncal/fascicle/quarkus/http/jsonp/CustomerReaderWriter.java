@@ -20,6 +20,7 @@ import java.util.Map;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 public class CustomerReaderWriter {
 
   JsonObject customer = Json.createObjectBuilder()
@@ -42,7 +43,8 @@ public class CustomerReaderWriter {
   public void writeCustomer() throws IOException {
 
     // tag::adocWriteCustomer[]
-    try (OutputStream outputStream = new FileOutputStream(new File("src/main/resources/customer.json"));
+    File file = new File("src/main/resources/customer.json");
+    try (OutputStream outputStream = new FileOutputStream(file);
          JsonWriter jsonWriter = Json.createWriter(outputStream)) {
 
       jsonWriter.write(customer);
@@ -57,7 +59,8 @@ public class CustomerReaderWriter {
     config.put(JsonGenerator.PRETTY_PRINTING, true);
     JsonWriterFactory writerFactory = Json.createWriterFactory(config);
 
-    try (OutputStream outputStream = new FileOutputStream(new File("src/main/resources/customerconf.json"));
+    File file = new File("src/main/resources/customer.json");
+    try (OutputStream outputStream = new FileOutputStream(file);
          JsonWriter jsonWriter = writerFactory.createWriter(outputStream)) {
 
       jsonWriter.write(customer);
