@@ -8,6 +8,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -24,6 +26,7 @@ public class CustomerResource {
   @Path("/getCustomer")
   // tag::adocGetCustomer[]
   @GET
+  @Produces(APPLICATION_JSON)
   public JsonObject getCustomer() {
     JsonObject customer = Json.createObjectBuilder()
       .add("firstName", "Antonio")
@@ -37,6 +40,7 @@ public class CustomerResource {
   @Path("/getCustomerDetails")
   // tag::adocGetCustomerDetails[]
   @GET
+  @Produces(APPLICATION_JSON)
   public JsonObject getCustomerDetails() {
     JsonObject customer = Json.createObjectBuilder()
       .add("firstName", "Antonio")
@@ -61,6 +65,7 @@ public class CustomerResource {
   @Path("/getPhones")
   // tag::adocGetPhones[]
   @GET
+  @Produces(APPLICATION_JSON)
   public JsonArray getPhones() {
     JsonArray phones =  Json.createArrayBuilder()
         .add(Json.createObjectBuilder()
