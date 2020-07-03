@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.http.json;
+package org.agoncal.fascicle.quarkus.http.jsonp;
 
 import javax.json.Json;
 import javax.json.JsonArray;
