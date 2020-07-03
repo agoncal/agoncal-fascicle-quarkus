@@ -79,6 +79,7 @@ public class CustomerParserGenerator {
     config.put(JsonGenerator.PRETTY_PRINTING, true);
 
     // tag::adocParseString[]
+    // Configuring the parsing factory
     StringReader string = new StringReader("{\"hello\":\"world\"}");
     JsonParserFactory factory = Json.createParserFactory(config);
     JsonParser parser = factory.createParser(string);
