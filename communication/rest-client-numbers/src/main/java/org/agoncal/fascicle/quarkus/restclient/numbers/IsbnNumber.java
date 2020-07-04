@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.restclient.numbers;
 
-public class BookNumbers {
-
-  public String isbn10;
+public class IsbnNumber {
+  public String gs1;
   public String isbn13;
 }
