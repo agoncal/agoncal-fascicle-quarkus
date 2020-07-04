@@ -17,9 +17,9 @@
   </parent>
 
   <modules>
+    <module>rest-client-book</module>
     <module>rest-client-isbn</module>
     <module>rest-client-issn</module>
-    <module>rest-client-numbers</module>
   </modules>
 
 </project>
