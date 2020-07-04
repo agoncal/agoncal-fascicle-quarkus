@@ -16,4 +16,10 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <modules>
+    <module>rest-client-isbn</module>
+    <module>rest-client-issn</module>
+    <module>rest-client-numbers</module>
+  </modules>
+
 </project>
