@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.restclient.numbers;
+package org.agoncal.fascicle.quarkus.restclient.book;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 // tag::adocSnippet[]
-@Path("/numbers")
+@Path("/books")
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
 
@@ -24,6 +24,7 @@ public class BookResource {
   IssnService issnService;
 
   @GET
+  @Path("/numbers")
   public JsonObject generateBookNumbers() {
 
     IsbnNumber isbnNumber = isbnService.generateIsbn();

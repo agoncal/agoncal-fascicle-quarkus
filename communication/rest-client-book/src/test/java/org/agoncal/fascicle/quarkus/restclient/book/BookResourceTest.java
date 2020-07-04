@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.restclient.numbers;
+package org.agoncal.fascicle.quarkus.restclient.book;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.restclient.numbers;
+package org.agoncal.fascicle.quarkus.restclient.book;
 
 public class IsbnNumber {
   public String gs1;
