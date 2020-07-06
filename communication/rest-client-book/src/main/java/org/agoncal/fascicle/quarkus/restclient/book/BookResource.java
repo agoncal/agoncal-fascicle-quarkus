@@ -41,16 +41,20 @@ public class BookResource {
       .add("isbn10", issn)
       .build();
   }
+  // tag::adocSkip[]
 
   @GET
   @Path("/numbers/prog")
   public JsonObject generateBookNumbersProgrammaticaly() throws URISyntaxException {
 
     // Invoking the Isbn Microservice
+    // tag::adocProgrammatic[]
     IsbnService isbnService = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9081"))
       .build(IsbnService.class);
+
     IsbnNumber isbnNumber = isbnService.generateIsbn(false);
+    // end::adocProgrammatic[]
     String isbn13 = isbnNumber.isbn13;
 
     // Invoking the Issn Microservice
@@ -65,5 +69,6 @@ public class BookResource {
       .add("isbn10", issn)
       .build();
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
