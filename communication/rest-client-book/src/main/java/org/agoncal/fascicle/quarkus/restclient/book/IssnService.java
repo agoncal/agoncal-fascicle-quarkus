@@ -11,7 +11,9 @@ import javax.ws.rs.core.MediaType;
 // tag::adocSnippet[]
 @Path("/api/issn")
 @Produces(MediaType.APPLICATION_JSON)
+// tag::adocSkip[]
 @RegisterRestClient(baseUri = "http://localhost:9082")
+// end::adocSkip[]
 public interface IssnService {
 
   @GET
