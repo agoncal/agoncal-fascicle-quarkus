@@ -30,7 +30,7 @@ public class BookResource {
   @Path("/numbers")
   public JsonObject generateBookNumbers() {
 
-    IsbnNumber isbnNumber = isbnService.generateIsbn();
+    IsbnNumber isbnNumber = isbnService.generateIsbn(true);
     String isbn13 = isbnNumber.isbn13;
 
     JsonObject issnJsonObject = issnService.generateIssn();
@@ -50,7 +50,7 @@ public class BookResource {
     IsbnService isbnService = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9081"))
       .build(IsbnService.class);
-    IsbnNumber isbnNumber = isbnService.generateIsbn();
+    IsbnNumber isbnNumber = isbnService.generateIsbn(false);
     String isbn13 = isbnNumber.isbn13;
 
     // Invoking the Issn Microservice

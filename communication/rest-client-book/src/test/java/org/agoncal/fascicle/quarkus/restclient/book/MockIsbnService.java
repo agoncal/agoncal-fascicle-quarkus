@@ -13,7 +13,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class MockIsbnService implements IsbnService {
 
   @Override
-  public IsbnNumber generateIsbn() {
+  public IsbnNumber generateIsbn(boolean separator) {
     IsbnNumber isbnNumber = new IsbnNumber();
     isbnNumber.isbn13 = "dummy isbn 13";
     isbnNumber.gs1 = "dummy gs1";
