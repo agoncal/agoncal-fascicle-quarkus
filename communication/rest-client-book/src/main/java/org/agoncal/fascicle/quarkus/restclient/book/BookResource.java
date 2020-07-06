@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.restclient.book;
 
+import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
@@ -9,6 +10,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 // tag::adocSnippet[]
 @Path("/books")
@@ -30,6 +33,30 @@ public class BookResource {
     IsbnNumber isbnNumber = isbnService.generateIsbn();
     String isbn13 = isbnNumber.isbn13;
 
+    JsonObject issnJsonObject = issnService.generateIssn();
+    String issn = issnJsonObject.getJsonString("issn").getString();
+
+    return Json.createObjectBuilder()
+      .add("isbn13", isbn13)
+      .add("isbn10", issn)
+      .build();
+  }
+
+  @GET
+  @Path("/numbers/prog")
+  public JsonObject generateBookNumbersProgrammaticaly() throws URISyntaxException {
+
+    // Invoking the Isbn Microservice
+    IsbnService isbnService = RestClientBuilder.newBuilder()
+      .baseUri(new URI("http://localhost:9081"))
+      .build(IsbnService.class);
+    IsbnNumber isbnNumber = isbnService.generateIsbn();
+    String isbn13 = isbnNumber.isbn13;
+
+    // Invoking the Issn Microservice
+    IssnService issnService = RestClientBuilder.newBuilder()
+      .baseUri(new URI("http://localhost:9082"))
+      .build(IssnService.class);
     JsonObject issnJsonObject = issnService.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
