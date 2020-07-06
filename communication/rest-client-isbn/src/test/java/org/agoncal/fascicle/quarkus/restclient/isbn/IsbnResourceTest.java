@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.restclient.isbn;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.vertx.core.json.JsonObject;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -63,13 +64,16 @@ public class IsbnResourceTest {
   @Test @Disabled("only for fascicle purpose")
   void shouldInvokeWithRESTClientAPI() {
   // tag::adocSnippet[]
-  IsbnNumber isbnNumber = ClientBuilder
+  JsonObject isbnNumber = ClientBuilder
     .newClient()
     .target("http://localhost:9081/api/isbn?separator=true")
     .request()
-    .get(IsbnNumber .class);
+    .get(JsonObject.class);
+
+  String gs1 = isbnNumber.getString("gs1");
+  String isbn13 = isbnNumber.getString("isbn13");
   // end::adocSnippet[]
-  System.out.println(isbnNumber.gs1);
-  System.out.println(isbnNumber.isbn13);
+  System.out.println(gs1);
+  System.out.println(isbn13);
   }
 }
