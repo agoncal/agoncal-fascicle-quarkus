@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.restclient.book;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -12,7 +11,7 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasKey;
 
 // @formatter:off
-@QuarkusTest @Disabled
+@QuarkusTest
 public class BookResourceTest {
 
   @Test

@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+paths:
+  /api/isbn:
+    get:
+      parameters:
+        - name: separator
+          in: query
+          schema:
+            default: true
+            type: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsbnNumber'
+components:
+  schemas:
+    IsbnNumber:
+      type: object
+      properties:
+        gs1:
+          type: string
+        isbn13:
+          type: string
