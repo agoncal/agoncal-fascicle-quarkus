@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.restclient.isbn;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.client.ClientBuilder;
@@ -59,7 +60,7 @@ public class IsbnResourceTest {
       .body("$", hasKey("gs1"));
   }
 
-  @Test
+  @Test @Disabled("only for fascicle purpose")
   void shouldInvokeWithRESTClientAPI() {
   // tag::adocSnippet[]
   IsbnNumber isbnNumber = ClientBuilder
