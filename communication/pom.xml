@@ -17,6 +17,8 @@
   </parent>
 
   <modules>
+    <module>fault-tolerance-book</module>
+    <module>fault-tolerance-isbn</module>
     <module>rest-client-book</module>
     <module>rest-client-isbn</module>
     <module>rest-client-issn</module>
