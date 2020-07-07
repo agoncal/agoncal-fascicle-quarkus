@@ -30,7 +30,6 @@ public class NumberResourceTest {
       .body("$", hasKey("gs1"));
   }
 
-
   @Test
   void shouldGenerateIsbn() {
     given()
@@ -68,5 +67,4 @@ public class NumberResourceTest {
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn10"));
   }
-
 }
