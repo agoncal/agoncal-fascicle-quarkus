@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.not;
 
 // @formatter:off
 @QuarkusTest
-public class IsbnResourceTest {
+public class NumberResourceTest {
 
   @Test
   void shouldGenerateIsbnWithSeparator() {
@@ -22,7 +22,7 @@ public class IsbnResourceTest {
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
       .queryParam("separator", true).
     when()
-      .get("/api/isbn").
+      .get("/api/numbers/isbn").
     then()
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn13"))
@@ -36,7 +36,7 @@ public class IsbnResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/api/isbn").
+      .get("/api/numbers/isbn").
     then()
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn13"))
@@ -50,11 +50,23 @@ public class IsbnResourceTest {
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
       .queryParam("separator", false).
     when()
-      .get("/api/isbn").
+      .get("/api/numbers/isbn").
     then()
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn13"))
       .body("isbn13", not(containsString("-")))
       .body("$", hasKey("gs1"));
   }
+
+  @Test
+  void shouldGenerateIssn() {
+    given()
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      when()
+      .get("/api/numbers/issn").
+      then()
+      .statusCode(OK.getStatusCode())
+      .body("$", hasKey("isbn10"));
+  }
+
 }

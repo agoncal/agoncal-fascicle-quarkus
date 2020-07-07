@@ -18,7 +18,7 @@ public class BookResource {
 
   @Inject
   @RestClient
-  IsbnService isbnService;
+  NumberService isbnService;
 
   @GET
   @Path("/numbers")
@@ -26,16 +26,17 @@ public class BookResource {
   public JsonObject generateBookNumbers() {
 
     IsbnNumber isbnNumber = isbnService.generateIsbn(true);
-    String isbn13 = isbnNumber.isbn13;
 
     return Json.createObjectBuilder()
-      .add("isbn13", isbn13)
+      .add("isbn13", isbnNumber.isbn13)
+      .add("gs1", isbnNumber.gs1)
       .build();
   }
 
   private JsonObject fallbackGenerateBookNumbers() {
     return Json.createObjectBuilder()
       .add("isbn13", "dummy isbn")
+      .add("gs1", "dummy gs1")
       .build();
   }
 }
