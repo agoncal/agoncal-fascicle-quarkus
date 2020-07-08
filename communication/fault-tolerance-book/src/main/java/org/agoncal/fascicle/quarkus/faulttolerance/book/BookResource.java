@@ -18,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.time.Instant;
 
+// @formatter:off
 // tag::adocSnippet[]
 @Path("/books")
 @Produces(MediaType.APPLICATION_JSON)
@@ -103,7 +104,8 @@ public class BookResource {
   @POST
   @Timeout(250)
   @Fallback(fallbackMethod = "fallbackCreateLegacyBook")
-  @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5, delay = 2000, successThreshold = 2)
+  @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5,
+                  delay = 2000, successThreshold = 2)
   public Book createLegacyBook() {
     // tag::adocSkip[]
     LOGGER.info("Creating a legacy book");
