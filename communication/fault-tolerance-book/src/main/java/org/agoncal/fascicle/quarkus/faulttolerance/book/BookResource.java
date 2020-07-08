@@ -96,7 +96,9 @@ public class BookResource {
   }
 
   // end::adocTimeout[]
+  // tag::adocSkip[]
   @Path("/legacy")
+  // end::adocSkip[]
   // tag::adocCircuitBreaker[]
   @POST
   @Timeout(250)
