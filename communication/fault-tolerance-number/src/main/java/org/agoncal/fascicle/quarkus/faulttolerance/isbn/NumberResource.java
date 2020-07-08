@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
@@ -31,10 +32,12 @@ public class NumberResource {
   public JsonObject generateIssn() throws InterruptedException {
     LOGGER.info("Waiting for " + secondsToSleep + " seconds");
     TimeUnit.SECONDS.sleep(secondsToSleep);
-    LOGGER.info("Generating book numbers");
-    return Json.createObjectBuilder()
+    JsonObject issnNumber = Json.createObjectBuilder()
       .add("isbn10", new Faker().code().isbn10())
+      .add("generatedAt", String.valueOf(Instant.now()))
       .build();
+    LOGGER.info("Generated ISSN number: " + issnNumber.toString());
+    return issnNumber;
   }
   // tag::adocSkip[]
 
@@ -44,6 +47,8 @@ public class NumberResource {
     IsbnNumber isbnNumber = new IsbnNumber();
     isbnNumber.isbn13 = new Faker().code().isbn13(separator);
     isbnNumber.gs1 = new Faker().code().isbnGs1();
+    isbnNumber.generatedAt = Instant.now();
+    LOGGER.info("Generated ISBN number: " + isbnNumber);
     return isbnNumber;
   }
   // end::adocSkip[]
