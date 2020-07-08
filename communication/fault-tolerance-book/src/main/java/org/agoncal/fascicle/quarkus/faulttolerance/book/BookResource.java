@@ -73,6 +73,7 @@ public class BookResource {
     // tag::adocSkip[]
     LOGGER.info("Creating book");
     // end::adocSkip[]
+
     // Invoking microservice
     JsonObject issnNumber = numberService.generateIssn();
 
