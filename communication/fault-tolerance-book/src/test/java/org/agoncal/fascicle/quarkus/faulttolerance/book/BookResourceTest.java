@@ -24,4 +24,16 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn13"));
   }
+
+  @Test
+  void shouldCreateALegacyBook() {
+    given()
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+    when()
+      .post("/books/legacy").
+    then()
+      .statusCode(OK.getStatusCode())
+      .body("$", hasKey("title"))
+      .body("$", hasKey("issn"));
+  }
 }

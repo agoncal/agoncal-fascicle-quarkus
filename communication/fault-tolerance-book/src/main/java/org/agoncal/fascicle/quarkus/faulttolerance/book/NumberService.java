@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 @RegisterRestClient
 public interface NumberService {
 
+  @GET
   @Path("/issn")
   JsonObject generateIssn();
 

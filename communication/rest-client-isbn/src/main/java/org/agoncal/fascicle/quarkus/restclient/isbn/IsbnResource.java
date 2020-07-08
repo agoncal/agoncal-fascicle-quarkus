@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.restclient.isbn;
 
 import com.github.javafaker.Faker;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 // tag::adocSnippet[]
 @Path("/api/isbn")
 @Produces(MediaType.APPLICATION_JSON)
+@ApplicationScoped
 public class IsbnResource {
 
   @GET

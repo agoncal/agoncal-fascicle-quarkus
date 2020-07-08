@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.restclient.book;
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -16,6 +17,7 @@ import java.net.URISyntaxException;
 // tag::adocSnippet[]
 @Path("/books")
 @Produces(MediaType.APPLICATION_JSON)
+@ApplicationScoped
 public class BookResource {
 
   @Inject
