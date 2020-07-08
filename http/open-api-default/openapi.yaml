@@ -7,7 +7,7 @@ info:
 paths:
   /authors/{index}:
     get:
-# end::adocPath[]
+      # end::adocPath[]
       parameters:
         - name: index
           in: path
@@ -15,8 +15,8 @@ paths:
           schema:
             format: int32
             type: integer
-# tag::adocResponse[]
       responses:
+        # tag::adocResponse[]
         "200":
           description: OK
           content:
