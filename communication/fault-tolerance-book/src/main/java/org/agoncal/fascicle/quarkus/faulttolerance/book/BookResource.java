@@ -30,6 +30,7 @@ public class BookResource {
   @RestClient
   NumberService numberService;
 
+  // tag::adocFallback[]
   @GET
   @Path("/numbers")
   @Fallback(fallbackMethod = "fallbackGenerateBookNumbers")
@@ -54,10 +55,10 @@ public class BookResource {
       .add("isbn10", "dummy issn")
       .build();
   }
-
+  // end::adocFallback[]
+  // tag::adocTimeout[]
   @POST
-  @Path("/legacy")
-  public Book createLegacyBook() {
+  public Book createBook() {
 
     // Invoking microservice
     JsonObject issnNumber = numberService.generateIssn();
@@ -68,5 +69,6 @@ public class BookResource {
 
     return book;
   }
+  // end::adocTimeout[]
 }
 // end::adocSnippet[]
