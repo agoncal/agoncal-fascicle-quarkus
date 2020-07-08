@@ -26,6 +26,18 @@ public class BookResourceTest {
   }
 
   @Test
+  void shouldCreateABook() {
+    given()
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+    when()
+      .post("/books").
+    then()
+      .statusCode(OK.getStatusCode())
+      .body("$", hasKey("title"))
+      .body("$", hasKey("issn"));
+  }
+
+  @Test
   void shouldCreateALegacyBook() {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
