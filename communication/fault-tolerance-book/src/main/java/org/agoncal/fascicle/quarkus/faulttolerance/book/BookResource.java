@@ -64,7 +64,6 @@ public class BookResource {
       .add("isbn10", "dummy issn")
       .build();
   }
-
   // end::adocFallback[]
   // tag::adocTimeout[]
   @POST
@@ -95,7 +94,6 @@ public class BookResource {
     book.generatedAt = Instant.now();
     return book;
   }
-
   // end::adocTimeout[]
   // tag::adocSkip[]
   @Path("/legacy")
