@@ -4,3 +4,7 @@ app:
     allowsDiscount: false
     terms: Payment upon receipt
     penalties: Penalty in case of late payment
+
+quarkus:
+  http:
+    test-port=0:
