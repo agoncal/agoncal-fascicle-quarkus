@@ -22,11 +22,13 @@ public class DatabaseCheck {
     return HealthStatus.state("successful-read", this::isReady);
   }
 
+  // tag::adocQuarkusCheck[]
   @Liveness
   HealthCheck checkURL() {
-    return new UrlHealthCheck("https://www.google.com")
-      .name("Google-Check");
+    return new UrlHealthCheck("https://antoniogoncalves.org")
+      .name("Blog Check");
   }
+  // end::adocQuarkusCheck[]
 
   private boolean isReady() {
     return true;
