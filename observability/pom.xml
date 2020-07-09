@@ -16,4 +16,8 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <modules>
+    <module>health-live-ready</module>
+  </modules>
+
 </project>

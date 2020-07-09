@@ -1,0 +1,19 @@
+{
+  "status": "DOWN",
+  "checks": [
+    {
+      "name": "DiskCheckLiveness",
+      "status": "UP",
+      "data": {
+        "remainingSpace": 82316
+      }
+    },
+    {
+      "name": "SystemVariableCheckReadiness",
+      "status": "DOWN",
+      "data": {
+        "server": "not available"
+      }
+    }
+  ]
+}
