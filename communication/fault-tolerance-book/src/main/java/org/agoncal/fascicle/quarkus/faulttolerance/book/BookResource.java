@@ -98,10 +98,10 @@ public class BookResource {
   // end::adocTimeout[]
   // tag::adocSkip[]
   @Path("/legacy")
+  @Timeout(250)
   // end::adocSkip[]
   // tag::adocCircuitBreaker[]
   @POST
-  @Timeout(250)
   @Fallback(fallbackMethod = "fallbackCreateLegacyBook")
   @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5,
                   delay = 2000, successThreshold = 2)
@@ -109,6 +109,7 @@ public class BookResource {
     // tag::adocSkip[]
     LOGGER.info("Creating a legacy book");
     // end::adocSkip[]
+
     // Invoking microservice
     JsonObject issnNumber = numberService.generateIssn();
 
