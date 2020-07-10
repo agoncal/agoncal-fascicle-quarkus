@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.http.jaxrs.ex01;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
 import org.hamcrest.core.Is;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class CustomerResourceTest {
       .body("lastName", Is.is("Smith"));
   }
 
-  @Test
+  @Test @Disabled
   public void shouldCreateCustomer() {
     Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1334565");
 
@@ -73,7 +74,7 @@ public class CustomerResourceTest {
       .statusCode(CREATED.getStatusCode());
   }
 
-  @Test
+  @Test @Disabled
   public void shouldUpdateCustomer() {
     Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1334565");
 

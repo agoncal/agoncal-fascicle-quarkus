@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.http.jaxrs.ex03;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Book;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -54,7 +55,7 @@ public class ItemResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  @Test
+  @Test @Disabled
   public void shouldCheckPostBookURI() {
     Book book = new Book("The Hitchhiker s Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
 
