@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
-  <artifactId>health-live-ready</artifactId>
+  <artifactId>health-response</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Quarkus :: Observability :: Health :: Live and Ready</name>
+  <name>Quarkus :: Observability :: Health :: Response</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -18,18 +18,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.github.javafaker</groupId>
-      <artifactId>javafaker</artifactId>
     </dependency>
     <!-- Test -->
     <dependency>

@@ -18,6 +18,7 @@
 
   <modules>
     <module>health-live-ready</module>
+    <module>health-response</module>
   </modules>
 
 </project>

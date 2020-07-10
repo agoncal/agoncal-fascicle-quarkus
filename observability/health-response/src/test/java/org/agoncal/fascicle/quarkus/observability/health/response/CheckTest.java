@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.observability.health.liveready;
+package org.agoncal.fascicle.quarkus.observability.health.response;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
