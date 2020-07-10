@@ -31,28 +31,28 @@ public class CustomerResourceTest {
 
   @Test
   public void shouldPing() {
-// tag::adocclient[]
+    // tag::adocclient[]
     Client client = ClientBuilder.newClient();
-// end::adocclient[]
-// tag::adoctarget[]
+    // end::adocclient[]
+    // tag::adoctarget[]
     WebTarget target = client.target("http://localhost:8081/customers");
-// end::adoctarget[]
-// tag::adocinvoke[]
+    // end::adoctarget[]
+    // tag::adocinvoke[]
     Invocation invocation = target.request().buildGet();
-// end::adocinvoke[]
-// tag::adocresponse[]
+    // end::adocinvoke[]
+    // tag::adocresponse[]
     Response response = invocation.invoke();
-// end::adocresponse[]
+    // end::adocresponse[]
     Assertions.assertEquals(200, response.getStatus());
   }
 
   @Test
   public void shouldPingURI() throws URISyntaxException {
     Client client = ClientBuilder.newClient();
-// tag::adocuri[]
+    // tag::adocuri[]
     URI uri = new URI("http://localhost:8081/customers");
     WebTarget target = client.target(uri);
-// end::adocuri[]
+    // end::adocuri[]
     Invocation invocation = target.request(MediaType.TEXT_PLAIN).buildGet();
     Response response = invocation.invoke();
     Assertions.assertEquals(200, response.getStatus());
@@ -60,36 +60,35 @@ public class CustomerResourceTest {
 
   @Test
   public void shouldPingCompact() {
-// tag::adocompact[]
+    // tag::adocompact[]
     Client client = ClientBuilder.newClient();
     WebTarget target = client.target("http://localhost:8081/customers");
     Invocation invocation = target.request(MediaType.TEXT_PLAIN).buildGet();
     Response response = invocation.invoke();
-// end::adocompact[]
+    // end::adocompact[]
     Assertions.assertEquals(200, response.getStatus());
   }
 
   @Test
   public void shouldPingOne() {
-// tag::adoconeline[]
+    // tag::adoconeline[]
     Response response = ClientBuilder
       .newClient()
       .target("http://localhost:8081/customers")
       .request(MediaType.TEXT_PLAIN)
       .get();
-// end::adoconeline[]
+    // end::adoconeline[]
     Assertions.assertEquals(200, response.getStatus());
   }
 
 
-  @Test
-  @Disabled // TODO
+  @Test @Disabled
   public void shouldCreateCustomerCustom() {
-// tag::adocclientprop[]
+    // tag::adocclientprop[]
     Client client = ClientBuilder.newClient();
     client.property("MyProperty", 1234).register(CustomCustomerWriter.class);
-// end::adocclientprop[]
-    WebTarget target = client.target("http://localhost:9998/customers");
+    // end::adocclientprop[]
+    WebTarget target = client.target("http://localhost:8081/customers");
     Invocation invocation = target.request().buildPost(Entity.entity(new Customer("5678", "John", "Smith"), "custom/format"));
     Response response = invocation.invoke();
     Assertions.assertEquals(201, response.getStatus());
