@@ -2,11 +2,8 @@
   "status": "DOWN",
   "checks": [
     {
-      "name": "SystemVariableCheckReadiness",
-      "status": "DOWN",
-      "data": {
-        "server": "not available"
-      }
+      "name": "System Variable Check",
+      "status": "DOWN"
     }
   ]
 }

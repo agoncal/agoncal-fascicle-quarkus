@@ -1,0 +1,12 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Blog Check",
+      "status": "UP",
+      "data": {
+        "host": "GET https://antoniogoncalves.org"
+      }
+    }
+  ]
+}

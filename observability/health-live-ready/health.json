@@ -2,18 +2,12 @@
   "status": "DOWN",
   "checks": [
     {
-      "name": "DiskCheckLiveness",
-      "status": "UP",
-      "data": {
-        "remainingSpace": 82316
-      }
+      "name": "Ping Number REST Endpoint",
+      "status": "UP"
     },
     {
-      "name": "SystemVariableCheckReadiness",
-      "status": "DOWN",
-      "data": {
-        "server": "not available"
-      }
+      "name": "System Variable Check",
+      "status": "DOWN"
     }
   ]
 }
