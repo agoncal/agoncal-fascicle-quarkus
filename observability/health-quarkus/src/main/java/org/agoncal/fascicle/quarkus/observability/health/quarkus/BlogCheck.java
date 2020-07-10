@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.observability.health.liveready;
+package org.agoncal.fascicle.quarkus.observability.health.quarkus;
 
 import io.smallrye.health.checks.UrlHealthCheck;
 import org.eclipse.microprofile.health.HealthCheck;
