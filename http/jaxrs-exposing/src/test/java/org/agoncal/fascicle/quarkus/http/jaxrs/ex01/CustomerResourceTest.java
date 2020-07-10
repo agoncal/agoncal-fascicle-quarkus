@@ -3,11 +3,11 @@ package org.agoncal.fascicle.quarkus.http.jaxrs.ex01;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
 import org.hamcrest.core.Is;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import java.util.ArrayList;
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
@@ -27,13 +27,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @QuarkusTest
 public class CustomerResourceTest {
 
+  private Jsonb jsonb = JsonbBuilder.create();
+
   // ======================================
   // =              Unit tests            =
   // ======================================
 
   @Test
   public void shouldGetCustomers() {
-    List<Customer> customers =
+    ArrayList customers =
       given()
         .header(ACCEPT, APPLICATION_JSON).
       when()
@@ -60,12 +62,12 @@ public class CustomerResourceTest {
       .body("lastName", Is.is("Smith"));
   }
 
-  @Test @Disabled
+  @Test
   public void shouldCreateCustomer() {
     Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1334565");
 
     given()
-      .body(customer)
+      .body(jsonb.toJson(customer))
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .header(ACCEPT, APPLICATION_JSON).
     when()
@@ -74,12 +76,12 @@ public class CustomerResourceTest {
       .statusCode(CREATED.getStatusCode());
   }
 
-  @Test @Disabled
+  @Test
   public void shouldUpdateCustomer() {
     Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1334565");
 
     given()
-      .body(customer)
+      .body(jsonb.toJson(customer))
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .header(ACCEPT, APPLICATION_JSON).
     when()
