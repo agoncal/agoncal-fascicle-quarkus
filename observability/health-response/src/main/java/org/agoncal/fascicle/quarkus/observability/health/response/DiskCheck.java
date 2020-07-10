@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.observability.health.response;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
-import org.eclipse.microprofile.health.Liveness;
 import org.eclipse.microprofile.health.Readiness;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -20,7 +19,7 @@ public class DiskCheck implements HealthCheck {
     long freeSpace = file.getFreeSpace() / 1024 / 1024;
 
     return HealthCheckResponse
-      .named(DiskCheck.class.getSimpleName() + "Liveness")
+      .named(DiskCheck.class.getSimpleName() + "Readiness")
       .withData("remainingSpace", freeSpace)
       .state(freeSpace > 100)
       .build();

@@ -16,7 +16,7 @@ public class ServerVariableCheck implements HealthCheck {
   public HealthCheckResponse call() {
 
     HealthCheckResponseBuilder builder = HealthCheckResponse
-      .named(ServerVariableCheck.class.getSimpleName() + "Readiness")
+      .named(ServerVariableCheck.class.getSimpleName() + "Liveness")
       .withData("variable", "server.name");
 
     if (System.getProperty("server.name") == null) {

@@ -24,7 +24,7 @@ public class CheckTest {
     when()
       .get("/health/live").
     then()
-      .statusCode(503);
+      .statusCode(200);
   }
 
   @Test
@@ -33,6 +33,6 @@ public class CheckTest {
     when()
       .get("/health/ready").
     then()
-      .statusCode(200);
+      .statusCode(503);
   }
 }

@@ -2,10 +2,10 @@
   "status": "UP",
   "checks": [
     {
-      "name": "Blog Check",
+      "name": "DiskCheckReadiness",
       "status": "UP",
       "data": {
-        "host": "GET https://antoniogoncalves.org"
+        "remainingSpace": 1897665
       }
     }
   ]
