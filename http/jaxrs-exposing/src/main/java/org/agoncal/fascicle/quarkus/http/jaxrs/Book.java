@@ -1,10 +1,13 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
  *         --
  */
+@XmlRootElement
 public class Book extends Item {
 
     // ======================================

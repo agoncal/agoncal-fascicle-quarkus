@@ -56,7 +56,7 @@ public class ItemResourceTest {
 
   @Test
   public void shouldCheckPostBookURI() {
-    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
+    Book book = new Book("The Hitchhiker s Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
 
     given()
       .body(book)

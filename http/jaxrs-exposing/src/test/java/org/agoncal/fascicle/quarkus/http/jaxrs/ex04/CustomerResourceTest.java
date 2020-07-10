@@ -27,7 +27,7 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON)
       .pathParam("text", "smith").
     when()
-      .get("/customers/search/{text}").
+      .get("/customers/premium/search/{text}").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -38,7 +38,7 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON)
       .pathParam("login", "foobarsmith").
     when()
-      .get("customers/{login}").
+      .get("customers/premium/{login}").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -49,7 +49,7 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON)
       .pathParam("customerId", 12345).
     when()
-      .get("customers/{customerId}").
+      .get("customers/premium/{customerId}").
     then()
       .statusCode(OK.getStatusCode());
   }

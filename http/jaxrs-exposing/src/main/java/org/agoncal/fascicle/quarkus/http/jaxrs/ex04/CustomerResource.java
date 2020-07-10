@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs.ex04;
 
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
-import org.agoncal.fascicle.quarkus.http.jaxrs.Customers;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -9,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 // tag::adocSnippet[]
-@Path("/customers")
+@Path("/customers/premium")
 public class CustomerResource {
 
   @GET
@@ -29,7 +29,7 @@ public class CustomerResource {
     // URI : /customers/search/smith
     // tag::adocSkip1[]
     System.out.println("searchCustomer : " + textToSearch);
-    Customers customers = new Customers();
+    List<Customer> customers = new ArrayList<>();
     customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
     customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
     return customers;

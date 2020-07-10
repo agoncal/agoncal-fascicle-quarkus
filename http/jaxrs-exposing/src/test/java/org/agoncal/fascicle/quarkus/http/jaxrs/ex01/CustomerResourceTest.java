@@ -2,10 +2,11 @@ package org.agoncal.fascicle.quarkus.http.jaxrs.ex01;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
-import org.agoncal.fascicle.quarkus.http.jaxrs.Customers;
 import org.hamcrest.core.Is;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
@@ -29,16 +30,16 @@ public class CustomerResourceTest {
   // =              Unit tests            =
   // ======================================
 
-  @Test @Disabled
+  @Test
   public void shouldGetCustomers() {
-    Customers customers =
+    List<Customer> customers =
       given()
         .header(ACCEPT, APPLICATION_JSON).
       when()
         .get("/customers").
       then()
         .statusCode(OK.getStatusCode())
-        .extract().body().as(Customers.class);
+        .extract().body().as(ArrayList.class);
 
     assertEquals(2, customers.size());
 
