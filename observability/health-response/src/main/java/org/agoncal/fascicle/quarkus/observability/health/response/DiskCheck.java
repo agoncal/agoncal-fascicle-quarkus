@@ -16,10 +16,12 @@ public class DiskCheck implements HealthCheck {
   public HealthCheckResponse call() {
 
     File file = new File("/");
+    long totalSpace = file.getTotalSpace() / 1024 / 1024;
     long freeSpace = file.getFreeSpace() / 1024 / 1024;
 
     return HealthCheckResponse
       .named(DiskCheck.class.getSimpleName() + "Readiness")
+      .withData("totalSpace", totalSpace)
       .withData("remainingSpace", freeSpace)
       .state(freeSpace > 100)
       .build();
