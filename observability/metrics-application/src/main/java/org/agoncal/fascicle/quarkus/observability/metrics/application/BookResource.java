@@ -37,9 +37,11 @@ public class BookResource {
   @Path("/random")
   @Counted(name = "countGetRandomBook",
     description = "Counts how many times the createBook method has been invoked")
+  // tag::adocSkip[]
   @Timed(name = "timeGetRandomBook",
     description = "Times how long it takes to invoke the getRandomBook method",
     unit = MetricUnits.MILLISECONDS)
+  // end::adocSkip[]
   public Response getRandomBook() {
     Book book = service.findRandomBook();
     return Response.ok(book).build();
