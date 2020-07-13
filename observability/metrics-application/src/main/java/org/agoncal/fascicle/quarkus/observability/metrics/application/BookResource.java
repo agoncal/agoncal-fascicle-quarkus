@@ -21,6 +21,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 /**
  * curl -H "Accept: application/json " http://localhost:8080/metrics/application
  */
+//@formatter:off
 @Path("/books")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
@@ -30,17 +31,17 @@ public class BookResource {
   BookService service;
 
   /**
-   * curl http://localhost:8080/books/random
+   * while true; do sleep 1; curl http://localhost:8080/books/random; echo; done
    */
   // tag::adocTimed[]
   @GET
   @Path("/random")
   @Counted(name = "countGetRandomBook",
-    description = "Counts how many times the createBook method has been invoked")
+           description = "Counts how many times the createBook method has been invoked")
   // tag::adocSkip[]
   @Timed(name = "timeGetRandomBook",
-    description = "Times how long it takes to invoke the getRandomBook method",
-    unit = MetricUnits.MILLISECONDS)
+         description = "Times how long it takes to invoke the getRandomBook method",
+         unit = MetricUnits.MILLISECONDS)
   // end::adocSkip[]
   public Response getRandomBook() {
     Book book = service.findRandomBook();
@@ -49,26 +50,26 @@ public class BookResource {
   // end::adocTimed[]
 
   /**
-   * curl http://localhost:8080/books
+   * while true; do sleep 1; curl http://localhost:8080/books; echo; done
    */
   // tag::adocGauge[]
   @GET
   @Gauge(name = "gaugeCountAllBooks",
-    description = "Instantaneous time of the countAllBooks method",
-    unit = "correctness")
+         description = "Instantaneous time of the countAllBooks method",
+         unit = "correctness")
   public Long countAllBooks() {
     return service.countAllBooks();
   }
   // end::adocGauge[]
 
   /**
-   * curl http://localhost:8080/books/1234
+   * while true; do sleep 1; curl http://localhost:8080/books/1234; echo; done
    */
   // tag::adocMetered[]
   @GET
   @Path("/{id}")
   @Metered(name = "meteredGetBook",
-    description = "Measures throughput of the getBook method")
+           description = "Measures throughput of the getBook method")
   public Response getBook(@PathParam("id") Long id) {
     Optional<Book> book = service.findBookById(id);
     if (book.isPresent()) {

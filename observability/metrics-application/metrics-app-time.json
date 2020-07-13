@@ -1,0 +1,10 @@
+{
+  "BookResource.countGetRandomBook": 274,
+  "BookResource.meteredGetBook": {
+    "fiveMinRate": 0.6436398552008425,
+    "fifteenMinRate": 0.6214981180132817,
+    "meanRate": 0.657970418481868,
+    "count": 278,
+    "oneMinRate": 0.6481905990593267
+  }
+}

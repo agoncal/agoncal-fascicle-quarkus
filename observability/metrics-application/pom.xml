@@ -27,6 +27,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+    </dependency>
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>

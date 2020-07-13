@@ -1,19 +1,28 @@
 {
-  "cpu.systemLoadAverage": 2.38916015625,
-  "thread.count": 74,
-  "classloader.loadedClasses.count": 6697,
-  "classloader.unloadedClasses.total": 0,
-  "gc.total;name=G1 Young Generation": 7,
-  "jvm.uptime": 95261,
-  "thread.max.count": 74,
-  "memory.committedHeap": 1346371584,
-  "classloader.loadedClasses.total": 6697,
-  "cpu.availableProcessors": 20,
-  "thread.daemon.count": 24,
-  "gc.total;name=G1 Old Generation": 0,
-  "memory.maxHeap": 17179869184,
-  "cpu.processCpuLoad": 0.00019676867466752725,
-  "gc.time;name=G1 Old Generation": 0,
-  "memory.usedHeap": 65131392,
-  "gc.time;name=G1 Young Generation": 44
+  "BookResource.gaugeCountAllBooks": 550784753550783459,
+  "BookResource.meteredGetBook": {
+    "fiveMinRate": 0.6436398552008425,
+    "fifteenMinRate": 0.6214981180132817,
+    "meanRate": 0.657970418481868,
+    "count": 278,
+    "oneMinRate": 0.6481905990593267
+  },
+  "BookResource.timeGetRandomBook": {
+    "p99": 1014.066566,
+    "min": 18.458872,
+    "max": 1014.28636,
+    "mean": 587.7500411272563,
+    "p50": 576.884334,
+    "p999": 1014.28636,
+    "stddev": 285.88828298456485,
+    "p95": 994.982235,
+    "p98": 1014.066566,
+    "p75": 853.727789,
+    "fiveMinRate": 0.6285496448252238,
+    "fifteenMinRate": 0.6165465198104992,
+    "meanRate": 0.6484994811976507,
+    "count": 274,
+    "oneMinRate": 0.6140485447801801
+  },
+  "BookResource.countGetRandomBook": 274
 }
