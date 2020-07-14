@@ -1,9 +1,9 @@
 {
   "BookResource.meteredGetBook": {
     "count": 278,
+    "meanRate": 0.657970418481868,
     "oneMinRate": 0.6481905990593267,
     "fiveMinRate": 0.6436398552008425,
-    "fifteenMinRate": 0.6214981180132817,
-    "meanRate": 0.657970418481868
+    "fifteenMinRate": 0.6214981180132817
   }
 }
