@@ -39,7 +39,7 @@ public class CustomerResource {
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAsJson() {
     Customer customer = new Customer("John", "Smith");
-    return Response.ok(customer).build();
+    return Response.ok(customer).encoding("utf-8").build();
   }
 }
 // end::adocSnippet[]
