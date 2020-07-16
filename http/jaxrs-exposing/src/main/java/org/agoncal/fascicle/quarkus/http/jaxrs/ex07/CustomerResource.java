@@ -37,7 +37,8 @@ public class CustomerResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAsJson() {
-    return Response.ok(new Customer("John", "Smith"), MediaType.APPLICATION_JSON).build();
+    Customer customer = new Customer("John", "Smith");
+    return Response.ok(customer, MediaType.APPLICATION_JSON).build();
   }
 }
 // end::adocSnippet[]
