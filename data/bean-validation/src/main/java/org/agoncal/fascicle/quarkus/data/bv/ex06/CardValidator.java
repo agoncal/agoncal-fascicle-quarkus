@@ -10,6 +10,7 @@ import java.util.Date;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 // tag::adocSnippet[]
 public class CardValidator {
 
@@ -25,7 +26,9 @@ public class CardValidator {
   }
 
   @AssertTrue
-  public Boolean validate(@NotNull String number, @Future Date expiryDate, @NotNull Integer controlNumber) {
+  public Boolean validate(@NotNull String number,
+                          @Future  Date expiryDate,
+                          @NotNull Integer controlNumber) {
     return algorithm.validate(number, controlNumber);
   }
   // tag::adocSkip[]
