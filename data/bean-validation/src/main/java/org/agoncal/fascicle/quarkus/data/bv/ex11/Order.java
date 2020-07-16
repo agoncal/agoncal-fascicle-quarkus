@@ -17,8 +17,10 @@ public class Order {
   @NotNull
   private Long id;
   private Double totalAmount;
+
   @NotNull @Valid
   private Address deliveryAddress;
+
   private List<@Valid OrderLine> orderLines;
 
   // Constructors, getters, setters
