@@ -18,6 +18,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 // tag::adocSnippet[]
@@ -25,7 +26,8 @@ import java.util.List;
 public class CustomerResource {
 
   @GET
-  public List<Customer> getCustomersByZipCodeCity(@QueryParam("zip") Long zip, @QueryParam("city") String city) {
+  public List<Customer> getByZipCodeCity(@QueryParam("zip") Long zip,
+                                         @QueryParam("city") String city) {
     // URI : /customer?zip=75012&city=Paris
     // tag::adocSkip1[]
     System.out.println("getCustomerByZipCodeCity : " + zip + " - " + city);
@@ -38,7 +40,8 @@ public class CustomerResource {
 
   @GET
   @Path("search")
-  public List<Customer> getCustomersByFirstnameName(@MatrixParam("firstname") String firstname, @MatrixParam("surname") String surname) {
+  public List<Customer> getByName(@MatrixParam("firstname") String firstname,
+                                  @MatrixParam("surname") String surname) {
     // URI : /customer/search;firstname=Antonio;surname=Goncalves
     // tag::adocSkip2[]
     System.out.println("getCustomerByFirstnameName : " + firstname + " - " + surname);
