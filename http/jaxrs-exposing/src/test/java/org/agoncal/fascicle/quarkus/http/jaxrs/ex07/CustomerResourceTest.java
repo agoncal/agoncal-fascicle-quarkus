@@ -84,9 +84,9 @@ public class CustomerResourceTest{
     Response.ok().build();
     Response.ok().cookie(new NewCookie("SessionID", "5G79GDIFY09")).build();
     Response.ok("Plain Text").expires(new Date()).build();
-    Response.ok(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"), APPLICATION_JSON).build();
+    Response.ok(new Customer("John", "Smith"), APPLICATION_JSON).build();
     Response.noContent().build();
-    Response.accepted(new Customer("John", "Smith", "jsmith@gmail.com", "1234565")).build();
+    Response.accepted(new Customer("John", "Smith")).build();
     Response.notModified().header("User-Agent", "Mozilla").build();
     // end::adocSnippet[]
   }
