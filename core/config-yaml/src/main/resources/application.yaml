@@ -1,9 +1,11 @@
+# tag::adocSnippet[]
 app:
   invoice:
     vatRate: 10
     allowsDiscount: false
     terms: Payment upon receipt
     penalties: Penalty in case of late payment
+# end::adocSnippet[]
 
 quarkus:
   http:
