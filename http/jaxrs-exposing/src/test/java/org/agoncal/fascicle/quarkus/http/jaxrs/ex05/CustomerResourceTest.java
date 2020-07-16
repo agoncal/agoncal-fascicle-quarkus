@@ -29,7 +29,7 @@ public class CustomerResourceTest {
       .queryParam("zip", 75011L)
       .queryParam("city", "Lisbon").
     when()
-      .get("/customers/gold").
+      .get("/customers").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -39,7 +39,7 @@ public class CustomerResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/customers/gold/search;firstname=Antonio;surname=Goncalves").
+      .get("/customers/search;firstname=Antonio;surname=Goncalves").
     then()
       .statusCode(OK.getStatusCode());
   }

@@ -21,7 +21,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 // tag::adocSnippet[]
-@Path("/customers/gold")
+@Path("/customers")
 public class CustomerResource {
 
   @GET
