@@ -12,8 +12,7 @@ public class BlogCheck {
 
   @Liveness
   HealthCheck checkURL() {
-    return new UrlHealthCheck("https://antoniogoncalves.org")
-      .name("Blog Check");
+    return new UrlHealthCheck("https://antoniogoncalves.org").name("Blog Check");
   }
 }
 // end::adocSnippet[]
