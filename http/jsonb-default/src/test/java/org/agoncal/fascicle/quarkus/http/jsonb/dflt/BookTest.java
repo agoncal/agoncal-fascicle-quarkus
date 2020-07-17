@@ -75,11 +75,13 @@ public class BookTest {
     // Creates Jsonb using a builder
     Jsonb jsonb = JsonbBuilder.create();
 
-    // Serializes
+    // Serialises
     String json = jsonb.toJson(book);
+    // tag::adocSkip[]
     System.out.println(json);
+    // end::adocSkip[]
 
-    // Deserializes back
+    // Deserialises back
     book = jsonb.fromJson("{\"isbn\":\"1-84023-742-2\",\"price\":12.5,\"title\":\"H2G2\"}", Book.class);
     // end::adocSnippet[]
 
