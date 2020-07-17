@@ -24,11 +24,12 @@ public class ServerVariableCheck implements HealthCheck {
         .withData("server", "not available")
         .down()
         .build();
+    } else {
+      return builder
+        .withData("server", "available")
+        .up()
+        .build();
     }
-    return builder
-      .withData("server", "available")
-      .up()
-      .build();
   }
 }
 // end::adocSnippet[]
