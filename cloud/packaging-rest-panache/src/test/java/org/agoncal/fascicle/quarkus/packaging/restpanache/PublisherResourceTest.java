@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -19,22 +20,29 @@ public class PublisherResourceTest {
   void shouldFindAll() {
     get("/publishers").
     then()
-      .assertThat()
       .statusCode(is(200));
   }
 
   @Test
   void shouldFindById() {
-    get("/publishers/1001").
+    given()
+      .pathParam("id", 1001).
+    when()
+      .get("/publishers/{id}").
     then()
-      .assertThat()
       .statusCode(is(200))
-      .and()
-      .body(is("APress"));
+      .body("publisher_name", is("APress"));
   }
 
   @Test
   void shouldFindByName() {
+    given()
+      .pathParam("name", "APress").
+    when()
+      .get("/publishers/{name}").
+    then()
+      .statusCode(is(200))
+      .body("publisher_name", is("APress"));
   }
 
   @Test

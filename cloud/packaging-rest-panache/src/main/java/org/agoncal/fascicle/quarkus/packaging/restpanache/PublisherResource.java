@@ -24,25 +24,25 @@ public class PublisherResource {
   }
 
   @GET
-  @Path("/{id}")
+  @Path("/{id:\\d{3,5}}")
   public Optional<Publisher> findById(@PathParam("id") Long id) {
     return service.findByIdOptional(id);
   }
 
   @GET
-  @Path("/{name}")
+  @Path("/{name: [a-zA-Z]*}")
   public Optional<Publisher> findByName(@PathParam("name") String name) {
     return service.findByName(name);
   }
 
   @DELETE
-  @Path("/{id}")
+  @Path("/{id:\\d{3,5}}")
   public void deleteById(@PathParam("id") Long id) {
     service.deleteById(id);
   }
 
   @DELETE
-  @Path("/{name}")
+  @Path("/{name: [a-zA-Z]*}")
   public void deleteByName(@PathParam("name") String name) {
     service.deleteByName(name);
   }
