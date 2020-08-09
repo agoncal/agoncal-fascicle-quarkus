@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.firststep;
+package org.agoncal.fascicle.quarkus.packaging.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
