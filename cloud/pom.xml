@@ -17,6 +17,8 @@
   </parent>
 
   <modules>
+    <module>docker</module>
+    <module>kubernetes</module>
     <module>packaging-rest</module>
     <module>packaging-rest-panache</module>
   </modules>
