@@ -23,10 +23,12 @@
   </properties>
 
   <dependencies>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
 
     <!-- Test -->
     <dependency>
