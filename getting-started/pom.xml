@@ -73,6 +73,13 @@
   <!-- tag::adocBuild[] -->
   <build>
     <plugins>
+      <!-- tag::adocSkip[] -->
+      <plugin>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-bootstrap-maven-plugin</artifactId>
+        <version>${quarkus-plugin.version}</version>
+      </plugin>
+      <!-- end::adocSkip[] -->
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
