@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-COMMAND="mvn dependency:tree"
+
+COMMAND="mvn quarkus-bootstrap:build-tree"
 eval "$COMMAND" > dependency-tree.txt

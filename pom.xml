@@ -29,8 +29,8 @@
   <properties>
     <version.java>11</version.java>
     <!-- Quarkus -->
-    <quarkus-plugin.version>1.6.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.6.1.Final</quarkus.platform.version>
+    <quarkus-plugin.version>1.7.0.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.7.0.Final</quarkus.platform.version>
     <!-- Other -->
     <version.javafaker>1.0.2</version.javafaker>
     <version.health-ui>1.1.0</version.health-ui>
@@ -56,7 +56,7 @@
     <version.shade.plugin>3.1.0</version.shade.plugin>
     <version.site.plugin>3.6</version.site.plugin>
     <version.source.plugin>3.0.1</version.source.plugin>
-    <version.surefire.plugin>2.22.1</version.surefire.plugin>
+    <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
     <version.version.plugin>2.5</version.version.plugin>
     <version.war.plugin>3.2.0</version.war.plugin>
     <!-- Plugins flag -->

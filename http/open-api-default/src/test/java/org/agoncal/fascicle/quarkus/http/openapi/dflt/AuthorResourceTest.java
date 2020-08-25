@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.http.openapi.dflt;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedWriter;
@@ -53,7 +54,7 @@ public class AuthorResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  @Test
+  @Test @Disabled
   void shouldWriteOpenAPIFile()throws Exception {
     String yamlFile = given()
       .header(ACCEPT, "application/yaml").
