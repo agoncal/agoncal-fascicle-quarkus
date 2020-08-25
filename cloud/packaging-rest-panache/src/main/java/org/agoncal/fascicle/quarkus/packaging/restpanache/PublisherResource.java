@@ -1,5 +1,8 @@
 package org.agoncal.fascicle.quarkus.packaging.restpanache;
 
+import io.quarkus.runtime.StartupEvent;
+
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -8,6 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,5 +55,18 @@ public class PublisherResource {
   @PUT
   public Publisher persist(Publisher publisher) {
     return service.persist(publisher);
+  }
+
+  @GET
+  @Path("/ping")
+  public String ping() {
+    String date = new SimpleDateFormat("HH:mm:ss.SSS").format(new Date());
+    System.out.println("First request served at : " + date);
+    return date;
+  }
+
+  void onStart(@Observes StartupEvent startup) {
+    String date = new SimpleDateFormat("HH:mm:ss.SSS").format(new Date());
+    System.out.println("Startup at : " + date);
   }
 }
