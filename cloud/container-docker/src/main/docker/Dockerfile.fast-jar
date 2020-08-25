@@ -15,8 +15,8 @@
 #
 # If you want to include the debug port into your docker image
 # you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5050
-# 
-# Then run the container using : 
+#
+# Then run the container using :
 #
 # docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" quarkus/docker-jvm
 #
@@ -45,9 +45,11 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
 
+# tag::adocExecute[]
 COPY --chown=1001 target/quarkus-app /deployments/
 
 EXPOSE 8080
 USER 1001
 
 ENTRYPOINT [ "/deployments/run-java.sh" ]
+# end::adocExecute[]
