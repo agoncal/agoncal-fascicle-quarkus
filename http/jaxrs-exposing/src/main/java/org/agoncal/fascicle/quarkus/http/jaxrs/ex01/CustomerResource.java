@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs.ex01;
 
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
-import org.agoncal.fascicle.quarkus.http.jaxrs.Customers;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -31,7 +32,7 @@ public class CustomerResource {
   public Response getCustomers() {
     // tag::adocSkip1[]
     System.out.println("getCustomers");
-    Customers customers = new Customers();
+    List<Customer> customers = new ArrayList<>();
     customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
     customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
     // end::adocSkip1[]

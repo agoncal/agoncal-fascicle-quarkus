@@ -39,7 +39,7 @@ public class OrderTest {
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
-    displayConstraintViolations(violations);
+
     assertEquals(0, violations.size());
     // end::shouldRaiseNoConstraintsViolation[]
   }
@@ -54,7 +54,7 @@ public class OrderTest {
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
-    displayConstraintViolations(violations);
+
     assertEquals(1, violations.size());
     // end::shouldRaiseConstraintsViolationCauseWrongZipcode[]
   }
@@ -69,7 +69,7 @@ public class OrderTest {
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
-    displayConstraintViolations(violations);
+
     assertEquals(1, violations.size());
     // end::shouldRaiseConstraintsViolationCauseNullCity[]
   }
@@ -84,7 +84,7 @@ public class OrderTest {
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
-    displayConstraintViolations(violations);
+
     assertEquals(1, violations.size());
     // end::shouldRaiseConstraintsViolationCauseNullAddress[]
   }
@@ -126,7 +126,6 @@ public class OrderTest {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
         "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
-
     }
   }
 }

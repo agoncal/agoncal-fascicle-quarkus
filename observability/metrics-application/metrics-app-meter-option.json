@@ -1,0 +1,9 @@
+{
+  "BookResource.meteredGetBook": {
+    "unit": "per_second",
+    "type": "meter",
+    "description": "Measures throughput of the getBook method",
+    "displayName": "",
+    "tags": []
+  }
+}

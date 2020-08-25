@@ -1,0 +1,23 @@
+{
+  "cpu.processCpuTime": 4913697000,
+  "cpu.systemCpuLoad": 0.0,
+  "memory.committedNonHeap": 57540608,
+  "memory.freePhysicalSize": 1280987136,
+  "memory.freeSwapSize": 1283719168,
+  "memory.maxNonHeap": -1,
+  "memory.usedNonHeap": 54142672,
+  "memoryPool.usage.max;name=CodeHeap 'non-nmethods'": 1269248,
+  "memoryPool.usage.max;name=CodeHeap 'non-profiled nmethods'": 10081024,
+  "memoryPool.usage.max;name=Compressed Class Space": 4532448,
+  "memoryPool.usage.max;name=G1 Eden Space": 100663296,
+  "memoryPool.usage.max;name=G1 Old Gen": 37993176,
+  "memoryPool.usage.max;name=G1 Survivor Space": 12582912,
+  "memoryPool.usage.max;name=Metaspace": 38250944,
+  "memoryPool.usage;name=CodeHeap 'non-nmethods'": 1269248,
+  "memoryPool.usage;name=CodeHeap 'non-profiled nmethods'": 10088832,
+  "memoryPool.usage;name=Compressed Class Space": 4532448,
+  "memoryPool.usage;name=G1 Eden Space": 0,
+  "memoryPool.usage;name=G1 Old Gen": 0,
+  "memoryPool.usage;name=G1 Survivor Space": 12582912,
+  "memoryPool.usage;name=Metaspace": 38251744
+}

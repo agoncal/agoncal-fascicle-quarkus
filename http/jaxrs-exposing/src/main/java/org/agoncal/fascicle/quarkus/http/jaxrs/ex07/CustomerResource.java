@@ -31,13 +31,15 @@ public class CustomerResource {
   @GET
   @Produces(MediaType.APPLICATION_XML)
   public Customer getAsXML() {
-    return new Customer("John", "Smith");
+    Customer customer = new Customer("John", "Smith");
+    return customer;
   }
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAsJson() {
-    return Response.ok(new Customer("John", "Smith"), MediaType.APPLICATION_JSON).build();
+    Customer customer = new Customer("John", "Smith");
+    return Response.ok(customer).encoding("utf-8").build();
   }
 }
 // end::adocSnippet[]

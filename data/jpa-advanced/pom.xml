@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.data</groupId>
-  <artifactId>jpa</artifactId>
+  <artifactId>jpa-advanced</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Quarkus :: Data, Transactions and ORM :: JPA :: Advanced</name>
 
@@ -27,10 +27,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm</artifactId>
     </dependency>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-narayana-jta</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>

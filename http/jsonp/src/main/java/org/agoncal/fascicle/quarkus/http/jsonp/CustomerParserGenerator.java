@@ -35,10 +35,10 @@ public class CustomerParserGenerator {
           System.out.println(event.toString());
           break;
         case KEY_NAME:
-          System.out.print("Key " + parser.getString() + " - ");
+          System.out.print("KEY_NAME " + parser.getString() + " - ");
           break;
         case VALUE_STRING:
-          System.out.println("Value " + parser.getString());
+          System.out.println("VALUE_STRING " + parser.getString());
           break;
       }
     }

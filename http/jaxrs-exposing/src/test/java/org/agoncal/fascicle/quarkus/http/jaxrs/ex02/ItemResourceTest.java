@@ -26,7 +26,7 @@ public class ItemResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/items").
+      .get("/items/toprated").
     then()
       .statusCode(OK.getStatusCode());
   }

@@ -94,7 +94,7 @@ class BookRepositoryTest {
     // tag::adocParameters[]
     // Using the Parameters class
     cheapBooks = repository.list("unitCost between :min and :max",
-      Parameters.with("min", min).and("max", max));
+                 Parameters.with("min", min).and("max", max));
 
     // end::adocParameters[]
     assertEquals(1, cheapBooks.size());

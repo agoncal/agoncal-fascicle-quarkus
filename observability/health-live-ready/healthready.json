@@ -1,0 +1,9 @@
+{
+  "status": "DOWN",
+  "checks": [
+    {
+      "name": "System Variable Check",
+      "status": "DOWN"
+    }
+  ]
+}

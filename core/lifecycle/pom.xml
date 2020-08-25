@@ -41,6 +41,8 @@
         <executions>
           <execution>
             <goals>
+              <goal>prepare</goal>
+              <goal>prepare-tests</goal>
               <goal>build</goal>
             </goals>
           </execution>
@@ -52,9 +54,10 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <systemProperties>
+          <systemPropertyVariables>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-          </systemProperties>
+            <maven.home>${maven.home}</maven.home>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
     </plugins>

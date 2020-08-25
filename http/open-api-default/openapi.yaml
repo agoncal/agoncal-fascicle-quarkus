@@ -1,5 +1,5 @@
 # tag::adocSnippet[]
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Generated API
   version: "1.0"
@@ -9,12 +9,12 @@ paths:
     get:
       # end::adocPath[]
       parameters:
-        - name: index
-          in: path
-          required: true
-          schema:
-            format: int32
-            type: integer
+      - name: index
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
       responses:
         # tag::adocResponse[]
         "200":

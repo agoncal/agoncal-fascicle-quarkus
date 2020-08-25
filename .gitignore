@@ -24,6 +24,7 @@ WebContent
 vpproject
 .vpprefdata
 *dummy*.*
+dummy*/
 *-soapui-project.xml
 .lock
 teamworkUser.xml

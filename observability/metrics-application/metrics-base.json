@@ -1,0 +1,19 @@
+{
+  "classloader.loadedClasses.count": 6697,
+  "classloader.loadedClasses.total": 6697,
+  "classloader.unloadedClasses.total": 0,
+  "cpu.availableProcessors": 20,
+  "cpu.processCpuLoad": 0.00019676867466752725,
+  "cpu.systemLoadAverage": 2.38916015625,
+  "gc.time;name=G1 Old Generation": 0,
+  "gc.time;name=G1 Young Generation": 44,
+  "gc.total;name=G1 Old Generation": 0,
+  "gc.total;name=G1 Young Generation": 7,
+  "jvm.uptime": 95261,
+  "memory.committedHeap": 1346371584,
+  "memory.maxHeap": 17179869184,
+  "memory.usedHeap": 65131392,
+  "thread.count": 74,
+  "thread.daemon.count": 24,
+  "thread.max.count": 74
+}

@@ -1,0 +1,13 @@
+{
+  "status": "DOWN",
+  "checks": [
+    {
+      "name": "ServerVariableCheckLiveness",
+      "status": "DOWN",
+      "data": {
+        "server": "not available",
+        "variable": "server.name"
+      }
+    }
+  ]
+}

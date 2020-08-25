@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs.ex05;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -22,7 +23,7 @@ public class CustomerResourceTest {
   // ======================================
 
   @Test
-  public void shouldCheckGetCustomerByZipCodeCityURI() {
+  public void shouldCheckGetCustomerByZipCodeCity() {
     given()
       .header(ACCEPT, APPLICATION_JSON)
       .queryParam("zip", 75011L)
@@ -33,8 +34,8 @@ public class CustomerResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  @Test
-  public void shouldCheckGetCustomerByFirstnameNameURI() {
+  @Test @Disabled("https://github.com/rest-assured/rest-assured/issues/417")
+  public void shouldCheckGetCustomerByFirstnameName() {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()

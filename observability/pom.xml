@@ -16,4 +16,11 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <modules>
+    <module>health-live-ready</module>
+    <module>health-quarkus</module>
+    <module>health-response</module>
+    <module>metrics-application</module>
+  </modules>
+
 </project>

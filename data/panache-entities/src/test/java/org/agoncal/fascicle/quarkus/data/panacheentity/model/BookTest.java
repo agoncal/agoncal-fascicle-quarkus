@@ -103,7 +103,7 @@ class BookTest {
 
     // Using the Parameters class
     cheapBooks = Book.list("unitCost between :min and :max",
-      Parameters.with("min", min).and("max", max));
+           Parameters.with("min", min).and("max", max));
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]

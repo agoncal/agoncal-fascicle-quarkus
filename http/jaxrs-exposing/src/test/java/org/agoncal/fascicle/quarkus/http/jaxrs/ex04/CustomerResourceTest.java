@@ -38,7 +38,7 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON)
       .pathParam("login", "foobarsmith").
     when()
-      .get("customers/{login}").
+      .get("/customers/{login}").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -49,7 +49,7 @@ public class CustomerResourceTest {
       .header(ACCEPT, APPLICATION_JSON)
       .pathParam("customerId", 12345).
     when()
-      .get("customers/{customerId}").
+      .get("/customers/{customerId}").
     then()
       .statusCode(OK.getStatusCode());
   }

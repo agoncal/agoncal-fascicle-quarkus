@@ -1,0 +1,13 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "DiskCheckReadiness",
+      "status": "UP",
+      "data": {
+        "remainingSpace": 1897665,
+        "totalSpace": 1908108
+      }
+    }
+  ]
+}
