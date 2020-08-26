@@ -17,7 +17,8 @@
   </parent>
 
   <modules>
-    <module>docker</module>
+    <module>container-docker</module>
+    <module>container-jib</module>
     <module>kubernetes</module>
     <module>packaging-rest</module>
     <module>packaging-rest-panache</module>
