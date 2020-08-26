@@ -78,8 +78,13 @@ To get these numbers I followed the recipe described on the Quarkus guide: footn
 
 ## Async Profiler
 
-[[quarkus-figure-profiler-cpu-uber]]
+.JAR
+image::profile-jar-startup-cpu.svg[]
+
+.Fast JAR
+image::profile-fastjar-startup-cpu.svg[]
+
 .Uber JAR
-image::uber-startup-cpu-profile.svg[]
+image::profile-uber-startup-cpu.svg[]
 
 
