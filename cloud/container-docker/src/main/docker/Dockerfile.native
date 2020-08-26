@@ -14,8 +14,8 @@
 # docker run -i --rm -p 8080:8080 quarkus/docker
 #
 ###
-# tag::adocSnippet[]
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1
+# tag::adocSnippet[]
 WORKDIR /work/
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
