@@ -1,0 +1,77 @@
+# First time to request depending on executable format
+
+The idea is to package this simple app (a JSON REST endpoint with validation, Panache ORM, transactions, injection and H2 server) with different executable formats (JVM and Native mode) and measure the time to first request.
+The table <<quarkus-table-cloud-packaging-build>> lists all the Maven commands used to build the app and get a different format.
+
+[[quarkus-table-cloud-packaging-build]]
+.Command to Build
+[cols="25,75",options="header"]
+|===
+|Packaging Format
+|Command
+
+|JAR
+|`mvn package -Dquarkus.package.type=jar`
+
+|Fast-JAR
+|`mvn package -Dquarkus.package.type=fast-jar`
+
+|Uber-JAR
+|`mvn package -Dquarkus.package.type=uber-jar`
+
+|Native
+|`mvn package -Pnative`
+|===
+
+Table <<quarkus-table-cloud-packaging-run>> shows the command to run the executable.
+
+[[quarkus-table-cloud-packaging-run]]
+.Command to Execute
+[cols="25,75",options="header"]
+|===
+|Packaging Format
+|Command
+
+|JAR
+|`java -jar target/<name>-runner.jar`
+
+|Fast-JAR
+|`java -jar target/quarkus-app/quarkus-run.jar`
+
+|Uber-JAR
+|`java -jar target/<name>-runner.jar`
+
+|Native
+|`target/<name>-runner`
+|===
+
+Table <<quarkus-table-cloud-packaging-startup>> shows for each executable format the time, in milliseconds, it took to serve the first request of the complex application.
+
+[[quarkus-table-cloud-packaging-startup]]
+.Time to First Request
+[cols="30,70",options="header"]
+|===
+|Packaging Format
+|Time
+
+|JAR
+|170 ms
+
+|Fast-JAR
+|160 ms
+
+|Uber-JAR
+|190 ms
+
+|Native
+|25 ms
+|===
+
+The startup time includes the time that Quarkus needs to start but also the time to first request.
+The numbers on <<quarkus-table-cloud-packaging-startup>> were made on Mac OSX with a JVM 11.0.6 with no JVM optimisation.
+To get these numbers I followed the recipe described on the Quarkus guide: footnote:[Measuring startup time https://quarkus.io/guides/performance-measure#how-do-we-measure-startup-time]
+
+* Loop a GET curl command on a REST endpoint (while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8080/publishers/ping)" != "200" ]]; do sleep .00001; done);
+* Start up the application;
+* Start counting when Quarkus starts, finish counting when the first request is served;
+* Repeat 10 times and calculate the average time.
