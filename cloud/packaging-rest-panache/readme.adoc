@@ -45,25 +45,33 @@ Table <<quarkus-table-cloud-packaging-run>> shows the command to run the executa
 |`target/<name>-runner`
 |===
 
-Table <<quarkus-table-cloud-packaging-startup>> shows for each executable format the time, in milliseconds, it took to serve the first request of the complex application.
+Table <<quarkus-table-cloud-packaging-startup>> shows for each executable format the time, in milliseconds, it took to serve the first request fo two apps:
+
+* A REST application: A simple JSON REST endpoint.
+* A complex application: A JSON REST endpoint with validation, Panache ORM, transactions, injection and a H2 database.
 
 [[quarkus-table-cloud-packaging-startup]]
 .Time to First Request
-[cols="30,70",options="header"]
+[cols="50,25,25",options="header"]
 |===
 |Packaging Format
-|Time
+|REST App
+|Complex App
 
 |JAR
+|170 ms
 |170 ms
 
 |Fast-JAR
 |160 ms
+|160 ms
 
 |Uber-JAR
+|185 ms
 |190 ms
 
 |Native
+|10 ms
 |25 ms
 |===
 
