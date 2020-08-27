@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.docker;
+package org.agoncal.fascicle.quarkus.container.dockerfiles;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

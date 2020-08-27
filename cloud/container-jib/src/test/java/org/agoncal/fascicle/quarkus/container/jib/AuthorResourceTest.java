@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.docker;
+package org.agoncal.fascicle.quarkus.container.jib;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

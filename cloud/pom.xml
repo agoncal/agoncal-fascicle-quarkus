@@ -18,6 +18,7 @@
 
   <modules>
     <module>container-docker</module>
+    <module>container-dockerfiles</module>
     <module>container-jib</module>
     <module>kubernetes</module>
     <module>packaging-rest</module>
