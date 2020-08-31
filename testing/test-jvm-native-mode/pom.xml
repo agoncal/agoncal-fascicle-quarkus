@@ -106,6 +106,6 @@
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
-    <!-- tag::adocProfile[] -->
+    <!-- end::adocProfile[] -->
   </profiles>
 </project>
