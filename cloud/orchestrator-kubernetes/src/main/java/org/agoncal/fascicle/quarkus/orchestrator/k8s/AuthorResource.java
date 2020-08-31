@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.k8s;
+package org.agoncal.fascicle.quarkus.orchestrator.k8s;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

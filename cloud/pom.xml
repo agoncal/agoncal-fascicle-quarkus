@@ -20,7 +20,8 @@
     <module>container-docker</module>
     <module>container-dockerfiles</module>
     <module>container-jib</module>
-    <module>kubernetes</module>
+    <module>orchestrator-kubernetes</module>
+    <module>orchestrator-minikube</module>
     <module>packaging-rest</module>
     <module>packaging-rest-panache</module>
   </modules>
