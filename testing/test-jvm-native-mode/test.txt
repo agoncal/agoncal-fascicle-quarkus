@@ -12,11 +12,11 @@
 [INFO]  T E S T S
 [INFO] ----------
 [INFO] Running org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
-[INFO] [io.quarkus] (main) Quarkus 1.7.1.Final on JVM started in 1.169s. Listening on: http://0.0.0.0:55032
+[INFO] [io.quarkus] (main) Quarkus on JVM started in 1.169s
 [INFO] [io.quarkus] (main) Profile test activated.
 [INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.827 s - in org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
-2020-08-31 13:08:35,567 INFO  [io.quarkus] (main) Quarkus stopped in 0.026s
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.827 s
+[INFO] [io.quarkus] (main) Quarkus stopped in 0.026s
 [INFO]
 [INFO] Results:
 [INFO]
