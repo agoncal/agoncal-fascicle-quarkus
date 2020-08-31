@@ -41,6 +41,19 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <systemPropertyVariables>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+            <maven.home>${maven.home}</maven.home>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+      <!-- tag::adocSkip[] -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
         <executions>
@@ -53,22 +66,12 @@
           </execution>
         </executions>
       </plugin>
-      <!-- tag::adocSkip[] -->
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <systemPropertyVariables>
-            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <maven.home>${maven.home}</maven.home>
-          </systemPropertyVariables>
-        </configuration>
-      </plugin>
     </plugins>
+    <!-- end::adocSkip[] -->
   </build>
+  <!-- end::adocSnippet[] -->
   <profiles>
+    <!-- tag::adocProfile[] -->
     <profile>
       <id>native</id>
       <activation>
@@ -98,12 +101,11 @@
             </executions>
           </plugin>
         </plugins>
-      <!-- end::adocSkip[] -->
       </build>
-      <!-- end::adocSnippet[] -->
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
+    <!-- tag::adocProfile[] -->
   </profiles>
 </project>
