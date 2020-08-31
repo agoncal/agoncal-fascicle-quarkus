@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
+// @formatter:off
+// tag::adocSnippet[]
 @QuarkusTest
 public class ArtistResourceTest {
 
@@ -17,5 +19,5 @@ public class ArtistResourceTest {
              .statusCode(200)
              .body(is("hello"));
     }
-
 }
+// end::adocSnippet[]
