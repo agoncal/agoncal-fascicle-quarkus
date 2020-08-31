@@ -57,5 +57,5 @@ public class CustomerTest {
   public void shouldCalculateOldAge() {
     // some work to do
   }
-// end::shouldCalculateOldAge[]
+  // end::shouldCalculateOldAge[]
 }
