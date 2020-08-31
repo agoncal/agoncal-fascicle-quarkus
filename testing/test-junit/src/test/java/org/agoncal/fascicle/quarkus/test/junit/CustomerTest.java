@@ -31,7 +31,7 @@ public class CustomerTest {
 // tag::ageShouldBeGreaterThanZero[]
   @Test
   public void ageShouldBeGreaterThanZero() {
-    customer = new Customer("Rita", "Navalhas", "rnavalhas@gmail.com");
+    customer = new Customer("Rita", "Navalhas");
     customer.setDateOfBirth(LocalDate.of(1975, 5, 27));
 
     customer.calculateAge();

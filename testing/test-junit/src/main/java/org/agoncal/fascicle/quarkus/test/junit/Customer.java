@@ -14,12 +14,8 @@ public class Customer {
   private Long id;
   private String firstName;
   private String lastName;
-  private String email;
-  private String phoneNumber;
   private LocalDate dateOfBirth;
   private Integer age;
-
-  // Constructors, getters, setters
 
   public void calculateAge() {
     if (dateOfBirth == null) {
@@ -33,15 +29,16 @@ public class Customer {
   public void clear() {
     this.dateOfBirth = null;
   }
+
+  // Constructors, getters, setters
   // tag::adocSkip[]
 
   public Customer() {
   }
 
-  public Customer(String firstName, String lastName, String email) {
+  public Customer(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
   }
 
   // ======================================
@@ -70,22 +67,6 @@ public class Customer {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
   }
 
   public LocalDate getDateOfBirth() {
