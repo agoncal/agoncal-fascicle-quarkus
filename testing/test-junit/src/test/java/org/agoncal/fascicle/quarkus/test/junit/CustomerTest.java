@@ -14,21 +14,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 // tag::adocClass[]
 public class CustomerTest {
 
   private Customer customer = new Customer();
 
-// end::adocClass[]
+  // end::adocClass[]
 
-// tag::adocFixture[]
+  // tag::adocFixture[]
   @BeforeEach
   public void clearCustomer() {
     customer.clear();
   }
-// end::adocFixture[]
+  // end::adocFixture[]
 
-// tag::ageShouldBeGreaterThanZero[]
+  // tag::ageShouldBeGreaterThanZero[]
   @Test
   public void ageShouldBeGreaterThanZero() {
     customer = new Customer("Rita", "Navalhas");
@@ -38,9 +39,9 @@ public class CustomerTest {
 
     assertTrue(customer.getAge() >= 0);
   }
-// end::ageShouldBeGreaterThanZero[]
+  // end::ageShouldBeGreaterThanZero[]
 
-// tag::shouldThrowAnExceptionCauseDateOfBirtheIsNull[]
+  // tag::shouldThrowAnExceptionCauseDateOfBirtheIsNull[]
   @Test
   public void shouldThrowAnExceptionCauseDateOfBirtheIsNull() {
 
@@ -49,11 +50,10 @@ public class CustomerTest {
       customer.calculateAge();
     });
   }
-// end::shouldThrowAnExceptionCauseDateOfBirtheIsNull[]
+  // end::shouldThrowAnExceptionCauseDateOfBirtheIsNull[]
 
-// tag::shouldCalculateOldAge[]
-  @Test
-  @Disabled("Test is not ready yet")
+  // tag::shouldCalculateOldAge[]
+  @Test @Disabled("Test is not implemented yet")
   public void shouldCalculateOldAge() {
     // some work to do
   }

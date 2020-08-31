@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -19,5 +20,11 @@ public class ArtistResourceTest {
     then()
       .statusCode(is(200));
   }
+
+  @Test @Disabled("Test is not implemented yet")
+  public void shouldCreateAnArtist() {
+    // some work to do
+  }
 }
-// end::adocSnippet[]
+
+ // end::adocSnippet[]
