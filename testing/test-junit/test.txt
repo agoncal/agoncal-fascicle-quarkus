@@ -1,0 +1,24 @@
+[INFO] ------------------------------------
+[INFO] Building Quarkus :: Testing :: Junit
+[INFO] ------------------------------------
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile)
+[INFO]
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test)
+[INFO]
+[INFO] ----------
+[INFO]  T E S T S
+[INFO] ----------
+[INFO] Running org.agoncal.fascicle.quarkus.test.junit.CustomerTest
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.032 s
+[INFO]
+[INFO] Results:
+[INFO]
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1
+[INFO]
+[INFO] -------------
+[INFO] BUILD SUCCESS
+[INFO] -------------
+[INFO] Total time:  1.824 s
+[INFO] Finished at: 2020-08-31T11:51:34+01:00
+[INFO] -------------
