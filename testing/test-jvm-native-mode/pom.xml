@@ -14,7 +14,9 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <!-- tag::adocSnippet[] -->
   <dependencies>
+    <!-- tag::adocSkip[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
@@ -23,18 +25,15 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
-
-    <!-- Test -->
-    <!-- tag::adocExtension[] -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!-- end::adocExtension[] -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- end::adocSkip[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -54,6 +53,7 @@
           </execution>
         </executions>
       </plugin>
+      <!-- tag::adocSkip[] -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
@@ -98,7 +98,9 @@
             </executions>
           </plugin>
         </plugins>
+      <!-- end::adocSkip[] -->
       </build>
+      <!-- end::adocSnippet[] -->
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
