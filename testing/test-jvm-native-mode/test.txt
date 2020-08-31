@@ -1,0 +1,27 @@
+[INFO] --------------------------------------------------
+[INFO] Building Quarkus :: Testing :: JVM and Native Mode
+[INFO] --------------------------------------------------
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile)
+[INFO]
+[INFO] --- quarkus-maven-plugin:1.7.1.Final:prepare-tests (default)
+[INFO]
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test)
+[INFO]
+[INFO] ----------
+[INFO]  T E S T S
+[INFO] ----------
+[INFO] Running org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
+[INFO] [io.quarkus] (main) Quarkus 1.7.1.Final on JVM started in 1.169s. Listening on: http://0.0.0.0:55032
+[INFO] [io.quarkus] (main) Profile test activated.
+[INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.827 s - in org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
+2020-08-31 13:08:35,567 INFO  [io.quarkus] (main) Quarkus stopped in 0.026s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] -------------
+[INFO] BUILD SUCCESS
+[INFO] -------------

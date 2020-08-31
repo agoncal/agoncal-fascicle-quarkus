@@ -2,6 +2,12 @@ package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
 import io.quarkus.test.junit.NativeImageTest;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
+
 // @formatter:off
 // tag::adocSnippet[]
 @NativeImageTest
