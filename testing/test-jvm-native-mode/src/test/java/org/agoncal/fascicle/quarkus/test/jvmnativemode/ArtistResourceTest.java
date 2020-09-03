@@ -25,6 +25,7 @@ public class ArtistResourceTest {
   public void shouldCreateAnArtist() {
     // some work to do
   }
+  // tag::adocSkip[]
 
   @Test
   public void shouldGetOneArtist() {
@@ -37,5 +38,6 @@ public class ArtistResourceTest {
       .body("first_name", is("John"))
       .body("last_name", is("Lennon"));
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
