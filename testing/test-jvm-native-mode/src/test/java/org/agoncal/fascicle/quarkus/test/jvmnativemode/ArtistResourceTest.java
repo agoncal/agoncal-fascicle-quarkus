@@ -25,6 +25,17 @@ public class ArtistResourceTest {
   public void shouldCreateAnArtist() {
     // some work to do
   }
-}
 
- // end::adocSnippet[]
+  @Test
+  public void shouldGetOneArtist() {
+    given()
+      .pathParam("id", 1).
+    when()
+      .get("/artists/{id}").
+    then()
+      .statusCode(is(200))
+      .body("first_name", is("John"))
+      .body("last_name", is("Lennon"));
+  }
+}
+// end::adocSnippet[]

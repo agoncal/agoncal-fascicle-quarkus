@@ -21,6 +21,18 @@ public class ArtistHTTPResourceTest {
     then()
       .statusCode(is(200));
   }
+
+  @Test
+  public void shouldGetOneArtist() {
+    given()
+      .pathParam("id", 1).
+    when()
+      .get("/{id}").
+    then()
+      .statusCode(is(200))
+      .body("first_name", is("John"))
+      .body("last_name", is("Lennon"));
+  }
 }
 
  // end::adocSnippet[]

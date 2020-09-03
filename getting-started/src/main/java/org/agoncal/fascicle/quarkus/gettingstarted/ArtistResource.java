@@ -29,7 +29,7 @@ public class ArtistResource {
   // tag::adocSkip[]
   /**
    * curl http://localhost:8080/cdbookstore/artists
-   * curl http://localhost:8080/cdbookstore/artists | jq
+   * curl http://localhost:8080/cdbookstore/artists | jq
    * curl http://localhost:8080/cdbookstore/artists -v
    * curl -X GET http://localhost:8080/cdbookstore/artists -v
    * curl -X GET -H "Accept: application/json" http://localhost:8080/cdbookstore/artists -v

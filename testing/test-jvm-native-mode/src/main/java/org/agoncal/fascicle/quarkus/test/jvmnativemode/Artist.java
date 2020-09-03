@@ -1,9 +1,7 @@
 package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
 import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * @author Antonio Goncalves
@@ -13,8 +11,7 @@ import java.util.UUID;
 // tag::adocSnippet[]
 public class Artist {
 
-  @JsonbTransient
-  private UUID id;
+  private Integer id;
   @JsonbProperty("first_name")
   private String firstName;
   @JsonbProperty("last_name")
@@ -27,15 +24,15 @@ public class Artist {
   // =          Getters & Setters         =
   // ======================================
 
-  public UUID getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
-  public Artist id(UUID id) {
+  public Artist id(Integer id) {
     this.id = id;
     return this;
   }
