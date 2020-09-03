@@ -1,3 +1,7 @@
+quarkus:
+  http:
+    test-port: 0
+
 # tag::adocSnippet[]
 app:
   invoice:
@@ -6,7 +10,3 @@ app:
     terms: Payment upon receipt
     penalties: Penalty in case of late payment
 # end::adocSnippet[]
-
-quarkus:
-  http:
-    test-port=0:
