@@ -11,7 +11,7 @@
 [INFO] ----------
 [INFO]  T E S T S
 [INFO] ----------
-[INFO] Running org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
+[INFO] Running ArtistResourceTest
 [INFO] [io.quarkus] (main) Quarkus on JVM started in 1.169s
 [INFO] [io.quarkus] (main) Profile test activated.
 [INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]

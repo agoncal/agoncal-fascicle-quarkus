@@ -12,11 +12,11 @@
 [INFO]
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1
 [INFO]
-[INFO] --- quarkus-maven-plugin:1.7.2.Final:build (default) @ test-jvm-native-mode ---
-[INFO] Building native image source jar: /Users/agoncal/Documents/Code/Agoncal/agoncal-fasci...
-[INFO] Building native image from /Users/agoncal/Documents/Code/Agoncal/agoncal-fascicle-qua...
-[INFO] Running Quarkus native-image plugin on GraalVM Version 20.1.0 (Java Version 11.0.7)
-[INFO] /Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.1.0/Contents/Home/bin/native-i...
+[INFO] --- quarkus-maven-plugin:1.7.2.Final:build
+[INFO] Building native image source jar: Code/Agoncal/agoncal-fasci...
+[INFO] Building native image from Code/Agoncal/agoncal-fascicle-qua...
+[INFO] Running Quarkus native-image plugin on GraalVM Version 20.1.0 (Java 11.0.7)
+[INFO] graalvm-ce-java11-20.1.0/Contents/Home/bin/native-i...
 [runner]    classlist:   3,010.30 ms,  0.96 GB
 [runner]     (clinit):     698.82 ms,  3.24 GB
 [runner]   (typeflow):   8,072.47 ms,  3.24 GB
@@ -26,7 +26,16 @@
 [runner]        write:     645.63 ms,  5.81 GB
 [runner]      [total]:  46,119.87 ms,  5.81 GB
 [INFO]
-[INFO] --- maven-failsafe-plugin:3.0.0-M5:integration-test (integration-test) @ test-jvm-native-mode ---
+[INFO] --- maven-failsafe-plugin:3.0.0-M5:integration-test
+[INFO]
+[INFO] ----------
+[INFO]  T E S T S
+[INFO] ----------
+[INFO] Running NativeArtistResourceIT
+Executing target/test-jvm-native-mode-1.0-SNAPSHOT-runner
+[INFO] [io.quarkus] (main) test-jvm-native-mode 1.0-SNAPSHOT native
+[INFO] [io.quarkus] (main) Profile prod activated.
+[INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
 [INFO]
 [INFO] Results:
 [INFO]
