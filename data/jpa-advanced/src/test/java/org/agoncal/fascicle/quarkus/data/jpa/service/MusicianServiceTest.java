@@ -55,7 +55,7 @@ class MusicianServiceTest {
 
   @Test
   @Order(2)
-  void shouldAddAnMusician() {
+  void shouldAddAMusician() {
     // Persists an musician
     Musician musician = new Musician();
     musician.setFirstName(DEFAULT_FIRST_NAME);
@@ -83,7 +83,7 @@ class MusicianServiceTest {
 
   @Test
   @Order(3)
-  void shouldUpdateAnMusician() {
+  void shouldUpdateAMusician() {
     Musician musician = new Musician();
     musician.setId(musicianId);
     musician.setFirstName(UPDATED_FIRST_NAME);
@@ -110,7 +110,7 @@ class MusicianServiceTest {
 
   @Test
   @Order(4)
-  void shouldRemoveAnMusician() {
+  void shouldRemoveAMusician() {
     // Deletes the previously created musician
     musicianService.deleteById(musicianId);
 

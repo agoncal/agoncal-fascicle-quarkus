@@ -22,5 +22,6 @@
     <module>test-jvm-native-mode</module>
     <module>test-restassured</module>
     <module>test-testcontainers</module>
+    <module>test-transactional</module>
   </modules>
 </project>

@@ -1,7 +1,6 @@
-package org.agoncal.fascicle.quarkus.data.panacheentity.service;
+package org.agoncal.fascicle.quarkus.test.transactional;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.data.panacheentity.model.Musician;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -74,7 +73,6 @@ class MusicianServiceTest {
     assertEquals(DEFAULT_BIO, musician.bio);
     assertEquals(DEFAULT_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(DEFAULT_INSTRUMENT, musician.preferredInstrument);
-    assertTrue(musician.age > 45);
 
     // Checks there is an extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAll().size());
@@ -104,7 +102,6 @@ class MusicianServiceTest {
     assertEquals(UPDATED_BIO, musician.bio);
     assertEquals(UPDATED_DATE_OF_BIRTH, musician.dateOfBirth);
     assertEquals(UPDATED_INSTRUMENT, musician.preferredInstrument);
-    assertTrue(musician.age < 45);
 
     // Checks there is no extra musician in the database
     assertEquals(nbMusicians + 1, musicianService.findAll().size());

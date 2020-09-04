@@ -34,5 +34,4 @@ public class ArtistHTTPResourceTest {
       .body("last_name", is("Lennon"));
   }
 }
-
- // end::adocSnippet[]
+// end::adocSnippet[]
