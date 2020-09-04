@@ -1,5 +1,7 @@
 package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import javax.json.bind.annotation.JsonbProperty;
 import java.util.Objects;
 
@@ -9,6 +11,7 @@ import java.util.Objects;
  * --
  */
 // tag::adocSnippet[]
+@RegisterForReflection
 public class Artist {
 
   private Integer id;

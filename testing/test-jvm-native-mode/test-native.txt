@@ -1,26 +1,36 @@
-[INFO] --------------------------------------------------
-[INFO] Building Quarkus :: Testing :: JVM and Native Mode
-[INFO] --------------------------------------------------
+[INFO] ------------------------------------------
+[INFO] Building Quarkus :: Testing :: Native Mode
+[INFO] ------------------------------------------
 [INFO]
-[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile)
-[INFO]
-[INFO] --- quarkus-maven-plugin:1.7.1.Final:prepare-tests (default)
-[INFO]
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test)
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test
 [INFO]
 [INFO] ----------
 [INFO]  T E S T S
 [INFO] ----------
-[INFO] Running org.agoncal.fascicle.quarkus.test.jvmnativemode.ArtistResourceTest
-[INFO] [io.quarkus] (main) Quarkus on JVM started in 1.169s
-[INFO] [io.quarkus] (main) Profile test activated.
-[INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.827 s
-[INFO] [io.quarkus] (main) Quarkus stopped in 0.026s
 [INFO]
 [INFO] Results:
 [INFO]
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1
+[INFO]
+[INFO] --- quarkus-maven-plugin:1.7.2.Final:build (default) @ test-jvm-native-mode ---
+[INFO] Building native image source jar: /Users/agoncal/Documents/Code/Agoncal/agoncal-fasci...
+[INFO] Building native image from /Users/agoncal/Documents/Code/Agoncal/agoncal-fascicle-qua...
+[INFO] Running Quarkus native-image plugin on GraalVM Version 20.1.0 (Java Version 11.0.7)
+[INFO] /Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.1.0/Contents/Home/bin/native-i...
+[runner]    classlist:   3,010.30 ms,  0.96 GB
+[runner]     (clinit):     698.82 ms,  3.24 GB
+[runner]   (typeflow):   8,072.47 ms,  3.24 GB
+[runner]     universe:     785.52 ms,  3.24 GB
+[runner]      (parse):   2,001.61 ms,  4.20 GB
+[runner]    (compile):   8,602.62 ms,  5.80 GB
+[runner]        write:     645.63 ms,  5.81 GB
+[runner]      [total]:  46,119.87 ms,  5.81 GB
+[INFO]
+[INFO] --- maven-failsafe-plugin:3.0.0-M5:integration-test (integration-test) @ test-jvm-native-mode ---
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1
 [INFO]
 [INFO] -------------
 [INFO] BUILD SUCCESS

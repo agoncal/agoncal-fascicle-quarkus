@@ -1,12 +1,12 @@
-[INFO] --------------------------------------------------
-[INFO] Building Quarkus :: Testing :: JVM and Native Mode
-[INFO] --------------------------------------------------
+[INFO] ---------------------------------------
+[INFO] Building Quarkus :: Testing :: JVM Mode
+[INFO] ---------------------------------------
 [INFO]
-[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile)
+[INFO] --- maven-compiler-plugin:3.8.1:compile
 [INFO]
-[INFO] --- quarkus-maven-plugin:1.7.1.Final:prepare-tests (default)
+[INFO] --- quarkus-maven-plugin:1.7.1.Final:prepare-tests
 [INFO]
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test)
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test
 [INFO]
 [INFO] ----------
 [INFO]  T E S T S
