@@ -18,6 +18,8 @@ class MusicianTest {
 
   @Test
   void shouldPersistAMusician() {
+    // ...
+    // tag::adocSkip[]
     Musician musician = new Musician();
     musician.firstName = "Janis";
     musician.lastName = "Joplin";
@@ -27,6 +29,7 @@ class MusicianTest {
     Musician.persist(musician);
 
     assertNotNull(musician.id);
+    // end::adocSkip[]
   }
 }
 // end::adocSnippet[]
