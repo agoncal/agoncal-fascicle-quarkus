@@ -9,7 +9,6 @@ import javax.ws.rs.core.MediaType;
 
 // tag::adocSnippet[]
 @Path("/api/numbers")
-@Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
 public interface IsbnServiceProxy {
 

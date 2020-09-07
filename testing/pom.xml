@@ -19,6 +19,7 @@
   <modules>
     <module>mock</module>
     <module>mock-alternative</module>
+    <module>mock-inject</module>
     <module>test-hamcrest</module>
     <module>test-junit</module>
     <module>test-jvm-native-mode</module>

@@ -19,12 +19,12 @@ import javax.ws.rs.core.Response;
 public class BookResource {
 
   @Inject @RestClient
-  IsbnServiceProxy isbnNumbersService;
+  IsbnServiceProxy isbnService;
 
   @GET
   public Response getRandomBook() {
 
-    IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
+    IsbnNumbers isbnNumbers = isbnService.generateIsbnNumbers();
     // ...
     // tag::adocSkip[]
     Faker faker = new Faker();

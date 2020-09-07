@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.test.mock;
+package org.agoncal.fascicle.quarkus.test.mock.inject;
 
 import com.github.javafaker.Faker;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -20,6 +20,13 @@ public class BookResource {
 
   @Inject @RestClient
   IsbnServiceProxy isbnService;
+
+//  final IsbnServiceProxy isbnService;
+//
+//  @Rest
+//  public BookResource(IsbnServiceProxy isbnService) {
+//    this.isbnService = isbnService;
+//  }
 
   @GET
   public Response getRandomBook() {
