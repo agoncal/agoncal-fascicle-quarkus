@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.quarkus.test.resources;
 
 import io.quarkus.test.common.QuarkusTestResource;
+import io.quarkus.test.h2.H2DatabaseTestResource;
 import io.quarkus.test.junit.QuarkusTest;
-import io.quarkus.test.ldap.LdapServerTestResource;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 // tag::adocSnippet[]
 @QuarkusTest
-@QuarkusTestResource(LdapServerTestResource.class)
+@QuarkusTestResource(H2DatabaseTestResource.class)
 @Transactional
 class MusicianTest {
 
