@@ -13,7 +13,8 @@ import javax.enterprise.inject.Alternative;
 @ApplicationScoped
 @RestClient
 public class MockIsbnServiceProxy implements IsbnServiceProxy {
-
+  // ...
+  // tag::adocSkip[]
   @Override
   public IsbnNumbers generateIsbnNumbers() {
     IsbnNumbers isbnNumbers = new IsbnNumbers();
@@ -21,5 +22,6 @@ public class MockIsbnServiceProxy implements IsbnServiceProxy {
     isbnNumbers.setIsbn10("@Alternative isbn 10");
     return isbnNumbers;
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
