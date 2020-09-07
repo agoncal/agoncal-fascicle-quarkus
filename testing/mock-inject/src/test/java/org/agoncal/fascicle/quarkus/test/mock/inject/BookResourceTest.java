@@ -21,7 +21,7 @@ import static org.hamcrest.core.Is.is;
 public class BookResourceTest {
 
   @InjectMock @RestClient
-  IsbnServiceProxy isbnServiceProxy;
+  IsbnResourceProxy isbnServiceProxy;
 
   @BeforeEach
   void setUp() {

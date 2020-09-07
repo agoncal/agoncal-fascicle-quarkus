@@ -12,7 +12,7 @@ import javax.enterprise.inject.Alternative;
 @Priority(1)
 @ApplicationScoped
 @RestClient
-public class MockIsbnServiceProxy implements IsbnServiceProxy {
+public class MockIsbnResourceProxy implements IsbnResourceProxy {
   // ...
   // tag::adocSkip[]
   @Override

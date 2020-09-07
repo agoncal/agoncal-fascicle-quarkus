@@ -55,8 +55,8 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-test-ldap</artifactId>
       <scope>test</scope>
-      <!-- end::adocExtension[] -->
     </dependency>
+    <!-- end::adocExtension[] -->
   </dependencies>
 
   <build>

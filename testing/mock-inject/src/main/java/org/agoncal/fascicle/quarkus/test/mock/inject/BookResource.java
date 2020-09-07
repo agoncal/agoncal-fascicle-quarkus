@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 public class BookResource {
 
   @Inject @RestClient
-  IsbnServiceProxy isbnService;
+  IsbnResourceProxy isbnService;
 
 //  final IsbnServiceProxy isbnService;
 //
