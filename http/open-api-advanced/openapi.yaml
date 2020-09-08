@@ -16,7 +16,7 @@ externalDocs:
 # end::adocInfo[]
 # tag::adocServer[]
 servers:
-  - url: http://{host}.cdbookstore/{port}
+  - url: http://{host}.vintage-store/{port}
     description: CD-Book Store server 1
     variables:
       host:

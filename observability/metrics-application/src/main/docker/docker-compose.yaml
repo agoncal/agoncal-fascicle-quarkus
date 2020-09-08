@@ -2,7 +2,7 @@ version: "3"
 services:
     monitoring:
         image: "prom/prometheus"
-        container_name: "cdbookstore-monitoring"
+        container_name: "vintageStore-monitoring"
         ports:
           - 9090:9090
         volumes:

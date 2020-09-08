@@ -29,7 +29,7 @@ dummy*/
 .lock
 teamworkUser.xml
 projectFilesBackup*
-cdbookstoreCreate.ddl
-cdbookstoreDrop.ddl
+vintageStoreCreate.ddl
+vintageStoreDrop.ddl
 ObjectStore
 PutObjectStoreDirHere
