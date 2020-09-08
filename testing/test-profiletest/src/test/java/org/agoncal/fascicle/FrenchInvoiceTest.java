@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// tag::adocSnippet[]
 @QuarkusTest
 @TestProfile(FrenchTestProfile.class)
 class FrenchInvoiceTest {
@@ -21,9 +22,8 @@ class FrenchInvoiceTest {
     invoice.subtotal = 500f;
     assertEquals(20f, invoice.vatRate);
     assertEquals(100f, invoice.caclculateVatAmount());
-    assertEquals(600f, invoice.caclculateTotal());
-    assertTrue(invoice.allowsDiscount);
-    assertTrue(invoice.terms.startsWith("Payment"));
-    assertTrue(invoice.penalties.startsWith("Penalty"));
+    assertEquals(587.5f, invoice.caclculateTotal());
+    assertTrue(invoice.discount);
   }
 }
+// end::adocSnippet[]

@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @QuarkusTest
 class InvoiceTest {
@@ -21,8 +20,6 @@ class InvoiceTest {
     assertEquals(10f, invoice.vatRate);
     assertEquals(50f, invoice.caclculateVatAmount());
     assertEquals(550f, invoice.caclculateTotal());
-    assertFalse(invoice.allowsDiscount);
-    assertTrue(invoice.terms.startsWith("Payment"));
-    assertTrue(invoice.penalties.startsWith("Penalty"));
+    assertFalse(invoice.discount);
   }
 }

@@ -10,29 +10,26 @@ import javax.inject.Singleton;
  * --
  */
 @Singleton
-// @formatter:off
-// tag::adocSnippet[]
 public class Invoice {
 
   Float subtotal;
   @ConfigProperty(defaultValue = "10")
   Float vatRate;
-  Float total;
   @ConfigProperty(defaultValue = "true")
-  Boolean allowsDiscount;
+  Boolean discount;
   @ConfigProperty(defaultValue = "2.5")
   Float discountRate;
-  @ConfigProperty
-  String terms;
-  @ConfigProperty
-  String penalties;
 
   public Float caclculateVatAmount() {
     return subtotal * (vatRate / 100);
   }
 
   public Float caclculateTotal() {
-    return subtotal + caclculateVatAmount();
+    Float total = subtotal + caclculateVatAmount();
+    if (discount) {
+      total = total - (subtotal * (discountRate / 100));
+    }
+    return total;
   }
 }
 // end::adocSnippet[]
