@@ -2,11 +2,7 @@
 [INFO] Building Quarkus :: Testing :: JVM Mode
 [INFO] ---------------------------------------
 [INFO]
-[INFO] --- maven-compiler-plugin:3.8.1:compile
-[INFO]
-[INFO] --- quarkus-maven-plugin:1.7.1.Final:prepare-tests
-[INFO]
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test
+[INFO] --- maven-surefire-plugin:test
 [INFO]
 [INFO] ----------
 [INFO]  T E S T S
