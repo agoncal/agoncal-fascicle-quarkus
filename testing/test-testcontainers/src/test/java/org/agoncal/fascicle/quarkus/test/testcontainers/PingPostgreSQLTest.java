@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.test.testcontainers;
 
+import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -13,6 +14,7 @@ import java.sql.Statement;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::adocSnippet[]
+@QuarkusTest
 @Testcontainers
 public class PingPostgreSQLTest {
 
