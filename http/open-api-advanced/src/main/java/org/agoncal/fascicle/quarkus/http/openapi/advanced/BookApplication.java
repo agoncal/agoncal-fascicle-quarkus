@@ -32,14 +32,14 @@ import javax.ws.rs.core.Application;
   ,
 // tag::adocServer[]
   servers = @Server(
-    description = "CD-Book Store server 1",
+    description = "Vintage Store server 1",
     url = "http://{host}.vintage-store/{port}",
     variables = {
       @ServerVariable(name = "host",
-        description = "CD-Book Store main server",
+        description = "Vintage Store main server",
         defaultValue = "localhost"),
       @ServerVariable(name = "port",
-        description = "CD-Book Store listening port",
+        description = "Vintage Store listening port",
         defaultValue = "80")
     }
   )
