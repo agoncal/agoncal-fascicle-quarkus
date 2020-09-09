@@ -24,7 +24,7 @@ public class BookResourceTest {
   IsbnResourceProxy isbnServiceProxy;
 
   @BeforeEach
-  void setUp() {
+  void mockData() {
     Mockito
       .when(isbnServiceProxy.generateIsbnNumbers())
       .thenReturn(new IsbnNumbers("Dummy isbn 10", "Dummy isbn 13"));
