@@ -30,9 +30,15 @@
     <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+      <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
     </dependency>
     <!-- end::adocExtension[] -->
+    <!-- tag::adocExtensionKafka[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+    </dependency>
+    <!-- end::adocExtensionKafka[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
