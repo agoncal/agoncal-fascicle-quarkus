@@ -17,6 +17,7 @@
   </parent>
 
   <modules>
+    <module>kafka</module>
     <module>mutiny-uni-multi</module>
   </modules>
 
