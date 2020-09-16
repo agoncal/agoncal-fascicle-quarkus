@@ -23,10 +23,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
-    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.smallrye.reactive</groupId>
       <artifactId>mutiny</artifactId>
+    </dependency>
+    <!-- tag::adocExtension[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
     </dependency>
     <!-- end::adocExtension[] -->
     <!-- Test -->
