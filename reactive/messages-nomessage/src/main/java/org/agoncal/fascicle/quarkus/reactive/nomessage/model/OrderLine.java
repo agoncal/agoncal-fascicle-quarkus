@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -13,6 +13,7 @@ public class OrderLine {
   @JsonbProperty("unit_price")
   public Double unitPrice;
   public Integer quantity;
+  public Status status;
 
   public OrderLine() {
   }
@@ -21,5 +22,15 @@ public class OrderLine {
     this.item = item;
     this.unitPrice = unitPrice;
     this.quantity = quantity;
+  }
+
+  @Override
+  public String toString() {
+    return "OrderLine{" +
+      "item='" + item + '\'' +
+      ", unitPrice=" + unitPrice +
+      ", quantity=" + quantity +
+      ", status=" + status +
+      '}';
   }
 }

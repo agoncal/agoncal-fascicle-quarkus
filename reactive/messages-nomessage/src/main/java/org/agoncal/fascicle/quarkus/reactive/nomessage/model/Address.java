@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 /**
  * @author Antonio Goncalves
@@ -18,5 +18,14 @@ public class Address {
     this.street = street;
     this.city = city;
     this.zipcode = zipcode;
+  }
+
+  @Override
+  public String toString() {
+    return "Address{" +
+      "street='" + street + '\'' +
+      ", city='" + city + '\'' +
+      ", zipcode='" + zipcode + '\'' +
+      '}';
   }
 }

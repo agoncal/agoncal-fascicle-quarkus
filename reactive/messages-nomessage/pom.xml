@@ -27,12 +27,6 @@
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
     </dependency>
-    <!-- tag::adocExtension[] -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
-    </dependency>
-    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>

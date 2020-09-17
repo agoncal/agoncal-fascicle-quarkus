@@ -1,11 +1,12 @@
-package org.agoncal.fascicle.quarkus.reactive.messages;
+package org.agoncal.fascicle.quarkus.reactive.nomessage;
 
-import org.agoncal.fascicle.quarkus.reactive.messages.model.PurchaseOrder;
-import org.agoncal.fascicle.quarkus.reactive.messages.service.BankService;
-import org.agoncal.fascicle.quarkus.reactive.messages.service.CustomerService;
-import org.agoncal.fascicle.quarkus.reactive.messages.service.InventoryService;
-import org.agoncal.fascicle.quarkus.reactive.messages.service.PurchaseOrderService;
-import org.agoncal.fascicle.quarkus.reactive.messages.service.ShippingService;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.PurchaseOrder;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.service.BankService;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.service.CustomerService;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.service.InventoryService;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.service.PurchaseOrderService;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.service.ShippingService;
+import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -18,7 +19,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 
-import static org.agoncal.fascicle.quarkus.reactive.messages.model.Status.VALID;
+import static org.agoncal.fascicle.quarkus.reactive.nomessage.model.Status.VALID;
 
 // tag::adocSnippet[]
 @Path("/po")
@@ -26,6 +27,8 @@ import static org.agoncal.fascicle.quarkus.reactive.messages.model.Status.VALID;
 @Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
 public class PurchaseOrderResource {
+
+  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderResource.class);
 
   @Inject
   PurchaseOrderService purchaseOrderService;
@@ -42,8 +45,15 @@ public class PurchaseOrderResource {
   @Inject
   ShippingService shippingService;
 
+  /**
+   * curl -X POST -H "Content-Type: application/json" -d '{"id":"123"}' http://localhost:8080/po -v
+   */
   @POST
-  public Response create(PurchaseOrder po) {
+  public Response create(PurchaseOrder po) throws InterruptedException {
+    LOGGER.info("############");
+    LOGGER.info("Creating PO: " + po.id);
+
+    purchaseOrderService.prepare(po);
 
     purchaseOrderService.validate(po);
 
@@ -56,7 +66,9 @@ public class PurchaseOrderResource {
 
       inventoryService.prepareItems(po.orderLines);
 
-      shippingService.shipItems(po.orderLines, po.customer.shippingAddress);
+      shippingService.prepareShipping(po.orderLines, po.customer.shippingAddress);
+
+      shippingService.ship(po);
 
       URI createdPo = UriBuilder.fromResource(PurchaseOrderResource.class).path(String.valueOf(po.id)).build();
       return Response.created(createdPo).build();

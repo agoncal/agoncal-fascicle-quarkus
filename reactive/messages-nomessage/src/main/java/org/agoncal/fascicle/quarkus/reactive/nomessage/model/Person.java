@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 import javax.json.bind.annotation.JsonbProperty;
 

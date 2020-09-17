@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 import javax.json.bind.annotation.JsonbProperty;
 import java.time.LocalDate;
@@ -34,5 +34,17 @@ public class PurchaseOrder {
       this.orderLines = new ArrayList<>();
     }
     this.orderLines.add(orderLine);
+  }
+
+  @Override
+  public String toString() {
+    return "PurchaseOrder{" +
+      "id=" + id +
+      ", date=" + date +
+      ", orderLines=" + orderLines +
+      ", creditCard=" + creditCard +
+      ", customer=" + customer +
+      ", status=" + status +
+      '}';
   }
 }

@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -23,5 +23,17 @@ public class Customer extends Person {
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.shippingAddress = address;
+  }
+
+  @Override
+  public String toString() {
+    return "Customer{" +
+      "email='" + email + '\'' +
+      ", phoneNumber='" + phoneNumber + '\'' +
+      ", status=" + status +
+      ", firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", shippingAddress=" + shippingAddress +
+      '}';
   }
 }

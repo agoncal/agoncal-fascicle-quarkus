@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.model;
+package org.agoncal.fascicle.quarkus.reactive.nomessage.model;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -26,5 +26,16 @@ public class CreditCard {
     this.expiryDate = expiryDate;
     this.controlNumber = controlNumber;
     this.creditCardType = creditCardType;
+  }
+
+  @Override
+  public String toString() {
+    return "CreditCard{" +
+      "number='" + number + '\'' +
+      ", expiryDate='" + expiryDate + '\'' +
+      ", controlNumber=" + controlNumber +
+      ", creditCardType=" + creditCardType +
+      ", status=" + status +
+      '}';
   }
 }

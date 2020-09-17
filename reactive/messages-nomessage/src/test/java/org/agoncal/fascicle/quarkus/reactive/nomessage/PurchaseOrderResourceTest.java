@@ -1,14 +1,12 @@
-package org.agoncal.fascicle.quarkus.reactive.kafka;
+package org.agoncal.fascicle.quarkus.reactive.nomessage;
 
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
-import org.agoncal.fascicle.quarkus.reactive.messages.PurchaseOrderResource;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.Address;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.CreditCard;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.Customer;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.OrderLine;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.PurchaseOrder;
-import org.agoncal.fascicle.quarkus.reactive.messages.model.Status;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.Address;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.CreditCard;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.Customer;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.OrderLine;
+import org.agoncal.fascicle.quarkus.reactive.nomessage.model.PurchaseOrder;
 import org.junit.jupiter.api.Test;
 
 import javax.json.bind.Jsonb;
@@ -21,7 +19,7 @@ import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NOT_MODIFIED;
-import static org.agoncal.fascicle.quarkus.reactive.messages.model.CreditCardType.MASTER_CARD;
+import static org.agoncal.fascicle.quarkus.reactive.nomessage.model.CreditCardType.MASTER_CARD;
 
 /**
  * @author Antonio Goncalves
@@ -38,9 +36,7 @@ public class PurchaseOrderResourceTest {
   @Test
   public void shouldCreateValidPurchaseOrder() {
     PurchaseOrder po = newPO();
-    po.status = Status.VALID;
-    po.customer.status = Status.VALID;
-    po.creditCard.status = Status.VALID;
+    po.id = 2L;
 
     given()
       .body(jsonb.toJson(po))
@@ -55,7 +51,7 @@ public class PurchaseOrderResourceTest {
   @Test
   public void shouldCreateInvalidPurchaseOrder() {
     PurchaseOrder po = newPO();
-    po.status = Status.INVALID;
+    po.id = 1L;
 
     given()
       .body(jsonb.toJson(po))
