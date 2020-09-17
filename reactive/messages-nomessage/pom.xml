@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
-  <artifactId>kafka</artifactId>
+  <artifactId>messages-nomessage</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Quarkus :: Reactive Microservices :: Kafka</name>
+  <name>Quarkus :: Reactive Microservices :: Messages :: No Message</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -24,8 +24,8 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.smallrye.reactive</groupId>
-      <artifactId>mutiny</artifactId>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
     </dependency>
     <!-- tag::adocExtension[] -->
     <dependency>
@@ -33,12 +33,6 @@
       <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
     </dependency>
     <!-- end::adocExtension[] -->
-    <!-- tag::adocExtensionKafka[] -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
-    </dependency>
-    <!-- end::adocExtensionKafka[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>

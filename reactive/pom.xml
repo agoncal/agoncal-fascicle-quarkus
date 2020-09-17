@@ -17,7 +17,9 @@
   </parent>
 
   <modules>
-    <module>kafka</module>
+    <module>messages-kafka</module>
+    <module>messages-multiple-classes</module>
+    <module>messages-nomessage</module>
     <module>mutiny-uni-multi</module>
   </modules>
 
