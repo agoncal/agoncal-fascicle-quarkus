@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
-  <artifactId>messages-kafka</artifactId>
+  <artifactId>messages-synch</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Quarkus :: Reactive Microservices :: Messages :: Kafka</name>
+  <name>Quarkus :: Reactive Microservices :: Messages :: Synchronous</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -27,12 +27,6 @@
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
     </dependency>
-    <!-- tag::adocExtension[] -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
-    </dependency>
-    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
