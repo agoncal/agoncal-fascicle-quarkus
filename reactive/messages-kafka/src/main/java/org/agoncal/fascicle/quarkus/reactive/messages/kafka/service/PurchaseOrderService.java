@@ -36,7 +36,7 @@ public class PurchaseOrderService {
   @Channel("po-invalidated")
   Emitter<PurchaseOrder> emitterForInvalidPO;
 
-  @Incoming("purchase-orders")
+  @Incoming("purchase-orders-read")
   @Outgoing("po-prepared")
   public PurchaseOrder create(PurchaseOrder po) {
     LOGGER.info("Creating PO: " + po.id);
