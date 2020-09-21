@@ -37,7 +37,7 @@ public class PurchaseOrderService {
   Emitter<PurchaseOrder> emitterForInvalidPO;
 
   @Incoming("purchase-orders-read")
-  @Outgoing("po-prepared")
+  @Outgoing("po-prepared-write")
   public PurchaseOrder create(PurchaseOrder po) {
     LOGGER.info("Creating PO: " + po.id);
     LOGGER.debug(po + "\n");
