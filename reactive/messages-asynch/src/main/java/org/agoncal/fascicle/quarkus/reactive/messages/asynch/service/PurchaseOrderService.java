@@ -22,10 +22,12 @@ import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Credit
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 public class PurchaseOrderService {
-
+  // tag::adocSkip[]
   private static final Logger LOGGER = Logger.getLogger(PurchaseOrderService.class);
+  // end::adocSkip[]
 
   @Inject
   @Broadcast
@@ -35,6 +37,22 @@ public class PurchaseOrderService {
   @Inject
   @Channel("po-invalidated")
   Emitter<PurchaseOrder> emitterForInvalidPO;
+
+  @Incoming("bank-validated")
+  public void validate(PurchaseOrder po) {
+    // tag::adocSkip[]
+    LOGGER.info("Validating or Invalidating PO: " + po.id);
+    LOGGER.debug(po + "\n");
+    // end::adocSkip[]
+
+    if (po.creditCard.status == VALID){
+      po.status = VALID;
+      emitterForValidPO.send(po);
+    } else {
+      po.status = INVALID;
+      emitterForInvalidPO.send(po);
+    }
+  }
 
   @Incoming("purchase-orders")
   @Outgoing("po-prepared")
@@ -55,20 +73,6 @@ public class PurchaseOrderService {
   }
 
 
-  @Incoming("bank-validated")
-  public void validate(PurchaseOrder po) {
-    LOGGER.info("Validating or Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
-
-    if (po.creditCard.status == VALID){
-      po.status = VALID;
-      emitterForValidPO.send(po);
-    } else {
-      po.status = INVALID;
-      emitterForInvalidPO.send(po);
-    }
-  }
-
   @Incoming("po-invalidated")
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
@@ -76,3 +80,4 @@ public class PurchaseOrderService {
     LOGGER.debug(po + "\n");
   }
 }
+// end::adocSnippet[]
