@@ -1,0 +1,12 @@
+drop table Author if exists
+drop table Book if exists
+drop table book_chapters if exists
+drop table books_authors if exists
+drop table tags if exists
+drop sequence if exists hibernate_sequence
+drop table Author if exists
+drop table Book if exists
+drop table book_chapters if exists
+drop table books_authors if exists
+drop table tags if exists
+drop sequence if exists hibernate_sequence

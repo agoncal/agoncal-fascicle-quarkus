@@ -24,10 +24,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-config-yaml</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>

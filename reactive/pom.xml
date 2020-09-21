@@ -17,6 +17,9 @@
   </parent>
 
   <modules>
+    <module>messages-asynch</module>
+    <module>messages-kafka</module>
+    <module>messages-synch</module>
     <module>mutiny-uni-multi</module>
   </modules>
 

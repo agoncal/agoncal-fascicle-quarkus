@@ -24,12 +24,12 @@ WebContent
 vpproject
 .vpprefdata
 *dummy*.*
-dummy*/
+*dummy*/
 *-soapui-project.xml
 .lock
 teamworkUser.xml
 projectFilesBackup*
-cdbookstoreCreate.ddl
-cdbookstoreDrop.ddl
+vintageStoreCreate.ddl
+vintageStoreDrop.ddl
 ObjectStore
 PutObjectStoreDirHere

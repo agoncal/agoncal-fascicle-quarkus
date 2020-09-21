@@ -23,11 +23,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.smallrye.reactive</groupId>
       <artifactId>mutiny</artifactId>
-      <version>0.7.0</version>
     </dependency>
+    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>

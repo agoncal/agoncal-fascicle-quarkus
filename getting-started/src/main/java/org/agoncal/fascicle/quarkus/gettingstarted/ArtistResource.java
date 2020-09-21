@@ -28,11 +28,11 @@ public class ArtistResource {
 
   // tag::adocSkip[]
   /**
-   * curl http://localhost:8080/cdbookstore/artists
-   * curl http://localhost:8080/cdbookstore/artists | jq
-   * curl http://localhost:8080/cdbookstore/artists -v
-   * curl -X GET http://localhost:8080/cdbookstore/artists -v
-   * curl -X GET -H "Accept: application/json" http://localhost:8080/cdbookstore/artists -v
+   * curl http://localhost:8080/vintage-store/artists
+   * curl http://localhost:8080/vintage-store/artists | jq
+   * curl http://localhost:8080/vintage-store/artists -v
+   * curl -X GET http://localhost:8080/vintage-store/artists -v
+   * curl -X GET -H "Accept: application/json" http://localhost:8080/vintage-store/artists -v
    */
   // end::adocSkip[]
   @GET
@@ -42,9 +42,9 @@ public class ArtistResource {
 
   // tag::adocSkip[]
   /**
-   * curl http://localhost:8080/cdbookstore/artists/count
-   * curl http://localhost:8080/cdbookstore/artists/count -v
-   * curl -X GET -H "Accept: text/plain" http://localhost:8080/cdbookstore/artists/count -v
+   * curl http://localhost:8080/vintage-store/artists/count
+   * curl http://localhost:8080/vintage-store/artists/count -v
+   * curl -X GET -H "Accept: text/plain" http://localhost:8080/vintage-store/artists/count -v
    */
   // end::adocSkip[]
   @GET

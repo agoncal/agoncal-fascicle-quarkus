@@ -19,10 +19,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-core</artifactId>
     </dependency>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>

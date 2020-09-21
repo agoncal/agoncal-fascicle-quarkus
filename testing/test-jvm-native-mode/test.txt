@@ -1,0 +1,23 @@
+[INFO] ---------------------------------------
+[INFO] Building Quarkus :: Testing :: JVM Mode
+[INFO] ---------------------------------------
+[INFO]
+[INFO] --- maven-surefire-plugin:test
+[INFO]
+[INFO] ----------
+[INFO]  T E S T S
+[INFO] ----------
+[INFO] Running ArtistResourceTest
+[INFO] [io.quarkus] (main) Quarkus on JVM started in 1.169s
+[INFO] [io.quarkus] (main) Profile test activated.
+[INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.827 s
+[INFO] [io.quarkus] (main) Quarkus stopped in 0.026s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1
+[INFO]
+[INFO] -------------
+[INFO] BUILD SUCCESS
+[INFO] -------------

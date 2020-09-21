@@ -16,15 +16,15 @@ externalDocs:
 # end::adocInfo[]
 # tag::adocServer[]
 servers:
-  - url: http://{host}.cdbookstore/{port}
-    description: CD-Book Store server 1
+  - url: http://{host}.vintage-store/{port}
+    description: Vintage Store server 1
     variables:
       host:
         default: localhost
-        description: CD-Book Store main server
+        description: Vintage Store main server
       port:
         default: "80"
-        description: CD-Book Store listening port
+        description: Vintage Store listening port
 # end::adocServer[]
 # tag::adocTag[]
 tags:
