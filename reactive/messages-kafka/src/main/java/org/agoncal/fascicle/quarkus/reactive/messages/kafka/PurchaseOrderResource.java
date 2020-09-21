@@ -37,13 +37,13 @@ public class PurchaseOrderResource {
    */
   @POST
   public Response create(PurchaseOrder po) {
-    LOGGER.info("############");
+    LOGGER.info(">>>>>>>>>>>>");
     String temporaryId = "tmp" + Math.abs(new Random().nextInt());
 
     emitter.send(po);
 
     URI temporaryPO = UriBuilder.fromResource(PurchaseOrderResource.class).path(temporaryId).build();
-    LOGGER.info("############");
+    LOGGER.info("<<<<<<<<<<<<");
     return Response.temporaryRedirect(temporaryPO).build();
   }
 }
