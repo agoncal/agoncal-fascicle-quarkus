@@ -1,8 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.synch.service;
 
 import com.github.javafaker.Faker;
-import org.agoncal.fascicle.quarkus.reactive.messages.synch.service.BankService;
-import org.agoncal.fascicle.quarkus.reactive.messages.synch.service.InventoryService;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCard;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Customer;
@@ -32,7 +30,9 @@ public class PurchaseOrderService {
   @Inject
   ShippingService shippingService;
 
+  // tag::adocSnippet[]
   public PurchaseOrder create(PurchaseOrder po) throws InterruptedException {
+    // tag::adocSkip[]
     LOGGER.info("Creating PO: " + po.id);
     LOGGER.debug(po + "\n");
 
@@ -44,6 +44,7 @@ public class PurchaseOrderService {
     po.creditCard = new CreditCard(fake.business().creditCardNumber(), fake.business().creditCardExpiry(), 123, MASTER_CARD);
     po.addOrderLine(new OrderLine(fake.book().title(), 2d, 1));
     po.addOrderLine(new OrderLine(fake.book().title(), 5d, 2));
+    // end::adocSkip[]
 
     bankService.validate(po);
 
@@ -59,6 +60,7 @@ public class PurchaseOrderService {
 
     return po;
   }
+  // end::adocSnippet[]
 
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
