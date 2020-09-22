@@ -53,7 +53,7 @@ public class PurchaseOrderService {
       emitterForInvalidPO.send(po);
     }
   }
-
+  // tag::adocSkip[]
   @Incoming("purchase-orders")
   @Outgoing("po-prepared")
   public PurchaseOrder create(PurchaseOrder po) {
@@ -79,5 +79,6 @@ public class PurchaseOrderService {
     LOGGER.info("Invalidating PO: " + po.id);
     LOGGER.debug(po + "\n");
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
