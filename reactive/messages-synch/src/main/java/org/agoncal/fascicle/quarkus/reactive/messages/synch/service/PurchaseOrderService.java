@@ -31,7 +31,7 @@ public class PurchaseOrderService {
   ShippingService shippingService;
 
   // tag::adocSnippet[]
-  public PurchaseOrder create(PurchaseOrder po) throws InterruptedException {
+  public PurchaseOrder create(PurchaseOrder po) {
     // tag::adocSkip[]
     LOGGER.info("Creating PO: " + po.id);
     LOGGER.debug(po + "\n");
