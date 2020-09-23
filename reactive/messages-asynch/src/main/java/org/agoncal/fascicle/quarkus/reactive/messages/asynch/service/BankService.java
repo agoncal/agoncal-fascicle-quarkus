@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.AUTHORISED;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.PAYED;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 
 @ApplicationScoped
@@ -52,15 +51,17 @@ public class BankService {
   }
 
   @Incoming("bank-authorised")
-  public PurchaseOrder pay(PurchaseOrder po) {
+  public void pay(PurchaseOrder po) {
     // tag::adocSkip[]
     LOGGER.info("Paying with Credit Card for PO: " + po.id);
     LOGGER.debug(po + "\n");
     // end::adocSkip[]
-    po.creditCard.status = PAYED;
-    return po;
+    makePayment(po);
   }
   // end::adocSnippet[]
+
+  private void makePayment(PurchaseOrder po) {
+  }
 
   private Random rate = new Random();
 
