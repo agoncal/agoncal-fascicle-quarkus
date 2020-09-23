@@ -11,12 +11,14 @@ import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
+import org.eclipse.microprofile.reactive.messaging.Message;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.concurrent.CompletionStage;
 
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.MASTER_CARD;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
@@ -56,6 +58,24 @@ public class PurchaseOrderService {
     }
   }
   // tag::adocSkip[]
+
+  // tag::adocMessage[]
+  @Incoming("purchase-orders-msg")
+  public CompletionStage<Void> create(Message<PurchaseOrder> msg) {
+    // tag::adocSkip[]
+    LOGGER.info("Creating PO: " + msg.getPayload().id);
+    LOGGER.debug(msg.getPayload() + "\n");
+    // end::adocSkip[]
+
+    PurchaseOrder po = msg.getPayload();
+    persist(po);
+
+    return msg.ack();
+  }
+  // end::adocMessage[]
+
+  private void persist(PurchaseOrder po) {
+  }
 
   @Incoming("purchase-orders")
   @Outgoing("po-prepared")
@@ -100,8 +120,11 @@ public class PurchaseOrderService {
   }
   // end::adocMutiny[]
 
-  private void computeEuroRate(Float rate) { }
-  private void computePoundRate(Float rate) { }
+  private void computeEuroRate(Float rate) {
+  }
+
+  private void computePoundRate(Float rate) {
+  }
   // end::adocSkip[]
 }
 // end::adocSnippet[]
