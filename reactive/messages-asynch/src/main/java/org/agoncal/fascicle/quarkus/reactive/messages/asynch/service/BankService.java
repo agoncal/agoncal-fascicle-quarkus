@@ -47,9 +47,7 @@ public class BankService {
     LOGGER.info("Authorising Credit Card for PO: " + po.id);
     LOGGER.debug(po + "\n");
     // end::adocSkip[]
-
     po.creditCard.status = AUTHORISED;
-
     return po;
   }
 
@@ -59,9 +57,7 @@ public class BankService {
     LOGGER.info("Paying with Credit Card for PO: " + po.id);
     LOGGER.debug(po + "\n");
     // end::adocSkip[]
-
     po.creditCard.status = PAYED;
-
     return po;
   }
   // end::adocSnippet[]
