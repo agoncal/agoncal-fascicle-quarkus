@@ -24,7 +24,7 @@ import static javax.ws.rs.core.Response.Status.TEMPORARY_REDIRECT;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.AMERICAN_EXPRESS;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.MASTER_CARD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -95,9 +95,9 @@ public class PurchaseOrderMessageResourceTest {
   @Test
   public void shouldManipulateStringMessage() {
     // tag::adocSnippet[]
-    Message<String> msg = Message.of("Janis Joplin");
+    Message<String> msg = Message.of("Janis Joplin tape sold");
     // tag::adocSkip[]
-    assertEquals("Janis Joplin", msg.getPayload());
+    assertEquals("Janis Joplin tape sold", msg.getPayload());
     // end::adocSkip[]
     // end::adocSnippet[]
   }
@@ -115,11 +115,36 @@ public class PurchaseOrderMessageResourceTest {
   @Test
   public void shouldManipulateObjectMessageWithMetadata() {
     // tag::adocSnippet[]
+
     Metadata metadata = Metadata.of(LocalDate.now());
-    Message<String> msg = Message.of("Jimi Hendrix", metadata);
+    Message<String> msg = Message.of("Jimi Hendrix vinyl sold", metadata);
     // tag::adocSkip[]
-    assertEquals("Jimi Hendrix", msg.getPayload());
-    assertNotNull(msg.getMetadata());
+    assertEquals("Jimi Hendrix vinyl sold", msg.getPayload());
+    assertTrue(msg.getMetadata().iterator().hasNext());
+    // end::adocSkip[]
+    // end::adocSnippet[]
+  }
+
+  @Test
+  public void shouldManipulateObjectMessageWithWithMetadata() {
+    Metadata metadata = Metadata.of(LocalDate.now());
+    // tag::adocSnippet[]
+    Message<String> msg = Message.of("Jimi Hendrix vinyl sold").withMetadata(metadata);
+    // tag::adocSkip[]
+    assertEquals("Jimi Hendrix vinyl sold", msg.getPayload());
+    assertTrue(msg.getMetadata().iterator().hasNext());
+    // end::adocSkip[]
+    // end::adocSnippet[]
+  }
+
+  @Test
+  public void shouldManipulateObjectMessageWithAck() {
+    // tag::adocSnippet[]
+
+    Message<String> msg = Message.of("Ella vinyl sold");
+    msg.ack();
+    // tag::adocSkip[]
+    assertEquals("Ella vinyl sold", msg.getPayload());
     // end::adocSkip[]
     // end::adocSnippet[]
   }
