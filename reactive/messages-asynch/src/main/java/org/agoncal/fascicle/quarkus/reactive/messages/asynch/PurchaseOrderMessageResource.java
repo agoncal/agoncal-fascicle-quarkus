@@ -18,11 +18,12 @@ import java.net.URI;
 import java.util.Random;
 
 /**
- * curl -X POST -H "Content-Type: application/json" -d '{"id":"123"}' http://localhost:8080/pomsg -v
+ * curl -X POST -H "Content-Type: application/json" -d '{"id":"123"}' http://localhost:8080/po -v
  *     emitter.send(po).whenComplete((x,e) -> {
  *         if (e != null ) e.printStackTrace();
  *     });
  */
+// @formatter:off
 // tag::adocSnippet[]
 @Path("/pomsg")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -45,7 +46,8 @@ public class PurchaseOrderMessageResource {
 
     emitter.send(Message.of(po));
 
-    URI temporaryPO = UriBuilder.fromResource(PurchaseOrderMessageResource.class).path(tmpId).build();
+    URI temporaryPO = UriBuilder.fromResource(PurchaseOrderMessageResource.class)
+                                .path(tmpId).build();
     // tag::adocSkip[]
     LOGGER.info("<<<<<<<<<<<<");
     // end::adocSkip[]
