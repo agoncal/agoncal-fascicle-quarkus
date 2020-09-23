@@ -4,6 +4,7 @@ import io.reactivex.Flowable;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
+import org.eclipse.microprofile.reactive.messaging.Message;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
@@ -43,6 +44,23 @@ public class BankService {
       .map(tick -> rate.nextFloat());
   }
   // end::adocMutiny[]
+
+  private Float euroRate = new Random().nextFloat();
+  private Float poundRate = new Random().nextFloat();
+
+  // tag::adocOutgoingMsg[]
+  @Outgoing("euro-rate")
+  public Message<Float> sendEuroRate() {
+    return Message.of(euroRate);
+  }
+  // end::adocOutgoingMsg[]
+
+  // tag::adocOutgoingPayload[]
+  @Outgoing("pound-rate")
+  public Float sendPoundRate() {
+    return poundRate;
+  }
+  // end::adocOutgoingPayload[]
 
   private boolean complexValidationLogic(PurchaseOrder po) {
     return ((po.id & 1) == 0);
