@@ -36,9 +36,9 @@ public class PurchaseOrderService {
   @Channel("po-invalidated")
   Emitter<PurchaseOrder> emitterForInvalidPO;
 
-  // tag::adocSnippet[]
-  @Incoming("purchase-orders-read")
   @Outgoing("po-prepared-write")
+  // tag::adocSnippet[]
+  @Incoming("po-read")
   public PurchaseOrder create(PurchaseOrder po) {
     // tag::adocSkip[]
     LOGGER.info("Creating PO: " + po.id);

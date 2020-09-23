@@ -33,7 +33,7 @@ public class PurchaseOrderResource {
   String tmpId = "tmp" + Math.abs(new Random().nextInt());
   // end::adocSkip[]
 
-  @Inject @Channel("purchase-orders-write")
+  @Inject @Channel("po-write")
   Emitter<PurchaseOrder> emitter;
 
   @POST
