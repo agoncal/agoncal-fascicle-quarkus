@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.reactive.messages.kafka.codecs;
+package org.agoncal.fascicle.quarkus;
 
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.PurchaseOrder;
 import io.quarkus.kafka.client.serialization.JsonbDeserializer;
