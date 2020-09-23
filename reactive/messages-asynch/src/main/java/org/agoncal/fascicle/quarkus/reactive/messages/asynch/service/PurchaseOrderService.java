@@ -30,7 +30,9 @@ public class PurchaseOrderService {
   // end::adocSkip[]
 
   @Inject
+  // tag::adocBroadcast[]
   @Broadcast
+  // end::adocBroadcast[]
   @Channel("po-validated")
   Emitter<PurchaseOrder> emitterForValidPO;
 
