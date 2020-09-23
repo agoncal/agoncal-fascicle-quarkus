@@ -22,6 +22,7 @@ import java.util.Random;
  *         if (e != null ) e.printStackTrace();
  *     });
  */
+// @formatter:off
 // tag::adocSnippet[]
 @Path("/po")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -29,7 +30,7 @@ import java.util.Random;
 public class PurchaseOrderResource {
   // tag::adocSkip[]
   private static final Logger LOGGER = Logger.getLogger(PurchaseOrderResource.class);
-  String temporaryId = "tmp" + Math.abs(new Random().nextInt());
+  String tmpId = "tmp" + Math.abs(new Random().nextInt());
   // end::adocSkip[]
 
   @Inject @Channel("purchase-orders-write")
@@ -43,7 +44,8 @@ public class PurchaseOrderResource {
 
     emitter.send(po);
 
-    URI temporaryPO = UriBuilder.fromResource(PurchaseOrderResource.class).path(temporaryId).build();
+    URI temporaryPO = UriBuilder.fromResource(PurchaseOrderResource.class)
+                                .path(tmpId).build();
     // tag::adocSkip[]
     LOGGER.info("<<<<<<<<<<<<");
     // end::adocSkip[]

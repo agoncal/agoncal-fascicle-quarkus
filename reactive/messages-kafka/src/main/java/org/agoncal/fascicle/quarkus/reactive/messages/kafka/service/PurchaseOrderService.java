@@ -36,9 +36,11 @@ public class PurchaseOrderService {
   @Channel("po-invalidated")
   Emitter<PurchaseOrder> emitterForInvalidPO;
 
+  // tag::adocSnippet[]
   @Incoming("purchase-orders-read")
   @Outgoing("po-prepared-write")
   public PurchaseOrder create(PurchaseOrder po) {
+    // tag::adocSkip[]
     LOGGER.info("Creating PO: " + po.id);
     LOGGER.debug(po + "\n");
 
@@ -50,10 +52,12 @@ public class PurchaseOrderService {
     po.creditCard = new CreditCard(fake.business().creditCardNumber(), fake.business().creditCardExpiry(), 123, MASTER_CARD);
     po.addOrderLine(new OrderLine(fake.book().title(), 2d, 1));
     po.addOrderLine(new OrderLine(fake.book().title(), 5d, 2));
+    // tag::adocSkip[]
 
+    // Create a PO
     return po;
   }
-
+  // end::adocSnippet[]
 
   @Incoming("bank-validated")
   public void validate(PurchaseOrder po) {
