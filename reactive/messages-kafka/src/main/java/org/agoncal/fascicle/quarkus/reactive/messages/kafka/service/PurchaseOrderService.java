@@ -52,7 +52,7 @@ public class PurchaseOrderService {
     po.creditCard = new CreditCard(fake.business().creditCardNumber(), fake.business().creditCardExpiry(), 123, MASTER_CARD);
     po.addOrderLine(new OrderLine(fake.book().title(), 2d, 1));
     po.addOrderLine(new OrderLine(fake.book().title(), 5d, 2));
-    // tag::adocSkip[]
+    // end::adocSkip[]
 
     // Create a PO
     return po;
