@@ -85,14 +85,23 @@ public class PurchaseOrderService {
   // tag::adocMutiny[]
   @Incoming("generated-conversation-rate")
   public void dollarToEuroConversionRate(Float rate) {
-    LOGGER.info("Received Rate: " + rate);
-    persistRate(rate);
+    // tag::adocSkip[]
+    LOGGER.info("Received Euro Rate: " + rate);
+    // end::adocSkip[]
+    computeEuroRate(rate);
+  }
+
+  @Incoming("generated-conversation-rate")
+  public void dollarToPoundConversionRate(Float rate) {
+    // tag::adocSkip[]
+    LOGGER.info("Received Pound Rate: " + rate);
+    // end::adocSkip[]
+    computePoundRate(rate);
   }
   // end::adocMutiny[]
 
-  private void persistRate(Float rate) {
-
-  }
+  private void computeEuroRate(Float rate) { }
+  private void computePoundRate(Float rate) { }
   // end::adocSkip[]
 }
 // end::adocSnippet[]
