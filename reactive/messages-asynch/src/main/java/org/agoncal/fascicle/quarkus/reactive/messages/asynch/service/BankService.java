@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch.service;
 
+import io.reactivex.Flowable;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
@@ -7,6 +8,8 @@ import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
 @ApplicationScoped
@@ -31,9 +34,20 @@ public class BankService {
     return po;
   }
   // tag::adocSkip[]
+
+  private Random rate = new Random();
+
+  // tag::adocMutiny[]
+  @Outgoing("generated-conversation-rate")
+  public Flowable<Float> generateConvertionRate() {
+    return Flowable.interval(5, TimeUnit.SECONDS)
+      .map(tick -> rate.nextFloat());
+  }
+  // end::adocMutiny[]
+
   private boolean complexValidationLogic(PurchaseOrder po) {
     return ((po.id & 1) == 0);
-    }
+  }
   // end::adocSkip[]
 }
 // end::adocSnippet[]

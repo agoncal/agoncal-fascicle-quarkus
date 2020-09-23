@@ -45,7 +45,7 @@ public class PurchaseOrderService {
     LOGGER.debug(po + "\n");
     // end::adocSkip[]
 
-    if (po.creditCard.status == VALID){
+    if (po.creditCard.status == VALID) {
       po.status = VALID;
       emitterForValidPO.send(po);
     } else {
@@ -54,6 +54,7 @@ public class PurchaseOrderService {
     }
   }
   // tag::adocSkip[]
+
   @Incoming("purchase-orders")
   @Outgoing("po-prepared")
   public PurchaseOrder create(PurchaseOrder po) {
@@ -72,12 +73,23 @@ public class PurchaseOrderService {
     return po;
   }
 
-
   @Incoming("po-invalidated")
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
     LOGGER.info("Invalidating PO: " + po.id);
     LOGGER.debug(po + "\n");
+  }
+
+  // tag::adocMutiny[]
+  @Incoming("generated-conversation-rate")
+  public void dollarToEuroConversionRate(Float rate) {
+    LOGGER.info("Received Rate: " + rate);
+    persistRate(rate);
+  }
+  // end::adocMutiny[]
+
+  private void persistRate(Float rate) {
+
   }
   // end::adocSkip[]
 }
