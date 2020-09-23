@@ -85,6 +85,7 @@ public class PurchaseOrderMessageResourceTest {
   @Test
   public void shouldManipulateIntMessage() {
     // tag::adocSnippet[]
+    // Creating messages with different datatypes
     Message<Integer> msg = Message.of(1);
     // tag::adocSkip[]
     assertEquals(1, msg.getPayload());
@@ -116,6 +117,7 @@ public class PurchaseOrderMessageResourceTest {
   public void shouldManipulateObjectMessageWithMetadata() {
     // tag::adocSnippet[]
 
+    // Creating messages with metadata
     Metadata metadata = Metadata.of(LocalDate.now());
     Message<String> msg = Message.of("Jimi Hendrix vinyl sold", metadata);
     // tag::adocSkip[]
@@ -141,6 +143,7 @@ public class PurchaseOrderMessageResourceTest {
   public void shouldManipulateObjectMessageWithAck() {
     // tag::adocSnippet[]
 
+    // Acknowledging a message
     Message<String> msg = Message.of("Ella vinyl sold");
     msg.ack();
     // tag::adocSkip[]
