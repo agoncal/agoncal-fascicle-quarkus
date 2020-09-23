@@ -7,6 +7,8 @@ import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCard;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Customer;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.OrderLine;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
+import org.eclipse.microprofile.reactive.messaging.Message;
+import org.eclipse.microprofile.reactive.messaging.Metadata;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +21,10 @@ import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.TEMPORARY_REDIRECT;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.AMERICAN_EXPRESS;
 import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.MASTER_CARD;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author Antonio Goncalves
@@ -27,13 +32,13 @@ import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Credit
  * --
  */
 // @formatter:off
-@Disabled
 @QuarkusTest
 @TestHTTPEndpoint(PurchaseOrderMessageResource.class)
 public class PurchaseOrderMessageResourceTest {
 
   private Jsonb jsonb = JsonbBuilder.create();
 
+  @Disabled
   @Test
   public void shouldCreateValidPurchaseOrder() {
     PurchaseOrder po = newPO();
@@ -49,6 +54,7 @@ public class PurchaseOrderMessageResourceTest {
       .statusCode(TEMPORARY_REDIRECT.getStatusCode());
   }
 
+  @Disabled
   @Test
   public void shouldCreateInvalidPurchaseOrder() {
     PurchaseOrder po = newPO();
@@ -74,5 +80,47 @@ public class PurchaseOrderMessageResourceTest {
     po.addOrderLine(new OrderLine("item 1", 2d, 1));
     po.addOrderLine(new OrderLine("item 2", 5d, 2));
     return po;
+  }
+
+  @Test
+  public void shouldManipulateIntMessage() {
+    // tag::adocSnippet[]
+    Message<Integer> msg = Message.of(1);
+    // tag::adocSkip[]
+    assertEquals(1, msg.getPayload());
+    // end::adocSkip[]
+    // end::adocSnippet[]
+  }
+
+  @Test
+  public void shouldManipulateStringMessage() {
+    // tag::adocSnippet[]
+    Message<String> msg = Message.of("Janis Joplin");
+    // tag::adocSkip[]
+    assertEquals("Janis Joplin", msg.getPayload());
+    // end::adocSkip[]
+    // end::adocSnippet[]
+  }
+
+  @Test
+  public void shouldManipulateObjectMessage() {
+    // tag::adocSnippet[]
+    Message<CreditCard> msg = Message.of(new CreditCard("1234 5678", AMERICAN_EXPRESS));
+    // tag::adocSkip[]
+    assertEquals("1234 5678", msg.getPayload().number);
+    // end::adocSkip[]
+    // end::adocSnippet[]
+  }
+
+  @Test
+  public void shouldManipulateObjectMessageWithMetadata() {
+    // tag::adocSnippet[]
+    Metadata metadata = Metadata.of(LocalDate.now());
+    Message<String> msg = Message.of("Jimi Hendrix", metadata);
+    // tag::adocSkip[]
+    assertEquals("Jimi Hendrix", msg.getPayload());
+    assertNotNull(msg.getMetadata());
+    // end::adocSkip[]
+    // end::adocSnippet[]
   }
 }

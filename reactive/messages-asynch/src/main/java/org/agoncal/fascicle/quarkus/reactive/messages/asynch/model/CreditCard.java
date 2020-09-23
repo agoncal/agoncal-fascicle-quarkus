@@ -28,6 +28,11 @@ public class CreditCard {
     this.creditCardType = creditCardType;
   }
 
+  public CreditCard(String number, CreditCardType creditCardType) {
+    this.number = number;
+    this.creditCardType = creditCardType;
+  }
+
   @Override
   public String toString() {
     return "CreditCard{" +
