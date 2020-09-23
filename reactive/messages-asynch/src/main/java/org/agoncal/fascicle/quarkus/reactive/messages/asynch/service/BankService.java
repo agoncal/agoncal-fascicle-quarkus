@@ -11,13 +11,12 @@ import javax.enterprise.context.ApplicationScoped;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-// tag::adocSnippet[]
 @ApplicationScoped
 public class BankService {
-  // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(BankService.class);
-  // end::adocSkip[]
 
+  private static final Logger LOGGER = Logger.getLogger(BankService.class);
+
+  // tag::adocSnippet[]
   @Incoming("po-prepared")
   @Outgoing("bank-validated")
   public PurchaseOrder validate(PurchaseOrder po) {
@@ -33,7 +32,7 @@ public class BankService {
     }
     return po;
   }
-  // tag::adocSkip[]
+  // end::adocSnippet[]
 
   private Random rate = new Random();
 
@@ -48,6 +47,4 @@ public class BankService {
   private boolean complexValidationLogic(PurchaseOrder po) {
     return ((po.id & 1) == 0);
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

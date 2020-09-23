@@ -8,13 +8,12 @@ import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 
-// tag::adocSnippet[]
 @ApplicationScoped
 public class ShippingService {
-  // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(ShippingService.class);
-  // end::adocSkip[]
 
+  private static final Logger LOGGER = Logger.getLogger(ShippingService.class);
+
+  // tag::adocSnippet[]
   @Incoming("po-validated")
   public void prepareShipping(PurchaseOrder po) {
     // tag::adocSkip[]
@@ -27,11 +26,9 @@ public class ShippingService {
 
     shipItems(po);
   }
+  // end::adocSnippet[]
 
-  // tag::adocSkip[]
   private void shipItems(PurchaseOrder po) {
 
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]
