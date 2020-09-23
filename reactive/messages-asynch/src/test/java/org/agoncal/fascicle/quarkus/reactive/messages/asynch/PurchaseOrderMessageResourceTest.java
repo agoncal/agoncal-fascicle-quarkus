@@ -114,6 +114,16 @@ public class PurchaseOrderMessageResourceTest {
   }
 
   @Test
+  public void shouldManipulatePayload() {
+    // tag::adocSnippet[]
+
+    // Getting the payload
+    Message<String> msg = Message.of("Euro rate: 1.345");
+    assertEquals("Euro rate: 1.345", msg.getPayload());
+    // end::adocSnippet[]
+  }
+
+  @Test
   public void shouldManipulateObjectMessageWithMetadata() {
     // tag::adocSnippet[]
 
