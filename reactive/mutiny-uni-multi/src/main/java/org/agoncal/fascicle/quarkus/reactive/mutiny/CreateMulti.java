@@ -18,8 +18,9 @@ public class CreateMulti {
     toUni();
     System.out.println("#### withFailure()");
     withFailure();
-    System.out.println("#### fromTicks()");
+    System.out.println("#### fromMulti()");
     fromMulti();
+    //fromTicks();
   }
 
   private static void fromItems() {
@@ -65,5 +66,12 @@ public class CreateMulti {
       .transform().byTakingFirstItems(3)
       .subscribe().with(System.out::println);
     // end::adocFromMulti[]
+  }
+
+  private static void fromTicks() {
+    // tag::adocFromTick[]
+    Multi.createFrom().ticks().every(Duration.ofMillis(1))
+      .transform().byTakingFirstItems(2);
+    // end::adocFromTick[]
   }
 }
