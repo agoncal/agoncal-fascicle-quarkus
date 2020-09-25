@@ -18,6 +18,6 @@ class UniAndMultiTest {
 
   @Test
   void shouldCreateUniFromFailure() {
-    assertEquals("Hello world", uniAndMulti.createUniFromFailure());
+    assertEquals("Hello world", uniAndMulti.createUniFromItem());
   }
 }
