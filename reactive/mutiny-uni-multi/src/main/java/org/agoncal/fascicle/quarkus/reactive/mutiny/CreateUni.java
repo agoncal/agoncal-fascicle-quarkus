@@ -29,4 +29,15 @@ public class CreateUni {
     uni.subscribe().with(System.out::println);
     // end::adocLazy[]
   }
+
+  private static void withFailure() {
+    // tag::adocWithFailure[]
+    Uni.createFrom().item("Terri Lyne Carrington")
+      .onItem().transform(s -> s.toUpperCase() + " ")
+      .subscribe().with(
+      item -> System.out.println("Received: " + item),
+      failure -> System.out.println("Failed with " + failure.getMessage())
+    );
+    // end::adocWithFailure[]
+  }
 }
