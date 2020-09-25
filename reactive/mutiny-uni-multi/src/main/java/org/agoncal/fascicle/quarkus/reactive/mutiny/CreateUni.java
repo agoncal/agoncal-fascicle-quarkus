@@ -12,6 +12,8 @@ public class CreateUni {
     lazy();
     System.out.println("#### withFailure()");
     withFailure();
+    System.out.println("#### fromFailure()");
+    fromFailure();
   }
 
   private static void fromItem() {
@@ -42,5 +44,12 @@ public class CreateUni {
         failure -> System.out.println("Failed with " + failure.getMessage())
     );
     // end::adocWithFailure[]
+  }
+
+
+  private static void fromFailure() {
+    // tag::adocFromFailure[]
+    Uni.createFrom().failure(() -> new Exception("Exception created at subscription time"));
+    // end::adocFromFailure[]
   }
 }
