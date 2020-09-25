@@ -8,6 +8,10 @@ public class CreateMulti {
   public static void main(String[] args) {
     System.out.println("#### fromItems()");
     fromItems();
+    System.out.println("#### toUni()");
+    toUni();
+    System.out.println("#### withFailure()");
+    withFailure();
   }
 
   private static void fromItems() {
@@ -16,6 +20,15 @@ public class CreateMulti {
       .onItem().transform(i -> i.toUpperCase())
       .subscribe().with(System.out::println);
     // end::adocFromItems[]
+  }
+
+  private static void toUni() {
+    // tag::adocToUni[]
+    Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
+      .onItem().transform(i -> i.toUpperCase())
+      .toUni()
+      .subscribe().with(System.out::println);
+    // end::adocToUni[]
   }
 
   private static void withFailure() {
