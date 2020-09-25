@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.reactive.mutiny;
 
 import io.smallrye.mutiny.Uni;
 
+// @formatter:off
 public class CreateUni {
 
   public static void main(String[] args) {
@@ -9,6 +10,8 @@ public class CreateUni {
     fromItem();
     System.out.println("#### lazy()");
     lazy();
+    System.out.println("#### withFailure()");
+    withFailure();
   }
 
   private static void fromItem() {
@@ -35,8 +38,8 @@ public class CreateUni {
     Uni.createFrom().item("Terri Lyne Carrington")
       .onItem().transform(s -> s.toUpperCase() + " ")
       .subscribe().with(
-      item -> System.out.println("Received: " + item),
-      failure -> System.out.println("Failed with " + failure.getMessage())
+        item -> System.out.println("Received: " + item),
+        failure -> System.out.println("Failed with " + failure.getMessage())
     );
     // end::adocWithFailure[]
   }
