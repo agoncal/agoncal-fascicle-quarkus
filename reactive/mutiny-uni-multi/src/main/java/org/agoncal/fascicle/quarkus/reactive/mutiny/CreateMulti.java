@@ -2,16 +2,24 @@ package org.agoncal.fascicle.quarkus.reactive.mutiny;
 
 import io.smallrye.mutiny.Multi;
 
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
+
 // @formatter:off
 public class CreateMulti {
 
   public static void main(String[] args) {
     System.out.println("#### fromItems()");
     fromItems();
+    System.out.println("#### array()");
+    array();
     System.out.println("#### toUni()");
     toUni();
     System.out.println("#### withFailure()");
     withFailure();
+    System.out.println("#### fromTicks()");
+    fromMulti();
   }
 
   private static void fromItems() {
@@ -20,6 +28,13 @@ public class CreateMulti {
       .onItem().transform(i -> i.toUpperCase())
       .subscribe().with(System.out::println);
     // end::adocFromItems[]
+  }
+
+  private static void array() {
+    List<String> artists = Arrays.asList("Carla Bley", "John Coltrane", "Juliette Gréco");
+    Multi.createFrom().items(artists)
+      .onItem().transform(l -> l.iterator().next())
+      .subscribe().with(System.out::println);
   }
 
   private static void toUni() {
@@ -40,5 +55,15 @@ public class CreateMulti {
         failure -> System.out.println("Failed with " + failure.getMessage())
     );
     // end::adocWithFailure[]
+  }
+
+  private static void fromMulti() {
+    // tag::adocFromMulti[]
+    Multi<Long> ticks = Multi.createFrom().ticks().every(Duration.ofSeconds(1));
+
+    Multi.createFrom().publisher(ticks)
+      .transform().byTakingFirstItems(3)
+      .subscribe().with(System.out::println);
+    // end::adocFromMulti[]
   }
 }
