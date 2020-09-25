@@ -12,7 +12,7 @@ public class CreateMulti {
 
   private static void fromItems() {
     // tag::adocFromItems[]
-    Multi.createFrom().items("Carla Bley", "John Coltrane", "Miles Davis", "Juliette Gréco")
+    Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
       .onItem().transform(i -> i.toUpperCase())
       .subscribe().with(System.out::println);
     // end::adocFromItems[]
@@ -20,7 +20,7 @@ public class CreateMulti {
 
   private static void withFailure() {
     // tag::adocWithFailure[]
-    Multi.createFrom().items("Carla Bley", "John Coltrane", "Miles Davis", "Juliette Gréco")
+    Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
       .onItem().transform(i -> i.toUpperCase())
       .subscribe().with(
         item -> System.out.println("Received: " + item),
