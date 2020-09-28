@@ -19,7 +19,7 @@ public class AuthorResource {
   private Instant startTimestamp;
   private DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
 
-  String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
+  String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
 
   @GET
   public String getAllScifiAuthors() {

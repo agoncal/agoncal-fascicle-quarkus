@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
 
-  String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
+  String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
 
   @GET
   public String getAllScifiAuthors() {
