@@ -26,7 +26,7 @@ public class BookResource {
   // tag::adocRestClient[]
   @Inject
   @RestClient
-  IsbnNumbersService isbnNumbersService;
+  NumberResourceProxy isbnNumbersService;
 
   // end::adocRestClient[]
   @GET
