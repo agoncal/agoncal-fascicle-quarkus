@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Number API
   description: This API allows to generate all sorts of ISBN numbers
@@ -18,7 +18,7 @@ paths:
   /api/numbers:
     get:
       summary: Generates ISBN numbers
-      description: 'These ISBN numbers have several formats: ISBN 13 and ISBN 10'
+      description: "These ISBN numbers have several formats: ISBN 13 and ISBN 10"
       responses:
         "200":
           description: OK
