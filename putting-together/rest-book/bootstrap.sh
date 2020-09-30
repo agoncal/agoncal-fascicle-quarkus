@@ -6,5 +6,5 @@ mvn io.quarkus:quarkus-maven-plugin:1.8.1.Final:create \
      -DprojectVersion=1.0-SNAPSHOT \
      -DclassName="org.agoncal.fascicle.quarkus.book.BookResource" \
      -Dpath="/api/books" \
-     -Dextensions="resteasy-jsonb, rest-client, smallrye-fault-tolerance, smallrye-metrics, docker"
+     -Dextensions="resteasy-jsonb, rest-client, smallrye-fault-tolerance, smallrye-metrics"
 # end::adocSnippet[]
