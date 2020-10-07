@@ -29,11 +29,12 @@
   <properties>
     <version.java>11</version.java>
     <!-- Quarkus -->
-    <quarkus-plugin.version>1.8.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.8.1.Final</quarkus.platform.version>
+    <quarkus-plugin.version>1.8.2.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.8.2.Final</quarkus.platform.version>
     <!-- Other -->
     <version.javafaker>1.0.2</version.javafaker>
     <version.health-ui>1.1.0</version.health-ui>
+    <testcontainers.version>1.15.0-rc2</testcontainers.version>
     <!-- Test -->
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>1.8</version.antrun.plugin>
