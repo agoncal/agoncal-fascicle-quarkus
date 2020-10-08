@@ -20,7 +20,7 @@
 [INFO]
 [INFO] --- quarkus-maven-plugin:build
 [INFO] Building native image from Code/Agoncal/agoncal-fascicle-qua...
-[INFO] Running Quarkus native-image plugin on GraalVM Version 20.1.0 (Java 11.0.7)
+[INFO] Running Quarkus native-image plugin on GraalVM
 [INFO] graalvm-ce-java11-20.1.0/Contents/Home/bin/native-i...
 [runner]    classlist:   3,010.30 ms,  0.96 GB
 [runner]     (clinit):     698.82 ms,  3.24 GB
