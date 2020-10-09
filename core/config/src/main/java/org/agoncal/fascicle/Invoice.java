@@ -1,5 +1,7 @@
+// tag::adocSnippet[]
 package org.agoncal.fascicle;
 
+// end::adocSnippet[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.inject.Inject;

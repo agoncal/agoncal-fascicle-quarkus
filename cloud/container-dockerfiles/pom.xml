@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.cloud</groupId>
-  <artifactId>container-images</artifactId>
+  <artifactId>container-dockerfiles</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Quarkus :: Cloud :: Container :: Images</name>
+  <name>Quarkus :: Cloud :: Container :: Docker Files</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>

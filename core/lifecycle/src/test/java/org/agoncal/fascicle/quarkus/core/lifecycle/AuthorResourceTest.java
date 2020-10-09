@@ -28,7 +28,7 @@ public class AuthorResourceTest {
       .assertThat()
         .statusCode(is(200))
       .and()
-        .body(is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
+        .body(is("Isaac Asimov, Nora Jemisin, Douglas Adams"));
   }
 
   @Test

@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 @Mock
 @ApplicationScoped
 @RestClient
-public class MockIsbnNumbersService implements IsbnNumbersService {
+public class MockNumberResourceProxy implements NumberResourceProxy {
 
   @Override
   public IsbnNumbers generateIsbnNumbers() {

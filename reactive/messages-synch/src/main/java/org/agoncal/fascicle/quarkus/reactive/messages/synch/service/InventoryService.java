@@ -12,12 +12,12 @@ public class InventoryService {
 
   private static final Logger LOGGER = Logger.getLogger(InventoryService.class);
 
-  public void prepareItems(PurchaseOrder po) throws InterruptedException {
+  public void prepareItems(PurchaseOrder po) {
     LOGGER.info("Preparing items");
 
     for (OrderLine orderLine : po.orderLines) {
       orderLine.status = Status.PREPARING;
     }
-    Thread.sleep(2000);
+    //Thread.sleep(2000);
   }
 }

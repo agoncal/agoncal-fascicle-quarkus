@@ -14,10 +14,6 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <properties>
-    <testcontainers.version>1.14.3</testcontainers.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>

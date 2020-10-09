@@ -16,13 +16,17 @@ import java.util.logging.Logger;
 @Singleton
 public class InventoryService {
 
+  // tag::adocSkip[]
   @Inject
   Logger logger;
 
+  // end::adocSkip[]
   List<Book> inventory = new ArrayList<>();
 
   public void addBook(@Observes Book book) {
+    // tag::adocSkip[]
     logger.info("Adding book " + book.getTitle() + " to inventory");
+    // end::adocSkip[]
     inventory.add(book);
   }
 }

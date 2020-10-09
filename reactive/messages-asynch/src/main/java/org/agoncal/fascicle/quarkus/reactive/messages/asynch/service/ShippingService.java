@@ -13,13 +13,22 @@ public class ShippingService {
 
   private static final Logger LOGGER = Logger.getLogger(ShippingService.class);
 
+  // tag::adocSnippet[]
   @Incoming("po-validated")
-  public PurchaseOrder prepareShipping(PurchaseOrder po) {
+  public void prepareShipping(PurchaseOrder po) {
+    // tag::adocSkip[]
     LOGGER.info("Preparing shipping");
+    // end::adocSkip[]
 
     for (OrderLine orderLine : po.orderLines) {
       orderLine.status = Status.SHIPPING;
     }
-    return po;
+
+    shipItems(po);
+  }
+  // end::adocSnippet[]
+
+  private void shipItems(PurchaseOrder po) {
+
   }
 }

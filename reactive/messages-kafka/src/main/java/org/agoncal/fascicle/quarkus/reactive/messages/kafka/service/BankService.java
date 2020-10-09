@@ -13,7 +13,7 @@ public class BankService {
 
   private static final Logger LOGGER = Logger.getLogger(BankService.class);
 
-  @Incoming("po-prepared")
+  @Incoming("po-prepared-read")
   @Outgoing("bank-validated")
   public PurchaseOrder validate(PurchaseOrder po) {
     LOGGER.info("Validating Credit Card for PO: " + po.id);

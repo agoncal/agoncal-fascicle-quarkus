@@ -34,17 +34,17 @@ public class PurchaseOrderResource {
    */
   @POST
   public Response create(PurchaseOrder po) throws InterruptedException {
-    LOGGER.info("############");
+    LOGGER.info(">>>>>>>>>>>>");
 
     po = purchaseOrderService.create(po);
 
     if (po.status == VALID) {
       URI createdPo = UriBuilder.fromResource(PurchaseOrderResource.class).path(String.valueOf(po.id)).build();
-      LOGGER.info("############");
+      LOGGER.info("<<<<<<<<<<<<");
       return Response.created(createdPo).build();
 
     } else {
-      LOGGER.info("############");
+      LOGGER.info("<<<<<<<<<<<<");
       return Response.notModified().build();
     }
   }

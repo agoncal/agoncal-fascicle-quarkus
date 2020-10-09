@@ -26,7 +26,7 @@ public class BookResource {
   // tag::adocRestClient[]
   @Inject
   @RestClient
-  IsbnNumbersService isbnNumbersService;
+  NumberResourceProxy numberResourceProxy;
 
   // end::adocRestClient[]
   @GET
@@ -39,7 +39,7 @@ public class BookResource {
   // end::adocMetrics[]
   public Response getRandomBook() {
 
-    IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
+    IsbnNumbers isbnNumbers = numberResourceProxy.generateIsbnNumbers();
 
     Faker faker = new Faker();
     JsonObject book = Json.createObjectBuilder()
