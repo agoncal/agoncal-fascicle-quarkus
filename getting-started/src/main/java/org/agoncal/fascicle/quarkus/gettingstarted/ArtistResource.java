@@ -16,7 +16,6 @@ import java.util.UUID;
  */
 // tag::adocSnippet[]
 @Path("/artists")
-@Produces(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
   private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
@@ -36,6 +35,7 @@ public class ArtistResource {
    */
   // end::adocSkip[]
   @GET
+  @Produces(MediaType.APPLICATION_JSON)
   public Response getAllArtists() {
     return Response.ok(artists).build();
   }
