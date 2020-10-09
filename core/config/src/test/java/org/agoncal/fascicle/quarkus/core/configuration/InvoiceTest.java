@@ -22,16 +22,15 @@ class InvoiceTest {
   @Inject
   Config config;
 
-  // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
+  // tag::adocSkip[]
   @Test
-  public void adocShouldCalculateInvoiceProgrammaticallyInjection() {
-  // tag::adocShouldCalculateInvoiceProgrammaticallyInjection[]
-  invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
-  invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
-  invoice.terms = config.getValue("invoice.terms", String.class);
-  invoice.penalties = config.getValue("invoice.penalties", String.class);
-  // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
-
+  // end::adocSkip[]
+  public void calculateInvoice() {
+    invoice.vatRate = config.getValue("invoice.vatRate", Float.class);
+    invoice.allowsDiscount = config.getValue("invoice.allowsDiscount", Boolean.class);
+    invoice.terms = config.getValue("invoice.terms", String.class);
+    invoice.penalties = config.getValue("invoice.penalties", String.class);
+    // tag::adocSkip[]
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);
     invoice.total = invoice.subtotal + invoice.vatAmount;
@@ -41,7 +40,9 @@ class InvoiceTest {
     assertFalse(invoice.allowsDiscount);
     assertTrue(invoice.terms.startsWith("Payment"));
     assertTrue(invoice.penalties.startsWith("Penalty"));
+    // end::adocSkip[]
   }
+  // end::adocShouldCalculateInvoiceProgrammaticallyInjection[]
 
   @Test
   public void shouldCalculateInvoice() {
