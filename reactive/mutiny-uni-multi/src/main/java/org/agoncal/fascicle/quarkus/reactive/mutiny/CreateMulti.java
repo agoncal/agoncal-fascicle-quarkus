@@ -3,7 +3,6 @@ package org.agoncal.fascicle.quarkus.reactive.mutiny;
 import io.smallrye.mutiny.Multi;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 
 // @formatter:off
@@ -32,7 +31,7 @@ public class CreateMulti {
   }
 
   private static void array() {
-    List<String> artists = Arrays.asList("Carla Bley", "John Coltrane", "Juliette Gréco");
+    List<String> artists = List.of("Carla Bley", "John Coltrane", "Juliette Gréco");
     Multi.createFrom().items(artists)
       .onItem().transform(l -> l.iterator().next())
       .subscribe().with(System.out::println);

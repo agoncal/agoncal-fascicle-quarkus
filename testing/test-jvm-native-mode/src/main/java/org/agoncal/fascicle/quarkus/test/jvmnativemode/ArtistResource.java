@@ -6,8 +6,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -19,12 +18,12 @@ import java.util.Optional;
 @Produces(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
-  private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
+  private static List<Artist> artists = List.of(
     new Artist().id(1).firstName("John").lastName("Lennon"),
     new Artist().id(2).firstName("Paul").lastName("McCartney"),
     new Artist().id(3).firstName("George").lastName("Harrison"),
     new Artist().id(4).firstName("Ringo").lastName("Starr")
-  ));
+  );
 
   /**
    * curl http://localhost:8080/vintage-store/artists

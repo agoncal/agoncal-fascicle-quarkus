@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
-import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -26,7 +26,7 @@ public class CustomerResource {
   private static Customers customers = new Customers();
 
   static {
-    customers.addAll(Arrays.asList(
+    customers.addAll(List.of(
       new Customer().id(1L).firstName("John").lastName("Lennon"),
       new Customer().id(2L).firstName("Paul").lastName("McCartney"),
       new Customer().id(3L).firstName("George").lastName("Harrison"),
