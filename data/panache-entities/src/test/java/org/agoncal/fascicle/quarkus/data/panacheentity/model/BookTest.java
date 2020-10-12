@@ -6,7 +6,6 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -86,16 +85,14 @@ class BookTest {
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
 
-    // Position parameters
+    // Positional parameters
     cheapBooks = Book.list("unitCost between ?1 and ?2", min, max);
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());
     // end::adocSkip[]
 
     // Named parameters
-    Map<String, Object> params = new HashMap<>();
-    params.put("min", min);
-    params.put("max", max);
+    Map<String, Object> params = Map.of("min", min, "max", max);
     cheapBooks = Book.list("unitCost between :min and :max", params);
     // tag::adocSkip[]
     assertEquals(1, cheapBooks.size());

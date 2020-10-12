@@ -60,19 +60,16 @@ public class Book extends Item {
   // ======================================
   // end::adocSkip[]
   public static List<Book> findEnglishBooks() {
-    List<Book> books = list("language", Language.ENGLISH);
-    return books;
+    return list("language", Language.ENGLISH);
   }
 
   public static long countEnglishBooks() {
-    long nbBooks = count("language", Language.ENGLISH);
-    return nbBooks;
+    return count("language", Language.ENGLISH);
   }
 
   public static List<Book> findBetweenPrices(Float min, Float max) {
-    List<Book> books = list("unitCost between :min and :max",
-      Parameters.with("min", min).and("max", max));
-    return books;
+    return list("unitCost between :min and :max",
+                Parameters.with("min", min).and("max", max));
   }
 
   public static List<Book> findAllOrderByTitle() {
