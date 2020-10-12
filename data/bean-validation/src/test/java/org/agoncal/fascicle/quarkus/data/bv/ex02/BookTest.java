@@ -33,11 +33,11 @@ public class BookTest {
   void shouldRaiseNoConstraintViolation() {
 
     Book book = new Book();
-    book.setTitle("title");
-    book.setPrice(2.99F);
-    book.setDescription("description");
-    book.setNbOfPages(10);
-    book.setAuthorEmail("agoncal.fascicle@gmail.com");
+    book.title = "title";
+    book.price = 2.99F;
+    book.description = "description";
+    book.nbOfPages = 10;
+    book.authorEmail = "agoncal.fascicle@gmail.com";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(0, violations.size());
@@ -47,11 +47,11 @@ public class BookTest {
   void shouldRaiseViolationDueToEmail() {
 
     Book book = new Book();
-    book.setTitle("title");
-    book.setPrice(2.99F);
-    book.setDescription("description");
-    book.setNbOfPages(10);
-    book.setAuthorEmail("dummy");
+    book.title = "title";
+    book.price = 2.99F;
+    book.description = "description";
+    book.nbOfPages = 10;
+    book.authorEmail = "dummy";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
@@ -61,11 +61,11 @@ public class BookTest {
   void shouldRaiseViolationDueToNbPages() {
 
     Book book = new Book();
-    book.setTitle("title");
-    book.setPrice(2.99F);
-    book.setDescription("description");
-    book.setNbOfPages(-10);
-    book.setAuthorEmail("agoncal.fascicle@gmail.com");
+    book.title = "title";
+    book.price = 2.99F;
+    book.description = "description";
+    book.nbOfPages = -10;
+    book.authorEmail = "agoncal.fascicle@gmail.com";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
@@ -75,11 +75,11 @@ public class BookTest {
   void shouldRaiseViolationDueToPrice() {
 
     Book book = new Book();
-    book.setTitle("title");
-    book.setPrice(2.4444499F);
-    book.setDescription("description");
-    book.setNbOfPages(10);
-    book.setAuthorEmail("agoncal.fascicle@gmail.com");
+    book.title = "title";
+    book.price = 2.4444499F;
+    book.description = "description";
+    book.nbOfPages = 10;
+    book.authorEmail = "agoncal.fascicle@gmail.com";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
@@ -89,11 +89,11 @@ public class BookTest {
   void shouldRaiseViolationDueToPriceNoDigits() {
 
     Book book = new Book();
-    book.setTitle("title");
-    book.setPrice(222222222F);
-    book.setDescription("description");
-    book.setNbOfPages(10);
-    book.setAuthorEmail("agoncal.fascicle@gmail.com");
+    book.title = "title";
+    book.price = 222222222F;
+    book.description = "description";
+    book.nbOfPages = 10;
+    book.authorEmail = "agoncal.fascicle@gmail.com";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
@@ -103,11 +103,11 @@ public class BookTest {
   void shouldRaiseViolationDueToTitle() {
 
     Book book = new Book();
-    book.setTitle(null);
-    book.setPrice(2.99F);
-    book.setDescription("description");
-    book.setNbOfPages(10);
-    book.setAuthorEmail("agoncal.fascicle@gmail.com");
+    book.title = null;
+    book.price = 2.99F;
+    book.description = "description";
+    book.nbOfPages = 10;
+    book.authorEmail = "agoncal.fascicle@gmail.com";
 
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());

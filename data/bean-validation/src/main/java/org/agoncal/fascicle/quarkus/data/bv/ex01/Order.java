@@ -22,16 +22,16 @@ import java.util.List;
 public class Order {
 
   @NotNull @Pattern(regexp = "[CDM][0-9]+")
-  private String orderId;
+  public String orderId;
   @NotNull @Min(1)
-  private BigDecimal totalAmount;
+  public BigDecimal totalAmount;
   @PastOrPresent
-  private Instant creationDate;
+  public Instant creationDate;
   @Future
-  private LocalDate deliveryDate;
+  public LocalDate deliveryDate;
 
   @NotNull
-  private List<OrderLine> orderLines;
+  public List<OrderLine> orderLines;
 
   public Order(@PastOrPresent Instant creationDate) {
     this.creationDate = creationDate;
@@ -42,7 +42,6 @@ public class Order {
     return complexCalculation();
   }
 
-  // Constructors, getters, setters
   // tag::adocSkip[]
   public Order() {
   }
@@ -54,46 +53,6 @@ public class Order {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-
-  public String getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
-  }
-
-  public Instant getCreationDate() {
-    return creationDate;
-  }
-
-  public void setCreationDate(Instant creationDate) {
-    this.creationDate = creationDate;
-  }
-
-  public BigDecimal getTotalAmount() {
-    return totalAmount;
-  }
-
-  public void setTotalAmount(BigDecimal totalAmount) {
-    this.totalAmount = totalAmount;
-  }
-
-  public LocalDate getDeliveryDate() {
-    return deliveryDate;
-  }
-
-  public void setDeliveryDate(LocalDate deliveryDate) {
-    this.deliveryDate = deliveryDate;
-  }
-
-  public List<OrderLine> getOrderLines() {
-    return orderLines;
-  }
-
-  public void setOrderLines(List<OrderLine> orderLines) {
-    this.orderLines = orderLines;
-  }
 
   public void addOrderLine(OrderLine orderLine) {
     if (this.orderLines == null)
