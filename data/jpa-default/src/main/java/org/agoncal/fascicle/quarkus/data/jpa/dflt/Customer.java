@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import static javax.persistence.FetchType.LAZY;
-
 
 /**
  * @author Antonio Goncalves
@@ -24,7 +22,7 @@ public class Customer {
   private String firstName;
   private String lastName;
   private String email;
-  @OneToOne(fetch = LAZY)
+  @OneToOne
   @JoinColumn(name = "address_fk")
   private Address address;
 
