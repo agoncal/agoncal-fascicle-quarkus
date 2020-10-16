@@ -48,19 +48,19 @@ public class BookResource {
 
     // Invoking the Isbn Microservice
     // tag::adocProgrammatic[]
-    IsbnProxy isbnService = RestClientBuilder.newBuilder()
+    IsbnProxy isbnProxy = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9081"))
       .build(IsbnProxy.class);
 
-    IsbnNumber isbnNumber = isbnService.generateIsbn(false);
+    IsbnNumber isbnNumber = isbnProxy.generateIsbn(false);
     // end::adocProgrammatic[]
     String isbn13 = isbnNumber.isbn13;
 
     // Invoking the Issn Microservice
-    IssnProxy issnService = RestClientBuilder.newBuilder()
+    IssnProxy issnProxy = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9082"))
       .build(IssnProxy.class);
-    JsonObject issnJsonObject = issnService.generateIssn();
+    JsonObject issnJsonObject = issnProxy.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
     return Json.createObjectBuilder()
