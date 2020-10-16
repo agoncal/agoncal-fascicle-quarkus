@@ -12,8 +12,8 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-// tag::adocInfo[]
 @ApplicationPath("/")
+// tag::adocInfo[]
 @OpenAPIDefinition(
   info = @Info(
     title = "Book API",
@@ -43,7 +43,9 @@ import javax.ws.rs.core.Application;
         defaultValue = "80")
     }
   )
+// tag::adocSnippet[]
 )
 public class BookApplication extends Application {
 }
+// end::adocSnippet[]
 // end::adocServer[]
