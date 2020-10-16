@@ -20,19 +20,19 @@ import java.net.URISyntaxException;
 public class BookResource {
 
   @RestClient
-  IsbnProxy isbnService;
+  IsbnProxy isbnProxy;
 
   @RestClient
-  IssnProxy issnService;
+  IssnProxy issnProxy;
 
   @GET
   @Path("/numbers")
   public JsonObject generateBookNumbers() {
 
-    IsbnNumber isbnNumber = isbnService.generateIsbn(true);
+    IsbnNumber isbnNumber = isbnProxy.generateIsbn(true);
     String isbn13 = isbnNumber.isbn13;
 
-    JsonObject issnJsonObject = issnService.generateIssn();
+    JsonObject issnJsonObject = issnProxy.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
     return Json.createObjectBuilder()
