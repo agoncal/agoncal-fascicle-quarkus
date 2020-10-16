@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
+// @formatter:off
 // tag::adocSnippet[]
 @Path("/api/vinyl")
 public class VinylResource {
@@ -19,7 +20,8 @@ public class VinylResource {
   @Produces(APPLICATION_JSON)
   public String getVinyl() {
 
-    Vinyl vinyl = new Vinyl().title("Horses").artist("Patti Smith").musicCompany("Arista Records");
+    Vinyl vinyl = new Vinyl().title("Horses").artist("Patti Smith")
+                                             .musicCompany("Arista Records");
     return jsonb.toJson(vinyl);
   }
 }
