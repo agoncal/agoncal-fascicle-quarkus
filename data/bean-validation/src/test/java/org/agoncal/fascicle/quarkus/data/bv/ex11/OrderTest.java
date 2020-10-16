@@ -34,7 +34,7 @@ public class OrderTest {
 
     // tag::shouldRaiseNoConstraintsViolation[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(new Address().street("Ritherdon Rd").zipcode("SE123").city("London"));
+    order.deliveryAddress = new Address().street("Ritherdon Rd").zipcode("SE123").city("London");
     order.add(new OrderLine().item("Help").quantity(1).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
@@ -49,7 +49,7 @@ public class OrderTest {
 
     // tag::shouldRaiseConstraintsViolationCauseWrongZipcode[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(new Address().street("Ritherdon Rd").zipcode("12345678").city("London"));
+    order.deliveryAddress = new Address().street("Ritherdon Rd").zipcode("12345678").city("London");
     order.add(new OrderLine().item("Help").quantity(1).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
@@ -64,7 +64,7 @@ public class OrderTest {
 
     // tag::shouldRaiseConstraintsViolationCauseNullCity[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(new Address().street("Ritherdon Rd").zipcode("SE123").city(null));
+    order.deliveryAddress = new Address().street("Ritherdon Rd").zipcode("SE123").city(null);
     order.add(new OrderLine().item("Help").quantity(1).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
@@ -79,7 +79,7 @@ public class OrderTest {
 
     // tag::shouldRaiseConstraintsViolationCauseNullAddress[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(null);
+    order.deliveryAddress = null;
     order.add(new OrderLine().item("Help").quantity(1).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
@@ -94,7 +94,7 @@ public class OrderTest {
 
     // tag::shouldRaiseConstraintsViolationCauseNullQuantity[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(new Address().street("Ritherdon Rd").zipcode("SE123").city("London"));
+    order.deliveryAddress = new Address().street("Ritherdon Rd").zipcode("SE123").city("London");
     order.add(new OrderLine().item("Help").quantity(null).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(15d));
 
@@ -113,7 +113,7 @@ public class OrderTest {
 
     // tag::shouldRaiseConstraintsViolationCauseNullQuantityNegativePrice[]
     Order order = new Order().id(1234L).totalAmount(40.5);
-    order.setDeliveryAddress(new Address().street("Ritherdon Rd").zipcode("SE123").city("London"));
+    order.deliveryAddress = new Address().street("Ritherdon Rd").zipcode("SE123").city("London");
     order.add(new OrderLine().item("Help").quantity(null).unitPrice(10.5));
     order.add(new OrderLine().item("Sergeant Pepper").quantity(2).unitPrice(-99d));
 

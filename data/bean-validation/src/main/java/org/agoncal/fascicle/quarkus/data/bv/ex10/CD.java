@@ -18,16 +18,16 @@ public class CD {
 
   // tag::adocAttributes[]
   @NotNull @Size(min = 4, max = 50)
-  private String title;
+  public String title;
   @NotNull @Positive
-  private Float price;
+  public Float price;
   @Size(min = 10, max = 5000)
-  private String description;
+  public String description;
   @Pattern(regexp = "[A-Z][a-z]+")
-  private String musicCompany;
+  public String musicCompany;
   @Max(value = 5)
-  private Integer numberOfCDs;
-  private Float totalDuration;
+  public Integer numberOfCDs;
+  public Float totalDuration;
 
   // end::adocAttributes[]
   // tag::adocMethodPrice[]
@@ -57,25 +57,9 @@ public class CD {
   // =          Getters & Setters         =
   // ======================================
 
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
   public CD title(String title) {
     this.title = title;
     return this;
-  }
-
-  public Float getPrice() {
-    return price;
-  }
-
-  public void setPrice(Float price) {
-    this.price = price;
   }
 
   public CD price(Float price) {
@@ -83,25 +67,9 @@ public class CD {
     return this;
   }
 
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public CD description(String description) {
     this.description = description;
     return this;
-  }
-
-  public String getMusicCompany() {
-    return musicCompany;
-  }
-
-  public void setMusicCompany(String musicCompany) {
-    this.musicCompany = musicCompany;
   }
 
   public CD musicCompany(String musicCompany) {
@@ -109,25 +77,9 @@ public class CD {
     return this;
   }
 
-  public Integer getNumberOfCDs() {
-    return numberOfCDs;
-  }
-
-  public void setNumberOfCDs(Integer numberOfCDs) {
-    this.numberOfCDs = numberOfCDs;
-  }
-
   public CD numberOfCDs(Integer numberOfCDs) {
     this.numberOfCDs = numberOfCDs;
     return this;
-  }
-
-  public Float getTotalDuration() {
-    return totalDuration;
-  }
-
-  public void setTotalDuration(Float totalDuration) {
-    this.totalDuration = totalDuration;
   }
 
   public CD totalDuration(Float totalDuration) {
@@ -138,4 +90,3 @@ public class CD {
   // end::adocSkip[]
 }
 // end::adocSnippet[]
-

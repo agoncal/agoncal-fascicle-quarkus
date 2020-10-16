@@ -22,13 +22,15 @@ import static org.wildfly.common.Assert.assertFalse;
 @Transactional
 class PublisherRepositoryTest {
 
+  // tag::adocSnippet[]
   @Inject
   PublisherRepository publisherRepository;
 
+  // tag::adocSkip[]
   @Test
+  // end::adocSkip[]
   void shouldManagePublishers() {
 
-    // tag::adocSnippet[]
     // Creating a publisher
     Publisher publisher = new Publisher();
     publisher.name = "AGoncal Fascicle";
@@ -82,6 +84,6 @@ class PublisherRepositoryTest {
     // tag::adocSkip[]
     });
     // end::adocSkip[]
-    // end::adocSnippet[]
   }
+  // end::adocSnippet[]
 }

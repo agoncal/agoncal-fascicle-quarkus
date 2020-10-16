@@ -13,52 +13,26 @@ import javax.validation.constraints.Size;
 public class Address {
 
   @NotNull
-  private String street;
+  public String street;
   @NotNull
-  private String city;
+  public String city;
   @NotNull @Size(max = 5)
-  private String zipcode;
+  public String zipcode;
 
-  // Constructors, getters, setters
   // tag::adocSkip[]
   // @formatter:on
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-
-  public String getStreet() {
-    return street;
-  }
-
-  public void setStreet(String street) {
-    this.street = street;
-  }
-
   public Address street(String street) {
     this.street = street;
     return this;
   }
 
-  public String getCity() {
-    return city;
-  }
-
-  public void setCity(String city) {
-    this.city = city;
-  }
-
   public Address city(String city) {
     this.city = city;
     return this;
-  }
-
-  public String getZipcode() {
-    return zipcode;
-  }
-
-  public void setZipcode(String zipcode) {
-    this.zipcode = zipcode;
   }
 
   public Address zipcode(String zipcode) {

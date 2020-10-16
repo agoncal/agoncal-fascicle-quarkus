@@ -110,7 +110,7 @@ public class CDTest {
     assertEquals("price", violation.getPropertyPath().toString());
     assertEquals(CD.class, violation.getRootBeanClass());
     assertTrue(violation.getConstraintDescriptor().getAnnotation() instanceof javax.validation.constraints.Positive);
-    assertEquals("Kind of Blue", violation.getRootBean().getTitle());
+    assertEquals("Kind of Blue", violation.getRootBean().title);
     // end::shouldRaiseConstraintViolationCausePriceIsNegative[]
   }
 

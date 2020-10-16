@@ -13,13 +13,12 @@ import javax.validation.constraints.PositiveOrZero;
 // tag::adocSnippet[]
 public class OrderLine {
 
-  private String item;
+  public  String item;
   @NotNull @PositiveOrZero
-  private Double unitPrice;
+  public  Double unitPrice;
   @NotNull @Positive
-  private Integer quantity;
+  public  Integer quantity;
 
-  // Constructors, getters, setters
   // tag::adocSkip[]
   // @formatter:on
 
@@ -36,38 +35,14 @@ public class OrderLine {
   // =          Getters & Setters         =
   // ======================================
 
-  public String getItem() {
-    return item;
-  }
-
-  public void setItem(String item) {
-    this.item = item;
-  }
-
   public OrderLine item(String item) {
     this.item = item;
     return this;
   }
 
-  public Double getUnitPrice() {
-    return unitPrice;
-  }
-
-  public void setUnitPrice(Double unitPrice) {
-    this.unitPrice = unitPrice;
-  }
-
   public OrderLine unitPrice(Double unitPrice) {
     this.unitPrice = unitPrice;
     return this;
-  }
-
-  public Integer getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(Integer quantity) {
-    this.quantity = quantity;
   }
 
   public OrderLine quantity(Integer quantity) {

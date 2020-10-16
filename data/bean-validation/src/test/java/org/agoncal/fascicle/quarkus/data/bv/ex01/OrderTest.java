@@ -40,9 +40,9 @@ public class OrderTest {
   void shouldRaiseNoConstraintViolation() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("C45678");
-    order.setTotalAmount(BigDecimal.valueOf(1234.5));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "C45678";
+    order.totalAmount = BigDecimal.valueOf(1234.5);
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -53,9 +53,9 @@ public class OrderTest {
   void shouldRaiseNoConstraintViolationGoodPattern() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("D45678");
-    order.setTotalAmount(BigDecimal.valueOf(1234.5));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "D45678";
+    order.totalAmount = BigDecimal.valueOf(1234.5);
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -66,9 +66,9 @@ public class OrderTest {
   void shouldRaiseViolationDueToWrongPattern() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("CDM45678");
-    order.setTotalAmount(BigDecimal.valueOf(1234.5));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "CDM45678";
+    order.totalAmount = BigDecimal.valueOf(1234.5);
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -79,9 +79,9 @@ public class OrderTest {
   void shouldRaiseViolationDueToWrongPattern2() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("Z45678");
-    order.setTotalAmount(BigDecimal.valueOf(1234.5));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "Z45678";
+    order.totalAmount = BigDecimal.valueOf(1234.5);
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -92,9 +92,9 @@ public class OrderTest {
   void shouldRaiseViolationDueToNullAmount() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("C45678");
-    order.setTotalAmount(null);
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "C45678";
+    order.totalAmount = null;
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -105,9 +105,9 @@ public class OrderTest {
   void shouldRaiseViolationDueToMinAmount() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("C45678");
-    order.setTotalAmount(BigDecimal.valueOf(0.5d));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "C45678";
+    order.totalAmount = BigDecimal.valueOf(0.5d);
+    order.deliveryDate = deliveryDate;
     order.addOrderLine(new OrderLine("item", 12d, 2));
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
@@ -118,9 +118,9 @@ public class OrderTest {
   void shouldRaiseViolationDueToEmptyLines() {
 
     Order order = new Order(creationDate);
-    order.setOrderId("C45678");
-    order.setTotalAmount(BigDecimal.valueOf(1234.5));
-    order.setDeliveryDate(deliveryDate);
+    order.orderId = "C45678";
+    order.totalAmount = BigDecimal.valueOf(1234.5);
+    order.deliveryDate = deliveryDate;
 
     Set<ConstraintViolation<Order>> violations = validator.validate(order);
     assertEquals(1, violations.size());

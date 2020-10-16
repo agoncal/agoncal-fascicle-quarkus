@@ -21,12 +21,12 @@ public class CardValidator {
   }
 
   @AssertTrue
-  public Boolean validate(@NotNull CreditCard creditCard) {
+  public boolean validate(@NotNull CreditCard creditCard) {
     return algorithm.validate(creditCard.getNumber(), creditCard.getControlNumber());
   }
 
   @AssertTrue
-  public Boolean validate(@NotNull String number,
+  public boolean validate(@NotNull String number,
                           @Future  Date expiryDate,
                           @NotNull Integer controlNumber) {
     return algorithm.validate(number, controlNumber);
@@ -38,7 +38,7 @@ public class CardValidator {
 
   private class ValidationAlgorithm {
 
-    public Boolean validate(String number, Integer controlNumber) {
+    public boolean validate(String number, Integer controlNumber) {
       Character lastDigit = number.charAt(number.length() - 1);
       if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
         return true;
