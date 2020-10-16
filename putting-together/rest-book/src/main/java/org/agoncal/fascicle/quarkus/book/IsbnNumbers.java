@@ -1,12 +1,15 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import javax.json.bind.annotation.JsonbProperty;
+import javax.validation.constraints.NotNull;
 
 // tag::adocSnippet[]
 public class IsbnNumbers {
 
+  @NotNull
   @JsonbProperty("isbn_10")
   private String isbn10;
+  @NotNull
   @JsonbProperty("isbn_13")
   private String isbn13;
 
