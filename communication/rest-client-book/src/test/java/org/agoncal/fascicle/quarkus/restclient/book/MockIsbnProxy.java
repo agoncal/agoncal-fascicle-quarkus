@@ -5,20 +5,19 @@ import io.quarkus.test.Mock;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.json.Json;
-import javax.json.JsonObject;
 
 // tag::adocSnippet[]
 @Mock
 @ApplicationScoped
 @RestClient
-public class MockIssnService implements IssnService {
+public class MockIsbnProxy implements IsbnProxy {
 
   @Override
-  public JsonObject generateIssn() {
-    return Json.createObjectBuilder()
-      .add("issn", "dummy isbn 10")
-      .build();
+  public IsbnNumber generateIsbn(boolean separator) {
+    IsbnNumber isbnNumber = new IsbnNumber();
+    isbnNumber.isbn13 = "dummy isbn 13";
+    isbnNumber.gs1 = "dummy gs1";
+    return isbnNumber;
   }
 }
 // end::adocSnippet[]

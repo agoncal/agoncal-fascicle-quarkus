@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/api/isbn")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
-public interface IsbnService {
+public interface IsbnProxy {
 
   @GET
   IsbnNumber generateIsbn(@QueryParam("separator") boolean separator);

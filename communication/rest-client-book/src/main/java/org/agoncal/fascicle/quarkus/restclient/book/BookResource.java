@@ -4,7 +4,6 @@ import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
@@ -20,13 +19,11 @@ import java.net.URISyntaxException;
 @ApplicationScoped
 public class BookResource {
 
-  @Inject
   @RestClient
-  IsbnService isbnService;
+  IsbnProxy isbnService;
 
-  @Inject
   @RestClient
-  IssnService issnService;
+  IssnProxy issnService;
 
   @GET
   @Path("/numbers")
@@ -51,18 +48,18 @@ public class BookResource {
 
     // Invoking the Isbn Microservice
     // tag::adocProgrammatic[]
-    IsbnService isbnService = RestClientBuilder.newBuilder()
+    IsbnProxy isbnService = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9081"))
-      .build(IsbnService.class);
+      .build(IsbnProxy.class);
 
     IsbnNumber isbnNumber = isbnService.generateIsbn(false);
     // end::adocProgrammatic[]
     String isbn13 = isbnNumber.isbn13;
 
     // Invoking the Issn Microservice
-    IssnService issnService = RestClientBuilder.newBuilder()
+    IssnProxy issnService = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9082"))
-      .build(IssnService.class);
+      .build(IssnProxy.class);
     JsonObject issnJsonObject = issnService.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
