@@ -26,12 +26,9 @@ public class UtilTest {
   // ======================================
 
   public static void output(BufferedWriter bw, String json, String tag) throws IOException {
-    boolean toWrite = false;
-    if (toWrite) {
-      bw.write("// tag::" + tag + "[]\n");
-      bw.write(json);
-      bw.write("\n");
-      bw.write("// end::" + tag + "[]\n");
-    }
+//      bw.write("// tag::" + tag + "[]\n");
+//      bw.write(json);
+//      bw.write("\n");
+//      bw.write("// end::" + tag + "[]\n");
   }
 }
