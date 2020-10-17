@@ -66,6 +66,7 @@ public class BookResource {
   // tag::adocTimeout[]
   @POST
   @Timeout(250)
+  @Fallback(fallbackMethod = "fallbackCreateBook")
   public Book createBook() {
     // tag::adocSkip[]
     LOGGER.info("Creating book");
@@ -79,6 +80,17 @@ public class BookResource {
     book.issn = issnNumber.getString("isbn10");
     book.generatedAt = Instant.now();
 
+    return book;
+  }
+
+  private Book fallbackCreateBook() {
+    // tag::adocSkip[]
+    LOGGER.warn("Falling back on creating a book");
+    // end::adocSkip[]
+    Book book = new Book();
+    book.title = "dummy title";
+    book.issn = "dummy issn";
+    book.generatedAt = Instant.now();
     return book;
   }
   // end::adocTimeout[]
