@@ -30,7 +30,6 @@ public class BookResource {
 
   private Faker faker = new Faker();
   // end::adocSkip[]
-  @Inject
   @RestClient
   NumberProxy numberProxy;
 
