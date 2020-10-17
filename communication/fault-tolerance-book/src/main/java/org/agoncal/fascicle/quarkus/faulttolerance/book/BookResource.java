@@ -67,7 +67,6 @@ public class BookResource {
   // tag::adocTimeout[]
   @POST
   @Timeout(250)
-  @Fallback(fallbackMethod = "fallbackCreateBook")
   public Book createBook() {
     // tag::adocSkip[]
     LOGGER.info("Creating book");
