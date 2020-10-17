@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/api/numbers")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
-public interface NumberService {
+public interface NumberProxy {
 
   @GET
   @Path("/issn")
