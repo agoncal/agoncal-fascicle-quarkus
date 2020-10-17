@@ -8,7 +8,6 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
@@ -80,17 +79,6 @@ public class BookResource {
     book.issn = issnNumber.getString("isbn10");
     book.generatedAt = Instant.now();
 
-    return book;
-  }
-
-  private Book fallbackCreateBook() {
-    // tag::adocSkip[]
-    LOGGER.warn("Falling back on creating a book");
-    // end::adocSkip[]
-    Book book = new Book();
-    book.title = "dummy title";
-    book.issn = "dummy issn";
-    book.generatedAt = Instant.now();
     return book;
   }
   // end::adocTimeout[]
