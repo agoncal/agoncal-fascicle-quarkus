@@ -4,7 +4,6 @@ import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
@@ -20,22 +19,20 @@ import java.net.URISyntaxException;
 @ApplicationScoped
 public class BookResource {
 
-  @Inject
   @RestClient
-  IsbnService isbnService;
+  IsbnProxy isbnProxy;
 
-  @Inject
   @RestClient
-  IssnService issnService;
+  IssnProxy issnProxy;
 
   @GET
   @Path("/numbers")
   public JsonObject generateBookNumbers() {
 
-    IsbnNumber isbnNumber = isbnService.generateIsbn(true);
+    IsbnNumber isbnNumber = isbnProxy.generateIsbn(true);
     String isbn13 = isbnNumber.isbn13;
 
-    JsonObject issnJsonObject = issnService.generateIssn();
+    JsonObject issnJsonObject = issnProxy.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
     return Json.createObjectBuilder()
@@ -51,19 +48,19 @@ public class BookResource {
 
     // Invoking the Isbn Microservice
     // tag::adocProgrammatic[]
-    IsbnService isbnService = RestClientBuilder.newBuilder()
+    IsbnProxy isbnProxy = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9081"))
-      .build(IsbnService.class);
+      .build(IsbnProxy.class);
 
-    IsbnNumber isbnNumber = isbnService.generateIsbn(false);
+    IsbnNumber isbnNumber = isbnProxy.generateIsbn(false);
     // end::adocProgrammatic[]
     String isbn13 = isbnNumber.isbn13;
 
     // Invoking the Issn Microservice
-    IssnService issnService = RestClientBuilder.newBuilder()
+    IssnProxy issnProxy = RestClientBuilder.newBuilder()
       .baseUri(new URI("http://localhost:9082"))
-      .build(IssnService.class);
-    JsonObject issnJsonObject = issnService.generateIssn();
+      .build(IssnProxy.class);
+    JsonObject issnJsonObject = issnProxy.generateIssn();
     String issn = issnJsonObject.getJsonString("issn").getString();
 
     return Json.createObjectBuilder()

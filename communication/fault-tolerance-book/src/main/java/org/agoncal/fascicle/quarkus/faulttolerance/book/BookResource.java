@@ -8,7 +8,6 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
@@ -30,9 +29,8 @@ public class BookResource {
 
   private Faker faker = new Faker();
   // end::adocSkip[]
-  @Inject
   @RestClient
-  NumberService numberService;
+  NumberProxy numberProxy;
 
   // tag::adocFallback[]
   @GET
@@ -44,8 +42,8 @@ public class BookResource {
     LOGGER.info("Generating book numbers");
     // end::adocSkip[]
     // Invoking microservices
-    IsbnNumber isbnNumber = numberService.generateIsbn(true);
-    JsonObject issnNumber = numberService.generateIssn();
+    IsbnNumber isbnNumber = numberProxy.generateIsbn(true);
+    JsonObject issnNumber = numberProxy.generateIssn();
 
     return Json.createObjectBuilder()
       .add("isbn13", isbnNumber.isbn13)
@@ -75,7 +73,7 @@ public class BookResource {
     // end::adocSkip[]
 
     // Invoking microservice
-    JsonObject issnNumber = numberService.generateIssn();
+    JsonObject issnNumber = numberProxy.generateIssn();
 
     Book book = new Book();
     book.title = faker.book().title();
@@ -111,7 +109,7 @@ public class BookResource {
     // end::adocSkip[]
 
     // Invoking microservice
-    JsonObject issnNumber = numberService.generateIssn();
+    JsonObject issnNumber = numberProxy.generateIssn();
 
     Book book = new Book();
     book.title = faker.book().title();

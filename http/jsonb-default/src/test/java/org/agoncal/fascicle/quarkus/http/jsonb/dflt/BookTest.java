@@ -1,20 +1,15 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.dflt;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.UtilTest.initBufferedWriter;
 import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.UtilTest.jsonPath;
-import static org.agoncal.fascicle.quarkus.http.jsonb.dflt.UtilTest.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -32,17 +27,17 @@ public class BookTest {
     jsonb = JsonbBuilder.create(config);
   }
 
-  static BufferedWriter bw;
-
-  @BeforeAll
-  static void initFile() throws FileNotFoundException {
-    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/dflt/Book.json");
-  }
-
-  @AfterAll
-  static void closeFile() throws IOException {
-    bw.close();
-  }
+//  static BufferedWriter bw;
+//
+//  @BeforeAll
+//  static void initFile() throws FileNotFoundException {
+//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/dflt/Book.json");
+//  }
+//
+//  @AfterAll
+//  static void closeFile() throws IOException {
+//    bw.close();
+//  }
 
   // ======================================
   // =              Methods               =
@@ -55,7 +50,7 @@ public class BookTest {
 
     String json = jsonb.toJson(book);
 
-    output(bw, json, "shouldMarshallADefaultBook");
+//    output(bw, json, "shouldMarshallADefaultBook");
 
     assertEquals("H2G2", jsonPath(json, "$.title"));
     assertEquals(12.5, jsonPath(json, "$.price"));

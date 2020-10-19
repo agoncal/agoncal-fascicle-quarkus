@@ -12,7 +12,7 @@ import javax.json.JsonObject;
 @Mock
 @ApplicationScoped
 @RestClient
-public class MockNumberService implements NumberService {
+public class MockNumberProxy implements NumberProxy {
 
   @Override
   public JsonObject generateIssn() {

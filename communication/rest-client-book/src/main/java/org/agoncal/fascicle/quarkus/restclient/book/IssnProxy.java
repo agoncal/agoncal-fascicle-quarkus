@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/api/issn")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient(baseUri = "http://localhost:9082")
-public interface IssnService {
+public interface IssnProxy {
 
   @GET
   JsonObject generateIssn();

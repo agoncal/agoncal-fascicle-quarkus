@@ -1,8 +1,7 @@
-package org.agoncal.fascicle.quarkus.faulttolerance.book;
+package org.agoncal.fascicle.quarkus.restclient.book;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,17 +9,12 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 // tag::adocSnippet[]
-@Path("/api/numbers")
+@Path("/api/isbn")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
-public interface NumberService {
+public interface IsbnProxy {
 
   @GET
-  @Path("/issn")
-  JsonObject generateIssn();
-
-  @GET
-  @Path("/isbn")
   IsbnNumber generateIsbn(@QueryParam("separator") boolean separator);
 }
 // end::adocSnippet[]

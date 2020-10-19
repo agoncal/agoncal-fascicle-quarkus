@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.advanced;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -10,15 +9,11 @@ import javax.json.JsonReader;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.time.LocalDate;
 
 import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.CreditCardType.VISA;
-import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.initBufferedWriter;
-import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -38,17 +33,17 @@ public class PurchaseOrderTest {
   }
   // end::adocBegin[]
 
-  static BufferedWriter bw;
-
-  @BeforeAll
-  static void initFile() throws FileNotFoundException {
-    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/advanced/PurchaseOrder.json");
-  }
-
-  @AfterAll
-  static void closeFile() throws IOException {
-    bw.close();
-  }
+//  static BufferedWriter bw;
+//
+//  @BeforeAll
+//  static void initFile() throws FileNotFoundException {
+//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/advanced/PurchaseOrder.json");
+//  }
+//
+//  @AfterAll
+//  static void closeFile() throws IOException {
+//    bw.close();
+//  }
 
   // ======================================
   // =              Unit tests            =
@@ -67,7 +62,7 @@ public class PurchaseOrderTest {
 
     String json = jsonb.toJson(po);
 
-    output(bw, json, "shouldMarshallAPurchaseOrder");
+//    output(bw, json, "shouldMarshallAPurchaseOrder");
 
     JsonReader reader = Json.createReader(new StringReader(json));
     JsonObject jsonObject = reader.readObject();
