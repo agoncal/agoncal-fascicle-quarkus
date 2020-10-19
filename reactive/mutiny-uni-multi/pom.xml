@@ -17,12 +17,8 @@
   <dependencies>
     <!-- tag::adocExtension[] -->
     <dependency>
-      <groupId>io.smallrye.reactive</groupId>
-      <artifactId>mutiny</artifactId>
-      <!-- tag::adocSkip[] -->
-      <!-- TODO Get rid of version once Quarkus uses 0.8.0 -->
-      <version>0.8.0</version>
-      <!-- end::adocSkip[] -->
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-mutiny</artifactId>
     </dependency>
     <!-- end::adocExtension[] -->
     <!-- Test -->
