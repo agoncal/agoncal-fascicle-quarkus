@@ -2,7 +2,7 @@
 
 Code of my future Practising Quarkus Fascicle
 
-![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus-pract.svg?branch=1.x)
+![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus.svg?branch=1.x)
 
 Microservices is an architectural style that structures an application as a collection of distributed services.
 Microservices are certainly appealing but there are many questions that should be asked prior to diving into this architectural style:
