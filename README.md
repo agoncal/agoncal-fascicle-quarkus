@@ -68,10 +68,12 @@ _Co-founder of Quarkus at Red Hat_ <br/>
 
 And thanks to my proof-reader team:
 
-* [Clement Escoffier](https://twitter.com/thjanssen123)
+* [Georgios Andrianakis](https://twitter.com/geoand86)
+* [Roberto Cortez](https://twitter.com/radcortez)
+* [Stéphane Épardaud](https://twitter.com/unfromage)
+* [George Gastaldi](https://twitter.com/gegastaldi)
 * [Youness Teimouri](https://twitter.com/clementplop)
-* [Mike François](https://twitter.com/mike_francois)
-
+* [Nicolas Martignole](https://twitter.com/nmartignole)
 
 ## Testing
 
