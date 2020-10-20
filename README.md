@@ -85,3 +85,4 @@ Running tests in paralell
 
 ## References
 
+* [agoncal fascicles](https://www.amazon.com/author/agoncal)
