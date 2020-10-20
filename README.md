@@ -62,7 +62,7 @@ The future of Java as a solution for writing Cloud Native apps deployed in Kuber
 No more and I think Quarkus is the answer.
 I hope this book will spread the word wide and large, help more developers and more teams be productive with Java and our new way of writing modern applications.
 <br/><br/>
-**Emmanuel Bernard**
+**Emmanuel Bernard** <br/>
 _Co-founder of Quarkus at Red Hat_ <br/>
 [@emmanuelbernard](https://twitter.com/emmanuelbernard)
 
