@@ -1,20 +1,20 @@
-├─ io.quarkus:quarkus-resteasy-deployment:jar:1.8.2.Final
-│  ├─ io.quarkus:quarkus-resteasy-server-common-deployment:jar:1.8.2.Final
-│  │  ├─ io.quarkus:quarkus-resteasy-common-deployment:jar:1.8.2.Final
-│  │  └─ io.quarkus:quarkus-resteasy-server-common:jar:1.8.2.Final
+├─ io.quarkus:quarkus-resteasy-deployment:jar:1.9.0.Final
+│  ├─ io.quarkus:quarkus-resteasy-server-common-deployment:jar:1.9.0.Final
+│  │  ├─ io.quarkus:quarkus-resteasy-common-deployment:jar:1.9.0.Final
+│  │  └─ io.quarkus:quarkus-resteasy-server-common:jar:1.9.0.Final
 │  │     └─ jakarta.validation:jakarta.validation-api:jar:2.0.2
-│  ├─ io.quarkus:quarkus-undertow-spi:jar:1.8.2.Final
+│  ├─ io.quarkus:quarkus-undertow-spi:jar:1.9.0.Final
 │  │  ├─ io.quarkus.http:quarkus-http-servlet:jar:3.0.15.Final
 │  │  │  └─ io.quarkus.http:quarkus-http-core:jar:3.0.15.Final
 │  │  ├─ jakarta.servlet:jakarta.servlet-api:jar:4.0.3
 │  │  └─ org.jboss.metadata:jboss-metadata-web:jar:11.0.0.Final
-└─ io.quarkus:quarkus-resteasy-jsonb-deployment:jar:1.8.2.Final
-   ├─ io.quarkus:quarkus-resteasy-jsonb:jar:1.8.2.Final
-   │  ├─ io.quarkus:quarkus-jsonb:jar:1.8.2.Final
+└─ io.quarkus:quarkus-resteasy-jsonb-deployment:jar:1.9.0.Final
+   ├─ io.quarkus:quarkus-resteasy-jsonb:jar:1.9.0.Final
+   │  ├─ io.quarkus:quarkus-jsonb:jar:1.9.0.Final
    │  │  ├─ org.eclipse:yasson:jar:1.0.8
-   │  │  └─ io.quarkus:quarkus-jsonp:jar:1.8.2.Final
-   │  ├─ org.jboss.resteasy:resteasy-json-binding-provider:jar:4.5.6.Final
+   │  │  └─ io.quarkus:quarkus-jsonp:jar:1.9.0.Final
+   │  ├─ org.jboss.resteasy:resteasy-json-binding-provider:jar:4.5.8.Final
    │  │  └─ jakarta.json.bind:jakarta.json.bind-api:jar:1.0.2
-   │  └─ commons-io:commons-io:jar:2.7
-   └─ io.quarkus:quarkus-jsonb-deployment:jar:1.8.2.Final
-      └─ io.quarkus:quarkus-jsonp-deployment:jar:1.8.2.Final
+   │  └─ commons-io:commons-io:jar:2.8.0
+   └─ io.quarkus:quarkus-jsonb-deployment:jar:1.9.0.Final
+      └─ io.quarkus:quarkus-jsonp-deployment:jar:1.9.0.Final
