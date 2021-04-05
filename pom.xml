@@ -34,7 +34,8 @@
     <!-- Other -->
     <version.javafaker>1.0.2</version.javafaker>
     <version.health-ui>1.1.0</version.health-ui>
-    <testcontainers.version>1.15.0-rc2</testcontainers.version>
+    <testcontainers.version>1.15.2</testcontainers.version>
+    <version.json-path>2.5.0</version.json-path>
     <!-- Test -->
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>1.8</version.antrun.plugin>
@@ -96,6 +97,12 @@
         <groupId>org.microprofile-ext.health-ext</groupId>
         <artifactId>health-ui</artifactId>
         <version>${version.health-ui}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.jayway.jsonpath</groupId>
+        <artifactId>json-path</artifactId>
+        <version>${version.json-path}</version>
+        <scope>test</scope>
       </dependency>
       <!-- end::adocSkip[] -->
     </dependencies>
