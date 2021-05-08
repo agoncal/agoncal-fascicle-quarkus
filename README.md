@@ -86,4 +86,5 @@ Running tests in paralell
 
 ## References
 
-* [agoncal fascicles](https://www.amazon.com/author/agoncal)
+* [agoncal fascicles e-book format](https://agoncal.teachable.com)
+* [agoncal fascicles paper book format](https://www.amazon.com/author/agoncal)
