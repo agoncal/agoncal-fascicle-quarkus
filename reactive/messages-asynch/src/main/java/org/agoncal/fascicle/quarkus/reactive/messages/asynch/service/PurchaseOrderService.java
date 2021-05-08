@@ -103,7 +103,7 @@ public class PurchaseOrderService {
   }
 
   // tag::adocMutiny[]
-  @Incoming("generated-conversation-rate")
+  @Incoming("generated-conversion-rate")
   public void dollarToEuroConversionRate(Float rate) {
     // tag::adocSkip[]
     LOGGER.info("Received Euro Rate: " + rate);
@@ -111,7 +111,7 @@ public class PurchaseOrderService {
     computeEuroRate(rate);
   }
 
-  @Incoming("generated-conversation-rate")
+  @Incoming("generated-conversion-rate")
   public void dollarToPoundConversionRate(Float rate) {
     // tag::adocSkip[]
     LOGGER.info("Received Pound Rate: " + rate);

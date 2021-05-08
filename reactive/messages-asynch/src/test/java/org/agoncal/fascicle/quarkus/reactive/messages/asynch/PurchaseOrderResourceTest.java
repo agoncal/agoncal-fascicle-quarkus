@@ -7,6 +7,7 @@ import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCard;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Customer;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.OrderLine;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.json.bind.Jsonb;
@@ -25,6 +26,7 @@ import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Credit
  * http://www.antoniogoncalves.org
  * --
  */
+@Disabled
 // @formatter:off
 @QuarkusTest
 @TestHTTPEndpoint(PurchaseOrderResource.class)

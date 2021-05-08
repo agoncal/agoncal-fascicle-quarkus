@@ -90,6 +90,15 @@ public class BankService {
   }
   // end::adocOutgoingPayload[]
 
+  @Incoming("euro-rate")
+  public void receiveEuroRate(Float rate) {
+    LOGGER.info("Received euro rate " + rate);
+  }
+  @Incoming("pound-rate")
+  public void receivePoundRate(Float rate) {
+    LOGGER.info("Received pound rate " + rate);
+  }
+
   private boolean complexValidationLogic(PurchaseOrder po) {
     return ((po.id & 1) == 0);
   }

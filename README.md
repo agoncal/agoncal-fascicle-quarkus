@@ -1,6 +1,6 @@
 # AGoncal Fascicle: Understanding Quarkus
 
-Code of my [Practising Quarkus Fascicle](https://developers.redhat.com/books/understanding-quarkus)
+Code of my [Understanding Quarkus Fascicle](https://agoncal.teachable.com/p/ebook-understanding-quarkus)
 
 ![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus.svg?branch=1.x)
 
@@ -11,16 +11,16 @@ How do I test my services?
 How do I monitor them?
 How do I package and execute them?
 
-That's when [Quarkus](https://quarkus.io/) comes into play.
+That's when [Quarkus](https://quarkus.io) comes into play.
 
-In this [fascicle](https://www.amazon.com/author/agoncal), you will learn Quarkus but also its ecosystem.
+In this [fascicle](https://agoncal.teachable.com), you will learn Quarkus but also its ecosystem.
 You will discover Quarkus internals and how you can use it to build REST and reactive microservices, bind and process JSON or access datastores in a transactional way.
 With Cloud Native and GraalVM in mind, Quarkus makes packaging and orchestrating your microservices with Docker and Kubernetes easy.
 
 This fascicle has a good mix of theory and practical examples.
-It is the companion book of [Practising Quarkus](https://github.com/agoncal/agoncal-fascicle-quarkus-pract) where you learn how to develop an entire microservice architecture.
+It is the companion book of [Practising Quarkus](https://agoncal.teachable.com/p/ebook-practising-quarkus) where you learn how to develop an entire microservice architecture.
 
-![Quarkus](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-quarkus/master/cover.jpg)
+[![Understanding Quarkus](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-quarkus/master/cover.jpg)](https://agoncal.teachable.com/p/ebook-understanding-quarkus)
 
 Foreword by [Emmanuel Bernard](https://twitter.com/emmanuelbernard)
 

@@ -31,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * http://www.antoniogoncalves.org
  * --
  */
+@Disabled
 // @formatter:off
 @QuarkusTest
 @TestHTTPEndpoint(PurchaseOrderMessageResource.class)
