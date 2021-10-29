@@ -29,11 +29,11 @@
   <properties>
     <version.java>11</version.java>
     <!-- Quarkus -->
-    <quarkus-plugin.version>1.13.2.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.13.2.Final</quarkus.platform.version>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.version>2.4.0.Final</quarkus.platform.version>
     <!-- Other -->
     <version.javafaker>1.0.2</version.javafaker>
-    <version.health-ui>1.1.0</version.health-ui>
     <testcontainers.version>1.15.3</testcontainers.version>
     <version.json-path>2.5.0</version.json-path>
     <!-- Test -->
@@ -43,24 +43,24 @@
     <version.assembly.plugin>3.3.0</version.assembly.plugin>
     <version.clean.plugin>3.1.0</version.clean.plugin>
     <version.compiler.plugin>3.8.1</version.compiler.plugin>
-    <version.dependency.plugin>3.1.2</version.dependency.plugin>
+    <version.dependency.plugin>3.2.0</version.dependency.plugin>
     <version.deploy.plugin>2.8.2</version.deploy.plugin>
-    <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
+    <version.enforcer.plugin>3.0.0</version.enforcer.plugin>
     <version.exec.plugin>3.0.0</version.exec.plugin>
     <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
     <version.help.plugin>3.2.0</version.help.plugin>
     <version.install.plugin>3.0.0-M1</version.install.plugin>
     <version.invoker.plugin>3.2.2</version.invoker.plugin>
     <version.jar.plugin>3.2.0</version.jar.plugin>
-    <version.javadoc.plugin>3.2.0</version.javadoc.plugin>
-    <version.plugin.plugin>3.6.0</version.plugin.plugin>
+    <version.javadoc.plugin>3.3.1</version.javadoc.plugin>
+    <version.plugin.plugin>3.6.1</version.plugin.plugin>
     <version.resources.plugin>3.2.0</version.resources.plugin>
     <version.shade.plugin>3.2.4</version.shade.plugin>
     <version.site.plugin>3.9.1</version.site.plugin>
     <version.source.plugin>3.2.1</version.source.plugin>
     <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
     <version.version.plugin>2.8.1</version.version.plugin>
-    <version.war.plugin>3.3.1</version.war.plugin>
+    <version.war.plugin>3.3.2</version.war.plugin>
     <!-- Plugins flag -->
     <javadoc.disabled>true</javadoc.disabled>
     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -81,8 +81,8 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-universe-bom</artifactId>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>${quarkus.platform.artifact-id}</artifactId>
         <version>${quarkus.platform.version}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -92,11 +92,6 @@
         <groupId>com.github.javafaker</groupId>
         <artifactId>javafaker</artifactId>
         <version>${version.javafaker}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.microprofile-ext.health-ext</groupId>
-        <artifactId>health-ui</artifactId>
-        <version>${version.health-ui}</version>
       </dependency>
       <dependency>
         <groupId>com.jayway.jsonpath</groupId>
@@ -114,9 +109,19 @@
       <plugins>
         <!-- Quarkus -->
         <plugin>
-          <groupId>io.quarkus</groupId>
+          <groupId>${quarkus.platform.group-id}</groupId>
           <artifactId>quarkus-maven-plugin</artifactId>
-          <version>${quarkus-plugin.version}</version>
+          <version>${quarkus.platform.version}</version>
+          <extensions>true</extensions>
+          <executions>
+            <execution>
+              <goals>
+                <goal>build</goal>
+                <goal>generate-code</goal>
+                <goal>generate-code-tests</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
         <plugin>
@@ -159,8 +164,7 @@
           <version>${version.compiler.plugin}</version>
           <inherited>true</inherited>
           <configuration>
-            <source>${version.java}</source>
-            <target>${version.java}</target>
+            <parameters>${maven.compiler.parameters}</parameters>
           </configuration>
         </plugin>
         <plugin>
@@ -299,7 +303,10 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${version.surefire.plugin}</version>
           <configuration>
-            <argLine>-Duser.language=en -Duser.country=EN</argLine>
+            <systemPropertyVariables>
+              <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              <maven.home>${maven.home}</maven.home>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
         <plugin>
@@ -330,5 +337,4 @@
       </plugins>
     </pluginManagement>
   </build>
-
 </project>
