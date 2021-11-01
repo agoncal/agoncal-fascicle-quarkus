@@ -34,7 +34,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/openapi").
+      .get("/q/openapi").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -43,7 +43,7 @@ public class NumberResourceTest {
   void shouldPingSwaggerUI() {
     given().
     when()
-      .get("/swagger-ui").
+      .get("/q/swagger-ui").
     then()
       .statusCode(OK.getStatusCode());
   }

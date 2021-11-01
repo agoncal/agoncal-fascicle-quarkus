@@ -52,7 +52,7 @@ public class BookResourceTest {
     String yamlFile = given()
       .header(ACCEPT, "application/yaml").
         when()
-      .get("/openapi").
+      .get("/q/openapi").
         then()
       .statusCode(OK.getStatusCode())
       .extract().asString();

@@ -38,7 +38,7 @@ public class BookResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/openapi").
+      .get("/q/openapi").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
@@ -47,7 +47,7 @@ public class BookResourceTest {
   void shouldPingSwaggerUI() {
     given().
     when()
-      .get("/swagger-ui").
+      .get("/q/swagger-ui").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
