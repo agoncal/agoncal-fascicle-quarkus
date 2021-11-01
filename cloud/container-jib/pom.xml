@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.cloud</groupId>
   <artifactId>container-jib</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>2.0.0-SNAPSHOT</version>
   <name>Quarkus :: Cloud :: Container :: JIB</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>cloud</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>
