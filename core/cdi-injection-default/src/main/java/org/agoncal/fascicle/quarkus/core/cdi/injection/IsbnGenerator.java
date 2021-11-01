@@ -10,9 +10,9 @@ import java.util.Random;
  * http://www.antoniogoncalves.org
  * --
  */
+@ApplicationScoped
 // tag::adocSnippet[]
 @Default
-@ApplicationScoped
 public class IsbnGenerator implements NumberGenerator {
 
   public String generateNumber() {

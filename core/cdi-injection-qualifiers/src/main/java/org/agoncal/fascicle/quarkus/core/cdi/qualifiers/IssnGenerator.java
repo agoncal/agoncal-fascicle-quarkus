@@ -8,9 +8,9 @@ import java.util.Random;
  * http://www.antoniogoncalves.org
  * --
  */
+@ApplicationScoped
 // tag::adocSnippet[]
 @EightDigits
-@ApplicationScoped
 public class IssnGenerator implements NumberGenerator {
 
   public String generateNumber() {

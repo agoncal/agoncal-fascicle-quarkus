@@ -8,8 +8,8 @@ import javax.inject.Inject;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocSnippet[]
 @ApplicationScoped
+// tag::adocSnippet[]
 public class LegacyBookService {
 
   // tag::adocSkip[]
