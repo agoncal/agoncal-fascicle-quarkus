@@ -1,7 +1,0 @@
-__  ____  __  _____   ___  __ ____  ______
---/ __ \/ / / / _ | / _ \/ //_/ / / / __/
--/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-INFO  [io.quarkus] getting-started 1.0 started in 0.612s. Listening on: http://0.0.0.0:8080
-INFO  [io.quarkus] Profile prod activated.
-INFO  [io.quarkus] Installed features: [cdi, resteasy, resteasy-jsonb]
