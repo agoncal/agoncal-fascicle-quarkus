@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * @book Antonio Goncalves
+ * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */

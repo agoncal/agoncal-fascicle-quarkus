@@ -56,7 +56,7 @@ class MusicianServiceTest {
   @Test
   @Order(2)
   void shouldAddAMusician() {
-    // Persists an musician
+    // Persists a musician
     Musician musician = new Musician();
     musician.firstName = DEFAULT_FIRST_NAME;
     musician.lastName = DEFAULT_LAST_NAME;

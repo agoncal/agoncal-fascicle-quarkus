@@ -17,7 +17,7 @@ import java.util.UUID;
 @Path("/artists")
 public class ArtistResource {
 
-  private static List<Artist> artists = List.of(
+  private static final List<Artist> artists = List.of(
     new Artist().id(UUID.randomUUID()).firstName("John").lastName("Lennon"),
     new Artist().id(UUID.randomUUID()).firstName("Paul").lastName("McCartney"),
     new Artist().id(UUID.randomUUID()).firstName("George").lastName("Harrison"),

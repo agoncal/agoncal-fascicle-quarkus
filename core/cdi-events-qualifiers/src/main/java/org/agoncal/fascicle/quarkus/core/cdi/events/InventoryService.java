@@ -1,11 +1,12 @@
 package org.agoncal.fascicle.quarkus.core.cdi.events;
 
+import org.jboss.logging.Logger;
+
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves

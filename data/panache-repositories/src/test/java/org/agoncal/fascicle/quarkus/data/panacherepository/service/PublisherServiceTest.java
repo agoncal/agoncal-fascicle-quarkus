@@ -102,7 +102,7 @@ class PublisherServiceTest {
   @Test
   @Order(6)
   public void shouldDeleteByName() {
-    assertTrue(publisherService.deleteByName("Wrox Press") == 1);
+    assertEquals(1, publisherService.deleteByName("Wrox Press"));
     // Checks there is less a publisher in the database
     assertEquals(nbPublishers - 1, publisherService.findAll().size());
   }

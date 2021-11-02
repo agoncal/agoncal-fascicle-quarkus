@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 public class AuthorResource {
 
   private Instant startTimestamp;
-  private DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
+  private final DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
 
   String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
 

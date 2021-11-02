@@ -16,7 +16,7 @@ public class BookService {
   }
 
   public Optional<Book> findBookById(Long id) {
-    return null;
+    return Optional.empty();
   }
 
   public Book findRandomBook() {

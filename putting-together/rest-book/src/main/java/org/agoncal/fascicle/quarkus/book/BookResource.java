@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
 import javax.json.Json;
@@ -14,7 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.time.LocalDateTime;
-import java.util.logging.Logger;
 
 // tag::adocSnippet[]
 @Path("/api/books")
@@ -59,7 +59,7 @@ public class BookResource {
   // tag::adocFaultTolerance[]
 
   private Response fallbackGetRandomBook() {
-    LOGGER.warning("Falling back on creating a book");
+    LOGGER.warn("Falling back on creating a book");
     JsonObject dummyBook = Json.createObjectBuilder()
       .add("title", "Dummy book")
       .add("timestamp", String.valueOf(LocalDateTime.now()))

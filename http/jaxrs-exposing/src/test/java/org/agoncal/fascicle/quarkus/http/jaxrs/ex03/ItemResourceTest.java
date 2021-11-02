@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.http.jaxrs.ex03;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Book;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.json.bind.Jsonb;

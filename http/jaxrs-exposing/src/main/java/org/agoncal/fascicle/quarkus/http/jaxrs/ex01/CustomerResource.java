@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,9 +31,10 @@ public class CustomerResource {
   public Response getCustomers() {
     // tag::adocSkip1[]
     System.out.println("getCustomers");
-    List<Customer> customers = new ArrayList<>();
-    customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
-    customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
+    List<Customer> customers = List.of(
+      new Customer("John", "Smith", "jsmith@gmail.com", "1234565"),
+      new Customer("John", "Smith", "jsmith@gmail.com", "1234565")
+    );
     // end::adocSkip1[]
     // ...
     return Response.ok(customers).build();

@@ -35,7 +35,7 @@ public class CustomerResource {
     // tag::adocSkip2[]
     final StringBuilder sb = new StringBuilder();
     sb.append("<h1>Customer</h1><p>");
-    sb.append(new Customer("John", "Smith", "jsmith@gmail.com", "1234565").toString());
+    sb.append(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
     sb.append("</p><hr/>");
     return Response.ok(sb.toString()).build();
     // end::adocSkip2[]

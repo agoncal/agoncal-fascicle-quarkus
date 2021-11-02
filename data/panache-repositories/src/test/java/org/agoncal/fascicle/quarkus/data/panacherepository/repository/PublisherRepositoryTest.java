@@ -56,7 +56,7 @@ class PublisherRepositoryTest {
 
     // Finding a specific publisher by ID via an Optional
     Optional<Publisher> optional = publisherRepository.findByIdOptional(publisherId);
-    publisher = optional.orElseThrow(() -> new EntityNotFoundException());
+    publisher = optional.orElseThrow(EntityNotFoundException::new);
 
     // Counting all publishers
     long countAll = publisherRepository.count();
