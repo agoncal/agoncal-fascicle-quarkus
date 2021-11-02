@@ -56,7 +56,7 @@ public class BookResourceTest {
   void shouldPingLiveness() {
     given().
     when()
-      .get("/health/live").
+      .get("/q/health/live").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
@@ -65,7 +65,7 @@ public class BookResourceTest {
   void shouldPingReadiness() {
     given().
     when()
-      .get("/health/ready").
+      .get("/q/health/ready").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
@@ -75,7 +75,7 @@ public class BookResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(OK.getStatusCode());
   }

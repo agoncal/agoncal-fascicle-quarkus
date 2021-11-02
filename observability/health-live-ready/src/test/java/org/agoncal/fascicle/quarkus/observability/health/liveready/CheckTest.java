@@ -13,7 +13,7 @@ public class CheckTest {
   void shouldPingHealth() {
     given().
     when()
-      .get("/health").
+      .get("/q/health").
     then()
       .statusCode(503);
   }
@@ -22,7 +22,7 @@ public class CheckTest {
   void shouldPingLiveness() {
     given().
     when()
-      .get("/health/live").
+      .get("/q/health/live").
     then()
       .statusCode(200);
   }
@@ -31,7 +31,7 @@ public class CheckTest {
   void shouldPingReadiness() {
     given().
     when()
-      .get("/health/ready").
+      .get("/q/health/ready").
     then()
       .statusCode(503);
   }

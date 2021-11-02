@@ -52,7 +52,7 @@ public class NumberResourceTest {
   void shouldPingLiveness() {
     given().
     when()
-      .get("/health/live").
+      .get("/q/health/live").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -61,7 +61,7 @@ public class NumberResourceTest {
   void shouldPingReadiness() {
     given().
     when()
-      .get("/health/ready").
+      .get("/q/health/ready").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -71,7 +71,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(NOT_FOUND.getStatusCode());
   }

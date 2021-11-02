@@ -23,7 +23,7 @@ public class DiskCheck implements HealthCheck {
       .named(DiskCheck.class.getSimpleName() + "Readiness")
       .withData("totalSpace", totalSpace)
       .withData("remainingSpace", freeSpace)
-      .state(freeSpace > 100)
+      .status(freeSpace > 100)
       .build();
   }
 }

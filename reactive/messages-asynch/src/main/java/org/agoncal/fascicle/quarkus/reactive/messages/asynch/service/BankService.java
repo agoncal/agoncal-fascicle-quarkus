@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch.service;
 
-import io.reactivex.Flowable;
+import io.reactivex.rxjava3.core.Flowable;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
