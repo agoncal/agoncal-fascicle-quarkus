@@ -26,52 +26,52 @@ class PublisherTest {
   void shouldManagePublishers() {
 
     // tag::adocSnippet[]
-    // Creating a publisher
+    // Creates a publisher
     Publisher publisher = new Publisher();
     publisher.name = "AGoncal Fascicle";
 
-    // Persist it
+    // Persists it
     publisher.persist();
     // tag::adocSkip[]
     Long publisherId = publisher.id;
     assertNotNull(publisherId);
     // end::adocSkip[]
 
-    // Getting a list of all publisher entities
+    // Gets a list of all publisher entities
     List<Publisher> allPublishers = Publisher.listAll();
     // tag::adocSkip[]
     assertTrue(allPublishers.size() > 1);
     // end::adocSkip[]
 
-    // Finding a specific publisher by ID
+    // Finds a specific publisher by ID
     publisher = Publisher.findById(publisherId);
     // tag::adocSkip[]
     assertEquals("AGoncal Fascicle", publisher.name);
     // end::adocSkip[]
 
-    // Finding a specific publisher by ID via an Optional
+    // Finds a specific publisher by ID via an Optional
     Optional<Publisher> optional = Publisher.findByIdOptional(publisherId);
     publisher = optional.orElseThrow(EntityNotFoundException::new);
 
-    // Counting all publishers
+    // Counts all publishers
     long countAll = Publisher.count();
     // tag::adocSkip[]
     assertTrue(countAll > 1);
     // end::adocSkip[]
 
-    // Check if it's persistent
+    // Checks if it's persistent
     if (publisher.isPersistent()) {
-      // Delete it
+      // Deletes it
       publisher.delete();
     }
 
-    // Delete by id
+    // Deletes by id
     boolean deleted = Publisher.deleteById(publisherId);
     // tag::adocSkip[]
     assertFalse(deleted);
     // end::adocSkip[]
 
-    // Delete all publishers
+    // Deletes all publishers
     // tag::adocSkip[]
     assertThrows(PersistenceException.class, () -> {
     // end::adocSkip[]
@@ -86,18 +86,17 @@ class PublisherTest {
   void shouldManageWithEntityManager() {
 
     // tag::adocEntityManager[]
-    // Creating a publisher
     Publisher publisher = new Publisher();
     publisher.name = "AGoncal Fascicle";
 
-    // Persist it
+    // Persists an entity with Panache
     publisher.persist();
     // tag::adocSkip[]
     Long publisherId = publisher.id;
     assertNotNull(publisherId);
     // end::adocSkip[]
 
-    // Finding a specific publisher by ID
+    // Finds an entity with the entity manager
     publisher = Publisher.getEntityManager().find(Publisher.class, publisherId);
     // tag::adocSkip[]
     assertEquals("AGoncal Fascicle", publisher.name);
@@ -106,8 +105,9 @@ class PublisherTest {
   }
 
   // tag::adocInject[]
-  @Inject
-  EntityManager em;
+    // Injects the entity manager
+    @Inject
+    EntityManager em;
 
   // end::adocInject[]
 
@@ -115,18 +115,17 @@ class PublisherTest {
   void shouldManageWithInjectedEntityManager() {
 
     // tag::adocInject[]
-    // Creating a publisher
     Publisher publisher = new Publisher();
     publisher.name = "AGoncal Fascicle";
 
-    // Persist it
+    // Persists an entity with Panache
     publisher.persist();
     // tag::adocSkip[]
     Long publisherId = publisher.id;
     assertNotNull(publisherId);
     // end::adocSkip[]
 
-    // Finding a specific publisher by ID
+    // Finds an entity with the injected entity manager
     publisher = em.find(Publisher.class, publisherId);
     // tag::adocSkip[]
     assertEquals("AGoncal Fascicle", publisher.name);
