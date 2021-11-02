@@ -3,6 +3,8 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
@@ -78,5 +80,57 @@ class PublisherTest {
     });
     // end::adocSkip[]
     // end::adocSnippet[]
+  }
+
+  @Test
+  void shouldManageWithEntityManager() {
+
+    // tag::adocEntityManager[]
+    // Creating a publisher
+    Publisher publisher = new Publisher();
+    publisher.name = "AGoncal Fascicle";
+
+    // Persist it
+    publisher.persist();
+    // tag::adocSkip[]
+    Long publisherId = publisher.id;
+    assertNotNull(publisherId);
+    // end::adocSkip[]
+
+    // Finding a specific publisher by ID
+    publisher = Publisher.getEntityManager().find(Publisher.class, publisherId);
+    // tag::adocSkip[]
+    assertEquals("AGoncal Fascicle", publisher.name);
+    // end::adocSkip[]
+    // end::adocEntityManager[]
+  }
+
+  // tag::adocInject[]
+  @Inject
+  EntityManager em;
+
+  // end::adocInject[]
+
+  @Test
+  void shouldManageWithInjectedEntityManager() {
+
+    // tag::adocInject[]
+    // Creating a publisher
+    Publisher publisher = new Publisher();
+    publisher.name = "AGoncal Fascicle";
+
+    // Persist it
+    publisher.persist();
+    // tag::adocSkip[]
+    Long publisherId = publisher.id;
+    assertNotNull(publisherId);
+    // end::adocSkip[]
+
+    // Finding a specific publisher by ID
+    publisher = em.find(Publisher.class, publisherId);
+    // tag::adocSkip[]
+    assertEquals("AGoncal Fascicle", publisher.name);
+    // end::adocSkip[]
+    // end::adocInject[]
   }
 }
