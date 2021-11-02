@@ -21,7 +21,8 @@ import java.util.logging.Logger;
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
 
-  private final static Logger LOGGER = Logger.getLogger("BookResource");
+  @Inject
+  Logger LOGGER;
 
   // tag::adocRestClient[]
   @Inject
