@@ -1,17 +1,16 @@
 package org.agoncal.fascicle.quarkus.core.configuration.verbatim;
 
-import io.quarkus.arc.config.ConfigProperties;
-
-import static io.quarkus.arc.config.ConfigProperties.NamingStrategy.KEBAB_CASE;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.ConfigMapping.NamingStrategy;
 
 // tag::adocSnippet[]
-@ConfigProperties(prefix = "inv", namingStrategy = KEBAB_CASE)
+@ConfigMapping(prefix = "inv", namingStrategy = NamingStrategy.KEBAB_CASE)
 // end::adocSnippet[]
-public class InvoiceConfiguration {
+public interface InvoiceConfiguration {
 
-  public Float vatRate;
-  public Boolean allowsDiscount;
-  public Float discountRate;
-  public String terms;
-  public String penalties;
+  Float vatRate();
+  Boolean allowsDiscount();
+  Float discountRate();
+  String terms();
+  String penalties();
 }

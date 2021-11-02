@@ -164,7 +164,7 @@ public class CDTest {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<CD>> violations = methodValidator.validateParameters(cd, method, new Object[]{new Float(1.2)});
+    Set<ConstraintViolation<CD>> violations = methodValidator.validateParameters(cd, method, new Object[]{(float) 1.2});
     assertEquals(1, violations.size());
     // end::shouldRaiseNoMethodParameterConstraintViolation[]
   }
@@ -177,11 +177,11 @@ public class CDTest {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<CD>> violations = methodValidator.validateParameters(cd, method, new Object[]{new Float(1.2)});
+    Set<ConstraintViolation<CD>> violations = methodValidator.validateParameters(cd, method, new Object[]{(float) 1.2});
     displayConstraintViolations(violations);
     assertEquals(1, violations.size());
     assertEquals("must be greater than or equal to 1.4", violations.iterator().next().getMessage());
-    assertEquals(new Float(1.2), violations.iterator().next().getInvalidValue());
+    assertEquals((float) 1.2, violations.iterator().next().getInvalidValue());
     assertEquals("{javax.validation.constraints.DecimalMin.message}", violations.iterator().next().getMessageTemplate());
   }
 
