@@ -40,10 +40,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
     </dependency>
+    <!-- tag::adocSnippet[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
+    <!-- end::adocSnippet[] -->
 
     <!-- Test -->
     <dependency>
