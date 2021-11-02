@@ -124,6 +124,9 @@
               </goals>
             </execution>
           </executions>
+          <configuration>
+            <debug>true</debug>
+          </configuration>
         </plugin>
         <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
         <plugin>
