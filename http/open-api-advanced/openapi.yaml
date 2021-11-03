@@ -1,5 +1,5 @@
 # tag::adocInfo[]
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Book API
   description: This API allows CRUD operations on books
@@ -11,12 +11,12 @@ info:
     url: https://opensource.org/licenses/MIT
   version: "1.0"
 externalDocs:
-  description: All the MicroProfile fascicle code
-  url: https://github.com/agoncal/agoncal-fascicle-microprofile
+  description: All the Quarkus fascicle code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus
 # end::adocInfo[]
 # tag::adocServer[]
 servers:
-  - url: http://{host}.vintage-store/{port}
+  - url: "http://{host}.vintage-store/{port}"
     description: Vintage Store server 1
     variables:
       host:
@@ -32,8 +32,6 @@ tags:
     description: Public API that can be used by anybody
   - name: books
     description: Anybody interested in books
-  - name: BETA
-    description: This API is still in BETA. Use carefully
 # end::adocTag[]
 # tag::adocResponse[]
 paths:
@@ -41,8 +39,6 @@ paths:
     get:
       summary: Returns all the books from the database
       responses:
-        "204":
-          description: No books
         "200":
           description: OK
           content:
@@ -51,6 +47,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+        "204":
+          description: No books
     # end::adocResponse[]
     put:
       summary: Updates an exiting  book
@@ -97,11 +95,8 @@ paths:
   # tag::adocOperation[]
   /api/books/random:
     get:
-      tags:
-        - BETA
       summary: Returns a random book
-      description: Each time this API is invoked, a random book is returned from the
-        database
+      description: Each time this API is invoked, a random book is returned from the database
       responses:
         "200":
           description: OK
@@ -120,14 +115,14 @@ paths:
             type: integer
       # end::adocParameter[]
       responses:
-        "404":
-          description: The book is not found for the given identifier
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Book'
+        "404":
+          description: The book is not found for the given identifier
     delete:
       summary: Deletes an exiting book
       parameters:
@@ -148,25 +143,23 @@ components:
       description: Book representation
       required:
         - id
-        - isbn
         - title
+        - isbn
       type: object
       properties:
-        author:
-          type: string
-        description:
-          type: string
         id:
           format: int64
           type: integer
           readOnly: true
+        title:
+          type: string
         isbn:
           type: string
           example: "9798629562115"
-        price:
-          $ref: '#/components/schemas/BigDecimal'
-        title:
+        author:
           type: string
-    # end::adocSchema[]
-    BigDecimal:
-      type: number
+        price:
+          type: number
+        description:
+          type: string
+# end::adocSchema[]

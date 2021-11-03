@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-  title: Generated API
+  title: open-api-custom API
   version: "1.0"
 # tag::adocPath[]
 paths:

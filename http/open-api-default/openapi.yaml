@@ -1,7 +1,7 @@
 # tag::adocSnippet[]
 openapi: 3.0.3
 info:
-  title: Generated API
+  title: open-api-default API
   version: "1.0"
 # tag::adocPath[]
 paths:
