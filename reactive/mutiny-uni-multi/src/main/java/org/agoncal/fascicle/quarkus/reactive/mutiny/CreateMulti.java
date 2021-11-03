@@ -19,7 +19,6 @@ public class CreateMulti {
     withFailure();
     System.out.println("#### fromMulti()");
     fromMulti();
-    //fromTicks();
   }
 
   private static void fromItems() {
@@ -62,15 +61,8 @@ public class CreateMulti {
     Multi<Long> ticks = Multi.createFrom().ticks().every(Duration.ofSeconds(1));
 
     Multi.createFrom().publisher(ticks)
-      .transform().byTakingFirstItems(3)
+      .select().first(3)
       .subscribe().with(System.out::println);
     // end::adocFromMulti[]
-  }
-
-  private static void fromTicks() {
-    // tag::adocFromTick[]
-    Multi.createFrom().ticks().every(Duration.ofMillis(1))
-      .transform().byTakingFirstItems(2);
-    // end::adocFromTick[]
   }
 }
