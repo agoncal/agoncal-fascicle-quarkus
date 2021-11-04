@@ -6,6 +6,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // tag::adocSnippet[]
 @Path("/authors")
 @Produces(MediaType.TEXT_PLAIN)

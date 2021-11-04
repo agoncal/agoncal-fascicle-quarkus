@@ -17,6 +17,7 @@
   </parent>
 
   <modules>
+    <module>health-combine</module>
     <module>health-live-ready</module>
     <module>health-quarkus</module>
     <module>health-response</module>

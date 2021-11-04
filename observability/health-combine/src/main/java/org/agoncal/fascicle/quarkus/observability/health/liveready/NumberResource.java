@@ -15,8 +15,7 @@ import java.time.Instant;
 public class NumberResource {
 
   @GET
-  @Path("/issn")
-  public JsonObject generateIssn() {
+  public JsonObject generateRandom() {
     return Json.createObjectBuilder()
       .add("isbn10", new Faker().code().isbn10())
       .add("generatedAt", String.valueOf(Instant.now()))

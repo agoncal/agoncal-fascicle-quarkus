@@ -8,7 +8,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.time.Instant;
 
-// tag::adocSnippet[]
 @Path("/api/numbers")
 @Produces(MediaType.APPLICATION_JSON)
 public class NumberResource {
