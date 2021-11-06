@@ -19,7 +19,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 
 /**
- * curl -H "Accept: application/json " http://localhost:8080/metrics/application
+ * curl -H "Accept: application/json " http://localhost:8080/q/metrics/application
  */
 //@formatter:off
 @Path("/books")

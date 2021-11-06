@@ -19,13 +19,12 @@ public class CreateMulti {
     withFailure();
     System.out.println("#### fromMulti()");
     fromMulti();
-    //fromTicks();
   }
 
   private static void fromItems() {
     // tag::adocFromItems[]
     Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
-      .onItem().transform(i -> i.toUpperCase())
+      .onItem().transform(String::toUpperCase)
       .subscribe().with(System.out::println);
     // end::adocFromItems[]
   }
@@ -40,7 +39,7 @@ public class CreateMulti {
   private static void toUni() {
     // tag::adocToUni[]
     Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
-      .onItem().transform(i -> i.toUpperCase())
+      .onItem().transform(String::toUpperCase)
       .toUni()
       .subscribe().with(System.out::println);
     // end::adocToUni[]
@@ -49,7 +48,7 @@ public class CreateMulti {
   private static void withFailure() {
     // tag::adocWithFailure[]
     Multi.createFrom().items("Carla Bley", "John Coltrane", "Juliette Gréco")
-      .onItem().transform(i -> i.toUpperCase())
+      .onItem().transform(String::toUpperCase)
       .subscribe().with(
         item -> System.out.println("Received: " + item),
         failure -> System.out.println("Failed with " + failure.getMessage())
@@ -62,15 +61,8 @@ public class CreateMulti {
     Multi<Long> ticks = Multi.createFrom().ticks().every(Duration.ofSeconds(1));
 
     Multi.createFrom().publisher(ticks)
-      .transform().byTakingFirstItems(3)
+      .select().first(3)
       .subscribe().with(System.out::println);
     // end::adocFromMulti[]
-  }
-
-  private static void fromTicks() {
-    // tag::adocFromTick[]
-    Multi.createFrom().ticks().every(Duration.ofMillis(1))
-      .transform().byTakingFirstItems(2);
-    // end::adocFromTick[]
   }
 }

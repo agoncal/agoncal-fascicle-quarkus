@@ -34,7 +34,7 @@ public class AuthorResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
       when()
-      .get("/openapi").
+      .get("/q/openapi").
       then()
       .statusCode(OK.getStatusCode());
   }
@@ -43,7 +43,7 @@ public class AuthorResourceTest {
   void shouldPingSwaggerUI() {
     given().
       when()
-      .get("/swagger-ui").
+      .get("/q/swagger-ui").
       then()
       .statusCode(OK.getStatusCode());
   }

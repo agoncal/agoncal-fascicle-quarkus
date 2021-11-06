@@ -6,7 +6,6 @@ import org.eclipse.microprofile.health.Liveness;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.File;
 
 // tag::adocSnippet[]
 @Liveness

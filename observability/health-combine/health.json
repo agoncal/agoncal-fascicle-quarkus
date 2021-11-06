@@ -1,0 +1,9 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Invoke Number REST Endpoint",
+      "status": "UP"
+    }
+  ]
+}

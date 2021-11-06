@@ -1,16 +1,16 @@
 package org.agoncal.fascicle.quarkus.core.configuration.properties;
 
-import io.quarkus.arc.config.ConfigProperties;
-import io.quarkus.arc.config.ConfigProperties.NamingStrategy;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.ConfigMapping.NamingStrategy;
 
 // tag::adocSnippet[]
-@ConfigProperties(prefix = "inv", namingStrategy = NamingStrategy.VERBATIM)
-public class InvoiceConfiguration {
+@ConfigMapping(prefix = "inv", namingStrategy = NamingStrategy.VERBATIM)
+public interface InvoiceConfiguration {
 
-  public Float vatRate;
-  public Boolean allowsDiscount;
-  public Float discountRate;
-  public String terms;
-  public String penalties;
+  Float vatRate();
+  Boolean allowsDiscount();
+  Float discountRate();
+  String terms();
+  String penalties();
 }
 // end::adocSnippet[]

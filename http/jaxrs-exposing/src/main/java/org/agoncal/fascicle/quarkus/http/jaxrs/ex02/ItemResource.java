@@ -26,10 +26,10 @@ public class ItemResource {
   public List<Item> getItems() {
     // ...
     // tag::adocSkip[]
-    List<Item> items = new ArrayList<>();
-    items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
-    items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
-    return items;
+    return List.of(
+      new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false),
+      new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false)
+    );
     // end::adocSkip[]
   }
 }

@@ -35,8 +35,8 @@
 [INFO]  T E S T S
 [INFO] ----------
 [INFO] Running NativeArtistResourceIT
-Executing target/test-jvm-native-mode-1.0-SNAPSHOT-runner
-[INFO] [io.quarkus] (main) test-jvm-native-mode 1.0-SNAPSHOT native
+Executing target/test-jvm-native-mode-2.0.0-SNAPSHOT-runner
+[INFO] [io.quarkus] (main) test-jvm-native-mode 2.0.0-SNAPSHOT native
 [INFO] [io.quarkus] (main) Profile prod activated.
 [INFO] [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
 [INFO]

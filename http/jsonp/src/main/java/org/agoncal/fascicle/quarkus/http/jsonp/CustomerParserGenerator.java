@@ -32,7 +32,7 @@ public class CustomerParserGenerator {
       switch (event) {
         case START_OBJECT:
         case END_OBJECT:
-          System.out.println(event.toString());
+          System.out.println(event);
           break;
         case KEY_NAME:
           System.out.print("KEY_NAME " + parser.getString() + " - ");

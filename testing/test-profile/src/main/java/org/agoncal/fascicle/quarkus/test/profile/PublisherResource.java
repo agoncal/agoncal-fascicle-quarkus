@@ -24,7 +24,7 @@ import java.util.Optional;
 public class PublisherResource {
 
   private Instant startTimestamp;
-  private DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
+  private final DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
 
   @Inject
   PublisherService service;

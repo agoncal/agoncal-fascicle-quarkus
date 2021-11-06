@@ -1,11 +1,12 @@
 package org.agoncal.fascicle.quarkus.core.cdi.events;
 
+import org.jboss.logging.Logger;
+
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
@@ -18,14 +19,14 @@ public class InventoryService {
 
   // tag::adocSkip[]
   @Inject
-  Logger logger;
+  Logger LOGGER;
 
   // end::adocSkip[]
   List<Book> inventory = new ArrayList<>();
 
   public void addBook(@Observes Book book) {
     // tag::adocSkip[]
-    logger.info("Adding book " + book.getTitle() + " to inventory");
+    LOGGER.info("Adding book " + book.getTitle() + " to inventory");
     // end::adocSkip[]
     inventory.add(book);
   }

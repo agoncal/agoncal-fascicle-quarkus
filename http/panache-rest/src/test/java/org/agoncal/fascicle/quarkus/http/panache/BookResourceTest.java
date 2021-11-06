@@ -50,6 +50,7 @@ public class BookResourceTest {
       .statusCode(CREATED.getStatusCode());
   }
 
+// TODO uncomment
 //  @Test
 //  public void shouldUpdateCustomer() {
 //    Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1334565");

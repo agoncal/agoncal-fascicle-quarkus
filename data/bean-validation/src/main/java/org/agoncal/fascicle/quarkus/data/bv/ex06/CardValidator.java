@@ -39,12 +39,8 @@ public class CardValidator {
   private class ValidationAlgorithm {
 
     public boolean validate(String number, Integer controlNumber) {
-      Character lastDigit = number.charAt(number.length() - 1);
-      if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
-        return true;
-      } else {
-        return false;
-      }
+      char lastDigit = number.charAt(number.length() - 1);
+      return Integer.parseInt(Character.toString(lastDigit)) % 2 == 0;
     }
   }
   // end::adocSkip[]

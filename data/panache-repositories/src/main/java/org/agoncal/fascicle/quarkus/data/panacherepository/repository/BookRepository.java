@@ -7,10 +7,7 @@ import org.agoncal.fascicle.quarkus.data.panacherepository.model.Book;
 import org.agoncal.fascicle.quarkus.data.panacherepository.model.Language;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
 import java.util.List;
-
-import static javax.transaction.Transactional.TxType.REQUIRED;
 
 @ApplicationScoped
 public class BookRepository implements PanacheRepository<Book> {

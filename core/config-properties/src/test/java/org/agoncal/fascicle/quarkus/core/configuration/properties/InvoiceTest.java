@@ -15,15 +15,19 @@ class InvoiceTest {
   @Inject
   Invoice invoice;
 
+  // tag::adocSnippet[]
   @Inject
   InvoiceConfiguration invoiceConfiguration;
 
+  // tag::adocSkip[]
   @Test
   public void shouldCalculateInvoice() {
-    invoice.vatRate = invoiceConfiguration.vatRate;
-    invoice.allowsDiscount = invoiceConfiguration.allowsDiscount;
-    invoice.terms = invoiceConfiguration.terms;
-    invoice.penalties = invoiceConfiguration.penalties;
+    // end::adocSkip[]
+    invoice.vatRate = invoiceConfiguration.vatRate();
+    invoice.allowsDiscount = invoiceConfiguration.allowsDiscount();
+    invoice.terms = invoiceConfiguration.terms();
+    invoice.penalties = invoiceConfiguration.penalties();
+    // end::adocSnippet[]
 
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);

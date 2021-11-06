@@ -20,10 +20,10 @@ class InvoiceTest {
 
   @Test
   public void shouldCalculateInvoice() {
-    invoice.vatRate = invoiceConfiguration.vatRate;
-    invoice.allowsDiscount = invoiceConfiguration.allowsDiscount;
-    invoice.terms = invoiceConfiguration.terms;
-    invoice.penalties = invoiceConfiguration.penalties;
+    invoice.vatRate = invoiceConfiguration.vatRate();
+    invoice.allowsDiscount = invoiceConfiguration.allowsDiscount();
+    invoice.terms = invoiceConfiguration.terms();
+    invoice.penalties = invoiceConfiguration.penalties();
 
     invoice.subtotal = 500f;
     invoice.vatAmount = invoice.subtotal * (invoice.vatRate / 100);

@@ -17,7 +17,7 @@ public class MetricsTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/metrics").
+      .get("/q/metrics").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -27,7 +27,7 @@ public class MetricsTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -37,7 +37,7 @@ public class MetricsTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/metrics/base").
+      .get("/q/metrics/base").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -47,7 +47,7 @@ public class MetricsTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/metrics/vendor").
+      .get("/q/metrics/vendor").
     then()
       .statusCode(OK.getStatusCode());
   }

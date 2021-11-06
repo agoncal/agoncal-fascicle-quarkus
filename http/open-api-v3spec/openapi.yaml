@@ -1,10 +1,10 @@
 # tag::adocSnippet[]
 # tag::adocVersion[]
-openapi: 3.0.1
+openapi: 3.0.3
 # end::adocVersion[]
 # tag::adocInfo[]
 info:
-  title: Generated API
+  title: open-api-v3spec API
   version: "1.0"
 tags:
   - name: Author Endpoint
@@ -27,11 +27,11 @@ paths:
       # end::adocParameters[]
       # tag::adocResponses[]
       responses:
-        "204":
-          description: The author is not found for a given index
         "200":
           description: OK
           content:
             text/plain: {}
+        "204":
+          description: The author is not found for a given index
 # end::adocResponses[]
 # end::adocSnippet[]

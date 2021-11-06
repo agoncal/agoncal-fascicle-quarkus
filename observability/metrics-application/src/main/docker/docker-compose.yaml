@@ -4,6 +4,6 @@ services:
         image: "prom/prometheus"
         container_name: "vintageStore-monitoring"
         ports:
-          - 9090:9090
+          - "9090:9090"
         volumes:
           - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml

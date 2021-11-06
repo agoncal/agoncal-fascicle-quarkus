@@ -21,13 +21,6 @@ public class BookResource {
   @Inject @RestClient
   IsbnResourceProxy isbnService;
 
-//  final IsbnServiceProxy isbnService;
-//
-//  @Rest
-//  public BookResource(IsbnServiceProxy isbnService) {
-//    this.isbnService = isbnService;
-//  }
-
   @GET
   public Response getRandomBook() {
 

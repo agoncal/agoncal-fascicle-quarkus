@@ -5,17 +5,19 @@
 ├─ pom.xml
 └─ src
    ├─ main
-   │  ├─ docker
-   │  │  ├─ Dockerfile.jvm
-   │  │  └─ Dockerfile.native
-   │  ├─ java
-   │  │  └─ org/agoncal/fascicle/quarkus/gettingstarted
-   │  │     └─ ArtistResource.java
-   │  └─ resources
-   │     ├─ META-INF
-   │     │  └─ resources
-   │     │     └─ index.html
-   │     └─ application.properties
+   │  ├─ docker
+   │  │  ├─ Dockerfile.jvm
+   │  │  ├─ Dockerfile.legacy-jar
+   │  │  ├─ Dockerfile.native
+   │  │  └─ Dockerfile.native-distroless
+   │  ├─ java
+   │  │  └─ org/agoncal/fascicle/quarkus/gettingstarted
+   │  │     └─ ArtistResource.java
+   │  └─ resources
+   │     ├─ META-INF
+   │     │  └─ resources
+   │     │     └─ index.html
+   │     └─ application.properties
    └─ test
       └─ java
          └─ org/agoncal/fascicle/quarkus/gettingstarted

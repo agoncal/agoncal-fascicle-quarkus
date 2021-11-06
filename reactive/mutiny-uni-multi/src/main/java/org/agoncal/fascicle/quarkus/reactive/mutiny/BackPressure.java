@@ -21,7 +21,7 @@ public class BackPressure {
     String res1 = multi
       .emitOn(executor)
       .onOverflow().buffer(10)
-      .collectItems().first()
+      .collect().first()
       .await().indefinitely();
     // end::adocFromItems[]
   }

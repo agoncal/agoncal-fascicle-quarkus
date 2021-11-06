@@ -14,8 +14,10 @@ public class LoggingResource {
   @GET
   public void displayLogs() {
     // tag::adocMultipleLoggers[]
+    // tag::adocJBossLogger[]
     org.jboss.logging.Logger JBOSS_LOGGER =
       org.jboss.logging.Logger.getLogger(LoggingResource.class);
+    // end::adocJBossLogger[]
     java.util.logging.Logger JUL_LOGGER =
       java.util.logging.Logger.getLogger(LoggingResource.class.getName());
     org.apache.commons.logging.Log COMMONS_LOGGING =

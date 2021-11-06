@@ -8,7 +8,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,10 +28,10 @@ public class CustomerResource {
     // URI : /customers/search/smith
     // tag::adocSkip1[]
     System.out.println("searchCustomer : " + textToSearch);
-    List<Customer> customers = new ArrayList<>();
-    customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
-    customers.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
-    return customers;
+    return List.of(
+      new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()),
+      new Customer("Paul", "Smith", "psmith@gmail.com", "5651234", new Date(), new Date())
+    );
     // end::adocSkip1[]
   }
 

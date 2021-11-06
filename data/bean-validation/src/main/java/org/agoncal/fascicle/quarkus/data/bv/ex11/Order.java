@@ -38,7 +38,7 @@ public class Order {
     return this;
   }
 
-  public Order totalAmount(Double itotalAmountd) {
+  public Order totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }

@@ -13,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,9 +30,7 @@ public class ItemResource {
   public List<Item> getItems() {
     // URI : /items
     // tag::adocSkip1[]
-    List<Item> items = new ArrayList<>();
-    items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
-    return items;
+    return List.of(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     // end::adocSkip1[]
   }
 
@@ -42,9 +39,7 @@ public class ItemResource {
   public List<CD> getCDs() {
     // URI : /items/cds
     // tag::adocSkip2[]
-    List<CD> cds = new ArrayList<>();
-    cds.add(new CD("Help", 12.5F, "Best Beatles album", "EMI", 1, 45.6F, "Pop"));
-    return cds;
+    return List.of(new CD("Help", 12.5F, "Best Beatles album", "EMI", 1, 45.6F, "Pop"));
     // end::adocSkip2[]
   }
 
@@ -53,9 +48,7 @@ public class ItemResource {
   public List<Book> getBooks() {
     // URI : /items/books
     // tag::adocSkip3[]
-    List<Book> books = new ArrayList<>();
-    books.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
-    return books;
+    return List.of(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     // end::adocSkip3[]
   }
 

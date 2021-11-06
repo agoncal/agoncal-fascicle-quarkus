@@ -48,7 +48,7 @@ Table <<quarkus-table-cloud-packaging-run>> shows the command to run the executa
 Table <<quarkus-table-cloud-packaging-startup>> shows for each executable format the time, in milliseconds, it took to serve the first request fo two apps:
 
 * A REST application: A simple JSON REST endpoint.
-* A complex application: A JSON REST endpoint with validation, Panache ORM, transactions, injection and a H2 database.
+* A complex application: A JSON REST endpoint with validation, Panache ORM, transactions, injection and an H2 database.
 
 [[quarkus-table-cloud-packaging-startup]]
 .Time to First Request

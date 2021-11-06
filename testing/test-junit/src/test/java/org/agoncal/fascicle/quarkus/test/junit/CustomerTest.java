@@ -46,9 +46,7 @@ public class CustomerTest {
   public void shouldThrowAnExceptionCauseDateOfBirtheIsNull() {
 
     customer = null;
-    assertThrows(NullPointerException.class, () -> {
-      customer.calculateAge();
-    });
+    assertThrows(NullPointerException.class, () -> customer.calculateAge());
   }
   // end::shouldThrowAnExceptionCauseDateOfBirtheIsNull[]
 

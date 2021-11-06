@@ -18,7 +18,7 @@ import java.util.Optional;
 @Produces(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
-  private static List<Artist> artists = List.of(
+  private static final List<Artist> artists = List.of(
     new Artist().id(1).firstName("John").lastName("Lennon"),
     new Artist().id(2).firstName("Paul").lastName("McCartney"),
     new Artist().id(3).firstName("George").lastName("Harrison"),

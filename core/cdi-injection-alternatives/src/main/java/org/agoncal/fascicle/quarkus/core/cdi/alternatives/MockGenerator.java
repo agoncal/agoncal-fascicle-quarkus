@@ -10,12 +10,12 @@ import javax.enterprise.inject.Default;
  * http://www.antoniogoncalves.org
  * --
  */
+@ApplicationScoped
 // tag::adocSnippet[]
 @Alternative
 // tag::adocSkip[]
 @Default
 // end::adocSkip[]
-@ApplicationScoped
 public class MockGenerator implements NumberGenerator {
 
   public String generateNumber() {

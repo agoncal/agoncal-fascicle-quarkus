@@ -25,7 +25,7 @@ public class NumberResource {
 
   // end::adocSkip[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
-  int secondsToSleep = 0;
+  int secondsToSleep;
 
   @GET
   @Path("/issn")

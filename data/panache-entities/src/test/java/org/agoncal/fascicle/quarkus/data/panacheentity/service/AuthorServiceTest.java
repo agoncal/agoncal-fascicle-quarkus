@@ -3,7 +3,6 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.service;
 import io.quarkus.test.junit.QuarkusTest;
 import org.agoncal.fascicle.quarkus.data.panacheentity.model.Author;
 import org.agoncal.fascicle.quarkus.data.panacheentity.model.Language;
-import org.agoncal.fascicle.quarkus.data.panacheentity.service.AuthorService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -134,7 +133,7 @@ class AuthorServiceTest {
     // Deletes the previously created author
     authorService.deleteById(authorId);
 
-    // Checks there is less a author in the database
+    // Checks there is less an author in the database
     assertEquals(nbAuthors, authorService.findAll().size());
   }
 }
