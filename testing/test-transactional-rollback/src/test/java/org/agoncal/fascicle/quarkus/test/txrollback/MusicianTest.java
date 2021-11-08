@@ -1,12 +1,12 @@
-package org.agoncal.fascicle.quarkus.test.transactional;
+package org.agoncal.fascicle.quarkus.test.txrollback;
 
+import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 // tag::adocSnippet[]
 @QuarkusTest
-@Transactional
+@TestTransaction
 class MusicianTest {
   // tag::adocSkip[]
   private static long nbBooks;
@@ -49,7 +49,7 @@ class MusicianTest {
   @Test
   @Order(3)
   void shouldGetMusiciansAfterPersist() {
-    assertEquals(nbBooks + 1, Musician.count());
+    assertEquals(nbBooks, Musician.count());
   }
   // end::adocSkip[]
 }

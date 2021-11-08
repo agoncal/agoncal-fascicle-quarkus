@@ -29,5 +29,6 @@
     <module>test-restassured</module>
     <module>test-testcontainers</module>
     <module>test-transactional</module>
+    <module>test-transactional-rollback</module>
   </modules>
 </project>
