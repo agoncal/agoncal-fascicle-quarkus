@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PingPostgreSQLTest {
 
   @Container
-  public static PostgreSQLContainer pg = new PostgreSQLContainer<>("postgres:12.4")
+  public static PostgreSQLContainer pg = new PostgreSQLContainer<>("postgres:14.0")
     .withDatabaseName("vintageStoreDB")
     .withUsername("vintage")
     .withPassword("vintage")
@@ -34,7 +34,7 @@ public class PingPostgreSQLTest {
          ResultSet rs = st.executeQuery("SELECT VERSION()")) {
 
       if (rs.next()) {
-        assertTrue(rs.getString(1).contains("PostgreSQL 12"));
+        assertTrue(rs.getString(1).contains("PostgreSQL 14"));
       } else {
         throw new Exception();
       }
