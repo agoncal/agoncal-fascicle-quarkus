@@ -11,12 +11,11 @@ public class InjectedLoggingResource {
 
   // tag::adocSnippet[]
   @Inject
-  Logger jbossLogger;
+  Logger JBOSS_LOGGER;
 
   @GET
   public void displayLogs() {
-
-    jbossLogger.info("Trace produced by JBoss Logger");
+    JBOSS_LOGGER.info("Trace produced by JBoss Logger");
   }
   // end::adocSnippet[]
 }
