@@ -3,6 +3,7 @@
 mvn io.quarkus:quarkus-maven-plugin:2.4.0.Final:create \
     -DprojectGroupId=org.agoncal.fascicle.quarkus \
     -DprojectArtifactId=getting-started \
+    -DprojectVersion=2.0.0-SNAPSHOT \
     -DclassName="org.agoncal.fascicle.quarkus.gettingstarted.ArtistResource" \
     -Dpath="/artists" \
     -Dextensions="resteasy-jsonb"
