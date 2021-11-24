@@ -14,14 +14,18 @@ public class LoggingResource {
   @GET
   public void displayLogs() {
     // tag::adocMultipleLoggers[]
+    // JBoss Logging
     // tag::adocJBossLogger[]
     org.jboss.logging.Logger JBOSS_LOGGER =
       org.jboss.logging.Logger.getLogger(LoggingResource.class);
     // end::adocJBossLogger[]
+    // JUL
     java.util.logging.Logger JUL_LOGGER =
       java.util.logging.Logger.getLogger(LoggingResource.class.getName());
+    // Commons Logging
     org.apache.commons.logging.Log COMMONS_LOGGING =
       org.apache.commons.logging.LogFactory.getLog(LoggingResource.class);
+    // SLF4J
     org.slf4j.Logger SLF4J_LOGGER =
       org.slf4j.LoggerFactory.getLogger(LoggingResource.class);
 
