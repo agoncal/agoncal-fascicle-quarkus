@@ -5,6 +5,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +39,9 @@ public class ArtistResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAllArtists() {
+    // The Artist class must have an annotation @RegisterForReflection to work in native mode
+    // Other Option is to directly return List<Artist>, in that case Quarkus know to enable reflection
+    // see https://quarkus.io/guides/rest-json#conclusion for reference
     return Response.ok(artists).build();
   }
 
