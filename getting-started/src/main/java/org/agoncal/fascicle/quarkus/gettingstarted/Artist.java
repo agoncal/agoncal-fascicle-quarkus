@@ -2,6 +2,9 @@ package org.agoncal.fascicle.quarkus.gettingstarted;
 
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
+
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -11,6 +14,7 @@ import java.util.UUID;
  * --
  */
 // tag::adocSnippet[]
+@RegisterForReflection // see https://quarkus.io/guides/rest-json#conclusion for reference
 public class Artist {
 
   @JsonbTransient
