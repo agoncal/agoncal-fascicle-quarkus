@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.cloud</groupId>
   <artifactId>packaging-rest</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <name>Quarkus :: Cloud :: Packaging :: REST</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>cloud</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>

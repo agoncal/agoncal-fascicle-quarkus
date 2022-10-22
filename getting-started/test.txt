@@ -2,11 +2,11 @@
 [INFO] Building Getting Started
 [INFO] ------------------------
 [INFO]
-[INFO] --- quarkus-maven-plugin:2.4.0.Final:generate-code
+[INFO] --- quarkus-maven-plugin:2.13.3.Final:generate-code
 [INFO]
 [INFO] --- maven-compiler-plugin:3.8.1:compile
 [INFO]
-[INFO] --- quarkus-maven-plugin:2.4.0.Final:generate-code-tests
+[INFO] --- quarkus-maven-plugin:2.13.3.Final:generate-code-tests
 [INFO]
 [INFO] --- maven-surefire-plugin:3.0.0-M5:test
 [INFO]

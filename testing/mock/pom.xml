@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.testing</groupId>
   <artifactId>mock</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <name>Quarkus :: Testing :: Mock</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>testing</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>

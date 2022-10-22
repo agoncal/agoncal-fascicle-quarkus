@@ -5,7 +5,7 @@
 
   <groupId>org.agoncal.fascicle</groupId>
   <artifactId>quarkus</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Quarkus</name>
 
@@ -27,11 +27,11 @@
   </modules>
 
   <properties>
-    <version.java>11</version.java>
+    <version.java>17</version.java>
     <!-- Quarkus -->
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.4.0.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.13.3.Final</quarkus.platform.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <!-- Other -->
@@ -40,28 +40,28 @@
     <version.json-path>2.5.0</version.json-path>
     <!-- Test -->
     <!-- Core Maven Plugins -->
-    <version.antrun.plugin>3.0.0</version.antrun.plugin>
-    <version.archetype.plugin>3.2.0</version.archetype.plugin>
-    <version.assembly.plugin>3.3.0</version.assembly.plugin>
-    <version.clean.plugin>3.1.0</version.clean.plugin>
-    <version.compiler.plugin>3.8.1</version.compiler.plugin>
-    <version.dependency.plugin>3.2.0</version.dependency.plugin>
-    <version.deploy.plugin>2.8.2</version.deploy.plugin>
-    <version.enforcer.plugin>3.0.0</version.enforcer.plugin>
-    <version.exec.plugin>3.0.0</version.exec.plugin>
+    <version.antrun.plugin>3.1.0</version.antrun.plugin>
+    <version.archetype.plugin>3.2.1</version.archetype.plugin>
+    <version.assembly.plugin>3.4.2</version.assembly.plugin>
+    <version.clean.plugin>3.2.0</version.clean.plugin>
+    <version.compiler.plugin>3.10.1</version.compiler.plugin>
+    <version.dependency.plugin>3.3.0</version.dependency.plugin>
+    <version.deploy.plugin>3.0.0</version.deploy.plugin>
+    <version.enforcer.plugin>3.1.0</version.enforcer.plugin>
+    <version.exec.plugin>3.1.0</version.exec.plugin>
     <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
-    <version.help.plugin>3.2.0</version.help.plugin>
-    <version.install.plugin>3.0.0-M1</version.install.plugin>
-    <version.invoker.plugin>3.2.2</version.invoker.plugin>
-    <version.jar.plugin>3.2.0</version.jar.plugin>
-    <version.javadoc.plugin>3.3.1</version.javadoc.plugin>
-    <version.plugin.plugin>3.6.1</version.plugin.plugin>
-    <version.resources.plugin>3.2.0</version.resources.plugin>
-    <version.shade.plugin>3.2.4</version.shade.plugin>
-    <version.site.plugin>3.9.1</version.site.plugin>
+    <version.help.plugin>3.3.0</version.help.plugin>
+    <version.install.plugin>3.0.1</version.install.plugin>
+    <version.invoker.plugin>3.3.0</version.invoker.plugin>
+    <version.jar.plugin>3.3.0</version.jar.plugin>
+    <version.javadoc.plugin>3.4.1</version.javadoc.plugin>
+    <version.plugin.plugin>3.6.4</version.plugin.plugin>
+    <version.resources.plugin>3.3.0</version.resources.plugin>
+    <version.shade.plugin>3.4.0</version.shade.plugin>
+    <version.site.plugin>3.12.1</version.site.plugin>
     <version.source.plugin>3.2.1</version.source.plugin>
-    <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
-    <version.version.plugin>2.8.1</version.version.plugin>
+    <version.surefire.plugin>3.0.0-M7</version.surefire.plugin>
+    <version.version.plugin>2.12.0</version.version.plugin>
     <version.war.plugin>3.3.2</version.war.plugin>
     <!-- Plugins flag -->
     <javadoc.disabled>true</javadoc.disabled>
@@ -76,7 +76,7 @@
   </properties>
 
   <prerequisites>
-    <maven>3.0.0</maven>
+    <maven>3.8.0</maven>
   </prerequisites>
 
   <!-- tag::adocBom[] -->

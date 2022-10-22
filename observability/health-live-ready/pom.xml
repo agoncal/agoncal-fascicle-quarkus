@@ -5,13 +5,13 @@
 
   <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
   <artifactId>health-live-ready</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <name>Quarkus :: Observability :: Health :: Live and Ready</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
     <artifactId>observability</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>
