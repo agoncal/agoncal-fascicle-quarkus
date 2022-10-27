@@ -2,7 +2,7 @@ package org.agoncal.fascicle.quarkus.http.panache;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 /**
  * @author Antonio Goncalves
