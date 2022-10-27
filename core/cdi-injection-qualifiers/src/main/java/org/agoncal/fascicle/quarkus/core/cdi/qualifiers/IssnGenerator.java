@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.core.cdi.qualifiers;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Random;
 
 /**
