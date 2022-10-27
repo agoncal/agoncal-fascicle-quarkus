@@ -27,29 +27,29 @@
   </modules>
 
   <properties>
-    <version.java>17</version.java>
     <!-- Quarkus -->
+    <version.compiler.plugin>3.8.1</version.compiler.plugin>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.13.3.Final</quarkus.platform.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+    <quarkus.platform.version>3.0.0.Alpha1</quarkus.platform.version>
+    <skipITs>true</skipITs>
+    <version.surefire.plugin>3.0.0-M7</version.surefire.plugin>
     <!-- Other -->
     <version.javafaker>1.0.2</version.javafaker>
     <testcontainers.version>1.15.3</testcontainers.version>
     <version.json-path>2.5.0</version.json-path>
-    <!-- Test -->
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>3.1.0</version.antrun.plugin>
     <version.archetype.plugin>3.2.1</version.archetype.plugin>
     <version.assembly.plugin>3.4.2</version.assembly.plugin>
     <version.clean.plugin>3.2.0</version.clean.plugin>
-    <version.compiler.plugin>3.10.1</version.compiler.plugin>
     <version.dependency.plugin>3.3.0</version.dependency.plugin>
     <version.deploy.plugin>3.0.0</version.deploy.plugin>
     <version.enforcer.plugin>3.1.0</version.enforcer.plugin>
     <version.exec.plugin>3.1.0</version.exec.plugin>
-    <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
     <version.help.plugin>3.3.0</version.help.plugin>
     <version.install.plugin>3.0.1</version.install.plugin>
     <version.invoker.plugin>3.3.0</version.invoker.plugin>
@@ -60,7 +60,6 @@
     <version.shade.plugin>3.4.0</version.shade.plugin>
     <version.site.plugin>3.12.1</version.site.plugin>
     <version.source.plugin>3.2.1</version.source.plugin>
-    <version.surefire.plugin>3.0.0-M7</version.surefire.plugin>
     <version.version.plugin>2.12.0</version.version.plugin>
     <version.war.plugin>3.3.2</version.war.plugin>
     <!-- Plugins flag -->
@@ -68,11 +67,6 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
 
     <!-- Project -->
-    <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>${version.java}</maven.compiler.source>
-    <maven.compiler.target>${version.java}</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <prerequisites>
@@ -124,9 +118,47 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.compiler.plugin}</version>
           <configuration>
-            <debug>true</debug>
+            <compilerArgs>
+              <arg>-parameters</arg>
+            </compilerArgs>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${version.surefire.plugin}</version>
+          <configuration>
+            <systemPropertyVariables>
+              <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              <maven.home>${maven.home}</maven.home>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${version.surefire.plugin}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+              <configuration>
+                <systemPropertyVariables>
+                  <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                  <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                  <maven.home>${maven.home}</maven.home>
+                </systemPropertyVariables>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
         <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
         <plugin>
@@ -165,15 +197,6 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>${version.compiler.plugin}</version>
-          <inherited>true</inherited>
-          <configuration>
-            <parameters>${maven.compiler.parameters}</parameters>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${version.dependency.plugin}</version>
           <configuration>
@@ -199,24 +222,6 @@
             <execution>
               <goals>
                 <goal>java</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${version.failsafe.plugin}</version>
-          <configuration>
-            <argLine>-Duser.language=en -Duser.country=EN</argLine>
-            <reuseForks>false</reuseForks>
-          </configuration>
-          <executions>
-            <execution>
-              <id>integration-test</id>
-              <goals>
-                <goal>integration-test</goal>
-                <goal>verify</goal>
               </goals>
             </execution>
           </executions>
@@ -304,17 +309,6 @@
           <version>${version.source.plugin}</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${version.surefire.plugin}</version>
-          <configuration>
-            <systemPropertyVariables>
-              <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-              <maven.home>${maven.home}</maven.home>
-            </systemPropertyVariables>
-          </configuration>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>${version.version.plugin}</version>
@@ -342,4 +336,18 @@
       </plugins>
     </pluginManagement>
   </build>
+  <profiles>
+    <profile>
+      <id>native</id>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
+      <properties>
+        <skipITs>false</skipITs>
+        <quarkus.package.type>native</quarkus.package.type>
+      </properties>
+    </profile>
+  </profiles>
 </project>
