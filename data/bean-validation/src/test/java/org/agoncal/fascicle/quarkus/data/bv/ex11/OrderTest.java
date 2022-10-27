@@ -3,9 +3,9 @@ package org.agoncal.fascicle.quarkus.data.bv.ex11;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
+import jakarta.inject.Inject;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
