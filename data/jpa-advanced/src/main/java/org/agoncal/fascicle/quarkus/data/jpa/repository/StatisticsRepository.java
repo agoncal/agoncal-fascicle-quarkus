@@ -3,7 +3,7 @@ package org.agoncal.fascicle.quarkus.data.jpa.repository;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Publisher;
 import org.agoncal.fascicle.quarkus.data.jpa.service.StatisticsException;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class StatisticsRepository {

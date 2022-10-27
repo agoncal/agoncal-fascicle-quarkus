@@ -3,9 +3,9 @@ package org.agoncal.fascicle.quarkus.data.jpa.service;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Item;
 import org.agoncal.fascicle.quarkus.data.jpa.repository.InventoryRepository;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.transaction.UserTransaction;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.UserTransaction;
 
 // tag::adocSnippet[]
 @ApplicationScoped
