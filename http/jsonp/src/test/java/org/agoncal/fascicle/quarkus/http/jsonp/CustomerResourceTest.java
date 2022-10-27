@@ -4,14 +4,14 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
-import static javax.ws.rs.core.HttpHeaders.ACCEPT;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.Response.Status.OK;
+import static jakarta.ws.rs.core.HttpHeaders.ACCEPT;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static jakarta.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.not;

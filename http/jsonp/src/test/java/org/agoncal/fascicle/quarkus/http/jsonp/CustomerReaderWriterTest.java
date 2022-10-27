@@ -2,9 +2,9 @@ package org.agoncal.fascicle.quarkus.http.jsonp;
 
 import org.junit.jupiter.api.Test;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonString;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonString;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
