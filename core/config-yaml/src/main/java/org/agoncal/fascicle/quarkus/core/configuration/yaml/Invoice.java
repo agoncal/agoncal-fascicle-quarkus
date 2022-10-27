@@ -2,7 +2,7 @@ package org.agoncal.fascicle.quarkus.core.configuration.yaml;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * @author Antonio Goncalves
