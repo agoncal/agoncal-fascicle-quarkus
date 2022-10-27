@@ -3,9 +3,9 @@ package org.agoncal.fascicle.quarkus.data.jpa.dflt;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
