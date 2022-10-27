@@ -2,7 +2,7 @@ package org.agoncal.fascicle.quarkus.number;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 // tag::adocSnippet[]
 // tag::adocOpenAPI[]
