@@ -7,8 +7,8 @@ import org.agoncal.fascicle.quarkus.data.panacherepository.model.Book;
 import org.agoncal.fascicle.quarkus.data.panacherepository.model.Language;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.transaction.Transactional;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;

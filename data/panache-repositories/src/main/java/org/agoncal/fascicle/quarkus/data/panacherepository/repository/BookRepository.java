@@ -6,7 +6,7 @@ import io.quarkus.panache.common.Parameters;
 import org.agoncal.fascicle.quarkus.data.panacherepository.model.Book;
 import org.agoncal.fascicle.quarkus.data.panacherepository.model.Language;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
 
 @ApplicationScoped

@@ -4,7 +4,7 @@ import io.quarkus.hibernate.orm.panache.Panache;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import org.agoncal.fascicle.quarkus.data.panacherepository.model.Publisher;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 
 // tag::adocSnippet[]
