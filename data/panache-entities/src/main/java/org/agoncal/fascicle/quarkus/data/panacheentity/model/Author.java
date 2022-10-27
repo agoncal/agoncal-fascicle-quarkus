@@ -2,9 +2,9 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 
 import io.quarkus.panache.common.Sort;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import java.util.List;
 import java.util.Optional;
 

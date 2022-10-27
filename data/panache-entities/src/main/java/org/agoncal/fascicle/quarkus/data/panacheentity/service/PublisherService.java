@@ -3,13 +3,13 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.service;
 import io.quarkus.hibernate.orm.panache.Panache;
 import org.agoncal.fascicle.quarkus.data.panacheentity.model.Publisher;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
-import static javax.transaction.Transactional.TxType.SUPPORTS;
+import static jakarta.transaction.Transactional.TxType.REQUIRED;
+import static jakarta.transaction.Transactional.TxType.SUPPORTS;
 
 // tag::adocSnippet[]
 @ApplicationScoped

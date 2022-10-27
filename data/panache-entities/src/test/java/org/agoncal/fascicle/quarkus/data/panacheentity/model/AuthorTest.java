@@ -4,7 +4,7 @@ import io.quarkus.panache.common.Sort;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 import static io.quarkus.panache.common.Sort.Direction.Descending;
