@@ -2,12 +2,12 @@ package org.agoncal.fascicle.quarkus.faulttolerance.book;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import javax.json.JsonObject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
+import jakarta.json.JsonObject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 
 // tag::adocSnippet[]
 @Path("/api/numbers")

@@ -4,9 +4,9 @@ package org.agoncal.fascicle.quarkus.faulttolerance.book;
 import io.quarkus.test.Mock;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.json.Json;
-import javax.json.JsonObject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 // tag::adocSnippet[]
 @Mock
