@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
 import java.util.UUID;
 
