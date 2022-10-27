@@ -1,9 +1,9 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.custom;
 
-import javax.json.bind.annotation.JsonbDateFormat;
-import javax.json.bind.annotation.JsonbNumberFormat;
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.json.bind.annotation.JsonbNumberFormat;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import java.time.LocalDate;
 
 /**
