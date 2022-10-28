@@ -2,10 +2,10 @@ package org.agoncal.fascicle.quarkus.test.profile;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 import java.util.Optional;
 
 /**
