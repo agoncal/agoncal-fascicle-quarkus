@@ -2,7 +2,7 @@ package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 import java.util.Objects;
 
 /**
