@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.synch.model;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

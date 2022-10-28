@@ -9,8 +9,8 @@ import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status;
 import org.jboss.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.time.LocalDate;
 
 import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCardType.MASTER_CARD;
