@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.test.mock.inject;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 public class IsbnNumbers {
 
