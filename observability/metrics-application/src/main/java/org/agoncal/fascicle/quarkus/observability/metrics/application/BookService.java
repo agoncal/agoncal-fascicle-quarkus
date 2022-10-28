@@ -2,7 +2,7 @@ package org.agoncal.fascicle.quarkus.observability.metrics.application;
 
 import com.github.javafaker.Faker;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 import java.util.Random;
 
