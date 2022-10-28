@@ -2,8 +2,8 @@ package org.agoncal.fascicle.quarkus.test.mock;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 // tag::adocSnippet[]
 @Path("/api/numbers")
