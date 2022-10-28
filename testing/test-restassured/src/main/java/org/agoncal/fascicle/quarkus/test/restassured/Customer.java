@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.test.restassured;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
