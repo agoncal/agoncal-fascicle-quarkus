@@ -1,17 +1,19 @@
 package org.agoncal.fascicle.quarkus.firststep;
 
+// tag::adocSnippet[]
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+// tag::adocSkip[]
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocSnippet[]
+// end::adocSkip[]
 @Path("/authors")
 @Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
