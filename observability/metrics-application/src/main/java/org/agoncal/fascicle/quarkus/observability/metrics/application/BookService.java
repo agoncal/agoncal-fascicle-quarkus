@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.observability.metrics.application;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;

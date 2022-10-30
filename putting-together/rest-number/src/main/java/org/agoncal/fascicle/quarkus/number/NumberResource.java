@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.number;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;

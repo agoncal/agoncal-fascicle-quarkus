@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.faulttolerance.isbn;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
 

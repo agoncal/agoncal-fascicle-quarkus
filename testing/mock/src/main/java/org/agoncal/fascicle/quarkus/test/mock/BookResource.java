@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.test.mock;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import jakarta.inject.Inject;

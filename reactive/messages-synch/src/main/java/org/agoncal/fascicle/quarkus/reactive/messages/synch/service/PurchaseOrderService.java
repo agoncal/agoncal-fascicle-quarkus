@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.synch.service;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCard;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Customer;

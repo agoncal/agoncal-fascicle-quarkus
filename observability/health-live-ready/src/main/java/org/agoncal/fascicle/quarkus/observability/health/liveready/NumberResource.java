@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.observability.health.liveready;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;

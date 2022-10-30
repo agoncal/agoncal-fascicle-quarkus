@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.book;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;

@@ -29,8 +29,8 @@
       <artifactId>quarkus-rest-client</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.github.javafaker</groupId>
-      <artifactId>javafaker</artifactId>
+      <groupId>net.datafaker</groupId>
+      <artifactId>datafaker</artifactId>
     </dependency>
 
     <!-- Test -->

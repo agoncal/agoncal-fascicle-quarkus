@@ -38,7 +38,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <!-- Other -->
-    <version.javafaker>1.0.2</version.javafaker>
+    <version.datafaker>1.6.0</version.datafaker>
     <testcontainers.version>1.15.3</testcontainers.version>
     <version.json-path>2.5.0</version.json-path>
   </properties>
@@ -59,9 +59,9 @@
       </dependency>
       <!-- tag::adocSkip[] -->
       <dependency>
-        <groupId>com.github.javafaker</groupId>
-        <artifactId>javafaker</artifactId>
-        <version>${version.javafaker}</version>
+        <groupId>net.datafaker</groupId>
+        <artifactId>datafaker</artifactId>
+        <version>${version.datafaker}</version>
       </dependency>
       <dependency>
         <groupId>com.jayway.jsonpath</groupId>

@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.restclient.isbn;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.DefaultValue;

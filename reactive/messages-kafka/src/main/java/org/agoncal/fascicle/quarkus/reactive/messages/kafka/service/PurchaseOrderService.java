@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.kafka.service;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCard;
