@@ -21,13 +21,7 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
-    </dependency>
-    <!-- Test -->
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <scope>test</scope>
+      <artifactId>quarkus-resteasy-jackson</artifactId>
     </dependency>
     <!-- tag::adocExtension[] -->
     <dependency>
