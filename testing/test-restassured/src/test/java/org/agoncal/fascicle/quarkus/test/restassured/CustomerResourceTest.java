@@ -144,6 +144,18 @@ public class CustomerResourceTest {
   }
 
   @Test
+  public void shouldDeleteCustomer() {
+    // tag::adocShouldDeleteCustomer[]
+    given()
+      .pathParam("id", 1L).
+    when()
+      .delete("/customers/{id}").
+    then()
+      .statusCode(204);
+    // end::adocShouldDeleteCustomer[]
+  }
+
+  @Test
   public void shouldCreateACustomer() {
     // tag::adocShouldCreateACustomer[]
     Customer customer = new Customer().firstName("John").lastName("Lennon");
