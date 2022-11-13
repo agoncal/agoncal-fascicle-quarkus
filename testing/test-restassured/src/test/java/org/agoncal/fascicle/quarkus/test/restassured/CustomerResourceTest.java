@@ -9,6 +9,8 @@ import static jakarta.ws.rs.core.HttpHeaders.ACCEPT;
 import static jakarta.ws.rs.core.HttpHeaders.CONTENT_TYPE;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -108,8 +110,9 @@ public class CustomerResourceTest {
     then()
       .statusCode(200)
       .contentType(APPLICATION_JSON)
+      .body("$", hasKey("id"))
       .body("first-name", is("John"))
-      .body("last-name", is("Lennon"));
+      .body("last-name", startsWith("Lennon"));
     // end::adocShouldGetCustomersThen[]
   }
 
