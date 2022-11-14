@@ -54,7 +54,7 @@ public class AuthorResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  @Test @Disabled
+  @Test @Disabled("The test works, it is just deactivated because it takes time")
   void shouldWriteOpenAPIFile()throws Exception {
     String yamlFile = given()
       .header(ACCEPT, "application/yaml").
