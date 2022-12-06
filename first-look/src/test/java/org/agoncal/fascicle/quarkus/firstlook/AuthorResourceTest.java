@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.firststep;
+package org.agoncal.fascicle.quarkus.firstlook;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

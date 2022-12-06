@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.firststep;
+package org.agoncal.fascicle.quarkus.firstlook;
 
 // tag::adocSnippet[]
 import jakarta.ws.rs.GET;
