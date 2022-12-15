@@ -38,7 +38,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <!-- Other -->
-    <version.datafaker>1.6.0</version.datafaker>
+    <version.datafaker>1.7.0</version.datafaker>
     <testcontainers.version>1.15.3</testcontainers.version>
     <version.json-path>2.5.0</version.json-path>
   </properties>
