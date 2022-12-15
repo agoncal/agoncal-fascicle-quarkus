@@ -5,7 +5,7 @@ import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status;
 import org.jboss.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class InventoryService {

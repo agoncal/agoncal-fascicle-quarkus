@@ -4,7 +4,7 @@ package org.agoncal.fascicle.quarkus.book;
 import io.quarkus.test.Mock;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 // tag::adocSnippet[]
 @Mock

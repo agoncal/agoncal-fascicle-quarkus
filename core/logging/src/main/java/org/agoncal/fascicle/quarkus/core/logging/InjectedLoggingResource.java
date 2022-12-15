@@ -2,9 +2,9 @@ package org.agoncal.fascicle.quarkus.core.logging;
 
 import org.jboss.logging.Logger;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 @Path("/logs/inject")
 public class InjectedLoggingResource {

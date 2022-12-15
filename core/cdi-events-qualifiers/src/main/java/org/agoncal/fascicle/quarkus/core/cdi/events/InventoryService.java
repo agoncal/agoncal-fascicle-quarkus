@@ -2,9 +2,9 @@ package org.agoncal.fascicle.quarkus.core.cdi.events;
 
 import org.jboss.logging.Logger;
 
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 

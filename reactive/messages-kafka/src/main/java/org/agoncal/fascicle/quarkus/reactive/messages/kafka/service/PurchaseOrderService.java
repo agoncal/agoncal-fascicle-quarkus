@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.kafka.service;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCard;
@@ -14,8 +14,8 @@ import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.time.LocalDate;
 
 import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCardType.MASTER_CARD;

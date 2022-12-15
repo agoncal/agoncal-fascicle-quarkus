@@ -4,7 +4,7 @@ import io.smallrye.health.checks.UrlHealthCheck;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.Liveness;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 // tag::adocSnippet[]
 @ApplicationScoped

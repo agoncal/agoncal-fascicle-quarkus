@@ -15,7 +15,7 @@
     <module>communication</module>
     <module>core</module>
     <module>data</module>
-    <module>first-step</module>
+    <module>first-look</module>
     <module>getting-started</module>
     <module>http</module>
     <module>integrating</module>
@@ -27,52 +27,20 @@
   </modules>
 
   <properties>
-    <version.java>17</version.java>
     <!-- Quarkus -->
-    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.13.3.Final</quarkus.platform.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <!-- Other -->
-    <version.javafaker>1.0.2</version.javafaker>
-    <testcontainers.version>1.15.3</testcontainers.version>
-    <version.json-path>2.5.0</version.json-path>
-    <!-- Test -->
-    <!-- Core Maven Plugins -->
-    <version.antrun.plugin>3.1.0</version.antrun.plugin>
-    <version.archetype.plugin>3.2.1</version.archetype.plugin>
-    <version.assembly.plugin>3.4.2</version.assembly.plugin>
-    <version.clean.plugin>3.2.0</version.clean.plugin>
-    <version.compiler.plugin>3.10.1</version.compiler.plugin>
-    <version.dependency.plugin>3.3.0</version.dependency.plugin>
-    <version.deploy.plugin>3.0.0</version.deploy.plugin>
-    <version.enforcer.plugin>3.1.0</version.enforcer.plugin>
-    <version.exec.plugin>3.1.0</version.exec.plugin>
-    <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
-    <version.help.plugin>3.3.0</version.help.plugin>
-    <version.install.plugin>3.0.1</version.install.plugin>
-    <version.invoker.plugin>3.3.0</version.invoker.plugin>
-    <version.jar.plugin>3.3.0</version.jar.plugin>
-    <version.javadoc.plugin>3.4.1</version.javadoc.plugin>
-    <version.plugin.plugin>3.6.4</version.plugin.plugin>
-    <version.resources.plugin>3.3.0</version.resources.plugin>
-    <version.shade.plugin>3.4.0</version.shade.plugin>
-    <version.site.plugin>3.12.1</version.site.plugin>
-    <version.source.plugin>3.2.1</version.source.plugin>
-    <version.surefire.plugin>3.0.0-M7</version.surefire.plugin>
-    <version.version.plugin>2.12.0</version.version.plugin>
-    <version.war.plugin>3.3.2</version.war.plugin>
-    <!-- Plugins flag -->
-    <javadoc.disabled>true</javadoc.disabled>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
-
-    <!-- Project -->
-    <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>${version.java}</maven.compiler.source>
-    <maven.compiler.target>${version.java}</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+    <quarkus.platform.version>3.0.0.Alpha2</quarkus.platform.version>
+    <skipITs>true</skipITs>
+    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+    <!-- Other -->
+    <version.datafaker>1.7.0</version.datafaker>
+    <testcontainers.version>1.15.3</testcontainers.version>
+    <version.json-path>2.5.0</version.json-path>
   </properties>
 
   <prerequisites>
@@ -91,9 +59,9 @@
       </dependency>
       <!-- tag::adocSkip[] -->
       <dependency>
-        <groupId>com.github.javafaker</groupId>
-        <artifactId>javafaker</artifactId>
-        <version>${version.javafaker}</version>
+        <groupId>net.datafaker</groupId>
+        <artifactId>datafaker</artifactId>
+        <version>${version.datafaker}</version>
       </dependency>
       <dependency>
         <groupId>com.jayway.jsonpath</groupId>
@@ -109,7 +77,6 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- Quarkus -->
         <plugin>
           <groupId>${quarkus.platform.group-id}</groupId>
           <artifactId>quarkus-maven-plugin</artifactId>
@@ -124,189 +91,19 @@
               </goals>
             </execution>
           </executions>
-          <configuration>
-            <debug>true</debug>
-          </configuration>
-        </plugin>
-        <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>${version.antrun.plugin}</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-archetype-plugin</artifactId>
-          <version>${version.archetype.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>${version.assembly.plugin}</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>single</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <appendAssemblyId>false</appendAssemblyId>
-            <descriptors>
-              <descriptor>assembly.xml</descriptor>
-            </descriptors>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>${version.clean.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>${version.compiler.plugin}</version>
-          <inherited>true</inherited>
+          <version>${compiler-plugin.version}</version>
           <configuration>
-            <parameters>${maven.compiler.parameters}</parameters>
+            <compilerArgs>
+              <arg>-parameters</arg>
+            </compilerArgs>
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${version.dependency.plugin}</version>
-          <configuration>
-            <!-- Perfs improvements - PAR-191 -->
-            <useJvmChmod>true</useJvmChmod>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>${version.deploy.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${version.enforcer.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>${version.exec.plugin}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>java</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${version.failsafe.plugin}</version>
-          <configuration>
-            <argLine>-Duser.language=en -Duser.country=EN</argLine>
-            <reuseForks>false</reuseForks>
-          </configuration>
-          <executions>
-            <execution>
-              <id>integration-test</id>
-              <goals>
-                <goal>integration-test</goal>
-                <goal>verify</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-help-plugin</artifactId>
-          <version>${version.help.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>${version.install.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-invoker-plugin</artifactId>
-          <version>${version.invoker.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>${version.jar.plugin}</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-              <manifestEntries>
-                <Date>${maven.build.timestamp}</Date>
-                <Specification-Title>${project.name}</Specification-Title>
-                <Specification-Version>${project.version}</Specification-Version>
-                <Implementation-Title>${project.name}</Implementation-Title>
-                <Implementation-Version>${project.version}</Implementation-Version>
-              </manifestEntries>
-            </archive>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>${version.javadoc.plugin}</version>
-          <configuration>
-            <!-- Javadoc disabled - not used -->
-            <skip>${javadoc.disabled}</skip>
-            <archive>
-              <manifest>
-                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-              <manifestEntries>
-                <Date>${maven.build.timestamp}</Date>
-                <Specification-Title>${project.name}</Specification-Title>
-                <Specification-Version>${project.version}</Specification-Version>
-                <Implementation-Title>${project.name}</Implementation-Title>
-                <Implementation-Version>${project.version}</Implementation-Version>
-              </manifestEntries>
-            </archive>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-plugin-plugin</artifactId>
-          <version>${version.plugin.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${version.resources.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>${version.shade.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>${version.site.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>${version.source.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>${version.surefire.plugin}</version>
+          <version>${surefire-plugin.version}</version>
           <configuration>
             <systemPropertyVariables>
               <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
@@ -315,31 +112,39 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>versions-maven-plugin</artifactId>
-          <version>${version.version.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>${version.war.plugin}</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-              <manifestEntries>
-                <Date>${maven.build.timestamp}</Date>
-                <Specification-Title>${project.name}</Specification-Title>
-                <Specification-Version>${project.version}</Specification-Version>
-                <Implementation-Title>${project.name}</Implementation-Title>
-                <Implementation-Version>${project.version}</Implementation-Version>
-              </manifestEntries>
-            </archive>
-          </configuration>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${surefire-plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+              <configuration>
+                <systemPropertyVariables>
+                  <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                  <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                  <maven.home>${maven.home}</maven.home>
+                </systemPropertyVariables>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+  <profiles>
+    <profile>
+      <id>native</id>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
+      <properties>
+        <skipITs>false</skipITs>
+        <quarkus.package.type>native</quarkus.package.type>
+      </properties>
+    </profile>
+  </profiles>
 </project>

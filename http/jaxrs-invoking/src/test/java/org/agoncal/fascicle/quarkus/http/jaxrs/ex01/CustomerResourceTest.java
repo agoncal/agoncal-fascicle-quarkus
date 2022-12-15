@@ -1,18 +1,18 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs.ex01;
 
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.agoncal.fascicle.quarkus.http.jaxrs.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
  */
 // @formatter:off
 @QuarkusTest
+@Disabled("ClassNotFoundException: Provider for jakarta.ws.rs.client.ClientBuilder cannot be found")
 public class CustomerResourceTest {
 
   // ======================================
@@ -82,7 +83,7 @@ public class CustomerResourceTest {
   }
 
 
-  @Test @Disabled
+  @Test
   public void shouldCreateCustomerCustom() {
     // tag::adocclientprop[]
     Client client = ClientBuilder.newClient();

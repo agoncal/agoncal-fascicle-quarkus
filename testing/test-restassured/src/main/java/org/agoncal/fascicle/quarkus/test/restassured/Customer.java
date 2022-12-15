@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.test.restassured;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -18,17 +18,17 @@ public class Customer {
   // ======================================
 
   private Long id;
-  @JsonbProperty("first-name")
+  @JsonProperty("first-name")
   private String firstName;
-  @JsonbProperty("last-name")
+  @JsonProperty("last-name")
   private String lastName;
   private String email;
-  @JsonbProperty("phone-number")
+  @JsonProperty("phone-number")
   private String phoneNumber;
-  @JsonbProperty("date-of-birth")
+  @JsonProperty("date-of-birth")
   private LocalDate dateOfBirth;
   private Integer age;
-  @JsonbTransient
+  @JsonIgnore
   private LocalDateTime creationDate;
 
   // ======================================

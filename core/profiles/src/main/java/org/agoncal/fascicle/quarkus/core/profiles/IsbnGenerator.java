@@ -3,7 +3,7 @@ package org.agoncal.fascicle.quarkus.core.profiles;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Random;
 
 /**

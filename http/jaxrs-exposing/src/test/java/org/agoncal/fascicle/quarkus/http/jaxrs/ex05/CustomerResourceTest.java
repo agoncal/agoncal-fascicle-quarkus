@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static javax.ws.rs.core.HttpHeaders.ACCEPT;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.Response.Status.OK;
+import static jakarta.ws.rs.core.HttpHeaders.ACCEPT;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static jakarta.ws.rs.core.Response.Status.OK;
 
 /**
  * @author Antonio Goncalves
@@ -34,7 +34,7 @@ public class CustomerResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  @Test @Disabled("https://github.com/rest-assured/rest-assured/issues/417")
+  @Test
   public void shouldCheckGetCustomerByFirstnameName() {
     given()
       .header(ACCEPT, APPLICATION_JSON).

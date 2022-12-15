@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.http.jaxrs;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves

@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch.service;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCard;
@@ -15,8 +15,8 @@ import org.eclipse.microprofile.reactive.messaging.Message;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.time.LocalDate;
 import java.util.concurrent.CompletionStage;
 

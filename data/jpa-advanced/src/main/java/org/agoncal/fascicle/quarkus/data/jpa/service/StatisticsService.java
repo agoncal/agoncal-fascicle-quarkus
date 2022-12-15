@@ -4,9 +4,9 @@ import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import org.agoncal.fascicle.quarkus.data.jpa.model.Publisher;
 import org.agoncal.fascicle.quarkus.data.jpa.repository.StatisticsRepository;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 // tag::adocSnippet[]
 @ApplicationScoped

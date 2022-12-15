@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.data.bv.ex06;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author Antonio Goncalves

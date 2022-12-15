@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # tag::adocSnippet[]
-mvn io.quarkus:quarkus-maven-plugin:2.13.3.Final:create \
-    -DplatformVersion=2.13.3.Final \
+mvn io.quarkus:quarkus-maven-plugin:3.0.0.Alpha1:create \
+    -DplatformVersion=3.0.0.Alpha1 \
     -DprojectGroupId=org.agoncal.fascicle.quarkus \
     -DprojectArtifactId=getting-started \
-    -DprojectVersion=2.0.0-SNAPSHOT \
+    -DprojectVersion=3.0.0-SNAPSHOT \
     -DclassName="org.agoncal.fascicle.quarkus.gettingstarted.ArtistResource" \
     -Dpath="/artists" \
     -Dextensions="resteasy-jsonb"

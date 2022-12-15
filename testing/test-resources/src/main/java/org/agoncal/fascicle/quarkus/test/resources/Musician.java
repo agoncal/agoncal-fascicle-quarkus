@@ -2,8 +2,8 @@ package org.agoncal.fascicle.quarkus.test.resources;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import java.time.LocalDate;
 
 /**

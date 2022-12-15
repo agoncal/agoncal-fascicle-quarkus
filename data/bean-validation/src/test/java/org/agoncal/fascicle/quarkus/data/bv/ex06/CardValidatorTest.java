@@ -3,10 +3,10 @@ package org.agoncal.fascicle.quarkus.data.bv.ex06;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
-import javax.validation.executable.ExecutableValidator;
+import jakarta.inject.Inject;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
+import jakarta.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
 

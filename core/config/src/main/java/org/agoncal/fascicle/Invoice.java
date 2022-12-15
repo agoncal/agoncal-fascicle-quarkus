@@ -4,8 +4,8 @@ package org.agoncal.fascicle;
 // end::adocSnippet[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 
 /**
  * @author Antonio Goncalves

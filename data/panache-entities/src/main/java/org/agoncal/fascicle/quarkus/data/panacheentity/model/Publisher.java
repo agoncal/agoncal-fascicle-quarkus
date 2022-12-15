@@ -2,8 +2,8 @@ package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import java.util.Optional;
 
 /**

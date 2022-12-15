@@ -4,12 +4,12 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.hibernate.validator.HibernateValidator;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import javax.validation.executable.ExecutableValidator;
+import jakarta.inject.Inject;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import jakarta.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -105,11 +105,11 @@ public class CDTest {
     ConstraintViolation<CD> violation = violations.iterator().next();
 
     assertEquals("must be greater than 0", violation.getMessage());
-    assertEquals("{javax.validation.constraints.Positive.message}", violation.getMessageTemplate());
+    assertEquals("{jakarta.validation.constraints.Positive.message}", violation.getMessageTemplate());
     assertEquals(-10f, violation.getInvalidValue());
     assertEquals("price", violation.getPropertyPath().toString());
     assertEquals(CD.class, violation.getRootBeanClass());
-    assertTrue(violation.getConstraintDescriptor().getAnnotation() instanceof javax.validation.constraints.Positive);
+    assertTrue(violation.getConstraintDescriptor().getAnnotation() instanceof jakarta.validation.constraints.Positive);
     assertEquals("Kind of Blue", violation.getRootBean().title);
     // end::shouldRaiseConstraintViolationCausePriceIsNegative[]
   }
@@ -139,7 +139,7 @@ public class CDTest {
 
     assertEquals("must be less than or equal to 5", violation.getMessage());
     assertEquals(7, violation.getInvalidValue());
-    assertEquals("{javax.validation.constraints.Max.message}", violation.getMessageTemplate());
+    assertEquals("{jakarta.validation.constraints.Max.message}", violation.getMessageTemplate());
     // end::shouldRaiseConstraintViolationValidatingNumberOfCDsProperty[]
   }
 
@@ -182,7 +182,7 @@ public class CDTest {
     assertEquals(1, violations.size());
     assertEquals("must be greater than or equal to 1.4", violations.iterator().next().getMessage());
     assertEquals((float) 1.2, violations.iterator().next().getInvalidValue());
-    assertEquals("{javax.validation.constraints.DecimalMin.message}", violations.iterator().next().getMessageTemplate());
+    assertEquals("{jakarta.validation.constraints.DecimalMin.message}", violations.iterator().next().getMessageTemplate());
   }
 
   private void displayConstraintViolations(Set<ConstraintViolation<CD>> constraintViolations) {

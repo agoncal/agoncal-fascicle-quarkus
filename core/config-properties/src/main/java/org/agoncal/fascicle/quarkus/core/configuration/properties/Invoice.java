@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.core.configuration.properties;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * @author Antonio Goncalves

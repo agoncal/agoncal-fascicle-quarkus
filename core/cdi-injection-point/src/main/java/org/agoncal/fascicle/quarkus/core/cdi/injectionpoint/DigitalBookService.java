@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.core.cdi.injectionpoint;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * @author Antonio Goncalves

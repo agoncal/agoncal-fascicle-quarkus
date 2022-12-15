@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.book;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.validation.constraints.NotNull;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.validation.constraints.NotNull;
 
 // tag::adocSnippet[]
 public class IsbnNumbers {
