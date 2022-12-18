@@ -1,10 +1,12 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
+// tag::adocSnippet[]
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
 import java.util.UUID;
 
+// end::adocSnippet[]
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
