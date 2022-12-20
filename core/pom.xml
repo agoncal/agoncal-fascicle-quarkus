@@ -19,10 +19,6 @@
   <modules>
     <module>cdi</module>
     <module>config</module>
-    <module>config-properties</module>
-    <module>config-properties-kebab</module>
-    <module>config-quarkus</module>
-    <module>config-yaml</module>
     <module>lifecycle</module>
     <module>lifecycle-main</module>
     <module>lifecycle-mainide</module>

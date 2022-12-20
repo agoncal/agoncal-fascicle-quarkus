@@ -44,7 +44,7 @@ public class PurchaseOrderService {
     LOGGER.info("Creating PO: " + po.id);
     LOGGER.debug(po + "\n");
 
-    Faker fake = Faker.instance();
+    Faker fake = new Faker();
     po.status = Status.PREPARING;
     po.date = LocalDate.now();
     Address address = new Address(fake.address().streetAddress(), fake.address().city(), fake.address().zipCode());
