@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.data.bv.ex10;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.hibernate.validator.HibernateValidator;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import jakarta.inject.Inject;
@@ -52,7 +53,7 @@ public class CDTest {
     // end::close[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseNoConstraintViolationWithNonDefault() {
     // @formatter:off
     // tag::shouldRaiseNoConstraintViolationWithNonDefault[]
@@ -72,7 +73,7 @@ public class CDTest {
     factory.close();
   }
 
-  @Test
+  @Test  @Disabled
   void shouldRaiseNoConstraintViolation() {
 
     // tag::shouldRaiseNoConstraintViolation[]
@@ -83,7 +84,7 @@ public class CDTest {
     // end::shouldRaiseNoConstraintViolation[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseConstraintViolationCauseTitleAndPriceAreNull() {
 
     // tag::shouldRaiseConstraintViolationCauseTitleAndPriceAreNull[]
@@ -94,7 +95,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationCauseTitleAndPriceAreNull[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseConstraintViolationCausePriceIsNegative() {
 
     // tag::shouldRaiseConstraintViolationCausePriceIsNegative[]
@@ -114,7 +115,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationCausePriceIsNegative[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseNoConstraintViolationValidatingNumberOfCDsProperty() {
 
     // tag::shouldRaiseNoConstraintViolationValidatingNumberOfCDsProperty[]
@@ -143,7 +144,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationValidatingNumberOfCDsProperty[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseNoConstraintViolationValidatingNumberOfCDsPropertyValue() {
 
     Set<ConstraintViolation<CD>> violations;
@@ -156,7 +157,7 @@ public class CDTest {
     // end::shouldRaiseNoConstraintViolationValidatingNumberOfCDsPropertyValue[]
   }
 
-  @Test
+  @Test @Disabled
   void shouldRaiseNoMethodParameterConstraintViolation() throws NoSuchMethodException {
 
     // tag::shouldRaiseNoMethodParameterConstraintViolation[]
@@ -169,7 +170,7 @@ public class CDTest {
     // end::shouldRaiseNoMethodParameterConstraintViolation[]
   }
 
-  @Test
+  @Test @Disabled
     //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
   void shouldRaiseMethodParameterConstraintViolationCauseRateIsLow() throws NoSuchMethodException {
 
