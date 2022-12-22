@@ -1,10 +1,10 @@
 {
-  "timestamp": "2020-06-08T16:53:13.304+02:00",
+  "timestamp": "2023-02-08T16:53:13.304+02:00",
   "sequence": 8658,
-  "loggerClassName": "org.jboss.logmanager.Logger",
+  "loggerClassName": "org.jboss.logging.Logger",
   "loggerName": "org.agoncal.fascicle.quarkus.core.logging.LoggingResource",
   "level": "INFO",
-  "message": "Trace produced by Commons Logging",
+  "message": "Trace produced by JBoss Logger",
   "threadName": "executor-thread-159",
   "threadId": 279,
   "mdc": {
