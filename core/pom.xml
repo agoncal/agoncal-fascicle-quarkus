@@ -20,8 +20,6 @@
     <module>cdi</module>
     <module>config</module>
     <module>lifecycle</module>
-    <module>lifecycle-main</module>
-    <module>lifecycle-mainide</module>
     <module>logging</module>
     <module>profiles</module>
   </modules>
