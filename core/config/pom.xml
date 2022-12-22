@@ -17,7 +17,7 @@
   </parent>
 
   <modules>
-    <module>config-default</module>
+    <module>config-property</module>
     <module>config-properties</module>
     <module>config-properties-kebab</module>
     <module>config-quarkus</module>
