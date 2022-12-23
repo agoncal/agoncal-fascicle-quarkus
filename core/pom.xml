@@ -19,6 +19,7 @@
   <modules>
     <module>cdi</module>
     <module>config</module>
+    <module>devservices</module>
     <module>lifecycle</module>
     <module>logging</module>
     <module>profiles</module>
