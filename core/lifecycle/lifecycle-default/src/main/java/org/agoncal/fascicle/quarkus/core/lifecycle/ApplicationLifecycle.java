@@ -1,7 +1,10 @@
 package org.agoncal.fascicle.quarkus.core.lifecycle;
 
+// tag::adocSnippet[]
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
+
+// end::adocSnippet[]
 import org.jboss.logging.Logger;
 
 import jakarta.enterprise.context.ApplicationScoped;

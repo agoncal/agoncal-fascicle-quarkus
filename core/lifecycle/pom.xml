@@ -19,7 +19,6 @@
   <modules>
     <module>lifecycle-default</module>
     <module>lifecycle-main</module>
-    <module>lifecycle-mainide</module>
   </modules>
 
 </project>
