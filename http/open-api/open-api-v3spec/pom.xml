@@ -3,14 +3,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.http</groupId>
-  <artifactId>jsonb-default</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.http.open-api</groupId>
+  <artifactId>open-api-v3spec</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: HTTP Microservices :: JSON-B :: Default Binding</name>
+  <name>Quarkus :: HTTP Microservices :: OpenAPI :: V3 Specification</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>http</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.http</groupId>
+    <artifactId>open-api</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
@@ -19,12 +19,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -35,16 +33,6 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.jayway.jsonpath</groupId>
-      <artifactId>json-path</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.ws.rs</groupId>
-      <artifactId>jakarta.ws.rs-api</artifactId>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 

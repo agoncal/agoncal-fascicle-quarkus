@@ -3,14 +3,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.http</groupId>
-  <artifactId>open-api-custom</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.http.open-api</groupId>
+  <artifactId>open-api-advanced</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: HTTP Microservices :: OpenAPI :: Custom</name>
+  <name>Quarkus :: HTTP Microservices :: OpenAPI :: Advanced</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>http</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.http</groupId>
+    <artifactId>open-api</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
@@ -18,6 +18,10 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>

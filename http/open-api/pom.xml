@@ -4,24 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>http</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.http</groupId>
+  <artifactId>open-api</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: HTTP Microservices</name>
+  <name>Quarkus :: HTTP Microservices :: OpenAPI</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>http</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>jaxrs</module>
-    <module>jsonb</module>
-    <module>jsonp</module>
-    <module>open-api</module>
-    <module>panache-rest</module>
+    <module>open-api-advanced</module>
+    <module>open-api-custom</module>
+    <module>open-api-default</module>
+    <module>open-api-v3spec</module>
   </modules>
 
 </project>
