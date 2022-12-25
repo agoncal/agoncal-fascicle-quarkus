@@ -1,15 +1,11 @@
 package org.agoncal.fascicle.quarkus.data.bv.ex10;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.hibernate.validator.HibernateValidator;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
 import jakarta.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -38,42 +34,23 @@ public class CDTest {
 
   @Test
   void shouldRaiseNoConstraintViolationWithDefault() {
-    // tag::shouldRaiseNoConstraintViolationWithDefault[]
-    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    Validator validator = factory.getValidator();
-    // end::shouldRaiseNoConstraintViolationWithDefault[]
 
     CD cd = new CD().title("Kind of Blue").price(12.5f);
 
     Set<ConstraintViolation<CD>> violations = validator.validate(cd);
     assertEquals(0, violations.size());
-
-    // tag::close[]
-    factory.close();
-    // end::close[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseNoConstraintViolationWithNonDefault() {
-    // @formatter:off
-    // tag::shouldRaiseNoConstraintViolationWithNonDefault[]
-    ValidatorFactory factory =
-      Validation.byProvider(HibernateValidator.class)
-                .configure()
-                .buildValidatorFactory();
-    Validator validator = factory.getValidator();
-    // end::shouldRaiseNoConstraintViolationWithNonDefault[]
-    // @formatter:on
 
     CD cd = new CD().title("Kind of Blue").price(12.5f);
 
     Set<ConstraintViolation<CD>> violations = validator.validate(cd);
     assertEquals(0, violations.size());
-
-    factory.close();
   }
 
-  @Test  @Disabled
+  @Test
   void shouldRaiseNoConstraintViolation() {
 
     // tag::shouldRaiseNoConstraintViolation[]
@@ -84,7 +61,7 @@ public class CDTest {
     // end::shouldRaiseNoConstraintViolation[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseConstraintViolationCauseTitleAndPriceAreNull() {
 
     // tag::shouldRaiseConstraintViolationCauseTitleAndPriceAreNull[]
@@ -95,7 +72,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationCauseTitleAndPriceAreNull[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseConstraintViolationCausePriceIsNegative() {
 
     // tag::shouldRaiseConstraintViolationCausePriceIsNegative[]
@@ -115,7 +92,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationCausePriceIsNegative[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseNoConstraintViolationValidatingNumberOfCDsProperty() {
 
     // tag::shouldRaiseNoConstraintViolationValidatingNumberOfCDsProperty[]
@@ -144,7 +121,7 @@ public class CDTest {
     // end::shouldRaiseConstraintViolationValidatingNumberOfCDsProperty[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseNoConstraintViolationValidatingNumberOfCDsPropertyValue() {
 
     Set<ConstraintViolation<CD>> violations;
@@ -157,7 +134,7 @@ public class CDTest {
     // end::shouldRaiseNoConstraintViolationValidatingNumberOfCDsPropertyValue[]
   }
 
-  @Test @Disabled
+  @Test
   void shouldRaiseNoMethodParameterConstraintViolation() throws NoSuchMethodException {
 
     // tag::shouldRaiseNoMethodParameterConstraintViolation[]
@@ -170,7 +147,7 @@ public class CDTest {
     // end::shouldRaiseNoMethodParameterConstraintViolation[]
   }
 
-  @Test @Disabled
+  @Test
     //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
   void shouldRaiseMethodParameterConstraintViolationCauseRateIsLow() throws NoSuchMethodException {
 
