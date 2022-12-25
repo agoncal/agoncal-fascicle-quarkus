@@ -24,7 +24,6 @@ public class CustomerResource {
   // ======================================
 
   @Path("/getCustomer")
-  // tag::adocGetCustomer[]
   @GET
   @Produces(APPLICATION_JSON)
   public JsonObject getCustomer() {
@@ -35,10 +34,8 @@ public class CustomerResource {
       .build();
     return customer;
   }
-  // end::adocGetCustomer[]
 
   @Path("/getCustomerDetails")
-  // tag::adocGetCustomerDetails[]
   @GET
   @Produces(APPLICATION_JSON)
   public JsonObject getCustomerDetails() {
@@ -60,10 +57,8 @@ public class CustomerResource {
       .build();
     return customer;
   }
-  // end::adocGetCustomerDetails[]
 
   @Path("/getPhones")
-  // tag::adocGetPhones[]
   @GET
   @Produces(APPLICATION_JSON)
   public JsonArray getPhones() {
@@ -77,5 +72,4 @@ public class CustomerResource {
       .build();
     return phones;
   }
-  // end::adocGetPhones[]
 }

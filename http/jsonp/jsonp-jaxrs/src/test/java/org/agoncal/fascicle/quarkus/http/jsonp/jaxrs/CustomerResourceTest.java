@@ -21,30 +21,6 @@ import static org.hamcrest.Matchers.not;
 @QuarkusTest
 public class CustomerResourceTest {
 
-//  static BufferedWriter bw;
-//
-//  @BeforeAll
-//  static void initFile() throws FileNotFoundException {
-//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonp/Customer.json");
-//  }
-//
-//  @AfterAll
-//  static void closeFile() throws IOException {
-//    bw.close();
-//  }
-
-  @Test
-  public void shouldGenerateJSon()throws IOException {
-    CustomerResource resource = new CustomerResource();
-    JsonObject customer = resource.getCustomer();
-    JsonObject customerDetails = resource.getCustomerDetails();
-    JsonArray phones = resource.getPhones();
-
-//    output(bw, customer.toString(), "adocGetCustomer");
-//    output(bw, customerDetails.toString(), "getCustomerDetails");
-//    output(bw, phones.toString(), "adocGetPhones");
-  }
-
   @Test
   public void shouldGetCustomer() {
     given()
