@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.test.restassured;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -23,6 +24,9 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResource {
 
+  @Inject
+  UriInfo uriInfo;
+
   private static Customers customers = new Customers();
 
   static {
@@ -38,7 +42,7 @@ public class CustomerResource {
    * curl -X POST -H "Content-Type: application/json" -d '{"first-name":"value1", "last-name":"value2"}' http://localhost:8080/customers -v
    */
   @POST
-  public Response createCustomer(@Context UriInfo uriInfo, Customer customer) {
+  public Response createCustomer(Customer customer) {
     customer.setId((long) Math.random());
     customers.add(customer);
     URI uri = uriInfo.getAbsolutePathBuilder().path(customer.getId().toString()).build();

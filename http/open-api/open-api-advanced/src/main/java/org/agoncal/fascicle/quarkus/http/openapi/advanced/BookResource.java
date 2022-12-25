@@ -38,6 +38,8 @@ public class BookResource {
 
   @Inject
   BookService service;
+  @Inject
+  UriInfo uriInfo;
 
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
@@ -96,7 +98,7 @@ public class BookResource {
                                 required = true,
                                  content = @Content(mediaType = APPLICATION_JSON,
                                   schema = @Schema(implementation = Book.class)))
-                                Book book, @Context UriInfo uriInfo) {
+                                Book book) {
     // end::adocRequestBody[]
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
