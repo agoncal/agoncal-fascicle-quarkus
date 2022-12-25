@@ -4,26 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.data</groupId>
-  <artifactId>jpa-custom</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.data.jpa</groupId>
+  <artifactId>jpa-default</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: Data, Transactions and ORM :: JPA :: Custom</name>
+  <name>Quarkus :: Data :: JPA :: Default</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>data</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.data</groupId>
+    <artifactId>jpa</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-validator</artifactId>
-    </dependency>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-narayana-jta</artifactId>

@@ -4,21 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>data</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.data</groupId>
+  <artifactId>jpa</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Data</name>
+  <name>Quarkus :: Data :: JPA</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>core</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>bean-validation</module>
-    <module>jpa</module>
-    <module>panache</module>
+    <module>jpa-advanced</module>
+    <module>jpa-custom</module>
+    <module>jpa-default</module>
+    <module>jpa-query</module>
   </modules>
+
 </project>
