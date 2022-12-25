@@ -20,6 +20,7 @@
     <module>jsonb-advanced</module>
     <module>jsonb-custom</module>
     <module>jsonb-default</module>
+    <module>jsonb-jaxrs</module>
   </modules>
 
 </project>

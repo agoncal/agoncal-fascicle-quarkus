@@ -28,10 +28,10 @@ public class UtilTest {
   // ======================================
 
   public static void output(BufferedWriter bw, String json, String tag) throws IOException {
-//      bw.write("// tag::" + tag + "[]");
-//      bw.write(json);
-//      bw.write("\n");
-//      bw.write("// end::" + tag + "[]\n");
+      bw.write("// tag::" + tag + "[]\n");
+      bw.write(json);
+      bw.write("\n");
+      bw.write("// end::" + tag + "[]\n");
   }
 
   public static Object jsonPath(String json, String jsonPath) {

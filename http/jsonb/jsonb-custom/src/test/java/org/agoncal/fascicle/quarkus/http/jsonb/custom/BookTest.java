@@ -1,15 +1,19 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.custom;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import static org.agoncal.fascicle.quarkus.http.jsonb.custom.UtilTest.jsonPath;
+import static org.agoncal.fascicle.quarkus.http.jsonb.custom.UtilTest.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -31,7 +35,7 @@ public class BookTest {
 //
 //  @BeforeAll
 //  static void initFile() throws FileNotFoundException {
-//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/custom/Book.json");
+//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/custom/Book-dummy.json");
 //  }
 //
 //  @AfterAll

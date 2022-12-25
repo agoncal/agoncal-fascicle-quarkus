@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.advanced;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +10,16 @@ import jakarta.json.JsonReader;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.time.LocalDate;
 
 import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.CreditCardType.VISA;
+import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.initBufferedWriter;
+import static org.agoncal.fascicle.quarkus.http.jsonb.advanced.UtilTest.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -37,7 +43,7 @@ public class PurchaseOrderTest {
 //
 //  @BeforeAll
 //  static void initFile() throws FileNotFoundException {
-//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/advanced/PurchaseOrder.json");
+//    bw = initBufferedWriter("src/main/java/org/agoncal/fascicle/quarkus/http/jsonb/advanced/PurchaseOrder-dummy.json");
 //  }
 //
 //  @AfterAll

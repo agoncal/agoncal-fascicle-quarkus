@@ -1,10 +1,10 @@
 // tag::shouldMarshallACustomBook[]
 {
   "book_title": "H2G2",
-  "price": "12.50",
+  "illustrations": false,
   "isbn": "1-84023-742-2",
   "nb_of_pages": 354,
-  "illustrations": false,
+  "price": "12.50",
   "publicationDate": "28/04/1999"
 }
 // end::shouldMarshallACustomBook[]

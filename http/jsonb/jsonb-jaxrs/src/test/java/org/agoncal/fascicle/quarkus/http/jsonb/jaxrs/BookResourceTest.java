@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.http.jsonb.dflt;
+package org.agoncal.fascicle.quarkus.http.jsonb.jaxrs;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.hamcrest.core.Is;
