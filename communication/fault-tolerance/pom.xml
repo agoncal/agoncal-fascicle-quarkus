@@ -4,21 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>communication</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.communication</groupId>
+  <artifactId>fault-tolerance</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Communication</name>
+  <name>Quarkus :: Communication :: Fault Tolerance</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>communication</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>fault-tolerance</module>
-    <module>rest-client</module>
+    <module>fault-tolerance-book</module>
+    <module>fault-tolerance-number</module>
   </modules>
 
 </project>
