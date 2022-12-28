@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
+  <groupId>org.agoncal.fascicle.quarkus.reactive.reactive-messaging</groupId>
   <artifactId>reactive-messaging-asynch</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <name>Quarkus :: Reactive Microservices :: Messaging :: Asynchronous</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>reactive</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
+    <artifactId>reactive-messaging</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
