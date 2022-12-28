@@ -4,21 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>reactive</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
+  <artifactId>reactive-messaging</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Reactive Microservices</name>
+  <name>Quarkus :: Reactive Microservices :: Messaging</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>reactive</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>reactive-messaging</module>
-    <module>reactive-programming</module>
+    <module>reactive-messaging-asynch</module>
+    <module>reactive-messaging-kafka</module>
+    <module>reactive-messaging-synch</module>
   </modules>
 
 </project>

@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
-  <artifactId>messages-synch</artifactId>
+  <artifactId>reactive-programming-uni-multi</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: Reactive Microservices :: Messages :: Synchronous</name>
+  <name>Quarkus :: Reactive Microservices :: Programming :: Mutiny Uni Multi</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus</groupId>
@@ -15,28 +15,16 @@
   </parent>
 
   <dependencies>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-mutiny</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>net.datafaker</groupId>
-      <artifactId>datafaker</artifactId>
-    </dependency>
+    <!-- end::adocExtension[] -->
     <!-- Test -->
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
     </dependency>
   </dependencies>
 
