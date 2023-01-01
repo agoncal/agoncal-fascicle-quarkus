@@ -3,22 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
-  <artifactId>health-response</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.observability.metrics</groupId>
+  <artifactId>metrics-application</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: Observability :: Health :: Response</name>
+  <name>Quarkus :: Observability :: Metrics :: Application</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>observability</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
+    <artifactId>metrics</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <dependencies>
+    <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-health</artifactId>
+      <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
+    <!-- end::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
@@ -26,6 +28,10 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.datafaker</groupId>
+      <artifactId>datafaker</artifactId>
     </dependency>
     <!-- Test -->
     <dependency>

@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
+  <groupId>org.agoncal.fascicle.quarkus.observability.health</groupId>
   <artifactId>health-quarkus</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <name>Quarkus :: Observability :: Health :: Quarkus</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.quarkus</groupId>
-    <artifactId>observability</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus.observability</groupId>
+    <artifactId>health</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
