@@ -1,6 +1,10 @@
 package org.agoncal.fascicle.quarkus.firstlook;
+// @formatter:off
 
+// tag::adocSnippet[]
 import io.quarkus.test.junit.QuarkusTest;
+
+// end::adocSnippet[]
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -13,7 +17,6 @@ import static org.hamcrest.CoreMatchers.is;
  * http://www.antoniogoncalves.org
  * --
  */
-// @formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
 public class AuthorResourceTest {

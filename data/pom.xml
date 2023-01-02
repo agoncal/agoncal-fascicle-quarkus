@@ -8,7 +8,7 @@
   <artifactId>data</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Data, Transactions and ORM</name>
+  <name>Quarkus :: Data</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
@@ -18,11 +18,7 @@
 
   <modules>
     <module>bean-validation</module>
-    <module>jpa-advanced</module>
-    <module>jpa-custom</module>
-    <module>jpa-default</module>
-    <module>jpa-query</module>
-    <module>panache-entities</module>
-    <module>panache-repositories</module>
+    <module>jpa</module>
+    <module>panache</module>
   </modules>
 </project>

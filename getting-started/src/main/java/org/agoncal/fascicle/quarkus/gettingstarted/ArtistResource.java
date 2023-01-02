@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.gettingstarted;
 
+// tag::adocSnippet[]
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -8,6 +9,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.UUID;
 
+// end::adocSnippet[]
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org

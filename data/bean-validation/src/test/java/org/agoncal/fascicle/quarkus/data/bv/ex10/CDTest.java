@@ -1,14 +1,11 @@
 package org.agoncal.fascicle.quarkus.data.bv.ex10;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.hibernate.validator.HibernateValidator;
 import org.junit.jupiter.api.Test;
 
 import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
 import jakarta.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -37,39 +34,20 @@ public class CDTest {
 
   @Test
   void shouldRaiseNoConstraintViolationWithDefault() {
-    // tag::shouldRaiseNoConstraintViolationWithDefault[]
-    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    Validator validator = factory.getValidator();
-    // end::shouldRaiseNoConstraintViolationWithDefault[]
 
     CD cd = new CD().title("Kind of Blue").price(12.5f);
 
     Set<ConstraintViolation<CD>> violations = validator.validate(cd);
     assertEquals(0, violations.size());
-
-    // tag::close[]
-    factory.close();
-    // end::close[]
   }
 
   @Test
   void shouldRaiseNoConstraintViolationWithNonDefault() {
-    // @formatter:off
-    // tag::shouldRaiseNoConstraintViolationWithNonDefault[]
-    ValidatorFactory factory =
-      Validation.byProvider(HibernateValidator.class)
-                .configure()
-                .buildValidatorFactory();
-    Validator validator = factory.getValidator();
-    // end::shouldRaiseNoConstraintViolationWithNonDefault[]
-    // @formatter:on
 
     CD cd = new CD().title("Kind of Blue").price(12.5f);
 
     Set<ConstraintViolation<CD>> violations = validator.validate(cd);
     assertEquals(0, violations.size());
-
-    factory.close();
   }
 
   @Test

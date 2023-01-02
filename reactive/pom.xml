@@ -8,7 +8,7 @@
   <artifactId>reactive</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Reactive</name>
+  <name>Quarkus :: Reactive Microservices</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
@@ -17,10 +17,8 @@
   </parent>
 
   <modules>
-    <module>messages-asynch</module>
-    <module>messages-kafka</module>
-    <module>messages-synch</module>
-    <module>mutiny-uni-multi</module>
+    <module>reactive-messaging</module>
+    <module>reactive-programming</module>
   </modules>
 
 </project>

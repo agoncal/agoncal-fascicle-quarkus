@@ -15,6 +15,7 @@
     <module>communication</module>
     <module>core</module>
     <module>data</module>
+    <module>executing</module>
     <module>first-look</module>
     <module>getting-started</module>
     <module>http</module>
@@ -22,7 +23,6 @@
     <module>observability</module>
     <module>putting-together</module>
     <module>reactive</module>
-    <module>testing</module>
     <module>understanding</module>
   </modules>
 

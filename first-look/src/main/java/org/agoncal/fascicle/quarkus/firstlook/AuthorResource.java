@@ -12,6 +12,8 @@ import jakarta.ws.rs.core.MediaType;
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
+ * curl http://localhost:8080/authors
+ * curl http://localhost:8080/authors/0
  */
 // end::adocSkip[]
 @Path("/authors")

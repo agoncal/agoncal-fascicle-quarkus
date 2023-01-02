@@ -1,0 +1,17 @@
+{
+  "status": "DOWN",
+  "checks": [
+    {
+      "name": "Ping Number REST Endpoint",
+      "status": "UP"
+    },
+    {
+      "name": "System Variable Check",
+      "status": "DOWN"
+    },
+    {
+      "name": "Injecting Number Resource",
+      "status": "UP"
+    }
+  ]
+}
