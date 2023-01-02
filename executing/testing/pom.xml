@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.quarkus.executing</groupId>
+  <artifactId>testing</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Quarkus :: Executing :: Testing</name>
+
+  <parent>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>executing</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+  </parent>
+
+  <modules>
+    <module>mock</module>
+    <module>mock-alternative</module>
+    <module>mock-inject</module>
+    <module>test-hamcrest</module>
+    <module>test-junit</module>
+    <module>test-jvm-native-mode</module>
+    <module>test-profile</module>
+    <module>test-profiletest</module>
+    <module>test-resources</module>
+    <module>test-restassured</module>
+    <module>test-testcontainers</module>
+    <module>test-transactional</module>
+    <module>test-transactional-rollback</module>
+  </modules>
+</project>
