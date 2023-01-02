@@ -1,0 +1,9 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Injecting Number Resource",
+      "status": "UP"
+    }
+  ]
+}

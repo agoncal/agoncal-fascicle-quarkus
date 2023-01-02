@@ -8,6 +8,10 @@
     {
       "name": "System Variable Check",
       "status": "DOWN"
+    },
+    {
+      "name": "Injecting Number Resource",
+      "status": "UP"
     }
   ]
 }

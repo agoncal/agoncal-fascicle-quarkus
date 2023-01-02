@@ -35,4 +35,13 @@ public class CheckTest {
     then()
       .statusCode(503);
   }
+
+  @Test
+  void shouldPingStartup() {
+    given().
+    when()
+      .get("/q/health/started").
+    then()
+      .statusCode(200);
+  }
 }
