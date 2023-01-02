@@ -96,7 +96,7 @@ public class CustomerResourceTest {
         .statusCode(200)
         .extract().as(Customer.class);
 
-    assertEquals("John",customer.getFirstName());
+    assertEquals("John", customer.getFirstName());
     // end::adocShouldExtractACustomer[]
   }
 
