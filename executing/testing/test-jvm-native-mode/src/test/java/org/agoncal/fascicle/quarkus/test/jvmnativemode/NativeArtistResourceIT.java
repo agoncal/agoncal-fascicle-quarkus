@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.test.jvmnativemode;
 
-import io.quarkus.test.junit.NativeImageTest;
+import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 /**
  * @author Antonio Goncalves
@@ -10,7 +10,7 @@ import io.quarkus.test.junit.NativeImageTest;
 
 // @formatter:off
 // tag::adocSnippet[]
-@NativeImageTest
+@QuarkusIntegrationTest
 public class NativeArtistResourceIT extends ArtistResourceTest {
 
     // Execute the same tests but in native mode.

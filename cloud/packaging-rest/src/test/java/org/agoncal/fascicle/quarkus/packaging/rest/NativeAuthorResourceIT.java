@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.packaging.rest;
 
-import io.quarkus.test.junit.NativeImageTest;
+import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 /**
  * @author Antonio Goncalves
@@ -8,7 +8,7 @@ import io.quarkus.test.junit.NativeImageTest;
  * --
  */
 
-@NativeImageTest
+@QuarkusIntegrationTest
 public class NativeAuthorResourceIT extends AuthorResourceTest {
 
     // Execute the same tests but in native mode.
