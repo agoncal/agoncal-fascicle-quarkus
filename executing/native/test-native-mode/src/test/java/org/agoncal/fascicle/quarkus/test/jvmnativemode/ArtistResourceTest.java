@@ -8,7 +8,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 // @formatter:off
-// tag::adocSnippet[]
 @QuarkusTest
 public class ArtistResourceTest {
 
@@ -25,7 +24,6 @@ public class ArtistResourceTest {
   public void shouldCreateAnArtist() {
     // some work to do
   }
-  // tag::adocSkip[]
 
   @Test
   public void shouldGetOneArtist() {
@@ -38,6 +36,4 @@ public class ArtistResourceTest {
       .body("first_name", is("John"))
       .body("last_name", is("Lennon"));
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

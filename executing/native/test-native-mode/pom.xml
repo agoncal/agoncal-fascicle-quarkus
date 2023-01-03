@@ -4,20 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus.executing.testing</groupId>
-  <artifactId>test-jvm-native-mode</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.executing.native</groupId>
+  <artifactId>test-native-mode</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <name>Quarkus :: Executing :: Testing :: JVM and Native Mode</name>
+  <name>Quarkus :: Executing :: Native :: Test Native Mode</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.quarkus.executing</groupId>
-    <artifactId>testing</artifactId>
+    <artifactId>native</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
-  <!-- tag::adocSnippet[] -->
   <dependencies>
-    <!-- tag::adocSkip[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
@@ -31,7 +29,6 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocSkip[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -50,7 +47,6 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
-      <!-- tag::adocSkip[] -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
@@ -68,9 +64,7 @@
         </executions>
       </plugin>
     </plugins>
-    <!-- end::adocSkip[] -->
   </build>
-  <!-- end::adocSnippet[] -->
   <profiles>
     <!-- tag::adocProfile[] -->
     <profile>

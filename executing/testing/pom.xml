@@ -22,7 +22,6 @@
     <module>mock-inject</module>
     <module>test-hamcrest</module>
     <module>test-junit</module>
-    <module>test-jvm-native-mode</module>
     <module>test-profile</module>
     <module>test-profiletest</module>
     <module>test-resources</module>

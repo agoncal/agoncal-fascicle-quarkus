@@ -4,20 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>executing</artifactId>
+  <groupId>org.agoncal.fascicle.quarkus.executing</groupId>
+  <artifactId>native</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Quarkus :: Executing</name>
+  <name>Quarkus :: Executing :: Native</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus</artifactId>
+    <groupId>org.agoncal.fascicle.quarkus</groupId>
+    <artifactId>executing</artifactId>
     <version>3.0.0-SNAPSHOT</version>
   </parent>
 
   <modules>
-    <module>native</module>
-    <module>testing</module>
+    <module>test-native-mode</module>
   </modules>
 </project>
