@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.test.jvmnativemode;
+package org.agoncal.fascicle.quarkus.test.nativemode;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
@@ -11,8 +11,8 @@ import io.quarkus.test.junit.QuarkusIntegrationTest;
 // @formatter:off
 // tag::adocSnippet[]
 @QuarkusIntegrationTest
-public class NativeArtistResourceIT extends ArtistResourceTest {
+public class ArtistResourceIT extends ArtistResourceTest {
 
-    // Execute the same tests but in native mode.
+    // Execute the same tests but in packaged mode.
 }
 // end::adocSnippet[]

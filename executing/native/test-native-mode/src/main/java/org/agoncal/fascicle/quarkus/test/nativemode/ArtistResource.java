@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.test.jvmnativemode;
+package org.agoncal.fascicle.quarkus.test.nativemode;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

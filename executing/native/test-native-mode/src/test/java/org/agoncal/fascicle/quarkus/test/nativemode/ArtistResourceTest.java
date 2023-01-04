@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.test.jvmnativemode;
+package org.agoncal.fascicle.quarkus.test.nativemode;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Disabled;
