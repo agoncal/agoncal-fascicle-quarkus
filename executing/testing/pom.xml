@@ -21,6 +21,7 @@
     <module>mock-alternative</module>
     <module>mock-inject</module>
     <module>test-hamcrest</module>
+    <module>test-httpendpoint</module>
     <module>test-junit</module>
     <module>test-profile</module>
     <module>test-profiletest</module>
