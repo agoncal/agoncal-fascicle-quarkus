@@ -39,4 +39,4 @@ public class ArtistResourceTest {
   }
   // end::adocSkip[]
 }
-// tag::adocSnippet[]
+// end::adocSnippet[]
