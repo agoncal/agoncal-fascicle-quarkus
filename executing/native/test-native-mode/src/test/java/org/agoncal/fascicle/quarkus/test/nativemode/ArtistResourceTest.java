@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.quarkus.test.httpendpoint;
+package org.agoncal.fascicle.quarkus.test.nativemode;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Disabled;
@@ -8,7 +8,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 // @formatter:off
-// tag::adocSnippet[]
 @QuarkusTest
 public class ArtistResourceTest {
 
@@ -25,7 +24,7 @@ public class ArtistResourceTest {
   public void shouldCreateAnArtist() {
     // some work to do
   }
-  // tag::adocSkip[]
+
   @Test
   public void shouldGetOneArtist() {
     given()
@@ -37,6 +36,4 @@ public class ArtistResourceTest {
       .body("first_name", is("John"))
       .body("last_name", is("Lennon"));
   }
-  // end::adocSkip[]
 }
-// tag::adocSnippet[]
