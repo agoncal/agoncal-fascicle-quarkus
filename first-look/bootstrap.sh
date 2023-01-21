@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-mvn io.quarkus:quarkus-maven-plugin:3.0.0.Alpha2:create \
-    -DplatformVersion=3.0.0.Alpha2 \
+mvn io.quarkus:quarkus-maven-plugin:3.0.0.Alpha3:create \
+    -DplatformVersion=3.0.0.Alpha3 \
     -DprojectGroupId=org.agoncal.fascicle.quarkus \
     -DprojectArtifactId=first-look \
     -DprojectVersion=3.0.0-SNAPSHOT \
