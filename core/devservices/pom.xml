@@ -37,10 +37,10 @@
 <!--      <artifactId>quarkus-infinispan-client</artifactId>-->
 <!--    </dependency>-->
     <!-- tag::adocKafka[] -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-kafka-client</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.quarkus</groupId>-->
+<!--      <artifactId>quarkus-kafka-client</artifactId>-->
+<!--    </dependency>-->
     <!-- end::adocKafka[] -->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
