@@ -1,6 +1,6 @@
-quarkus:
-  http:
-    test-port: 0
+#quarkus:
+#  http:
+#    test-port: 0
 
 # tag::adocSnippet[]
 app:
