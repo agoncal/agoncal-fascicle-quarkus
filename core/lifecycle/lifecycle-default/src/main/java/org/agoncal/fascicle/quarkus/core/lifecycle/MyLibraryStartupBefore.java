@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.core.lifecycle;
 import io.quarkus.runtime.Startup;
 import org.jboss.logging.Logger;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.interceptor.Interceptor;
 
@@ -12,7 +13,9 @@ public class MyLibraryStartupBefore {
 
   private static final Logger LOGGER = Logger.getLogger(MyLibraryStartupBefore.class);
 
-  public MyLibraryStartupBefore() {
+  @PostConstruct
+  void init() {
     LOGGER.info("MY LIBRARY_BEFORE");
   }
+
 }

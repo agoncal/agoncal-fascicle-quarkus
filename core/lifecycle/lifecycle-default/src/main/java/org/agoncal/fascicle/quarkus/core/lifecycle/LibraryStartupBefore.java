@@ -6,6 +6,7 @@ import io.quarkus.runtime.Startup;
 // end::adocSnippet[]
 import org.jboss.logging.Logger;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.interceptor.Interceptor;
 
@@ -16,7 +17,8 @@ public class LibraryStartupBefore {
 
   private static final Logger LOGGER = Logger.getLogger(LibraryStartupBefore.class);
 
-  public LibraryStartupBefore() {
+  @PostConstruct
+  void init() {
     LOGGER.info("LIBRARY_BEFORE");
   }
 }
