@@ -6,6 +6,7 @@ import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
 import java.util.UUID;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 // end::adocSnippet[]
 /**
  * @author Antonio Goncalves
@@ -13,6 +14,7 @@ import java.util.UUID;
  * --
  */
 // tag::adocSnippet[]
+@RegisterForReflection
 public class Artist {
 
   @JsonbTransient
