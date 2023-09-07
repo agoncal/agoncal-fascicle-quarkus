@@ -3,7 +3,7 @@ package org.agoncal.fascicle.quarkus.data.jpa.query;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 
 import static jakarta.persistence.CascadeType.PERSIST;
 
@@ -22,7 +22,7 @@ public class Address {
   private String street1;
   private String city;
   private String zipcode;
-  @OneToOne(cascade = {PERSIST})
+  @ManyToOne(cascade = {PERSIST})
   private Country country;
 
   // Constructors, getters, setters

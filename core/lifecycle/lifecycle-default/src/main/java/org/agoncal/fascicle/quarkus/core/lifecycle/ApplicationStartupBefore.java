@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.core.lifecycle;
 import io.quarkus.runtime.Startup;
 import org.jboss.logging.Logger;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.interceptor.Interceptor;
 
@@ -12,7 +13,8 @@ public class ApplicationStartupBefore {
 
   private static final Logger LOGGER = Logger.getLogger(ApplicationStartupBefore.class);
 
-  public ApplicationStartupBefore() {
+  @PostConstruct
+  void init() {
     LOGGER.info("APPLICATION");
   }
 }
