@@ -11,13 +11,13 @@ The table <<quarkus-table-cloud-packaging-build>> lists all the Maven commands u
 |Command
 
 |JAR
-|`mvn package -Dquarkus.package.type=jar`
+|`mvn package -Dquarkus.package.jar.type=fast-jar`
 
 |Fast-JAR
-|`mvn package -Dquarkus.package.type=fast-jar`
+|`mvn package -Dquarkus.package.jar.type=fast-jar`
 
 |Uber-JAR
-|`mvn package -Dquarkus.package.type=uber-jar`
+|`mvn package -Dquarkus.package.jar.type=uber-jar`
 
 |Native
 |`mvn package -Pnative`

@@ -31,7 +31,7 @@ public class ConfigurationResource {
     // LOGGER.info("quarkus.servlet.context-path: " + config.getValue("quarkus.servlet.context-path", String.class));
     // LOGGER.info("quarkus.package.output-name: " + config.getValue("quarkus.package.output-name", String.class));
     // LOGGER.info("quarkus.package.main-class: " + config.getValue("quarkus.package.main-class", String.class));
-    // LOGGER.info("quarkus.package.type: " + config.getValue("quarkus.package.type", String.class));
+    // LOGGER.info("quarkus.package.jar.type: " + config.getValue("quarkus.package.jar.type", String.class));
     // LOGGER.info("quarkus.native.java-home: " + config.getValue("quarkus.native.java-home", String.class));
     // LOGGER.info("quarkus.live-reload.url: " + config.getValue("quarkus.live-reload.url", String.class));
   }
