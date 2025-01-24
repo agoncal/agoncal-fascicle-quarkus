@@ -16,14 +16,13 @@
     <module>core</module>
     <module>data</module>
     <module>executing</module>
-    <module>first-look</module>
-    <module>getting-started</module>
+    <module>first-steps-first-look</module>
+    <module>first-steps-getting-started</module>
     <module>http</module>
     <module>integrating</module>
     <module>observability</module>
     <module>putting-together</module>
     <module>reactive</module>
-    <module>understanding</module>
   </modules>
 
   <properties>

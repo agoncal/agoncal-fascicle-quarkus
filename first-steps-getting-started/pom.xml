@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.quarkus</groupId>
-  <artifactId>getting-started</artifactId>
+  <artifactId>first-steps-getting-started</artifactId>
   <version>3.0.0-SNAPSHOT</version>
   <!-- tag::adocSkip[] -->
-  <name>Quarkus :: Getting Started</name>
+  <name>Quarkus :: First Steps :: Getting Started</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
