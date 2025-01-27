@@ -1,4 +1,6 @@
 .
+├─ .dockerignore
+├─ .gitignore
 ├─ README.md
 ├─ mvnw
 ├─ mvnw.cmd
@@ -14,9 +16,6 @@
    │  │  └─ org/agoncal/fascicle/quarkus/gettingstarted
    │  │     └─ ArtistResource.java
    │  └─ resources
-   │     ├─ META-INF
-   │     │  └─ resources
-   │     │     └─ index.html
    │     └─ application.properties
    └─ test
       └─ java
