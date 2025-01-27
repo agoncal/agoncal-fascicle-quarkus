@@ -9,7 +9,7 @@ import io.quarkus.test.junit.QuarkusIntegrationTest;
  */
 // tag::adocSnippet[]
 @QuarkusIntegrationTest
-public class ArtistResourceIT extends ArtistResourceTest {
+class ArtistResourceIT extends ArtistResourceTest {
     // Execute the same tests but in packaged mode.
 }
 // end::adocSnippet[]
