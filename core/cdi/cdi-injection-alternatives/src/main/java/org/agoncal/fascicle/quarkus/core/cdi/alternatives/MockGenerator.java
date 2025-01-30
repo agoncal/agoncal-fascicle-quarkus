@@ -2,7 +2,11 @@ package org.agoncal.fascicle.quarkus.core.cdi.alternatives;
 
 
 import jakarta.enterprise.context.ApplicationScoped;
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.enterprise.inject.Alternative;
+
+// end::adocSnippet[]
 import jakarta.enterprise.inject.Default;
 
 /**

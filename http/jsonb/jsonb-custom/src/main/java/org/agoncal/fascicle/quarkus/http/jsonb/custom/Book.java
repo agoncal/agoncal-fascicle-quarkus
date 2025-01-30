@@ -1,9 +1,7 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.custom;
 
-import jakarta.json.bind.annotation.JsonbDateFormat;
-import jakarta.json.bind.annotation.JsonbNumberFormat;
-import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.*;
+
 import java.time.LocalDate;
 
 /**
@@ -14,12 +12,13 @@ import java.time.LocalDate;
 // tag::adocSnippet[]
 public class Book {
 
-  @JsonbProperty(value = "book_title", nillable = false)
+  @JsonbProperty(value = "book_title")
   private String title;
   @JsonbNumberFormat("#0.00")
   private Float price;
   private String isbn;
-  @JsonbProperty(value = "nb_of_pages", nillable = true)
+  @JsonbProperty(value = "nb_of_pages")
+  @JsonbNillable
   private Integer nbOfPages;
   private Boolean illustrations;
   @JsonbTransient

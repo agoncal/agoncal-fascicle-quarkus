@@ -2,7 +2,11 @@ package org.agoncal.fascicle.quarkus.core.cdi.events;
 
 import org.jboss.logging.Logger;
 
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.enterprise.event.Observes;
+
+// end::adocSnippet[]
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import java.util.ArrayList;
