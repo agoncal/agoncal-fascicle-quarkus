@@ -1,6 +1,10 @@
 package org.agoncal.fascicle.quarkus.core.cdi.qualifiers;
 
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.inject.Qualifier;
+
+// end::adocSnippet[]
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 

@@ -1,7 +1,11 @@
 package org.agoncal.fascicle.quarkus.core.cdi.injection;
 
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+
+// end::adocSnippet[]
 
 /**
  * @author Antonio Goncalves
