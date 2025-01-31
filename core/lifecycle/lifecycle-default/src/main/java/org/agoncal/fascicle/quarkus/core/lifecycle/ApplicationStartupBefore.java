@@ -10,9 +10,9 @@ import jakarta.interceptor.Interceptor;
 @ApplicationScoped
 public class ApplicationStartupBefore {
 
-  private static final Logger LOGGER = Logger.getLogger(ApplicationStartupBefore.class);
+  private static final Logger logger = Logger.getLogger(ApplicationStartupBefore.class);
 
   public ApplicationStartupBefore() {
-    LOGGER.info("APPLICATION");
+    logger.info("APPLICATION");
   }
 }

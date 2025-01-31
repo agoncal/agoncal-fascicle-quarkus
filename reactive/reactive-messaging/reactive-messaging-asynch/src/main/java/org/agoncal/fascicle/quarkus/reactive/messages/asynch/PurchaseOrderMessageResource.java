@@ -30,7 +30,7 @@ import java.util.Random;
 @ApplicationScoped
 public class PurchaseOrderMessageResource {
   // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderMessageResource.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderMessageResource.class);
   String tmpId = "tmp" + Math.abs(new Random().nextInt());
   // end::adocSkip[]
 
@@ -41,7 +41,7 @@ public class PurchaseOrderMessageResource {
   @POST
   public Response create(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info(">>>>>>>>>>>>");
+    logger.info(">>>>>>>>>>>>");
     // end::adocSkip[]
 
     emitter.send(Message.of(po));
@@ -49,7 +49,7 @@ public class PurchaseOrderMessageResource {
     URI temporaryPO = UriBuilder.fromResource(PurchaseOrderMessageResource.class)
                                 .path(tmpId).build();
     // tag::adocSkip[]
-    LOGGER.info("<<<<<<<<<<<<");
+    logger.info("<<<<<<<<<<<<");
     // end::adocSkip[]
     return Response.temporaryRedirect(temporaryPO).build();
   }

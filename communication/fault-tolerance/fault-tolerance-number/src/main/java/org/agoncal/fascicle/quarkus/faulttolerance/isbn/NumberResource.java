@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class NumberResource {
 
   // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
+  private static final Logger logger = Logger.getLogger(NumberResource.class);
 
   // end::adocSkip[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
@@ -30,13 +30,13 @@ public class NumberResource {
   @GET
   @Path("/issn")
   public JsonObject generateIssn() throws InterruptedException {
-    LOGGER.info("Waiting for " + secondsToSleep + " seconds");
+    logger.info("Waiting for " + secondsToSleep + " seconds");
     TimeUnit.SECONDS.sleep(secondsToSleep);
     JsonObject issnNumber = Json.createObjectBuilder()
       .add("isbn10", new Faker().code().isbn10())
       .add("generatedAt", String.valueOf(Instant.now()))
       .build();
-    LOGGER.info("Generated ISSN number: " + issnNumber.toString());
+    logger.info("Generated ISSN number: " + issnNumber.toString());
     return issnNumber;
   }
   // tag::adocSkip[]
@@ -48,7 +48,7 @@ public class NumberResource {
     isbnNumber.isbn13 = new Faker().code().isbn13(separator);
     isbnNumber.gs1 = new Faker().code().isbnGs1();
     isbnNumber.generatedAt = Instant.now();
-    LOGGER.info("Generated ISBN number: " + isbnNumber);
+    logger.info("Generated ISBN number: " + isbnNumber);
     return isbnNumber;
   }
   // end::adocSkip[]

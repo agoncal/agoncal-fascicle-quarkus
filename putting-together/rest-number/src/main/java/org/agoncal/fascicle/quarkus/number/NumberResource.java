@@ -22,7 +22,7 @@ import jakarta.ws.rs.core.Response;
 public class NumberResource {
 
   @Inject
-  Logger LOGGER;
+  Logger logger;
 
   // tag::adocConfig[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
@@ -44,7 +44,7 @@ public class NumberResource {
     IsbnNumbers isbnNumbers = new IsbnNumbers();
     isbnNumbers.setIsbn10(faker.code().isbn10(separator));
     isbnNumbers.setIsbn13(faker.code().isbn13(separator));
-    LOGGER.info("ISBN numbers generated " + isbnNumbers);
+    logger.info("ISBN numbers generated " + isbnNumbers);
     return Response.ok(isbnNumbers).build();
   }
 }

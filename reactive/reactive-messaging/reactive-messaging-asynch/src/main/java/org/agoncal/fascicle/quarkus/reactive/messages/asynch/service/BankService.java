@@ -2,24 +2,23 @@ package org.agoncal.fascicle.quarkus.reactive.messages.asynch.service;
 
 import io.reactivex.rxjava3.core.Flowable;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
+import jakarta.enterprise.context.ApplicationScoped;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.AUTHORISED;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Message;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.AUTHORISED;
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 
 @ApplicationScoped
 public class BankService {
 
-  private static final Logger LOGGER = Logger.getLogger(BankService.class);
+  private static final Logger logger = Logger.getLogger(BankService.class);
 
   @Broadcast
   // tag::adocSnippet[]
@@ -27,8 +26,8 @@ public class BankService {
   @Outgoing("bank-validated")
   public PurchaseOrder validate(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Validating Credit Card for PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Validating Credit Card for PO: " + po.id);
+    logger.debug(po + "\n");
     // end::adocSkip[]
 
     if (complexValidationLogic(po)) {
@@ -43,8 +42,8 @@ public class BankService {
   @Outgoing("bank-authorised")
   public PurchaseOrder authorise(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Authorising Credit Card for PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Authorising Credit Card for PO: " + po.id);
+    logger.debug(po + "\n");
     // end::adocSkip[]
     po.creditCard.status = AUTHORISED;
     return po;
@@ -53,8 +52,8 @@ public class BankService {
   @Incoming("bank-authorised")
   public void pay(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Paying with Credit Card for PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Paying with Credit Card for PO: " + po.id);
+    logger.debug(po + "\n");
     // end::adocSkip[]
     makePayment(po);
   }
@@ -92,11 +91,11 @@ public class BankService {
 
   @Incoming("euro-rate")
   public void receiveEuroRate(Float rate) {
-    LOGGER.info("Received euro rate " + rate);
+    logger.info("Received euro rate " + rate);
   }
   @Incoming("pound-rate")
   public void receivePoundRate(Float rate) {
-    LOGGER.info("Received pound rate " + rate);
+    logger.info("Received pound rate " + rate);
   }
 
   private boolean complexValidationLogic(PurchaseOrder po) {

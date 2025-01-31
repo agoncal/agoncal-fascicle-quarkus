@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public class BookResource {
 
   @Inject
-  Logger LOGGER;
+  Logger logger;
 
   // tag::adocRestClient[]
   @Inject
@@ -53,13 +53,13 @@ public class BookResource {
       .add("timestamp", String.valueOf(LocalDateTime.now()))
       .build();
 
-    LOGGER.info("Random book " + book);
+    logger.info("Random book " + book);
     return Response.ok(book).build();
   }
   // tag::adocFaultTolerance[]
 
   private Response fallbackGetRandomBook() {
-    LOGGER.warn("Falling back on creating a book");
+    logger.warn("Falling back on creating a book");
     JsonObject dummyBook = Json.createObjectBuilder()
       .add("title", "Dummy book")
       .add("timestamp", String.valueOf(LocalDateTime.now()))

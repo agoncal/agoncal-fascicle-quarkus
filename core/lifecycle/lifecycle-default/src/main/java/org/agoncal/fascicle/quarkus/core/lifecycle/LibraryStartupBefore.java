@@ -14,10 +14,10 @@ import jakarta.interceptor.Interceptor;
 @ApplicationScoped
 public class LibraryStartupBefore {
 
-  private static final Logger LOGGER = Logger.getLogger(LibraryStartupBefore.class);
+  private static final Logger logger = Logger.getLogger(LibraryStartupBefore.class);
 
   public LibraryStartupBefore() {
-    LOGGER.info("LIBRARY_BEFORE");
+    logger.info("LIBRARY_BEFORE");
   }
 }
 // end::adocSnippet[]

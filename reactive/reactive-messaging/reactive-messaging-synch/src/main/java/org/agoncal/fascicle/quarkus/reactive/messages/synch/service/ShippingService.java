@@ -10,10 +10,10 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ShippingService {
 
-  private static final Logger LOGGER = Logger.getLogger(ShippingService.class);
+  private static final Logger logger = Logger.getLogger(ShippingService.class);
 
   public void prepareShipping(PurchaseOrder po) {
-    LOGGER.info("Preparing shipping");
+    logger.info("Preparing shipping");
 
     for (OrderLine orderLine : po.orderLines) {
       orderLine.status = Status.SHIPPING;

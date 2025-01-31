@@ -23,14 +23,14 @@ public class InventoryService {
 
   // tag::adocSkip[]
   @Inject
-  Logger LOGGER;
+  Logger logger;
 
   // end::adocSkip[]
   List<Book> inventory = new ArrayList<>();
 
   public void addBook(@Observes Book book) {
     // tag::adocSkip[]
-    LOGGER.info("Adding book " + book.getTitle() + " to inventory");
+    logger.info("Adding book " + book.getTitle() + " to inventory");
     // end::adocSkip[]
     inventory.add(book);
   }

@@ -13,16 +13,16 @@ public class LoggingResource {
 
   @GET
   public void displayLogs() {
-    Logger LOGGER = Logger.getLogger(LoggingResource.class);
-    LOGGER.info("Trace produced by JBoss Logger");
+    Logger logger = Logger.getLogger(LoggingResource.class);
+    logger.info("Trace produced by JBoss Logger");
 
     // tag::adocConfig[]
     Config config = ConfigProvider.getConfig();
 
-    LOGGER.info(config.getValue("quarkus.log.level", String.class));
-    LOGGER.info(config.getValue("quarkus.log.min-level", String.class));
-    LOGGER.info(config.getValue("quarkus.log.console.json", Boolean.class));
-    LOGGER.info(config.getValue("quarkus.log.console.json.pretty-print", Boolean.class));
+    logger.info(config.getValue("quarkus.log.level", String.class));
+    logger.info(config.getValue("quarkus.log.min-level", String.class));
+    logger.info(config.getValue("quarkus.log.console.json", Boolean.class));
+    logger.info(config.getValue("quarkus.log.console.json.pretty-print", Boolean.class));
     // end::adocConfig[]
   }
 }

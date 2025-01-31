@@ -11,11 +11,11 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class InventoryService {
 
-  private static final Logger LOGGER = Logger.getLogger(InventoryService.class);
+  private static final Logger logger = Logger.getLogger(InventoryService.class);
 
   @Incoming("po-validated")
   public void prepareItems(PurchaseOrder po) throws InterruptedException {
-    LOGGER.info("Preparing items");
+    logger.info("Preparing items");
 
     for (OrderLine orderLine : po.orderLines) {
       orderLine.status = Status.PREPARING;

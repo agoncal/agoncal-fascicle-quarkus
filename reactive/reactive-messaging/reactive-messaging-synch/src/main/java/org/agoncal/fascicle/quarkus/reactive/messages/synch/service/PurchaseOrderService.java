@@ -1,25 +1,24 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.synch.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import net.datafaker.Faker;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCard;
+import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCardType.MASTER_CARD;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Customer;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.OrderLine;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status;
+import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status.VALID;
 import org.jboss.logging.Logger;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import java.time.LocalDate;
-
-import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.CreditCardType.MASTER_CARD;
-import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status.VALID;
 
 @ApplicationScoped
 public class PurchaseOrderService {
 
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderService.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderService.class);
 
   @Inject
   BankService bankService;
@@ -33,8 +32,8 @@ public class PurchaseOrderService {
   // tag::adocSnippet[]
   public PurchaseOrder create(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Creating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Creating PO: " + po.id);
+    logger.debug(po + "\n");
 
     Faker fake = new Faker();
     po.status = Status.PREPARING;
@@ -64,7 +63,7 @@ public class PurchaseOrderService {
 
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
-    LOGGER.info("Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Invalidating PO: " + po.id);
+    logger.debug(po + "\n");
   }
 }

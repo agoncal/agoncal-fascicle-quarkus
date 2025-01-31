@@ -18,17 +18,17 @@ import java.util.List;
 public class InventoryService {
 
   @Inject
-  Logger LOGGER;
+  Logger logger;
 
   List<Book> inventory = new ArrayList<>();
 
   public void addBook(@Observes @Added Book book) {
-    LOGGER.info("Adding book " + book.getTitle() + " to inventory");
+    logger.info("Adding book " + book.getTitle() + " to inventory");
     inventory.add(book);
   }
 
   public void removeBook(@Observes @Removed Book book) {
-    LOGGER.info("Removing book " + book.getTitle() + " to inventory");
+    logger.info("Removing book " + book.getTitle() + " to inventory");
     inventory.remove(book);
   }
 }
