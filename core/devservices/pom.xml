@@ -21,8 +21,9 @@
     </dependency>
     <!-- Dev Services -->
 <!--    <dependency>-->
-<!--      <groupId>io.quarkus</groupId>-->
+<!--      <groupId>org.amqphub.quarkus</groupId>-->
 <!--      <artifactId>quarkus-qpid-jms</artifactId>-->
+<!--      <version>2.7.1</version>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
@@ -37,18 +38,19 @@
 <!--      <artifactId>quarkus-infinispan-client</artifactId>-->
 <!--    </dependency>-->
     <!-- tag::adocKafka[] -->
-<!--    <dependency>-->
-<!--      <groupId>io.quarkus</groupId>-->
-<!--      <artifactId>quarkus-kafka-client</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-kafka-client</artifactId>
+    </dependency>
     <!-- end::adocKafka[] -->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
 <!--      <artifactId>quarkus-keycloak-authorization</artifactId>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
-<!--      <groupId>io.quarkus</groupId>-->
+<!--      <groupId>org.kie.kogito</groupId>-->
 <!--      <artifactId>kogito-quarkus</artifactId>-->
+<!--      <version>1.44.1.Final</version>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
@@ -59,20 +61,26 @@
 <!--      <artifactId>quarkus-mongodb-client</artifactId>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
-<!--      <groupId>io.quarkus</groupId>-->
+<!--      <groupId>io.quarkiverse.neo4j</groupId>-->
 <!--      <artifactId>quarkus-neo4j</artifactId>-->
+<!--      <version>5.1.0</version>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
-<!--      <artifactId>quarkus-rabbitmq-client</artifactId>-->
+<!--      <artifactId>quarkus-messaging-pulsar</artifactId>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>io.quarkus</groupId>-->
+<!--      <artifactId>quarkus-messaging-rabbitmq</artifactId>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
 <!--      <artifactId>quarkus-redis-client</artifactId>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
-<!--      <groupId>io.quarkus</groupId>-->
+<!--      <groupId>io.quarkiverse.vault</groupId>-->
 <!--      <artifactId>quarkus-vault</artifactId>-->
+<!--      <version>4.1.0</version>-->
 <!--    </dependency>-->
     <!-- Dev Services Databases -->
 <!--    <dependency>-->
