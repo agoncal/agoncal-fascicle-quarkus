@@ -1,15 +1,11 @@
 package org.agoncal.fascicle.quarkus.data.jpa.dflt;
 
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-/**
- * @author Antonio Goncalves
- * http://www.antoniogoncalves.org
- * --
- */
-// tag::adocSnippet[]
 @Entity
 public class Book {
 
