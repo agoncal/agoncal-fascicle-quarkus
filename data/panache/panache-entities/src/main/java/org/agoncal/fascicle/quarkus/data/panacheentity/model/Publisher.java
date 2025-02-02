@@ -1,9 +1,8 @@
 package org.agoncal.fascicle.quarkus.data.panacheentity.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+
 import java.util.Optional;
 
 /**
@@ -12,6 +11,8 @@ import java.util.Optional;
  * --
  */
 // tag::adocSnippet[]
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
 @Entity
 public class Publisher extends PanacheEntity {
   // tag::adocSkip[]

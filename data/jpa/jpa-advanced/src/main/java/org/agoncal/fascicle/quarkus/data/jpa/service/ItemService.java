@@ -5,10 +5,12 @@ import org.agoncal.fascicle.quarkus.data.jpa.model.Book;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 // tag::adocSnippet[]
+import jakarta.transaction.Transactional;
+
 @ApplicationScoped
 @Transactional
 public class ItemService {

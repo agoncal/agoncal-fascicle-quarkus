@@ -1,11 +1,15 @@
 package org.agoncal.fascicle.quarkus.data.bv.ex01;
 
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
+
+// end::adocSnippet[]
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
