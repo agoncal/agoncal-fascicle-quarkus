@@ -89,7 +89,6 @@ public class CustomerResourceTest {
       .put("/customers").
     then()
       .statusCode(OK.getStatusCode())
-      .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("firstName", Is.is("JohnUpdated"));
   }
 
