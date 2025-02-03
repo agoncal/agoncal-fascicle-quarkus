@@ -56,13 +56,13 @@ public class PurchaseOrderTest {
   // ======================================
 
   @Test
-  void shouldMarshallAPurchaseOrder() throws IOException {
+  void shouldMarshallAPurchaseOrder() {
 
     CreditCard creditCard = new CreditCard().number("2156 7655 1234 9876").expiryDate("10/23").controlNumber(372).creditCardType(VISA);
     Customer customer = new Customer().firstName("James").lastName("Rorrison").email("j.rorri@me.com").phoneNumber("+44 1234 1234");
     OrderLine o1 = new OrderLine().item("H2G2").quantity(1).unitPrice(23.5d);
     OrderLine o2 = new OrderLine().item("Harry Potter").quantity(2).unitPrice(34.99d);
-    PurchaseOrder po = new PurchaseOrder().id(1234L).date(LocalDate.of(2019, 12, 07)).customer(customer).creditCard(creditCard);
+    PurchaseOrder po = new PurchaseOrder().id(1234L).date(LocalDate.of(2019, 12, 7)).customer(customer).creditCard(creditCard);
     po.addOrderLine(o1);
     po.addOrderLine(o2);
 

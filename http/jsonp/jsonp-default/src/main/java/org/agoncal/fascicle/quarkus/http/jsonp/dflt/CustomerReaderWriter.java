@@ -24,7 +24,7 @@ import java.util.Map;
 // @formatter:off
 public class CustomerReaderWriter {
 
-  JsonObject customer = Json.createObjectBuilder()
+  final JsonObject customer = Json.createObjectBuilder()
     .add("firstName", "Antonio")
     .add("lastName", "Goncalves")
     .add("email", "agoncal.fascicle@gmail.com")

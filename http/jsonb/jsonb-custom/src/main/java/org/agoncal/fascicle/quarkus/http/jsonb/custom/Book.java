@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.quarkus.http.jsonb.custom;
 
-import jakarta.json.bind.annotation.*;
-
 import java.time.LocalDate;
 
 /**
@@ -10,6 +8,12 @@ import java.time.LocalDate;
  * --
  */
 // tag::adocSnippet[]
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.json.bind.annotation.JsonbNillable;
+import jakarta.json.bind.annotation.JsonbNumberFormat;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
+
 public class Book {
 
   @JsonbProperty(value = "book_title")
