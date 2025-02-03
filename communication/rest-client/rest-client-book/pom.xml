@@ -23,6 +23,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-jsonb</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
     <!-- tag::adocExtension[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
