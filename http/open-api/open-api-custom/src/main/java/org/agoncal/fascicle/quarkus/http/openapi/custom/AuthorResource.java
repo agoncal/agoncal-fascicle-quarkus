@@ -1,21 +1,16 @@
 package org.agoncal.fascicle.quarkus.http.openapi.custom;
 
-import org.eclipse.microprofile.openapi.annotations.Operation;
-import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
-
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-/**
- * @author Antonio Goncalves
- * http://www.antoniogoncalves.org
- * --
- */
 // @formatter:off
 // tag::adocSnippet[]
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+
 @Path("/authors")
 @Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
