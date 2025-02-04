@@ -73,6 +73,14 @@ public class BookResource {
       .build();
   }
   // end::adocFallback[]
+  private JsonObject anotherFallbackMethod() {
+    logger.warn("anotherFallbackMethod");
+    return Json.createObjectBuilder()
+      .add("isbn13", "anotherFallbackMethod")
+      .add("gs1", "anotherFallbackMethod")
+      .add("isbn10", "anotherFallbackMethod")
+      .build();
+  }
   // tag::adocTimeout[]
   @POST
   @Timeout(250)
