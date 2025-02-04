@@ -1,9 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch;
 
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
-import org.eclipse.microprofile.reactive.messaging.Channel;
-import org.eclipse.microprofile.reactive.messaging.Emitter;
-import org.eclipse.microprofile.reactive.messaging.Message;
 import org.jboss.logging.Logger;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -25,6 +22,10 @@ import java.util.Random;
  */
 // @formatter:off
 // tag::adocSnippet[]
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
+import org.eclipse.microprofile.reactive.messaging.Message;
+
 @Path("/pomsg")
 @Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
