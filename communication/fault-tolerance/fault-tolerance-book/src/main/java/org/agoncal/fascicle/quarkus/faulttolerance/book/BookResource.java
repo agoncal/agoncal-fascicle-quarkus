@@ -1,9 +1,18 @@
 package org.agoncal.fascicle.quarkus.faulttolerance.book;
 
 import net.datafaker.Faker;
+// tag::adocCircuitBreaker[]
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+
+// end::adocCircuitBreaker[]
+// tag::adocFallback[]
 import org.eclipse.microprofile.faulttolerance.Fallback;
+
+// end::adocFallback[]
+// tag::adocTimeout[]
 import org.eclipse.microprofile.faulttolerance.Timeout;
+
+// end::adocTimeout[]
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
@@ -15,6 +24,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+
 import java.time.Instant;
 
 // @formatter:off
