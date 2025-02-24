@@ -16,7 +16,7 @@ import java.util.Optional;
 @Entity
 public class Publisher extends PanacheEntity {
 
-  @JsonbProperty(value = "publisher_name", nillable = false)
+  @JsonbProperty(value = "publisher_name")
   @Column(length = 30)
   @NotNull
   public String name;

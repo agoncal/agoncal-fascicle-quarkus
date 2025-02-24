@@ -1,9 +1,18 @@
 package org.agoncal.fascicle.quarkus.faulttolerance.book;
 
 import net.datafaker.Faker;
+// tag::adocCircuitBreaker[]
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+
+// end::adocCircuitBreaker[]
+// tag::adocFallback[]
 import org.eclipse.microprofile.faulttolerance.Fallback;
+
+// end::adocFallback[]
+// tag::adocTimeout[]
 import org.eclipse.microprofile.faulttolerance.Timeout;
+
+// end::adocTimeout[]
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
@@ -15,6 +24,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+
 import java.time.Instant;
 
 // @formatter:off
@@ -25,7 +35,7 @@ import java.time.Instant;
 public class BookResource {
 
   // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
+  private static final Logger logger = Logger.getLogger(BookResource.class);
 
   private Faker faker = new Faker();
   // end::adocSkip[]
@@ -39,7 +49,7 @@ public class BookResource {
   public JsonObject generateBookNumbers() {
 
     // tag::adocSkip[]
-    LOGGER.info("Generating book numbers");
+    logger.info("Generating book numbers");
     // end::adocSkip[]
     // Invoking microservices
     IsbnNumber isbnNumber = numberProxy.generateIsbn(true);
@@ -54,7 +64,7 @@ public class BookResource {
 
   private JsonObject fallbackGenerateBookNumbers() {
     // tag::adocSkip[]
-    LOGGER.warn("Falling back on generating book numbers");
+    logger.warn("Falling back on generating book numbers");
     // end::adocSkip[]
     return Json.createObjectBuilder()
       .add("isbn13", "dummy isbn")
@@ -63,13 +73,21 @@ public class BookResource {
       .build();
   }
   // end::adocFallback[]
+  private JsonObject anotherFallbackMethod() {
+    logger.warn("anotherFallbackMethod");
+    return Json.createObjectBuilder()
+      .add("isbn13", "anotherFallbackMethod")
+      .add("gs1", "anotherFallbackMethod")
+      .add("isbn10", "anotherFallbackMethod")
+      .build();
+  }
   // tag::adocTimeout[]
   @POST
   @Timeout(250)
   @Fallback(fallbackMethod = "fallbackCreateBook")
   public Book createBook() {
     // tag::adocSkip[]
-    LOGGER.info("Creating book");
+    logger.info("Creating book");
     // end::adocSkip[]
 
     // Invoking microservice
@@ -85,7 +103,7 @@ public class BookResource {
 
   private Book fallbackCreateBook() {
     // tag::adocSkip[]
-    LOGGER.warn("Falling back on creating a book");
+    logger.warn("Falling back on creating a book");
     // end::adocSkip[]
     Book book = new Book();
     book.title = "dummy title";
@@ -105,7 +123,7 @@ public class BookResource {
                   delay = 2000, successThreshold = 2)
   public Book createLegacyBook() {
     // tag::adocSkip[]
-    LOGGER.info("Creating a legacy book");
+    logger.info("Creating a legacy book");
     // end::adocSkip[]
 
     // Invoking microservice
@@ -121,7 +139,7 @@ public class BookResource {
 
   private Book fallbackCreateLegacyBook() {
     // tag::adocSkip[]
-    LOGGER.warn("Falling back on creating a legacy book");
+    logger.warn("Falling back on creating a legacy book");
     // end::adocSkip[]
     Book book = new Book();
     book.title = "dummy legacy title";

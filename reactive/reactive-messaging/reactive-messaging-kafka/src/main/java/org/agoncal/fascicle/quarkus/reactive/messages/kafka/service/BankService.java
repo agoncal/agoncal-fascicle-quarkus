@@ -11,13 +11,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class BankService {
 
-  private static final Logger LOGGER = Logger.getLogger(BankService.class);
+  private static final Logger logger = Logger.getLogger(BankService.class);
 
   @Incoming("po-prepared-read")
   @Outgoing("bank-validated")
   public PurchaseOrder validate(PurchaseOrder po) {
-    LOGGER.info("Validating Credit Card for PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Validating Credit Card for PO: " + po.id);
+    logger.debug(po + "\n");
 
     if ((po.id & 1) == 0) {
       po.creditCard.status = Status.VALID;

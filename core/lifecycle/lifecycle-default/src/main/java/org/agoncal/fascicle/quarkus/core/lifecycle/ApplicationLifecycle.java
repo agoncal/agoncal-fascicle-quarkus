@@ -16,14 +16,14 @@ import jakarta.inject.Inject;
 public class ApplicationLifecycle {
 
   @Inject
-  Logger LOGGER;
+  Logger logger;
 
   void onStart(@Observes StartupEvent ev) {
-    LOGGER.info("The application is starting...");
+    logger.info("The application is starting...");
   }
 
   void onStop(@Observes ShutdownEvent ev) {
-    LOGGER.info("The application is stopping...");
+    logger.info("The application is stopping...");
   }
 }
 // end::adocSnippet[]

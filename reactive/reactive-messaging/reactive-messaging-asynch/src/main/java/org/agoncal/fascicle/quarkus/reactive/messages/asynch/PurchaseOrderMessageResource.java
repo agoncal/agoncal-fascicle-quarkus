@@ -1,9 +1,6 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch;
 
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
-import org.eclipse.microprofile.reactive.messaging.Channel;
-import org.eclipse.microprofile.reactive.messaging.Emitter;
-import org.eclipse.microprofile.reactive.messaging.Message;
 import org.jboss.logging.Logger;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -25,12 +22,16 @@ import java.util.Random;
  */
 // @formatter:off
 // tag::adocSnippet[]
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
+import org.eclipse.microprofile.reactive.messaging.Message;
+
 @Path("/pomsg")
 @Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
 public class PurchaseOrderMessageResource {
   // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderMessageResource.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderMessageResource.class);
   String tmpId = "tmp" + Math.abs(new Random().nextInt());
   // end::adocSkip[]
 
@@ -41,7 +42,7 @@ public class PurchaseOrderMessageResource {
   @POST
   public Response create(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info(">>>>>>>>>>>>");
+    logger.info(">>>>>>>>>>>>");
     // end::adocSkip[]
 
     emitter.send(Message.of(po));
@@ -49,7 +50,7 @@ public class PurchaseOrderMessageResource {
     URI temporaryPO = UriBuilder.fromResource(PurchaseOrderMessageResource.class)
                                 .path(tmpId).build();
     // tag::adocSkip[]
-    LOGGER.info("<<<<<<<<<<<<");
+    logger.info("<<<<<<<<<<<<");
     // end::adocSkip[]
     return Response.temporaryRedirect(temporaryPO).build();
   }

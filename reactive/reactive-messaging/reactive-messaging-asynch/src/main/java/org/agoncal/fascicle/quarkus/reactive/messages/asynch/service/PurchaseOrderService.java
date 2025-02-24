@@ -1,13 +1,18 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.asynch.service;
 
-import net.datafaker.Faker;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import net.datafaker.Faker;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCard;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.MASTER_CARD;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Customer;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.OrderLine;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
+import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
@@ -15,20 +20,14 @@ import org.eclipse.microprofile.reactive.messaging.Message;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import java.time.LocalDate;
 import java.util.concurrent.CompletionStage;
-
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.CreditCardType.MASTER_CARD;
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.INVALID;
-import static org.agoncal.fascicle.quarkus.reactive.messages.asynch.model.Status.VALID;
 
 // tag::adocSnippet[]
 @ApplicationScoped
 public class PurchaseOrderService {
   // tag::adocSkip[]
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderService.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderService.class);
   // end::adocSkip[]
 
   @Inject
@@ -45,8 +44,8 @@ public class PurchaseOrderService {
   @Incoming("bank-validated")
   public void validate(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Validating or Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Validating or Invalidating PO: " + po.id);
+    logger.debug(po + "\n");
     // end::adocSkip[]
 
     if (po.creditCard.status == VALID) {
@@ -63,8 +62,8 @@ public class PurchaseOrderService {
   @Incoming("purchase-orders-msg")
   public CompletionStage<Void> create(Message<PurchaseOrder> msg) {
     // tag::adocSkip[]
-    LOGGER.info("Creating PO: " + msg.getPayload().id);
-    LOGGER.debug(msg.getPayload() + "\n");
+    logger.info("Creating PO: " + msg.getPayload().id);
+    logger.debug(msg.getPayload() + "\n");
     // end::adocSkip[]
 
     PurchaseOrder po = msg.getPayload();
@@ -80,8 +79,8 @@ public class PurchaseOrderService {
   @Incoming("purchase-orders")
   @Outgoing("po-prepared")
   public PurchaseOrder create(PurchaseOrder po) {
-    LOGGER.info("Creating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Creating PO: " + po.id);
+    logger.debug(po + "\n");
 
     Faker fake = new Faker();
     po.status = Status.PREPARING;
@@ -98,15 +97,15 @@ public class PurchaseOrderService {
   @Incoming("po-invalidated")
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
-    LOGGER.info("Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Invalidating PO: " + po.id);
+    logger.debug(po + "\n");
   }
 
   // tag::adocMutiny[]
   @Incoming("generated-conversion-rate")
   public void dollarToEuroConversionRate(Float rate) {
     // tag::adocSkip[]
-    LOGGER.info("Received Euro Rate: " + rate);
+    logger.info("Received Euro Rate: " + rate);
     // end::adocSkip[]
     computeEuroRate(rate);
   }
@@ -114,7 +113,7 @@ public class PurchaseOrderService {
   @Incoming("generated-conversion-rate")
   public void dollarToPoundConversionRate(Float rate) {
     // tag::adocSkip[]
-    LOGGER.info("Received Pound Rate: " + rate);
+    logger.info("Received Pound Rate: " + rate);
     // end::adocSkip[]
     computePoundRate(rate);
   }

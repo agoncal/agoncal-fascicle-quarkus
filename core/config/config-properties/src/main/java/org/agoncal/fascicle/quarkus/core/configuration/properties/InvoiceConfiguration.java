@@ -1,9 +1,10 @@
 package org.agoncal.fascicle.quarkus.core.configuration.properties;
 
+// @formatter:off
+// tag::adocSnippet[]
 import io.smallrye.config.ConfigMapping;
 import io.smallrye.config.ConfigMapping.NamingStrategy;
 
-// tag::adocSnippet[]
 @ConfigMapping(prefix = "inv", namingStrategy = NamingStrategy.VERBATIM)
 public interface InvoiceConfiguration {
 

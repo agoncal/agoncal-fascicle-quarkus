@@ -50,7 +50,7 @@ public class BookTest {
   @Test
   void shouldMarshallADefaultBook() throws IOException {
 
-    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2").nbOfPages(354).illustrations(false).description("Best Sci-fi book ever").publicationDate(LocalDate.of(1999, 04, 28));
+    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2").nbOfPages(354).illustrations(false).description("Best Sci-fi book ever").publicationDate(LocalDate.of(1999, 4, 28));
 
     String json = jsonb.toJson(book);
 
@@ -65,7 +65,7 @@ public class BookTest {
   }
 
   @Test
-  void shouldMarshallAndUnMarshall() throws IOException {
+  void shouldMarshallAndUnMarshall() {
 
     // tag::adocSnippet[]
     // Creates a book instance

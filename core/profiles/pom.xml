@@ -17,7 +17,7 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-rest</artifactId>
     </dependency>
     <!-- Test -->
     <dependency>

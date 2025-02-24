@@ -1,9 +1,5 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.synch;
 
-import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.PurchaseOrder;
-import org.agoncal.fascicle.quarkus.reactive.messages.synch.service.PurchaseOrderService;
-import org.jboss.logging.Logger;
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -13,9 +9,12 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriBuilder;
-import java.net.URI;
-
+import org.agoncal.fascicle.quarkus.reactive.messages.synch.model.PurchaseOrder;
 import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status.VALID;
+import org.agoncal.fascicle.quarkus.reactive.messages.synch.service.PurchaseOrderService;
+import org.jboss.logging.Logger;
+
+import java.net.URI;
 
 // tag::adocSnippet[]
 @Path("/po")
@@ -24,7 +23,7 @@ import static org.agoncal.fascicle.quarkus.reactive.messages.synch.model.Status.
 @ApplicationScoped
 public class PurchaseOrderResource {
 
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderResource.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderResource.class);
 
   @Inject
   PurchaseOrderService purchaseOrderService;
@@ -34,17 +33,17 @@ public class PurchaseOrderResource {
    */
   @POST
   public Response create(PurchaseOrder po) throws InterruptedException {
-    LOGGER.info(">>>>>>>>>>>>");
+    logger.info(">>>>>>>>>>>>");
 
     po = purchaseOrderService.create(po);
 
     if (po.status == VALID) {
       URI createdPo = UriBuilder.fromResource(PurchaseOrderResource.class).path(String.valueOf(po.id)).build();
-      LOGGER.info("<<<<<<<<<<<<");
+      logger.info("<<<<<<<<<<<<");
       return Response.created(createdPo).build();
 
     } else {
-      LOGGER.info("<<<<<<<<<<<<");
+      logger.info("<<<<<<<<<<<<");
       return Response.notModified().build();
     }
   }

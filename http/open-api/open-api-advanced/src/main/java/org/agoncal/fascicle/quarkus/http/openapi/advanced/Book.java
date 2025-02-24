@@ -12,7 +12,7 @@ public class Book {
   public Long id;
   @Schema(required = true)
   public String title;
-  @Schema(required = true, example = "9798629562115")
+  @Schema(required = true, examples = "9798629562115")
   public String isbn;
   public String author;
   public BigDecimal price;

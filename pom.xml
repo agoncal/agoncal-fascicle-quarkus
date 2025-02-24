@@ -16,14 +16,12 @@
     <module>core</module>
     <module>data</module>
     <module>executing</module>
-    <module>first-look</module>
-    <module>getting-started</module>
+    <module>first-steps</module>
     <module>http</module>
     <module>integrating</module>
     <module>observability</module>
     <module>putting-together</module>
     <module>reactive</module>
-    <module>understanding</module>
   </modules>
 
   <properties>
@@ -38,7 +36,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.5.0</surefire-plugin.version>
     <!-- Other -->
-    <version.datafaker>1.7.0</version.datafaker>
+    <version.datafaker>2.4.2</version.datafaker>
     <testcontainers.version>1.15.3</testcontainers.version>
     <version.json-path>2.5.0</version.json-path>
   </properties>

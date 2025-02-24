@@ -19,6 +19,7 @@
   <modules>
     <module>health</module>
     <module>metrics</module>
+    <module>telemetry</module>
   </modules>
 
 </project>

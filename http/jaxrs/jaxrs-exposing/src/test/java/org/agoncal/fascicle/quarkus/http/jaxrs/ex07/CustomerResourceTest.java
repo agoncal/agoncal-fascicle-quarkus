@@ -82,7 +82,7 @@ public class CustomerResourceTest{
   public void shouldCheckResponse() {
     // tag::adocSnippet[]
     Response.ok().build();
-    Response.ok().cookie(new NewCookie("SessionID", "5G79GDIFY09")).build();
+    Response.ok().cookie(new NewCookie.Builder("5G79GDIFY09").build()).build();
     Response.ok("Plain Text").expires(new Date()).build();
     Response.ok(new Customer("Ennio", "Smith"), APPLICATION_JSON).build();
     Response.noContent().build();

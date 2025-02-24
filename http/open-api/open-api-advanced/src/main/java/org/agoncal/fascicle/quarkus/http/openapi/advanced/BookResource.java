@@ -1,14 +1,5 @@
 package org.agoncal.fascicle.quarkus.http.openapi.advanced;
 
-import org.eclipse.microprofile.openapi.annotations.Operation;
-import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
-import org.eclipse.microprofile.openapi.annotations.media.Content;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
-import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
-import org.jboss.logging.Logger;
-
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -18,17 +9,24 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.Context;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static jakarta.ws.rs.core.MediaType.TEXT_PLAIN;
 import jakarta.ws.rs.core.Response;
+import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 import jakarta.ws.rs.core.UriBuilder;
 import jakarta.ws.rs.core.UriInfo;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.jboss.logging.Logger;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
-import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
-import static jakarta.ws.rs.core.MediaType.TEXT_PLAIN;
-import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 
 // @formatter:off
 @Path("/api/books")
@@ -41,7 +39,7 @@ public class BookResource {
   @Inject
   UriInfo uriInfo;
 
-  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
+  private static final Logger logger = Logger.getLogger(BookResource.class);
 
   // tag::adocOperation[]
   @GET
@@ -53,7 +51,7 @@ public class BookResource {
   public Response getRandomBook() {
     // end::adocOperation[]
     Book book = service.findRandomBook();
-    LOGGER.debug("Found random book " + book);
+    logger.debug("Found random book " + book);
     return Response.ok(book).build();
   }
 
@@ -67,7 +65,7 @@ public class BookResource {
   public Response getAllBooks() {
     // end::adocResponse[]
     List<Book> books = service.findAllBooks();
-    LOGGER.debug("Total number of books " + books);
+    logger.debug("Total number of books " + books);
     return Response.ok(books).build();
   }
 
@@ -82,10 +80,10 @@ public class BookResource {
     // end::adocParameter[]
     Optional<Book> book = service.findBookById(id);
     if (book.isPresent()) {
-      LOGGER.debug("Found book " + book);
+      logger.debug("Found book " + book);
       return Response.ok(book).build();
     } else {
-      LOGGER.debug("No book found with id " + id);
+      logger.debug("No book found with id " + id);
       return Response.status(NOT_FOUND).build();
     }
   }
@@ -102,7 +100,7 @@ public class BookResource {
     // end::adocRequestBody[]
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
-    LOGGER.debug("New book created with URI " + builder.build().toString());
+    logger.debug("New book created with URI " + builder.build().toString());
     return Response.created(builder.build()).build();
   }
 
@@ -111,7 +109,7 @@ public class BookResource {
   @PUT
   public Response updateBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) Book book) {
     book = service.updateBook(book);
-    LOGGER.debug("Book updated with new valued " + book);
+    logger.debug("Book updated with new valued " + book);
     return Response.ok(book).build();
   }
 
@@ -121,7 +119,7 @@ public class BookResource {
   @Path("/{id}")
   public Response deleteBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
     service.deleteBook(id);
-    LOGGER.debug("Book deleted with " + id);
+    logger.debug("Book deleted with " + id);
     return Response.noContent().build();
   }
 

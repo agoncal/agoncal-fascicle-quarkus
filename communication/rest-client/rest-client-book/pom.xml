@@ -17,11 +17,19 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-rest</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
+      <artifactId>quarkus-rest-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
     <!-- tag::adocExtension[] -->
     <dependency>

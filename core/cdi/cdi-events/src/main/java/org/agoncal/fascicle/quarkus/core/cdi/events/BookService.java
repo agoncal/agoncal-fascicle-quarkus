@@ -1,7 +1,11 @@
 package org.agoncal.fascicle.quarkus.core.cdi.events;
 
 import jakarta.enterprise.context.ApplicationScoped;
+// @formatter:off
+// tag::adocSnippet[]
 import jakarta.enterprise.event.Event;
+
+// end::adocSnippet[]
 import jakarta.inject.Inject;
 
 /**

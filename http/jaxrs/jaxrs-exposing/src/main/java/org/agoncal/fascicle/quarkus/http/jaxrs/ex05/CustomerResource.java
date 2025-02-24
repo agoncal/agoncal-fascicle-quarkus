@@ -25,6 +25,7 @@ import java.util.List;
 public class CustomerResource {
 
   @GET
+  @Path("address")
   public List<Customer> getByZipCodeCity(@QueryParam("zip") Long zip,
                                          @QueryParam("city") String city) {
     // URI : /customer?zip=75012&city=Paris

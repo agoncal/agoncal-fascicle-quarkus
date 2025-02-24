@@ -29,7 +29,7 @@ public class CustomerResourceTest {
       .queryParam("zip", 75011L)
       .queryParam("city", "Lisbon").
     when()
-      .get("/customers").
+      .get("/customers/address").
     then()
       .statusCode(OK.getStatusCode());
   }

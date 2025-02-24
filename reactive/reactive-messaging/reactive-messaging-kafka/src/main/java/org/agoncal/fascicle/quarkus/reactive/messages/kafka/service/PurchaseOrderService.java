@@ -1,31 +1,30 @@
 package org.agoncal.fascicle.quarkus.reactive.messages.kafka.service;
 
-import net.datafaker.Faker;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import net.datafaker.Faker;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Address;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCard;
+import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCardType.MASTER_CARD;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Customer;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.OrderLine;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.PurchaseOrder;
 import org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Status;
+import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Status.INVALID;
+import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Status.VALID;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
 import org.jboss.logging.Logger;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import java.time.LocalDate;
-
-import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.CreditCardType.MASTER_CARD;
-import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Status.INVALID;
-import static org.agoncal.fascicle.quarkus.reactive.messages.kafka.model.Status.VALID;
 
 @ApplicationScoped
 public class PurchaseOrderService {
 
-  private static final Logger LOGGER = Logger.getLogger(PurchaseOrderService.class);
+  private static final Logger logger = Logger.getLogger(PurchaseOrderService.class);
 
   @Inject
   @Broadcast
@@ -41,8 +40,8 @@ public class PurchaseOrderService {
   @Incoming("po-read")
   public PurchaseOrder create(PurchaseOrder po) {
     // tag::adocSkip[]
-    LOGGER.info("Creating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Creating PO: " + po.id);
+    logger.debug(po + "\n");
 
     Faker fake = new Faker();
     po.status = Status.PREPARING;
@@ -61,8 +60,8 @@ public class PurchaseOrderService {
 
   @Incoming("bank-validated")
   public void validate(PurchaseOrder po) {
-    LOGGER.info("Validating or Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Validating or Invalidating PO: " + po.id);
+    logger.debug(po + "\n");
 
     if (po.creditCard.status == VALID){
       po.status = VALID;
@@ -76,7 +75,7 @@ public class PurchaseOrderService {
   @Incoming("po-invalidated")
   public void invalidate(PurchaseOrder po) {
     po.status = Status.INVALIDATED;
-    LOGGER.info("Invalidating PO: " + po.id);
-    LOGGER.debug(po + "\n");
+    logger.info("Invalidating PO: " + po.id);
+    logger.debug(po + "\n");
   }
 }

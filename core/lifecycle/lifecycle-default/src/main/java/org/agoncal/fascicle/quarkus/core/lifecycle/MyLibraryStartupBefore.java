@@ -10,9 +10,9 @@ import jakarta.interceptor.Interceptor;
 @ApplicationScoped
 public class MyLibraryStartupBefore {
 
-  private static final Logger LOGGER = Logger.getLogger(MyLibraryStartupBefore.class);
+  private static final Logger logger = Logger.getLogger(MyLibraryStartupBefore.class);
 
   public MyLibraryStartupBefore() {
-    LOGGER.info("MY LIBRARY_BEFORE");
+    logger.info("MY LIBRARY_BEFORE");
   }
 }

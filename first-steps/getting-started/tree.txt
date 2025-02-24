@@ -1,0 +1,24 @@
+.
+├─ .dockerignore
+├─ .gitignore
+├─ README.md
+├─ mvnw
+├─ mvnw.cmd
+├─ pom.xml
+└─ src
+   ├─ main
+   │  ├─ docker
+   │  │  ├─ Dockerfile.jvm
+   │  │  ├─ Dockerfile.legacy-jar
+   │  │  ├─ Dockerfile.native
+   │  │  └─ Dockerfile.native-micro
+   │  ├─ java
+   │  │  └─ org/agoncal/fascicle/quarkus/gettingstarted
+   │  │     └─ ArtistResource.java
+   │  └─ resources
+   │     └─ application.properties
+   └─ test
+      └─ java
+         └─ org/agoncal/fascicle/quarkus/gettingstarted
+            ├─ ArtistResourceIT.java
+            └─ ArtistResourceTest.java
