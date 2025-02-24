@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.quarkus.reactive.jms</groupId>
+  <artifactId>jms-producer</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <name>Quarkus :: Data :: JPA :: Advanced</name>
+
+  <parent>
+    <groupId>org.agoncal.fascicle.quarkus.reactive</groupId>
+    <artifactId>jms</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+  </parent>
+
+  <dependencies>
+    <!-- tag::adocExtension[] -->
+    <dependency>
+      <groupId>org.amqphub.quarkus</groupId>
+      <artifactId>quarkus-qpid-jms</artifactId>
+      <!-- tag::adocSkip[] -->
+      <version>2.7.1</version>
+      <!-- end::adocSkip[] -->
+    </dependency>
+    <!-- end::adocExtension[] -->
+
+    <!-- Test -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>quarkus-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+              <goal>generate-code</goal>
+              <goal>generate-code-tests</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>native</id>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+                <configuration>
+                  <systemProperties>
+                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                  </systemProperties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <properties>
+        <quarkus.native.enabled>true</quarkus.native.enabled>
+      </properties>
+    </profile>
+  </profiles>
+</project>
